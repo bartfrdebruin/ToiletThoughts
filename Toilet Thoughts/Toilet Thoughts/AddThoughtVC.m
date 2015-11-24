@@ -27,6 +27,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+//    [self.descriptionTextField resignFirstResponder];
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
