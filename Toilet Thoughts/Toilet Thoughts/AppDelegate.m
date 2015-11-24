@@ -32,6 +32,11 @@
 //    [testObject saveInBackground];
     
     // Override point for customization after application launch.
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] init];
+    
+    
+    
     return YES;
 }
 
