@@ -10,4 +10,8 @@
 
 @interface AddThoughtVC : UIViewController
 
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+
 @end

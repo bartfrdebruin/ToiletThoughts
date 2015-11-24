@@ -7,6 +7,10 @@
 //
 
 #import "AddThoughtVC.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+
+@import MobileCoreServices;
 
 @interface AddThoughtVC ()
 
@@ -33,6 +37,41 @@
 //    [self.descriptionTextField resignFirstResponder];
     return YES;
 }
+
+
+- (IBAction)takePicture:(id)sender {
+    
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    // If the device has a camera, take a picture, otherwise,
+    // just pick from photo library
+    
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    self.imagePicker.mediaTypes = @[(NSString*)kUTTypeImage];
+    
+    self.imagePicker.allowsEditing = YES;
+    self.imagePicker.delegate = self;
+    
+    // Place image picker on the screen
+    [self presentViewController:self.imagePicker animated:YES completion: NULL];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    self.imageView = image;
+}
+    
+
+
+
 /*
 #pragma mark - Navigation
 
