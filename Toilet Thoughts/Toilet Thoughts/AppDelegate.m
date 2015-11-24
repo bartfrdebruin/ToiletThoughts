@@ -35,6 +35,7 @@
     // Override point for customization after application launch.
     
     HomeViewController *homevc = [[HomeViewController alloc] init];
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homevc];
     
     self.window.rootViewController = navigationController;
