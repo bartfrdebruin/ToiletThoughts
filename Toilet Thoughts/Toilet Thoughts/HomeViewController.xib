@@ -62,6 +62,7 @@
             <animations/>
             <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="height" secondItem="gE0-k8-gOP" secondAttribute="height" id="0oQ-Vl-sPu"/>
                 <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="Gc3-Y0-R3z"/>
                 <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="Vzr-0L-yyk"/>
                 <constraint firstItem="gE0-k8-gOP" firstAttribute="leading" secondItem="K15-wk-WHo" secondAttribute="leading" id="W0V-ho-am6"/>
