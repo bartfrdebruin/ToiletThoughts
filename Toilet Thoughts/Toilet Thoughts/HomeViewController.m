@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "PopularThoughtsTableVC.h"
 
 @interface HomeViewController ()
 
@@ -14,11 +15,24 @@
 
 @implementation HomeViewController
 
+- (IBAction)browseThoughts:(id)sender {
+    
+    PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] initWithNibName:@"PopularThoughtsTableVC" bundle:nil];
+    [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    
+}
+
+- (IBAction)addThoughts:(id)sender {
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
+    [self.navigationController setNavigationBarHidden:YES];
+
 
 }
 
