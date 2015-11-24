@@ -47,7 +47,11 @@
     
     
     
-    self.title = @"Popular Thoughts";
+//    self.navigationController.toolbarHidden = NO;
+    
+    
+    
+    self.title = @"Popular";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,8 +126,20 @@
     
     // Pass the selected object to the new view controller.
     
-    // Push the view controller.
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    
     [self.navigationController pushViewController:stdvc animated:YES];
+    [UIView commitAnimations];
+    
+    // Push the view controller.
+//    [self.navigationController pushViewController:stdvc animated:YES];
 }
 
 
