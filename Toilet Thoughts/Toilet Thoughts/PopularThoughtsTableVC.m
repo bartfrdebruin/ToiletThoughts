@@ -10,6 +10,7 @@
 #import "AddThoughtVC.h"
 #import "WinningThoughtsTableVC.h"
 #import "SelectedThoughtDetailVC.h"
+#import "ThoughtCustomCell.h"
 
 @interface PopularThoughtsTableVC ()
 
@@ -20,7 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:@"cell"];
+//    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:@"ThoughtCustomCell"];
+    
+    UINib *nib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
+    
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"ThoughtCustomCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,10 +69,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    ThoughtCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThoughtCustomCell" forIndexPath:indexPath];
+//    [tableView registerNib:[[UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil] forCellReuseIdentifier:@"ThoughtCustomCell"];
     // Configure the cell...
-    cell.textLabel.text = @"We are the best and Enrico sucks!";
+//    cell.textLabel.text = @"We are the best and Enrico sucks!";
     return cell;
 }
 
