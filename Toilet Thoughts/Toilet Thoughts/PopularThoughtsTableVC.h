@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PopularThoughtsTableVC : UITableViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *popular;
 
 @end

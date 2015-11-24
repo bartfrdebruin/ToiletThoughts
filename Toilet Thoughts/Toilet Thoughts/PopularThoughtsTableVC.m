@@ -18,6 +18,23 @@
 
 @implementation PopularThoughtsTableVC
 
+- (IBAction)popular:(id)sender {
+    
+    WinningThoughtsTableVC *winningTTVC = [[WinningThoughtsTableVC alloc]initWithNibName:@"WinningThoughtsTableVC" bundle:nil];
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    [self.navigationController pushViewController:winningTTVC animated:YES];
+    [UIView commitAnimations];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,22 +49,25 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    UITabBarController *tabBar = [[UITabBarController alloc]init];
-    NSArray *viewControllers = [[NSArray alloc]init];
-    
-    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
-    WinningThoughtsTableVC *winningThoughtsTVC = [[WinningThoughtsTableVC alloc]init];
-    
-    addThoughtVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Add" image:nil tag:1];
-    winningThoughtsTVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
-    
-    tabBar.viewControllers = viewControllers;
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    
+//    UITabBarController *tabBar = [[UITabBarController alloc]init];
+//    NSArray *viewControllers = [[NSArray alloc]init];
+//    
+//    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
+//    WinningThoughtsTableVC *winningThoughtsTVC = [[WinningThoughtsTableVC alloc]init];
+//    
+//    addThoughtVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Add" image:nil tag:1];
+//    winningThoughtsTVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
+//    
+//    tabBar.viewControllers = viewControllers;
     
     
     
 //    self.navigationController.toolbarHidden = NO;
+    
+    
+//    self.navigationController.toolbarItems = @[Item1, Item2];
     
     
     

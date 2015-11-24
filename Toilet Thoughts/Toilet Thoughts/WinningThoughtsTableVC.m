@@ -17,7 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    UINib *nib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
+    
+    [self.tableView registerNib:nib
+         forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+//    
+//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,11 +50,11 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
-    cell.textLabel.text = @"test";
+//    cell.textLabel.text = @"test";
     
     return cell;
 }
