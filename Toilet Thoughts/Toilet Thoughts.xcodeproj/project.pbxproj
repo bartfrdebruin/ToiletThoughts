@@ -416,10 +416,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Toilet Thoughts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.BartandFouad.Toilet-Thoughts";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.toiletthoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "dd426d7a-223a-411d-8298-7aa77500c4f7";
 			};
 			name = Debug;
 		};
@@ -427,10 +429,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Toilet Thoughts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.BartandFouad.Toilet-Thoughts";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.toiletthoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "dd426d7a-223a-411d-8298-7aa77500c4f7";
 			};
 			name = Release;
 		};
@@ -501,6 +505,7 @@
 				1DB544381C0461FF00383E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DB544391C0461FF00383E1C /* Build configuration list for PBXNativeTarget "Toilet ThoughtsTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +514,7 @@
 				1DB5443B1C0461FF00383E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DB5443C1C0461FF00383E1C /* Build configuration list for PBXNativeTarget "Toilet ThoughtsUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +523,7 @@
 				1DB5443E1C0461FF00383E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
