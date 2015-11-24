@@ -7,6 +7,9 @@
 //
 
 #import "PopularThoughtsTableVC.h"
+#import "AddThoughtVC.h"
+#import "WinningThoughtsTableVC.h"
+#import "SelectedThoughtDetailVC.h"
 
 @interface PopularThoughtsTableVC ()
 
@@ -25,8 +28,18 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-//    UITabBarController *tabBar = [[UITabBarController alloc]init];
-//    self.tabBarController.title = @"test";
+    UITabBarController *tabBar = [[UITabBarController alloc]init];
+    NSArray *viewControllers = [[NSArray alloc]init];
+    
+    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
+    WinningThoughtsTableVC *winningThoughtsTVC = [[WinningThoughtsTableVC alloc]init];
+    
+    addThoughtVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Add" image:nil tag:1];
+    winningThoughtsTVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
+    
+    tabBar.viewControllers = viewControllers;
+    
+    
     
     self.title = @"Popular Thoughts";
 }
@@ -39,13 +52,13 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 3;
+
+    return 10;
 }
 
 
@@ -53,7 +66,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = @"We are the best!";
+    cell.textLabel.text = @"We are the best and Enrico sucks!";
     return cell;
 }
 
@@ -92,21 +105,21 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
     
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:stdvc animated:YES];
 }
-*/
+
 
 /*
 #pragma mark - Navigation
