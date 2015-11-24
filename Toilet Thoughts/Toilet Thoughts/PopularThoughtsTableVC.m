@@ -17,11 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+//    UITabBarController *tabBar = [[UITabBarController alloc]init];
+//    self.tabBarController.title = @"test";
     
     self.title = @"Popular Thoughts";
 }
@@ -35,23 +40,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 3;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    cell.textLabel.text = @"We are the best!";
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
