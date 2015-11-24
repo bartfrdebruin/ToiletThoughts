@@ -39,6 +39,9 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homevc];
     
     self.window.rootViewController = navigationController;
+    
+    [navigationController setNavigationBarHidden:YES];
+
     self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;
