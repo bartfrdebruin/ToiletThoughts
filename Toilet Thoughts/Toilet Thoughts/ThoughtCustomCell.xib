@@ -62,7 +62,13 @@
                 </constraints>
             </tableViewCellContentView>
             <animations/>
-            <point key="canvasLocation" x="355" y="388"/>
+            <connections>
+                <outlet property="scoreThoughtCustomCell" destination="apH-1i-QLm" id="ZaN-0M-uBE"/>
+                <outlet property="thoughtImageThumbnail" destination="ZKv-Pc-gjK" id="roz-6L-mK0"/>
+                <outlet property="thoughtLabel" destination="2tF-ll-FUo" id="s1r-DO-vi9"/>
+                <outlet property="usernameThoughtCustomCell" destination="bAZ-6X-TjR" id="eLT-9W-pxt"/>
+            </connections>
+            <point key="canvasLocation" x="409" y="365"/>
         </tableViewCell>
     </objects>
 </document>
