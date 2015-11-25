@@ -18,12 +18,46 @@
 
 @implementation AddThoughtVC
 
+
+#pragma mark - viewDidLoad
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Add a Toilet Thought!";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+    UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                          action:@selector(handleTap:)];
+    
+    [self.view addGestureRecognizer:tapOutsiteTextField];
+    
+ 
+}
 
+- (void)handleTap:(UITapGestureRecognizer *)sender {
+
+        [self.thoughtTextField resignFirstResponder];
+    
+}
+
+- (void)dealloc {
+    
+//        unregister for keyboard notifications while not visible.
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,13 +65,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - textField
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    
+    NSDictionary* userInfo = [notification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    [UIView commitAnimations];
+    
+          }
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    
+    NSDictionary* userInfo = [notification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    
+    [UIView commitAnimations];
+    
+}
+
+//- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField {
+//    
+//    [self.thoughtTextField resignFirstResponder];
+//    
+//}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-//    [self.descriptionTextField resignFirstResponder];
+    [self.thoughtTextField resignFirstResponder];
+    
     return YES;
 }
 
+
+#pragma mark - takePicture
 
 - (IBAction)takePicture:(id)sender {
     
@@ -66,7 +153,10 @@
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    self.imageView = image;
+    self.imageView.image = image;
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
     
 
