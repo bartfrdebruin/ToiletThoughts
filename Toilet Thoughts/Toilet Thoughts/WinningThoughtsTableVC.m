@@ -7,8 +7,12 @@
 //
 
 #import "WinningThoughtsTableVC.h"
+#import "WinningThoughtCustomVideoCell.h"
+#import <Parse/Parse.h>
 
 @interface WinningThoughtsTableVC ()
+
+@property (nonatomic, strong) NSArray *winningThoughts;
 
 @end
 
@@ -21,6 +25,9 @@
     
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+    [self performSelector:@selector(retrieveFromParse)];
+    
 //    
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
@@ -28,10 +35,28 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = @"Winning";
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) retrieveFromParse {
+    
+    PFQuery *retrieveThoughts = [PFQuery queryWithClassName:@"WinningThought"];
+    
+    [retrieveThoughts findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (!error) {
+            self.winningThoughts = [[NSArray alloc]initWithArray:objects];
+            [self.tableView reloadData];
+        }
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -45,12 +70,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 3;
+    return self.winningThoughts.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
+    WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
+    
+     PFObject * thoughtsDict = [self.winningThoughts objectAtIndex:indexPath.row];
+    
+    cell.usernameWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningUser"];
+    cell.thoughtWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningText"];
+    cell.scoreWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningScore"];
     
     // Configure the cell...
     

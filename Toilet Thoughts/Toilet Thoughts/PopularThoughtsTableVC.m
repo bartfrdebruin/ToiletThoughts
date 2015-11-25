@@ -59,6 +59,9 @@
     
     [self performSelector:@selector(retrieveFromParse)];
     
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
