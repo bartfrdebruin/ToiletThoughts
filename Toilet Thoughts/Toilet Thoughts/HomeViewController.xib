@@ -3,11 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="logIn" destination="bST-mu-aSd" id="cKz-zr-JcF"/>
+                <outlet property="signIn" destination="dpf-7o-HjE" id="LbF-WV-NJ8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="fSe-Sn-2pd"/>
             </connections>
         </placeholder>
@@ -20,8 +21,7 @@
                     <rect key="frame" x="159" y="59" width="281" height="281"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="281" id="eCZ-Xf-qK4"/>
-                        <constraint firstAttribute="width" secondItem="l1f-lI-M40" secondAttribute="height" multiplier="1:1" id="sfP-Dc-G4x"/>
+                        <constraint firstAttribute="width" constant="281" id="ItK-QF-xhC"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
@@ -29,9 +29,8 @@
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="23R-q3-nhS"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="kmQ-Bf-Ndi"/>
-                        <constraint firstAttribute="height" constant="72" id="lGJ-j1-9qt"/>
+                        <constraint firstAttribute="height" constant="72" id="FvZ-vQ-ka4"/>
+                        <constraint firstAttribute="width" constant="240" id="LqA-CO-oeH"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Add Thoughts!">
@@ -46,9 +45,7 @@
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="UGf-Zy-a8G"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="72" id="c4T-Xd-76x"/>
-                        <constraint firstAttribute="height" constant="72" id="cSF-tL-lig"/>
+                        <constraint firstAttribute="height" constant="72" id="LWF-Nr-n72"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Browse Thoughts!">
@@ -58,21 +55,46 @@
                         <action selector="browseThoughts:" destination="-1" eventType="touchUpInside" id="g30-Nm-psm"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpf-7o-HjE">
+                    <rect key="frame" x="477" y="48" width="67" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="gfr-Rs-7vp"/>
+                    </constraints>
+                    <state key="normal" title="Sign up">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bST-mu-aSd">
+                    <rect key="frame" x="53" y="48" width="69" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="SLP-E4-hTf"/>
+                    </constraints>
+                    <state key="normal" title="Log in">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="height" secondItem="gE0-k8-gOP" secondAttribute="height" id="0oQ-Vl-sPu"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="Gc3-Y0-R3z"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="Vzr-0L-yyk"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="leading" secondItem="K15-wk-WHo" secondAttribute="leading" id="W0V-ho-am6"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" id="WCy-i8-OyU"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="45" id="aYo-Zl-5pI"/>
-                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="71" id="n6B-zA-ZML"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oub-5e-7rK"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="centerX" secondItem="l1f-lI-M40" secondAttribute="centerX" id="ug1-sw-aP4"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2V5-QZ-evd"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="5Wp-Bn-QsL"/>
+                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="71" id="Gfy-3H-oZ1"/>
+                <constraint firstItem="dpf-7o-HjE" firstAttribute="baseline" secondItem="bST-mu-aSd" secondAttribute="baseline" id="M9t-sB-StM"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="MkW-vj-z5k"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="45" id="PUJ-Tt-1hV"/>
+                <constraint firstAttribute="trailing" secondItem="dpf-7o-HjE" secondAttribute="trailing" constant="56" id="bOt-q7-m8A"/>
+                <constraint firstItem="bST-mu-aSd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="iZv-3c-iAg"/>
+                <constraint firstItem="bST-mu-aSd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="lTC-Ee-2n8"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="centerX" secondItem="l1f-lI-M40" secondAttribute="centerX" id="uwg-q8-V1U"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="leading" secondItem="gE0-k8-gOP" secondAttribute="leading" id="vaO-Gg-avK"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" id="xOy-ub-DfE"/>
             </constraints>
-            <point key="canvasLocation" x="425" y="493"/>
+            <point key="canvasLocation" x="725" y="443"/>
         </view>
     </objects>
     <resources>
