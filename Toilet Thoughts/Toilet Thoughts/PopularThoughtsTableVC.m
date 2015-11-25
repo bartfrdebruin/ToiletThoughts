@@ -178,6 +178,10 @@
     // Create the next view controller.
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
     
+    PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+    
+    stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
+    
     // Pass the selected object to the new view controller.
     
     [UIView beginAnimations:@"View Flip" context:nil];

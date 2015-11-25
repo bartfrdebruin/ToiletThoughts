@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 
 @interface SelectedThoughtDetailVC : UIViewController
+
+@property (weak, nonatomic) IBOutlet PFImageView *selectedThoughtImage;
+@property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
+
+@property (nonatomic) PFFile *thoughtImageFile;
 
 @end
