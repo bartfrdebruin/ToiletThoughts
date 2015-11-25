@@ -32,6 +32,7 @@
     [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
     [UIView commitAnimations];
     
+    // NavigationController without animations!
 //    [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
     
     [self.navigationController setNavigationBarHidden:NO];
@@ -41,35 +42,34 @@
 
 - (IBAction)addThoughts:(id)sender {
     
-    self.logIn.hidden = NO;
-    self.signIn.hidden = NO;
+//    self.logIn.hidden = NO;
+//    self.signIn.hidden = NO;
     
-//
-//    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc] initWithNibName:@"AddThoughtVC" bundle:nil];
-//    
-//    [UIView beginAnimations:@"View Flip" context:nil];
-//    [UIView setAnimationDuration:0.80];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    
-//    [UIView setAnimationTransition:
-//     UIViewAnimationTransitionFlipFromLeft
-//                           forView:self.navigationController.view cache:NO];
-//    
-//    
-//    [self.navigationController pushViewController:addThoughtVC animated:YES];
-//    [UIView commitAnimations];
+    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc] initWithNibName:@"AddThoughtVC" bundle:nil];
     
-//    [self.navigationController pushViewController:addThoughtVC animated:YES];
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     
-//    [self.navigationController setNavigationBarHidden:NO];
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    
+    [self.navigationController pushViewController:addThoughtVC animated:YES];
+    [UIView commitAnimations];
+    
+    [self.navigationController setNavigationBarHidden:NO];
 
     
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     

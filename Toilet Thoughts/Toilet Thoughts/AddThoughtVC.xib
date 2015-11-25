@@ -17,14 +17,15 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Add your Toilet Thought Here: " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-eE-FKj">
-                    <rect key="frame" x="0.0" y="314" width="600" height="128"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-eE-FKj">
+                    <rect key="frame" x="17" y="314" width="566" height="74"/>
                     <animations/>
-                    <color key="backgroundColor" white="0.92847964638157898" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="ddZ-Je-ahb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <string key="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </string>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardType="alphabet" keyboardAppearance="light"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-6C-y7i">
@@ -44,11 +45,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="313"/>
                     <animations/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-XM-hPF">
+                    <rect key="frame" x="448" y="406" width="135" height="57"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="5Bo-50-N1m"/>
+                        <constraint firstAttribute="width" constant="240" id="NzJ-Y0-z4F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Add Thoughts!">
+                        <color key="titleColor" red="0.3803921569" green="0.062745098040000002" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="qv3-eE-FKj" secondAttribute="trailing" constant="17" id="LXd-b9-YhO"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-47" id="T5T-Bz-g3m"/>
+                <constraint firstItem="qv3-eE-FKj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cWt-yY-bRa"/>
+                <constraint firstAttribute="trailing" secondItem="qv3-eE-FKj" secondAttribute="trailing" constant="20" id="crP-AU-Vic"/>
+                <constraint firstItem="qv3-eE-FKj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="dG8-89-4wW"/>
                 <constraint firstItem="qv3-eE-FKj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hPe-pB-GK9"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pHU-Lj-uFV"/>
                 <constraint firstAttribute="trailing" secondItem="qv3-eE-FKj" secondAttribute="trailing" id="vwx-4o-bCK"/>

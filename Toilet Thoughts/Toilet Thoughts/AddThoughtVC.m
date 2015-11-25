@@ -66,7 +66,10 @@
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    self.imageView = image;
+    self.imageView.image = image;
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
     
 
