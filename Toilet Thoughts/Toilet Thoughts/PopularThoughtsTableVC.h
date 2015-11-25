@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 
 @interface PopularThoughtsTableVC : UITableViewController
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *popular;
+@property (strong, nonatomic) PFFile *thoughtImageFile;
 
 @end

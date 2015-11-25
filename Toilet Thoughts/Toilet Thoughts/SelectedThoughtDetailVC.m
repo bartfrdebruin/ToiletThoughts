@@ -7,6 +7,7 @@
 //
 
 #import "SelectedThoughtDetailVC.h"
+#import "PopularThoughtsTableVC.h"
 
 @interface SelectedThoughtDetailVC ()
 
@@ -23,6 +24,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    
+    self.selectedThoughtImage.file = self.thoughtImageFile;
+
 }
 
 /*

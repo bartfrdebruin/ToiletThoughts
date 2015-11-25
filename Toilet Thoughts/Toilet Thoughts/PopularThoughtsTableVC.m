@@ -11,8 +11,11 @@
 #import "WinningThoughtsTableVC.h"
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
+#import <Parse/Parse.h>
 
 @interface PopularThoughtsTableVC ()
+
+@property (nonatomic, strong) NSArray *toiletThoughts;
 
 @end
 
@@ -45,6 +48,8 @@
     [self.tableView registerNib:nib
          forCellReuseIdentifier:@"ThoughtCustomCell"];
     
+    [self performSelector:@selector(retrieveFromParse)];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -74,6 +79,20 @@
     self.title = @"Popular";
 }
 
+- (void) retrieveFromParse {
+    
+    PFQuery *retrieveThoughts = [PFQuery queryWithClassName:@"ToiletThought"];
+    
+    [retrieveThoughts findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (!error) {
+            self.toiletThoughts = [[NSArray alloc]initWithArray:objects];
+            [self.tableView reloadData];
+        }
+        
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -88,7 +107,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.toiletThoughts.count;
 }
 
 
@@ -97,6 +116,21 @@
 //    [tableView registerNib:[[UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil] forCellReuseIdentifier:@"ThoughtCustomCell"];
     // Configure the cell...
 //    cell.textLabel.text = @"We are the best and Enrico sucks!";
+    
+    PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+    
+
+    cell.usernameThoughtCustomCell.text = [thoughtsDict objectForKey:@"userName"];
+//    cell.thoughtImageThumbnail.image = [thoughtsDict objectForKey:@"thoughtImage"];
+    cell.thoughtLabel.text = [thoughtsDict objectForKey:@"toiletThought"];
+    cell.scoreThoughtCustomCell.text = [thoughtsDict objectForKey:@"score"];
+    
+    PFFile *thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
+    PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
+    thumbnail.image = [UIImage imageNamed:@"Icon-40"];
+    thumbnail.file = thoughtImageFile;
+    [thumbnail loadInBackground];
+    
     return cell;
 }
 
@@ -143,6 +177,10 @@
     // Navigation logic may go here, for example:
     // Create the next view controller.
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+    
+    PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+    
+    stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
     
     // Pass the selected object to the new view controller.
     

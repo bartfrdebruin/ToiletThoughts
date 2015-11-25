@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/ParseUI.h>
 
 @interface ThoughtCustomCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *thoughtImageThumbnail;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *thoughtLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *thoughtImageThumbnail;
 @property (weak, nonatomic) IBOutlet UILabel *usernameThoughtCustomCell;
 @property (weak, nonatomic) IBOutlet UILabel *scoreThoughtCustomCell;
+@property (weak, nonatomic) IBOutlet UILabel *thoughtLabel;
 
 
 @end
