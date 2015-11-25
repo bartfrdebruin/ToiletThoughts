@@ -11,9 +11,12 @@
 
 @interface SelectedThoughtDetailVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *selectedThoughtScore;
 @property (weak, nonatomic) IBOutlet PFImageView *selectedThoughtImage;
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
 
 @property (nonatomic) PFFile *thoughtImageFile;
+@property (strong,nonatomic) NSString *thoughtDetail;
+@property (strong,nonatomic) NSString *thoughtScore;
 
 @end

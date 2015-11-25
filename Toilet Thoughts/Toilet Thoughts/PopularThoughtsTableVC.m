@@ -172,15 +172,15 @@
 
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
+
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
     
     PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
     
     stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
+    stdvc.thoughtDetail = [thoughtsDict objectForKey:@"toiletThought"];
+    stdvc.thoughtScore = [thoughtsDict objectForKey:@"score"];
     
     // Pass the selected object to the new view controller.
     

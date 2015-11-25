@@ -12,6 +12,7 @@
 @interface PopularThoughtsTableVC : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *popular;
-@property (strong, nonatomic) PFFile *thoughtImageFile;
+//@property (strong, nonatomic) PFFile *thoughtImageFile;
+
 
 @end
