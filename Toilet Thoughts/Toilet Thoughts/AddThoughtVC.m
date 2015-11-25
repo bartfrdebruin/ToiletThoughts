@@ -11,6 +11,7 @@
 #import <ParseUI/ParseUI.h>
 #import "PopularThoughtsTableVC.h"
 
+
 @import MobileCoreServices;
 
 @interface AddThoughtVC ()
@@ -177,7 +178,14 @@
                                                                               
                                                                                PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
                                                                               
-                                                                              [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+                                                                              NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
+//                                                                              NSAssert(self.presentingViewController.navigationController != nil, @"All this is nil");
+                                                                              
+                                                                              [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
+                                                                              
+                                                                              
+                                                                              
+                                                                              [self dismissViewControllerAnimated:YES completion:nil];
 
                                                                           }];
                     [alert addAction:defaultAction];

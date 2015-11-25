@@ -56,8 +56,9 @@
                            forView:self.navigationController.view cache:NO];
     
     
-    [self.navigationController pushViewController:addThoughtVC animated:YES];
-    [UIView commitAnimations];
+    [self.navigationController presentViewController:addThoughtVC animated:YES completion:nil];
+    
+     [UIView commitAnimations];
     
     [self.navigationController setNavigationBarHidden:NO];
 
