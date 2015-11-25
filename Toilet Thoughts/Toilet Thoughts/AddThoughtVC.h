@@ -13,5 +13,7 @@
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *thoughtTextField;
+- (IBAction)post:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 
 @end

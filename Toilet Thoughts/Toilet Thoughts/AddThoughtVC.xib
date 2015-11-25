@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddThoughtVC">
             <connections>
                 <outlet property="imageView" destination="B2m-eE-HdP" id="hC2-aZ-hcz"/>
+                <outlet property="postButton" destination="dRS-XM-hPF" id="bxC-Dt-dVn"/>
                 <outlet property="thoughtTextField" destination="OsY-2P-IKj" id="Zrs-Dz-ajL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -63,6 +64,9 @@
                             <exclude reference="N3u-jJ-o4Z"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="post:" destination="-1" eventType="touchUpInside" id="eFn-qu-yaR"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>

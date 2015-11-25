@@ -9,6 +9,7 @@
 #import "AddThoughtVC.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "PopularThoughtsTableVC.h"
 
 @import MobileCoreServices;
 
@@ -86,7 +87,7 @@
     
     [UIView commitAnimations];
     
-          }
+}
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     
@@ -110,11 +111,6 @@
     
 }
 
-//- (void)textFieldDidEndEditing:(UITextField * _Nonnull)textField {
-//    
-//    [self.thoughtTextField resignFirstResponder];
-//    
-//}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
@@ -158,18 +154,87 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
+
+- (IBAction)post:(id)sender {
+    
+    
+    
+    PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
+    
+    [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
+    
+    [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        [self.thoughtTextField resignFirstResponder];
+
+        
+                if (!error) {
+                    // Show success message
+                    UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+        
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                          handler:^(UIAlertAction * action) {
+                                                                              
+                                                                               PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+                                                                              
+                                                                              [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+
+                                                                          }];
+                    [alert addAction:defaultAction];
+        
+                    [self presentViewController:alert animated:YES completion:nil];
+                    
+                } else {
+                    UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+        
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                          handler:^(UIAlertAction * action) {}];
+        
+                    [alert addAction:defaultAction];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            }];
+}
+
     
 
+    
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//    
+//    [toiletThought saveAllInBackground: target:<#(nullable id)#> selector:<#(nullable SEL)#>]
+//    [PFObject: block:^(BOOL succeeded, NSError * _Nullable error) {
+//        <#code#>
+//    }]
+//    
+//}
+//
+////- (void)saveLekker:(PFObject *)lekker {
+////    
+////    [lekker saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+////        
+////        if (!error) {
+////            // Show success message
+////            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Successfully saved your #Lekker post!" preferredStyle:UIAlertControllerStyleAlert];
+////            
+////            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+////                                                                  handler:^(UIAlertAction * action) {}];
+////            [alert addAction:defaultAction];
+////            
+////            [self presentViewController:alert animated:YES completion:nil];
+////            
+////        } else {
+////            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your #Lekker post!" preferredStyle:UIAlertControllerStyleAlert];
+////            
+////            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+////                                                                  handler:^(UIAlertAction * action) {}];
+////            
+////            [alert addAction:defaultAction];
+////            
+////            [self presentViewController:alert animated:YES completion:nil];
+////        }
+////    }];
+////    
+////}
 
 @end
