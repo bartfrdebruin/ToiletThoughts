@@ -84,7 +84,7 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.scrollView setFrame:CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y - keyboardFrame.size.height, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     
     [UIView commitAnimations];
     
@@ -105,7 +105,7 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.scrollView setFrame:CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y + keyboardFrame.size.height, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
     
     
     [UIView commitAnimations];
@@ -176,12 +176,13 @@
                     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                           handler:^(UIAlertAction * action) {
                                                                               
-                                                                               PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
-                                                                              
+                                                                              PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+                                                            
                                                                               NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
 //                                                                              NSAssert(self.presentingViewController.navigationController != nil, @"All this is nil");
                                                                               
                                                                               [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
+                                                    
                                                                                                                                                             
                                                                               [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 
