@@ -38,6 +38,15 @@
     
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

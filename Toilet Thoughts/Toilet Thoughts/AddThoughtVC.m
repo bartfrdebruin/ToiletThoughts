@@ -182,10 +182,8 @@
 //                                                                              NSAssert(self.presentingViewController.navigationController != nil, @"All this is nil");
                                                                               
                                                                               [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
-                                                                              
-                                                                              
-                                                                              
-                                                                              [self dismissViewControllerAnimated:YES completion:nil];
+                                                                                                                                                            
+                                                                              [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 
                                                                           }];
                     [alert addAction:defaultAction];
