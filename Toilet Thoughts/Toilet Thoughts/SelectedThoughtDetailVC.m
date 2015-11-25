@@ -30,6 +30,7 @@
     
     
     self.selectedThoughtImage.file = self.thoughtImageFile;
+    self.selectedThoughtDetail.text = self.thoughtDetail;
 
 }
 

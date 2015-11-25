@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
 
 @property (nonatomic) PFFile *thoughtImageFile;
+@property (strong,nonatomic) NSString *thoughtDetail;
 
 @end
