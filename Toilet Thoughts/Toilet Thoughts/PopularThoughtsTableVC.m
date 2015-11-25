@@ -180,6 +180,7 @@
     
     stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
     stdvc.thoughtDetail = [thoughtsDict objectForKey:@"toiletThought"];
+    stdvc.thoughtScore = [thoughtsDict objectForKey:@"score"];
     
     // Pass the selected object to the new view controller.
     

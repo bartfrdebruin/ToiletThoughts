@@ -31,6 +31,21 @@
     
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
+    
+    self.selectedThoughtDetail.alpha = 1;
+    [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
+        self.selectedThoughtDetail.alpha = 0.0;
+        self.selectedThoughtDetail.alpha = 0.9;
+    } completion:nil];
+   
+    self.selectedThoughtScore.text = self.thoughtScore;
+    
+//    self.selectedThoughtScore.hidden = NO;
+//    self.selectedThoughtScore.alpha = 0.7;
+//    [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
+//        self.selectedThoughtScore.alpha = 0.0;
+//        self.selectedThoughtScore.alpha = 0.9;
+//    } completion:nil];
 
 }
 
