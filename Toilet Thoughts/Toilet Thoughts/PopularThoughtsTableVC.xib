@@ -33,7 +33,8 @@
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
             </connections>
-            <point key="canvasLocation" x="323" y="202"/>
+            <point key="canvasLocation" x="292" y="82"/>
         </tableView>
+        <barButtonItem style="plain" systemItem="flexibleSpace" id="OtP-Ka-md0"/>
     </objects>
 </document>
