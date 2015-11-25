@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AddThoughtVC : UIViewController
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
