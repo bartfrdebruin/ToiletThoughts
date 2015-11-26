@@ -7,6 +7,7 @@
 //
 
 #import "PopularThoughtsTableVC.h"
+#import "UserViewController.h"
 #import "AddThoughtVC.h"
 #import "WinningThoughtsTableVC.h"
 #import "SelectedThoughtDetailVC.h"
@@ -39,7 +40,7 @@
     
 }
 
-#pragma mark - backToHome
+#pragma mark - backToHome and goToUserScreen
 
 - (void)backToHomeScreen {
     
@@ -47,6 +48,13 @@
     
     [self.navigationController pushViewController:homeScreenVC animated:YES];
     
+}
+
+- (void)goToUserScreen {
+    
+    UserViewController * userViewController = [[UserViewController alloc] init];
+    
+    [self.navigationController pushViewController: userViewController animated:YES];
 }
 
 
@@ -64,6 +72,10 @@
     [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
+    UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
+    [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     
     
 }
@@ -80,7 +92,8 @@
     
     [self performSelector:@selector(retrieveFromParse)];
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Edit button
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

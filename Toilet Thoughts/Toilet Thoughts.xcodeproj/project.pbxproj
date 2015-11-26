@@ -14,6 +14,8 @@
 		1DB5441C1C0461FE00383E1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DB5441A1C0461FE00383E1C /* LaunchScreen.storyboard */; };
 		1DB544271C0461FE00383E1C /* Toilet_ThoughtsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB544261C0461FE00383E1C /* Toilet_ThoughtsTests.m */; };
 		1DB544321C0461FF00383E1C /* Toilet_ThoughtsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB544311C0461FF00383E1C /* Toilet_ThoughtsUITests.m */; };
+		1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5DDDF1C073E8900AD4C3C /* UserViewController.m */; };
+		1DC5DDE21C073E8900AD4C3C /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC5DDE01C073E8900AD4C3C /* UserViewController.xib */; };
 		1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
 		1DF306011C049CD90035BD50 /* PopularThoughtsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FF1C049CD90035BD50 /* PopularThoughtsTableVC.m */; };
@@ -26,8 +28,6 @@
 		1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */; };
 		1DF306151C049DCA0035BD50 /* AddThoughtVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306131C049DCA0035BD50 /* AddThoughtVC.m */; };
 		1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */; };
-		1DF3061A1C049DEC0035BD50 /* UserProfileTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306181C049DEC0035BD50 /* UserProfileTableVC.m */; };
-		1DF3061B1C049DEC0035BD50 /* UserProfileTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306191C049DEC0035BD50 /* UserProfileTableVC.xib */; };
 		1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3061D1C049E100035BD50 /* ThoughtCustomCell.m */; };
 		1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */; };
 		1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */; };
@@ -67,6 +67,9 @@
 		1DB5442D1C0461FE00383E1C /* Toilet ThoughtsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Toilet ThoughtsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB544311C0461FF00383E1C /* Toilet_ThoughtsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Toilet_ThoughtsUITests.m; sourceTree = "<group>"; };
 		1DB544331C0461FF00383E1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DC5DDDE1C073E8900AD4C3C /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		1DC5DDDF1C073E8900AD4C3C /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		1DC5DDE01C073E8900AD4C3C /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		1DF305F91C049BBB0035BD50 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1DF305FA1C049BBB0035BD50 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -85,9 +88,6 @@
 		1DF306121C049DCA0035BD50 /* AddThoughtVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddThoughtVC.h; sourceTree = "<group>"; };
 		1DF306131C049DCA0035BD50 /* AddThoughtVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddThoughtVC.m; sourceTree = "<group>"; };
 		1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddThoughtVC.xib; sourceTree = "<group>"; };
-		1DF306171C049DEC0035BD50 /* UserProfileTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileTableVC.h; sourceTree = "<group>"; };
-		1DF306181C049DEC0035BD50 /* UserProfileTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileTableVC.m; sourceTree = "<group>"; };
-		1DF306191C049DEC0035BD50 /* UserProfileTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileTableVC.xib; sourceTree = "<group>"; };
 		1DF3061C1C049E100035BD50 /* ThoughtCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtCustomCell.h; sourceTree = "<group>"; };
 		1DF3061D1C049E100035BD50 /* ThoughtCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtCustomCell.m; sourceTree = "<group>"; };
 		1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThoughtCustomCell.xib; sourceTree = "<group>"; };
@@ -168,9 +168,6 @@
 				1DF306121C049DCA0035BD50 /* AddThoughtVC.h */,
 				1DF306131C049DCA0035BD50 /* AddThoughtVC.m */,
 				1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */,
-				1DF306171C049DEC0035BD50 /* UserProfileTableVC.h */,
-				1DF306181C049DEC0035BD50 /* UserProfileTableVC.m */,
-				1DF306191C049DEC0035BD50 /* UserProfileTableVC.xib */,
 				1DF3061C1C049E100035BD50 /* ThoughtCustomCell.h */,
 				1DF3061D1C049E100035BD50 /* ThoughtCustomCell.m */,
 				1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */,
@@ -181,6 +178,9 @@
 				1DF305FA1C049BBB0035BD50 /* HomeViewController.m */,
 				1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */,
 				1DB5441A1C0461FE00383E1C /* LaunchScreen.storyboard */,
+				1DC5DDDE1C073E8900AD4C3C /* UserViewController.h */,
+				1DC5DDDF1C073E8900AD4C3C /* UserViewController.m */,
+				1DC5DDE01C073E8900AD4C3C /* UserViewController.xib */,
 				1DB5441D1C0461FE00383E1C /* Info.plist */,
 				1DB5440C1C0461FE00383E1C /* Supporting Files */,
 			);
@@ -341,7 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */,
-				1DF3061B1C049DEC0035BD50 /* UserProfileTableVC.xib in Resources */,
+				1DC5DDE21C073E8900AD4C3C /* UserViewController.xib in Resources */,
 				1DB5441C1C0461FE00383E1C /* LaunchScreen.storyboard in Resources */,
 				1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */,
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
@@ -429,9 +429,9 @@
 				1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
-				1DF3061A1C049DEC0035BD50 /* UserProfileTableVC.m in Sources */,
 				1DF3060B1C049D080035BD50 /* WinningThoughtsTableVC.m in Sources */,
 				1DF306011C049CD90035BD50 /* PopularThoughtsTableVC.m in Sources */,
+				1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,
 				1DF306151C049DCA0035BD50 /* AddThoughtVC.m in Sources */,
 				1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */,
