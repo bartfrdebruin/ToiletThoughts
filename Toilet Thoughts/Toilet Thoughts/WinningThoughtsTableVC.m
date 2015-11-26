@@ -83,6 +83,12 @@
     cell.thoughtWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningText"];
     cell.scoreWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningScore"];
     
+    PFFile *winningImageFile = [thoughtsDict objectForKey:@"winningImage"];
+    PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
+    thumbnail.image = [UIImage imageNamed:@"Icon-40"];
+    thumbnail.file = winningImageFile;
+    [thumbnail loadInBackground];
+    
     // Configure the cell...
     
 //    cell.textLabel.text = @"test";
