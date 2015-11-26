@@ -172,61 +172,100 @@
 
 - (IBAction)post:(id)sender {
     
-    
-    
     PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
-    
     [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
     
-    // Toilet Thought Image
-    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
-    
-    // Lekker image name
-    NSUUID *uuid = [NSUUID UUID];
-    
-    PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
-    [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
-    
-    [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    if (self.imageView.image != nil) {
         
-        [self.thoughtTextField resignFirstResponder];
+        // Toilet Thought Image
+        NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
+        
+        // Lekker image name
+        NSUUID *uuid = [NSUUID UUID];
+        
+        PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
+        [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
+        
+        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            [self.thoughtTextField resignFirstResponder];
+            
+            if (!error) {
+                // Show success message
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {
+                                                                          
+                                                                          PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+                                                                          
+                                                                          // NavigationController with presenting.
+                                                                          //                                                                              NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
+                                                                          //
+                                                                          //                                                                              [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
+                                                                          //                                                                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                                                                          
+                                                                          // NavigationController with pushing.
+                                                                          [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+                                                                          
+                                                                      }];
+                [alert addAction:defaultAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+        
+        
+    } else if (self.imageView.image == nil) {
+        
+        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            [self.thoughtTextField resignFirstResponder];
+            
+            
+            if (!error) {
+                // Show success message
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {
+                                                                          
+                                                                          PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+
+                                                                          [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+                                                                          
+                                                                      }];
+                [alert addAction:defaultAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+    }
+}
 
         
-        if (!error) {
-            // Show success message
-            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {
-                                                                      
-                                                                      PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
-                                                                      
-                                                                      // NavigationController with presenting.
-                                                                      //                                                                              NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
-                                                                      //
-                                                                      //                                                                              [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
-                                                                      //                                                                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                                                                      
-                                                                      // NavigationController with pushing.
-                                                                      [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
-                                                    
-                                                                  }];
-                    [alert addAction:defaultAction];
         
-                    [self presentViewController:alert animated:YES completion:nil];
-                    
-                } else {
-                    UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
         
-                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                          handler:^(UIAlertAction * action) {}];
-        
-                    [alert addAction:defaultAction];
-                    
-                    [self presentViewController:alert animated:YES completion:nil];
-                }
-            }];
-}
 
     
 
