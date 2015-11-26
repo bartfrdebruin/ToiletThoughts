@@ -12,7 +12,8 @@
 @interface WinningThoughtCustomVideoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *usernameWinningThoughtCVC;
 @property (weak, nonatomic) IBOutlet UILabel *scoreWinningThoughtCVC;
-@property (weak, nonatomic) IBOutlet UILabel *thoughtWinningThoughtCVC;
 @property (weak, nonatomic) IBOutlet PFImageView *thumbnailWinningThoughtCVC;
+@property (weak, nonatomic) IBOutlet UILabel *thoughtWinningThoughtCVC;
+
 
 @end
