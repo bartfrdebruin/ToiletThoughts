@@ -43,6 +43,9 @@
 
 - (void)backToHomeScreen {
     
+    HomeViewController *homeScreenVC = [[HomeViewController alloc] init];
+    
+    [self.navigationController pushViewController:homeScreenVC animated:YES];
     
 }
 
