@@ -30,6 +30,7 @@ static CGFloat contractedHeight = 44.0;
          forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     [self performSelector:@selector(retrieveFromParse)];
+    [self performSelector:@selector(myMethod)];
     
     [self.tableView setAllowsMultipleSelection:YES];
     
@@ -166,6 +167,34 @@ static CGFloat contractedHeight = 44.0;
 {
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+}
+
+- (void)myMethod {
+    
+    PFQuery *signUpUser = [[PFQuery alloc]initWithClassName:@"User"];
+    
+    [signUpUser findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (!error) {
+            self.winningThoughts = [[NSArray alloc]initWithArray:objects];
+            [self.tableView reloadData];
+        }
+        
+    }];
+    
+    PFUser *user = [PFUser user];
+    user.username = @"my name";
+    user.password = @"my pass";
+    user.email = @"email@example.com";
+    
+    // other fields can be set just like with PFObject
+    user[@"phone"] = @"415-392-0202";
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {   // Hooray! Let them use the app now.
+        } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
+        }
+    }];
 }
 
 /*

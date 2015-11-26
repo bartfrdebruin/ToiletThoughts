@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddThoughtVC">
@@ -19,29 +19,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="HNk-9I-DJe">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNk-9I-DJe">
                     <rect key="frame" x="0.0" y="20" width="323" height="580"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nql-6C-y7i">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-6C-y7i">
                             <rect key="frame" x="67" y="118" width="200" height="152"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="152" id="1lb-Wq-ZUW"/>
+                            </constraints>
                             <state key="normal" title="Button" image="camera"/>
                             <connections>
                                 <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="B2m-eE-HdP">
-                            <rect key="frame" x="0.0" y="43" width="322" height="313"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
+                            <rect key="frame" x="0.0" y="43" width="323" height="313"/>
                             <animations/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dRS-XM-hPF">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRS-XM-hPF">
                             <rect key="frame" x="168" y="475" width="135" height="57"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="INg-oE-Mh2"/>
+                                <constraint firstAttribute="width" constant="135" id="oz1-QF-VHA"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Post!">
                                 <color key="titleColor" red="1" green="1" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,12 +53,14 @@
                                 <action selector="post:" destination="-1" eventType="touchUpInside" id="eFn-qu-yaR"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Enter your Toilet Thoughts here: " clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" id="OsY-2P-IKj">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Enter your Toilet Thoughts here: " clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-2P-IKj">
                             <rect key="frame" x="20" y="368" width="283" height="95"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="95" id="69f-YQ-Qvd"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="Bnk-Ps-Y8i"/>
                             </connections>
@@ -63,11 +68,30 @@
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="OsY-2P-IKj" firstAttribute="top" secondItem="Nql-6C-y7i" secondAttribute="bottom" constant="98" id="1zA-R3-UaF"/>
+                        <constraint firstItem="OsY-2P-IKj" firstAttribute="leading" secondItem="HNk-9I-DJe" secondAttribute="leading" constant="20" id="5ZL-ct-ERH"/>
+                        <constraint firstItem="dRS-XM-hPF" firstAttribute="top" secondItem="OsY-2P-IKj" secondAttribute="bottom" constant="12" id="9b6-Gp-kXp"/>
+                        <constraint firstItem="OsY-2P-IKj" firstAttribute="trailing" secondItem="dRS-XM-hPF" secondAttribute="trailing" id="CMi-xT-dTn"/>
+                        <constraint firstAttribute="trailing" secondItem="Nql-6C-y7i" secondAttribute="trailing" constant="56" id="Hf0-yk-N8b"/>
+                        <constraint firstAttribute="bottom" secondItem="dRS-XM-hPF" secondAttribute="bottom" constant="48" id="IRL-4y-Nzx"/>
+                        <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="HNk-9I-DJe" secondAttribute="top" constant="43" id="RxG-d6-iv9"/>
+                        <constraint firstItem="OsY-2P-IKj" firstAttribute="leading" secondItem="HNk-9I-DJe" secondAttribute="leading" constant="20" id="tfE-Se-vXi"/>
+                        <constraint firstItem="dRS-XM-hPF" firstAttribute="top" secondItem="OsY-2P-IKj" secondAttribute="bottom" constant="12" id="um7-2g-5Jk"/>
+                        <constraint firstAttribute="trailing" secondItem="OsY-2P-IKj" secondAttribute="trailing" constant="20" id="wON-ba-yEL"/>
+                        <constraint firstItem="Nql-6C-y7i" firstAttribute="leading" secondItem="HNk-9I-DJe" secondAttribute="leading" constant="67" id="zbz-03-pmn"/>
+                    </constraints>
                 </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="286" y="409"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HNk-9I-DJe" secondAttribute="trailing" constant="-3" id="1dX-a6-thO"/>
+                <constraint firstItem="HNk-9I-DJe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="73X-br-3Xg"/>
+                <constraint firstAttribute="bottom" secondItem="HNk-9I-DJe" secondAttribute="bottom" constant="-32" id="TDT-EF-LBR"/>
+                <constraint firstItem="HNk-9I-DJe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Yep-qd-Wsr"/>
+            </constraints>
+            <point key="canvasLocation" x="290" y="390"/>
         </view>
     </objects>
     <resources>
