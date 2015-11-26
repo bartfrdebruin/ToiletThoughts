@@ -11,5 +11,6 @@
 @interface HomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *logIn;
 @property (weak, nonatomic) IBOutlet UIButton *signIn;
+@property (strong, nonatomic) UIViewController *homevc;
 
 @end
