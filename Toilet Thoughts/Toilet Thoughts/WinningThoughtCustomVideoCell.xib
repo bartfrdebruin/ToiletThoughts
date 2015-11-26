@@ -15,16 +15,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-40" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-Jp-Kf6">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dp7-Xs-PCF">
                         <rect key="frame" x="272" y="2" width="40" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-Jp-Kf6" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="AKO-FK-odd"/>
-                        </constraints>
-                    </imageView>
+                    </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv1-Ex-LeH">
                         <rect key="frame" x="88" y="11" width="169" height="21"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="169" id="K58-u6-2gm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +39,7 @@
                         <rect key="frame" x="13" y="2" width="67" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="67" id="kBf-B1-hiy"/>
+                            <constraint firstAttribute="width" constant="67" id="go0-UD-vPj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -49,18 +55,19 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="cN9-Jp-Kf6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="7CA-X0-rcg"/>
-                    <constraint firstItem="cN9-Jp-Kf6" firstAttribute="leading" secondItem="gv1-Ex-LeH" secondAttribute="trailing" constant="15" id="BxW-l0-MhI"/>
-                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ByW-9S-d2j"/>
-                    <constraint firstItem="fsV-EO-aFj" firstAttribute="bottom" secondItem="cN9-Jp-Kf6" secondAttribute="bottom" id="EuT-4l-HU0"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="oVL-TQ-QKc" secondAttribute="bottom" constant="12" id="TTW-8r-CEV"/>
-                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="leading" secondItem="fsV-EO-aFj" secondAttribute="trailing" constant="8" symbolic="YES" id="a2q-31-cLQ"/>
-                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="leading" secondItem="oVL-TQ-QKc" secondAttribute="trailing" constant="8" symbolic="YES" id="fsz-cx-6QG"/>
-                    <constraint firstItem="oVL-TQ-QKc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="kQv-yb-KWp"/>
-                    <constraint firstItem="cN9-Jp-Kf6" firstAttribute="centerY" secondItem="gv1-Ex-LeH" secondAttribute="centerY" id="qSK-qT-LPZ"/>
-                    <constraint firstItem="oVL-TQ-QKc" firstAttribute="leading" secondItem="fsV-EO-aFj" secondAttribute="leading" id="uN1-PE-4Uh"/>
-                    <constraint firstItem="oVL-TQ-QKc" firstAttribute="top" secondItem="cN9-Jp-Kf6" secondAttribute="top" id="uvq-Fo-Vk7"/>
-                    <constraint firstItem="fsV-EO-aFj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="zBt-jl-iI1"/>
+                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="leading" secondItem="oVL-TQ-QKc" secondAttribute="trailing" constant="8" symbolic="YES" id="2D6-YA-P4L"/>
+                    <constraint firstItem="Dp7-Xs-PCF" firstAttribute="top" secondItem="oVL-TQ-QKc" secondAttribute="top" id="3fe-WH-FEU"/>
+                    <constraint firstItem="fsV-EO-aFj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="3pi-Qe-c5j"/>
+                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="leading" secondItem="fsV-EO-aFj" secondAttribute="trailing" constant="8" symbolic="YES" id="HF5-KY-Sj1"/>
+                    <constraint firstItem="gv1-Ex-LeH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hk3-wf-VUA"/>
+                    <constraint firstItem="oVL-TQ-QKc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Qo4-uC-TRk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oVL-TQ-QKc" secondAttribute="bottom" constant="12" id="aYS-n6-IWK"/>
+                    <constraint firstItem="oVL-TQ-QKc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="dzb-1Y-Tqs"/>
+                    <constraint firstItem="Dp7-Xs-PCF" firstAttribute="bottom" secondItem="fsV-EO-aFj" secondAttribute="bottom" id="fel-aC-sEs"/>
+                    <constraint firstItem="Dp7-Xs-PCF" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="iTe-h7-0oS"/>
+                    <constraint firstItem="Dp7-Xs-PCF" firstAttribute="leading" secondItem="gv1-Ex-LeH" secondAttribute="trailing" constant="15" id="kFU-De-KUL"/>
+                    <constraint firstItem="fsV-EO-aFj" firstAttribute="leading" secondItem="oVL-TQ-QKc" secondAttribute="leading" id="uHy-lQ-0c6"/>
+                    <constraint firstItem="Dp7-Xs-PCF" firstAttribute="centerY" secondItem="gv1-Ex-LeH" secondAttribute="centerY" id="vdg-89-rf3"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
@@ -70,10 +77,7 @@
                 <outlet property="thumbnailWinningThoughtCVC" destination="cN9-Jp-Kf6" id="mtt-mx-Gdf"/>
                 <outlet property="usernameWinningThoughtCVC" destination="oVL-TQ-QKc" id="F9Z-Vv-s5E"/>
             </connections>
-            <point key="canvasLocation" x="75" y="370"/>
+            <point key="canvasLocation" x="43" y="397"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Icon-40" width="40" height="40"/>
-    </resources>
 </document>
