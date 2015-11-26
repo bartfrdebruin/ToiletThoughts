@@ -66,14 +66,8 @@
                                                                        blue:0.2705882353
                                                                       alpha:1.0f];
     
-    NSShadow *NoShadow = [NSShadow new];
-    [NoShadow setShadowColor: [UIColor colorWithWhite:0.0f alpha:0.0f]];
-    [NoShadow setShadowOffset: CGSizeMake(0.0f, 0.0f)];
-    
     // To do: change the deprecated classes intro appropiate ones and updated the values.
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0 green:0.9921568627 blue:0.3529411765 alpha:1.0]}];
-
-
     
     [navigationController setNavigationBarHidden:YES];
 
