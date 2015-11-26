@@ -11,6 +11,7 @@
 #import "WinningThoughtsTableVC.h"
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
+#import "HomeViewController.h"
 #import <Parse/Parse.h>
 
 @interface PopularThoughtsTableVC ()
@@ -38,6 +39,17 @@
     
 }
 
+#pragma mark - backToHome
+
+- (void)backToHomeScreen {
+    
+    
+}
+
+
+#pragma mark - viewDidLoad
+
+
 - (void) viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:YES];
@@ -45,8 +57,8 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [backButton setImage:[UIImage imageNamed:@"home_klein.png"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
 }
