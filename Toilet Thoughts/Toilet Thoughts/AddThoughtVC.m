@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "PopularThoughtsTableVC.h"
+#import "LoginViewController.h"
 
 
 @import MobileCoreServices;
@@ -183,6 +184,29 @@
 #pragma mark - post
 
 - (IBAction)post:(id)sender {
+    
+    [self.thoughtTextField resignFirstResponder];
+
+    
+    UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want to save your thought you will need to be a registerd user of the Toilet Thoughts app" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        
+        [self presentViewController:loginViewController animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [logOrSignIn addAction:okAction];
+    [logOrSignIn addAction:cancelAction];
+    [self presentViewController:logOrSignIn animated:YES completion:nil];
+
+    
     
     PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
     [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
