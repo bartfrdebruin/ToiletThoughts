@@ -82,17 +82,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//    
-//    UITabBarController *tabBar = [[UITabBarController alloc]init];
-//    NSArray *viewControllers = [[NSArray alloc]init];
-//    
-//    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
-//    WinningThoughtsTableVC *winningThoughtsTVC = [[WinningThoughtsTableVC alloc]init];
-//    
-//    addThoughtVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Add" image:nil tag:1];
-//    winningThoughtsTVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
-//    
-//    tabBar.viewControllers = viewControllers;
+   
+
     
     
     

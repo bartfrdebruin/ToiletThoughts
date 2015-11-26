@@ -10,6 +10,9 @@
 #import "WinningThoughtCustomVideoCell.h"
 #import <Parse/Parse.h>
 
+static CGFloat expandedHeight = 100.0;
+static CGFloat contractedHeight = 44.0;
+
 @interface WinningThoughtsTableVC ()
 
 @property (nonatomic, strong) NSArray *winningThoughts;
@@ -27,6 +30,10 @@
          forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     [self performSelector:@selector(retrieveFromParse)];
+    
+    [self.tableView setAllowsMultipleSelection:YES];
+    
+//    self.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
     
 //    
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
@@ -130,6 +137,36 @@
     return YES;
 }
 */
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([tableView indexPathsForSelectedRows].count) {
+        
+        if ([[tableView indexPathsForSelectedRows] indexOfObject:indexPath] != NSNotFound) {
+            return expandedHeight; // Expanded height
+        }
+        
+        return contractedHeight; // Normal height
+    }
+    
+    return contractedHeight; // Normal height
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self updateTableView];
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self updateTableView];
+}
+
+- (void)updateTableView
+{
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
 
 /*
 #pragma mark - Table view delegate

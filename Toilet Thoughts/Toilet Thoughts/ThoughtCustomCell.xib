@@ -32,6 +32,10 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-6X-TjR">
                         <rect key="frame" x="240" y="3" width="64" height="21"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="Knr-c9-T07"/>
+                            <constraint firstAttribute="height" constant="21" id="SXw-ne-tps"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -39,6 +43,10 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apH-1i-QLm">
                         <rect key="frame" x="240" y="22" width="64" height="21"/>
                         <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="358-gS-kdH"/>
+                            <constraint firstAttribute="height" constant="21" id="sV2-AR-0BL"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -48,6 +56,9 @@
                 <constraints>
                     <constraint firstItem="5WC-cU-aZ0" firstAttribute="leading" secondItem="ZKv-Pc-gjK" secondAttribute="trailing" constant="17" id="1U6-z2-WpO"/>
                     <constraint firstItem="5WC-cU-aZ0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2tF-ll-FUo"/>
+                    <constraint firstItem="bAZ-6X-TjR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="5FX-0Z-mH1"/>
+                    <constraint firstItem="apH-1i-QLm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="5UJ-uc-rN4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="apH-1i-QLm" secondAttribute="trailing" constant="8" id="7Rf-fu-sfI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bAZ-6X-TjR" secondAttribute="bottom" constant="11" id="9Xh-bu-fnZ"/>
                     <constraint firstItem="ZKv-Pc-gjK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="ACZ-mG-jDB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="8" id="MM9-da-YWr"/>
@@ -57,8 +68,11 @@
                     <constraint firstItem="bAZ-6X-TjR" firstAttribute="top" secondItem="ZKv-Pc-gjK" secondAttribute="top" id="hr8-fW-xkU"/>
                     <constraint firstItem="apH-1i-QLm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="jqb-gi-1P5"/>
                     <constraint firstItem="bAZ-6X-TjR" firstAttribute="leading" secondItem="5WC-cU-aZ0" secondAttribute="trailing" constant="62" id="oUZ-vv-Jf3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="apH-1i-QLm" secondAttribute="bottom" constant="-8" id="trL-SY-T7v"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bAZ-6X-TjR" secondAttribute="bottom" constant="11" id="u5P-2c-6CD"/>
                     <constraint firstItem="ZKv-Pc-gjK" firstAttribute="bottom" secondItem="apH-1i-QLm" secondAttribute="bottom" id="uY3-vd-tmT"/>
                     <constraint firstItem="ZKv-Pc-gjK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ui2-Iq-VUl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="8" id="x6A-AR-YFE"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
