@@ -66,17 +66,12 @@
                                                                        blue:0.2705882353
                                                                       alpha:1.0f];
     
+    NSShadow *NoShadow = [NSShadow new];
+    [NoShadow setShadowColor: [UIColor colorWithWhite:0.0f alpha:0.0f]];
+    [NoShadow setShadowOffset: CGSizeMake(0.0f, 0.0f)];
+    
     // To do: change the deprecated classes intro appropiate ones and updated the values.
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIColor colorWithRed:1.0 green:0.9921568627 blue:0.3529411765 alpha:1.0],
-                                                          NSForegroundColorAttributeName,
-                                                          [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
-                                                          UITextAttributeTextShadowColor,
-                                                          [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
-                                                          UITextAttributeTextShadowOffset,
-                                                          [UIFont fontWithName:@"Helvetica-Bold" size:0.0],
-                                                          UITextAttributeFont,
-                                                          nil]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0 green:0.9921568627 blue:0.3529411765 alpha:1.0]}];
 
 
     

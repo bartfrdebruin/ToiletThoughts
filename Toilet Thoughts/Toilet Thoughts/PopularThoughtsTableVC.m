@@ -43,6 +43,9 @@
 
 - (void)backToHomeScreen {
     
+    HomeViewController *homeScreenVC = [[HomeViewController alloc] init];
+    
+    [self.navigationController pushViewController:homeScreenVC animated:YES];
     
 }
 
@@ -60,6 +63,8 @@
     [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    
     
 }
 
