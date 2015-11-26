@@ -7,6 +7,7 @@
 //
 
 #import "AddThoughtVC.h"
+#import "HomeViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "PopularThoughtsTableVC.h"
@@ -28,6 +29,13 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Add a Toilet Thought!";
+    
+    // No back button
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    // Cancel button
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -63,6 +71,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)cancelAndGoBack {
+    
+    HomeViewController *hvc = [[HomeViewController alloc] init];
+    
+    [self.navigationController pushViewController:hvc animated:YES];
+    
 }
 
 #pragma mark - textField
