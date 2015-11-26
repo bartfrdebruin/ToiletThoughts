@@ -178,6 +178,15 @@
     
     [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
     
+    // Toilet Thought Image
+    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
+    
+    // Lekker image name
+    NSUUID *uuid = [NSUUID UUID];
+    
+    PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
+    [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
+    
     [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         [self.thoughtTextField resignFirstResponder];
