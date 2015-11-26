@@ -44,8 +44,6 @@
                                                                                           action:@selector(handleTap:)];
     
     [self.view addGestureRecognizer:tapOutsiteTextField];
-    
- 
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
@@ -81,10 +79,10 @@
     [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] getValue:&keyboardFrame];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationDuration:animationDuration *100];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.scrollView setFrame:CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y - keyboardFrame.size.height, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+    [self.customView  setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y - keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
     
     [UIView commitAnimations];
     
@@ -105,7 +103,7 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.scrollView setFrame:CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y + keyboardFrame.size.height, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+    [self.customView setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
     
     
     [UIView commitAnimations];
@@ -169,24 +167,25 @@
         [self.thoughtTextField resignFirstResponder];
 
         
-                if (!error) {
-                    // Show success message
-                    UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
-        
-                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                          handler:^(UIAlertAction * action) {
-                                                                              
-                                                                              PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
-                                                            
-                                                                              NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
-//                                                                              NSAssert(self.presentingViewController.navigationController != nil, @"All this is nil");
-                                                                              
-                                                                              [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
+        if (!error) {
+            // Show success message
+            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                      
+                                                                      PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+                                                                      
+                                                                      // NavigationController with presenting.
+                                                                      //                                                                              NSAssert(self.presentingViewController != nil, @"PresentingViewController is nil");
+                                                                      //
+                                                                      //                                                                              [(UINavigationController *)self.presentingViewController pushViewController:popularThoughtsTableVC animated:NO];
+                                                                      //                                                                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                                                                      
+                                                                      // NavigationController with pushing.
+                                                                      [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
                                                     
-                                                                                                                                                            
-                                                                              [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-
-                                                                          }];
+                                                                  }];
                     [alert addAction:defaultAction];
         
                     [self presentViewController:alert animated:YES completion:nil];
