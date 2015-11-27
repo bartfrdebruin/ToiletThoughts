@@ -7,6 +7,7 @@
 //
 
 #import "AddThoughtVC.h"
+#import "UserViewController.h"
 #import "HomeViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
@@ -24,6 +25,28 @@
 
 
 #pragma mark - viewDidLoad
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+    else {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +74,6 @@
     
     UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleTap:)];
-    
     [self.view addGestureRecognizer:tapOutsiteTextField];
 }
 
@@ -59,7 +81,6 @@
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
         [self.thoughtTextField resignFirstResponder];
-    
 }
 
 - (void)dealloc {
@@ -90,6 +111,21 @@
     [self.navigationController pushViewController:hvc animated:YES];
     
     [UIView commitAnimations];
+}
+
+- (void)goToUserScreen {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        UserViewController * userViewController = [[UserViewController alloc] init];
+        [self.navigationController pushViewController: userViewController animated:YES];
+        
+    } else {
+        
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
 }
 
 #pragma mark - textField
@@ -130,7 +166,7 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.customView setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
+    [self.customView setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + keyboardFrame.size.height,self.customView.frame.size.width, self.customView.frame.size.height)];
     
     
     [UIView commitAnimations];
@@ -186,99 +222,125 @@
 - (IBAction)post:(id)sender {
     
     [self.thoughtTextField resignFirstResponder];
+    [self.view endEditing:YES];
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
+        [self.thoughtTextField resignFirstResponder];
+        [self.view endEditing:YES];
+
+
+        PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
+        [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         
+        if (self.imageView.image != nil) {
+            
+            // Toilet Thought Image
+            NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
+            
+            // Lekker image name
+            NSUUID *uuid = [NSUUID UUID];
+            
+            PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
+            [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
+            
+        }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            [self.view endEditing:YES];
+
+            
+            if (!error) {
+                
+                // Show success message
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {
+                                                                          
+                                                                          PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+                                                                          [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+                                                                      }];
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            } else {
+                UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        }];
+  
     } else {
         
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];
-        [self presentViewController:loginViewController animated:YES completion:nil];
+        UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
         
-    }
-    
-    
-
-
-    
-    
-    UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];
-        [self presentViewController:loginViewController animated:YES completion:nil];
-        
-    }];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    
-        UIAlertController *noLogOrSignIn = [UIAlertController alertControllerWithTitle:@"Be carefull!" message:@"If you do not sign or log in your Toilet Thought will not be saved" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *takeMeHome = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * actionOk){
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            HomeViewController *homevc = [[HomeViewController alloc] init];
-            [self.navigationController pushViewController:homevc animated:YES];
-        }];
-        
-        UIAlertAction *takeMeToTheLogin = [UIAlertAction actionWithTitle:@"Sign or Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull actionSignOrLogIn) {
+            [self.thoughtTextField resignFirstResponder];
+
             
             LoginViewController *loginViewController = [[LoginViewController alloc] init];
             [self presentViewController:loginViewController animated:YES completion:nil];
+            
         }];
         
-        [noLogOrSignIn addAction:takeMeHome];
-        [noLogOrSignIn addAction:takeMeToTheLogin];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            UIAlertController *noLogOrSignIn = [UIAlertController alertControllerWithTitle:@"Be carefull!" message:@"If you do not sign or log in your Toilet Thought will not be saved" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *takeMeHome = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * actionOk){
+                
+                HomeViewController *homevc = [[HomeViewController alloc] init];
+                [self.navigationController pushViewController:homevc animated:YES];
+            }];
+            
+            UIAlertAction *takeMeToTheLogin = [UIAlertAction actionWithTitle:@"Sign or Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull actionSignOrLogIn) {
+                
+                LoginViewController *loginViewController = [[LoginViewController alloc] init];
+                [self presentViewController:loginViewController animated:YES completion:nil];
+            }];
+            
+            [noLogOrSignIn addAction:takeMeHome];
+            [noLogOrSignIn addAction:takeMeToTheLogin];
+            
+            
+            [self presentViewController:noLogOrSignIn animated:YES completion:nil];
+        }];
         
-
-        [self presentViewController:noLogOrSignIn animated:YES completion:nil];
-    }];
-    
-    [logOrSignIn addAction:okAction];
-    [logOrSignIn addAction:cancelAction];
-    
-    [self presentViewController:logOrSignIn animated:YES completion:nil];
-
-    PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
-    [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
-    
-    if (self.imageView.image != nil) {
+        [logOrSignIn addAction:okAction];
+        [logOrSignIn addAction:cancelAction];
         
-        // Toilet Thought Image
-        NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
-        
-        // Lekker image name
-        NSUUID *uuid = [NSUUID UUID];
-        
-        PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
-        [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
-        
+        [self presentViewController:logOrSignIn animated:YES completion:nil];
     }
     
-    [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        [self.thoughtTextField resignFirstResponder];
-        
-        if (!error) {
+//    PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
+//    [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
+//    
+//    if (self.imageView.image != nil) {
+//        
+//        // Toilet Thought Image
+//        NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
+//        
+//        // Lekker image name
+//        NSUUID *uuid = [NSUUID UUID];
+//        
+//        PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
+//        [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
+//        
+//    }
+//    
+//    [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        
+//        [self.thoughtTextField resignFirstResponder];
+//        
+//        if (!error) {
+//            
 //            // Show success message
 //            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
 //            
@@ -290,16 +352,16 @@
 //                                                                  }];
 //            [alert addAction:defaultAction];
 //            [self presentViewController:alert animated:YES completion:nil];
-            
-        } else {
+//            
+//        } else {
 //            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
 //            
 //            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
 //                                                                  handler:^(UIAlertAction * action) {}];
 //            [alert addAction:defaultAction];
 //            [self presentViewController:alert animated:YES completion:nil];
-        }
-    }];
+//        }
+//    }];
 
 }
 

@@ -46,7 +46,6 @@
 - (void)backToHomeScreen {
     
     HomeViewController *homeScreenVC = [[HomeViewController alloc] init];
-    
     [self.navigationController pushViewController:homeScreenVC animated:YES];
     
 }
@@ -63,15 +62,11 @@
         
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
         [self presentViewController:loginViewController animated:YES completion:nil];
-        
     }
-    
-    
 }
 
 
 #pragma mark - viewDidLoad
-
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -84,10 +79,21 @@
     [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
-    [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+    else {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
     
     
 }
