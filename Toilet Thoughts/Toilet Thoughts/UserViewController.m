@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
     self.title = @"User Name";
     self.navigationController.navigationBarHidden = YES;
 }
@@ -32,26 +33,35 @@
 }
 - (IBAction)logOut:(id)sender {
     
+    UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Log out?" message: @"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleAlert];
     
-    [PFUser logOut];
-    PFUser *currentUser = [PFUser currentUser];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                          
+                                                              HomeViewController *hvc = [[HomeViewController alloc] init];
+                                                              [self.navigationController pushViewController:hvc animated:yes];
+                                                          
+                                                          }];
+    [alert addAction:cancel];
+    [alert addAction:yes];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+    
+    
+    
+    
+        [PFUser logOut];
 }
+
 - (IBAction)back:(id)sender {
     
     HomeViewController *hvc = [[HomeViewController alloc] init];
-    
     [self.navigationController pushViewController:hvc animated:YES];
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
