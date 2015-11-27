@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "AddThoughtVC.h"
 #import <Parse/Parse.h>
 #import "AddThoughtVC.h"
 
@@ -26,8 +27,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self.userName resignFirstResponder];
+    [self.passWord resignFirstResponder];
+    
+    return YES;
+}
+
 
 - (IBAction)signIn:(id)sender {
+    
+    [self.userName resignFirstResponder];
+    [self.passWord resignFirstResponder];
+    [self.view endEditing:YES];
+
     
     PFUser *user = [PFUser user];
     user.username = self.userName.text;
@@ -49,8 +63,10 @@
     [PFUser logInWithUsernameInBackground:self.userName.text password:self.passWord.text
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
-
-                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                            
+                                            
+                                            
+                                             [self dismissViewControllerAnimated:YES completion:nil];
                                         
                                         } else {
                                             // The login failed. Check error to see why.

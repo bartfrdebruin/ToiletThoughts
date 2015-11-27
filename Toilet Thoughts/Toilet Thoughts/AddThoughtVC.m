@@ -19,6 +19,8 @@
 
 @interface AddThoughtVC ()
 
+@property (nonatomic) CGRect normalFrame;
+
 @end
 
 @implementation AddThoughtVC
@@ -30,6 +32,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:YES];
+    
+//    self.view.frame = CGRectMake(0, 0, 320, 568);
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
@@ -46,6 +50,15 @@
         [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:YES];
+    
+    self.view.frame = CGRectMake(0, 0, 320, 568);
+
+    
 }
 
 - (void)viewDidLoad {
@@ -168,7 +181,6 @@
     
     [self.customView setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + keyboardFrame.size.height,self.customView.frame.size.width, self.customView.frame.size.height)];
     
-    
     [UIView commitAnimations];
     
 }
@@ -283,35 +295,13 @@
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.thoughtTextField resignFirstResponder];
+            [self.view endEditing:YES];
 
-            
             LoginViewController *loginViewController = [[LoginViewController alloc] init];
             [self presentViewController:loginViewController animated:YES completion:nil];
-            
         }];
         
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            UIAlertController *noLogOrSignIn = [UIAlertController alertControllerWithTitle:@"Be carefull!" message:@"If you do not sign or log in your Toilet Thought will not be saved" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *takeMeHome = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * actionOk){
-                
-                HomeViewController *homevc = [[HomeViewController alloc] init];
-                [self.navigationController pushViewController:homevc animated:YES];
-            }];
-            
-            UIAlertAction *takeMeToTheLogin = [UIAlertAction actionWithTitle:@"Sign or Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull actionSignOrLogIn) {
-                
-                LoginViewController *loginViewController = [[LoginViewController alloc] init];
-                [self presentViewController:loginViewController animated:YES completion:nil];
-            }];
-            
-            [noLogOrSignIn addAction:takeMeHome];
-            [noLogOrSignIn addAction:takeMeToTheLogin];
-            
-            
-            [self presentViewController:noLogOrSignIn animated:YES completion:nil];
-        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:nil];
         
         [logOrSignIn addAction:okAction];
         [logOrSignIn addAction:cancelAction];
