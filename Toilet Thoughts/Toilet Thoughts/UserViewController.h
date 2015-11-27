@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UserViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *logOut;
 
 @end
