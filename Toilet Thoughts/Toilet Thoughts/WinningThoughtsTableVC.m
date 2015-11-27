@@ -30,7 +30,7 @@ static CGFloat contractedHeight = 44.0;
          forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     [self performSelector:@selector(retrieveFromParse)];
-    [self performSelector:@selector(myMethod)];
+//    [self performSelector:@selector(myMethod)];
     
     [self.tableView setAllowsMultipleSelection:YES];
     
