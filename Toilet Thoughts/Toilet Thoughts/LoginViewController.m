@@ -64,12 +64,17 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             
+                                            [self dismissViewControllerAnimated:YES completion:nil];
                                             
+                                            [self.userName resignFirstResponder];
+                                            [self.passWord resignFirstResponder];
                                             
-                                             [self dismissViewControllerAnimated:YES completion:nil];
+                                            [self.view endEditing:YES];
+
                                         
                                         } else {
-                                            // The login failed. Check error to see why.
+
+                                        
                                         }
                                     }];
 }
