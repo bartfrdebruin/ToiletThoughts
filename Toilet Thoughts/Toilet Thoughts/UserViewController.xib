@@ -3,10 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController">
             <connections>
+                <outlet property="backButton" destination="SRu-7L-BpD" id="3nc-0H-vL3"/>
+                <outlet property="logOut" destination="VYN-UM-ZSg" id="lhV-FP-he2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,42 +18,54 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="eND-1Q-NvR">
-                    <rect key="frame" x="180" y="87" width="240" height="197"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Example" translatesAutoresizingMaskIntoConstraints="NO" id="eND-1Q-NvR">
+                    <rect key="frame" x="0.0" y="8" width="600" height="592"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-7L-BpD">
+                    <rect key="frame" x="18" y="32" width="46" height="30"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="197" id="S0e-VP-nUF"/>
-                        <constraint firstAttribute="height" constant="197" id="nJN-K9-WfR"/>
-                        <constraint firstAttribute="width" constant="240" id="u2f-7Y-dk9"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="197" id="ueS-dY-nKF"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="240" id="xqp-1q-CEN"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="yqe-zN-cKJ"/>
+                        <constraint firstAttribute="width" constant="46" id="2R6-1x-WBY"/>
                     </constraints>
-                </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-Re-Ehb">
-                    <rect key="frame" x="96" y="321" width="407" height="271"/>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="back:" destination="-1" eventType="touchUpInside" id="zbf-40-KHB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-UM-ZSg">
+                    <rect key="frame" x="523" y="27" width="61" height="30"/>
                     <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                </tableView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="61" id="dpt-rO-Bge"/>
+                    </constraints>
+                    <state key="normal" title="Log out">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="iI0-1d-l8m"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="eND-1Q-NvR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2Ce-Xm-Jrl"/>
-                <constraint firstAttribute="trailing" secondItem="c8s-Re-Ehb" secondAttribute="trailing" constant="97" id="7q2-Jh-lwo"/>
-                <constraint firstAttribute="trailing" secondItem="c8s-Re-Ehb" secondAttribute="trailing" constant="97" id="ERl-Qb-SqV"/>
-                <constraint firstItem="c8s-Re-Ehb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Eib-Tk-gmC"/>
-                <constraint firstItem="eND-1Q-NvR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="87" id="Ypt-w0-WAn"/>
-                <constraint firstItem="c8s-Re-Ehb" firstAttribute="top" secondItem="eND-1Q-NvR" secondAttribute="bottom" constant="37" id="lUW-am-X7m"/>
-                <constraint firstItem="c8s-Re-Ehb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="96" id="qH1-Dd-2hg"/>
-                <constraint firstItem="c8s-Re-Ehb" firstAttribute="top" secondItem="eND-1Q-NvR" secondAttribute="bottom" constant="37" id="u94-65-YqQ"/>
-                <constraint firstItem="c8s-Re-Ehb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="96" id="uZ1-Oi-QtC"/>
+                <constraint firstAttribute="trailing" secondItem="VYN-UM-ZSg" secondAttribute="trailing" constant="16" id="8d8-Wu-XUs"/>
+                <constraint firstItem="eND-1Q-NvR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ELN-qz-G6X"/>
+                <constraint firstItem="VYN-UM-ZSg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="G1V-Fd-0CT"/>
+                <constraint firstItem="SRu-7L-BpD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="PSm-FN-zxe"/>
+                <constraint firstAttribute="bottom" secondItem="eND-1Q-NvR" secondAttribute="bottom" id="So9-4c-rMU"/>
+                <constraint firstAttribute="trailing" secondItem="eND-1Q-NvR" secondAttribute="trailing" id="b5V-2x-6AO"/>
+                <constraint firstItem="eND-1Q-NvR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="ccf-9s-hdE"/>
+                <constraint firstItem="SRu-7L-BpD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="fty-s4-hj2"/>
             </constraints>
-            <point key="canvasLocation" x="334" y="226"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="480" y="199"/>
         </view>
     </objects>
     <resources>
-        <image name="Icon-60" width="60" height="60"/>
+        <image name="Example" width="750" height="1334"/>
     </resources>
 </document>

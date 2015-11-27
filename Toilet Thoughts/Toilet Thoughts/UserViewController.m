@@ -7,6 +7,11 @@
 //
 
 #import "UserViewController.h"
+#import "LoginViewController.h"
+#import "HomeViewController.h"
+#import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
+
 
 @interface UserViewController ()
 
@@ -18,11 +23,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"User Name";
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)logOut:(id)sender {
+    
+    
+    [PFUser logOut];
+    PFUser *currentUser = [PFUser currentUser];
+}
+- (IBAction)back:(id)sender {
+    
+    HomeViewController *hvc = [[HomeViewController alloc] init];
+    
+    [self.navigationController pushViewController:hvc animated:YES];
+    
 }
 
 /*
