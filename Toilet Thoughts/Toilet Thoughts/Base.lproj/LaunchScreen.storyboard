@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Bart &amp; Fouad. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEW-WV-Ylm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2015 Bart &amp; Fouad. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEW-WV-Ylm">
                                 <rect key="frame" x="20" y="500" width="560" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
@@ -106,7 +106,9 @@
                             <constraint firstItem="6SW-ny-pcd" firstAttribute="top" secondItem="Vyf-Sb-s0A" secondAttribute="bottom" constant="22" id="Vm1-kF-fMY"/>
                             <constraint firstItem="6SW-ny-pcd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vwg-Rp-MO0"/>
                             <constraint firstItem="Vw5-bB-fRO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="275" id="Vy2-Bu-P5I"/>
+                            <constraint firstItem="QEW-WV-Ylm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gWf-zM-wnd"/>
                             <constraint firstItem="Vw5-bB-fRO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hEl-CA-9cW"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="QEW-WV-Ylm" secondAttribute="bottom" constant="82" id="kT3-vI-XPq"/>
                             <constraint firstItem="8Jc-1y-sRC" firstAttribute="top" secondItem="Vw5-bB-fRO" secondAttribute="bottom" constant="8" symbolic="YES" id="lKT-yH-AoV"/>
                             <constraint firstItem="Vyf-Sb-s0A" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="53" id="lLd-Uo-xD1"/>
                             <constraint firstItem="QEW-WV-Ylm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="nOB-c9-Jf8"/>
