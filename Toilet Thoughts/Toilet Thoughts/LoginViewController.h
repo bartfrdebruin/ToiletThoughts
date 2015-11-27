@@ -15,5 +15,6 @@
 
 - (IBAction)signIn:(id)sender;
 - (IBAction)logIn:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 @end
