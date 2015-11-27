@@ -7,9 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-                <outlet property="passWord" destination="UgH-es-CE5" id="Xz2-90-uQC"/>
-                <outlet property="signOrLogIn" destination="IpU-2b-SEY" id="XJT-dD-nkc"/>
-                <outlet property="userName" destination="poW-uM-sm6" id="dsg-b0-e6o"/>
+                <outlet property="passWord" destination="UgH-es-CE5" id="4yU-9v-NRN"/>
+                <outlet property="userName" destination="poW-uM-sm6" id="EFA-h4-Gya"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,36 +17,75 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="poW-uM-sm6">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username:" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="poW-uM-sm6">
                     <rect key="frame" x="160" y="181" width="281" height="30"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="281" id="WbZ-hu-yqi"/>
+                        <constraint firstAttribute="width" constant="281" id="0Am-WX-YSB"/>
+                        <constraint firstAttribute="height" constant="30" id="fS4-Yr-ega"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your pasword!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgH-es-CE5">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password:" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UgH-es-CE5">
                     <rect key="frame" x="160" y="259" width="281" height="30"/>
                     <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="exq-jN-auf"/>
+                    </constraints>
+                    <color key="textColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-2b-SEY">
-                    <rect key="frame" x="310" y="297" width="131" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBr-hB-tRm">
+                    <rect key="frame" x="260" y="304" width="56" height="30"/>
                     <animations/>
-                    <state key="normal" title="Sign or Log in!"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="Qna-sB-4de"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title=" Log in!">
+                        <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="logIn:" destination="-1" eventType="touchUpInside" id="W0O-3Q-EvK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIO-og-Nhp">
+                    <rect key="frame" x="160" y="304" width="36" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="fQu-Km-QkR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Sign">
+                        <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="signIn:" destination="-1" eventType="touchUpInside" id="fzu-rt-2TG"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="poW-uM-sm6" firstAttribute="leading" secondItem="UgH-es-CE5" secondAttribute="leading" id="8M1-LJ-Bhc"/>
-                <constraint firstItem="poW-uM-sm6" firstAttribute="trailing" secondItem="UgH-es-CE5" secondAttribute="trailing" id="IVC-yR-oay"/>
-                <constraint firstItem="poW-uM-sm6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="181" id="Joq-rD-Mis"/>
-                <constraint firstItem="UgH-es-CE5" firstAttribute="top" secondItem="poW-uM-sm6" secondAttribute="bottom" constant="48" id="tLn-ne-y7p"/>
-                <constraint firstItem="UgH-es-CE5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vzD-gk-ecv"/>
+                <constraint firstItem="UgH-es-CE5" firstAttribute="leading" secondItem="vIO-og-Nhp" secondAttribute="leading" id="Cj3-lu-S0t"/>
+                <constraint firstItem="UgH-es-CE5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D7H-xd-zth"/>
+                <constraint firstItem="poW-uM-sm6" firstAttribute="leading" secondItem="UgH-es-CE5" secondAttribute="leading" id="HIn-1Y-r7l"/>
+                <constraint firstItem="UgH-es-CE5" firstAttribute="trailing" secondItem="poW-uM-sm6" secondAttribute="trailing" id="bn9-ne-ZyL"/>
+                <constraint firstItem="poW-uM-sm6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="181" id="djf-ZA-h0K"/>
+                <constraint firstItem="UgH-es-CE5" firstAttribute="top" secondItem="poW-uM-sm6" secondAttribute="bottom" constant="48" id="sHD-8m-Qgk"/>
+                <constraint firstItem="vIO-og-Nhp" firstAttribute="top" secondItem="UgH-es-CE5" secondAttribute="bottom" constant="15" id="w5b-RW-Jnd"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="placeHolder">
+                    <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
 </document>

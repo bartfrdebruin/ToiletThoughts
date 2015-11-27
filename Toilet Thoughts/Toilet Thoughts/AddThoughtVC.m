@@ -186,28 +186,78 @@
 - (IBAction)post:(id)sender {
     
     [self.thoughtTextField resignFirstResponder];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    } else {
+        
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+        
+    }
+    
+    
+
 
     
-    UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want to save your thought you will need to be a registerd user of the Toilet Thoughts app" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
-        
         [self presentViewController:loginViewController animated:YES completion:nil];
         
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+        UIAlertController *noLogOrSignIn = [UIAlertController alertControllerWithTitle:@"Be carefull!" message:@"If you do not sign or log in your Toilet Thought will not be saved" preferredStyle:UIAlertControllerStyleAlert];
         
+        UIAlertAction *takeMeHome = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * actionOk){
+            
+            HomeViewController *homevc = [[HomeViewController alloc] init];
+            [self.navigationController pushViewController:homevc animated:YES];
+        }];
+        
+        UIAlertAction *takeMeToTheLogin = [UIAlertAction actionWithTitle:@"Sign or Login" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull actionSignOrLogIn) {
+            
+            LoginViewController *loginViewController = [[LoginViewController alloc] init];
+            [self presentViewController:loginViewController animated:YES completion:nil];
+        }];
+        
+        [noLogOrSignIn addAction:takeMeHome];
+        [noLogOrSignIn addAction:takeMeToTheLogin];
+        
+
+        [self presentViewController:noLogOrSignIn animated:YES completion:nil];
     }];
     
     [logOrSignIn addAction:okAction];
     [logOrSignIn addAction:cancelAction];
+    
     [self presentViewController:logOrSignIn animated:YES completion:nil];
 
-    
-    
     PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
     [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
     
@@ -229,25 +279,25 @@
         [self.thoughtTextField resignFirstResponder];
         
         if (!error) {
-            // Show success message
-            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {
-                                                                      
-                                                                      PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
-                                                                      [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
-                                                                  }];
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
+//            // Show success message
+//            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload Complete" message: @"Succesfully saved your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                                  handler:^(UIAlertAction * action) {
+//                                                                      
+//                                                                      PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] init];
+//                                                                      [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+//                                                                  }];
+//            [alert addAction:defaultAction];
+//            [self presentViewController:alert animated:YES completion:nil];
             
         } else {
-            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {}];
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
+//            UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Upload failure" message: @"Failed to save your Toilet Thought!" preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                                  handler:^(UIAlertAction * action) {}];
+//            [alert addAction:defaultAction];
+//            [self presentViewController:alert animated:YES completion:nil];
         }
     }];
 

@@ -7,6 +7,7 @@
 //
 
 #import "PopularThoughtsTableVC.h"
+#import "LoginViewController.h"
 #import "UserViewController.h"
 #import "AddThoughtVC.h"
 #import "WinningThoughtsTableVC.h"
@@ -52,9 +53,20 @@
 
 - (void)goToUserScreen {
     
-    UserViewController * userViewController = [[UserViewController alloc] init];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        UserViewController * userViewController = [[UserViewController alloc] init];
+        [self.navigationController pushViewController: userViewController animated:YES];
+        
+    } else {
+        
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+        
+    }
     
-    [self.navigationController pushViewController: userViewController animated:YES];
+    
 }
 
 
