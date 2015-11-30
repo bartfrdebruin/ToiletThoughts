@@ -70,7 +70,19 @@
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0 green:0.9921568627 blue:0.3529411765 alpha:1.0]}];
     
     [navigationController setNavigationBarHidden:YES];
-
+    
+    // TitleColor
+    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:1.0
+                                                         green:0.9921568627
+                                                          blue:0.3529411765
+                                                         alpha:1.0f]];
+    
+    // BartintColor
+    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.4588235294
+                                                            green:0.1098039216
+                                                             blue:0.2705882353
+                                                            alpha:1.0f]];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;

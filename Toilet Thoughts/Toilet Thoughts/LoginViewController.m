@@ -27,6 +27,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    // No toolbar
+    [self.navigationController setToolbarHidden:YES];
+
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [self.userName resignFirstResponder];

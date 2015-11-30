@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -56,11 +57,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright (c) 2015 Bart &amp; Fouad. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEW-WV-Ylm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Bart &amp; Fouad. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEW-WV-Ylm">
                                 <rect key="frame" x="20" y="500" width="560" height="18"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyf-Sb-s0A">
@@ -82,10 +83,16 @@
                         <constraints>
                             <constraint firstItem="6SW-ny-pcd" firstAttribute="top" secondItem="Vyf-Sb-s0A" secondAttribute="bottom" constant="22" id="288-wb-Zih"/>
                             <constraint firstItem="Vyf-Sb-s0A" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3lb-N6-k0X"/>
+                            <constraint firstItem="QEW-WV-Ylm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="5l6-LC-tgp"/>
                             <constraint firstItem="8Jc-1y-sRC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8pF-F4-FW7"/>
                             <constraint firstItem="Vyf-Sb-s0A" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="53" id="FGK-sg-9kg"/>
                             <constraint firstItem="6SW-ny-pcd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GUA-kC-jEh"/>
+                            <constraint firstItem="8Jc-1y-sRC" firstAttribute="height" secondItem="Vyf-Sb-s0A" secondAttribute="height" id="R4n-6z-LAX"/>
+                            <constraint firstItem="Vw5-bB-fRO" firstAttribute="height" secondItem="Vyf-Sb-s0A" secondAttribute="height" id="UII-pX-oH6"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="QEW-WV-Ylm" secondAttribute="bottom" constant="82" id="aRQ-vB-Vy0"/>
+                            <constraint firstItem="6SW-ny-pcd" firstAttribute="height" secondItem="Vyf-Sb-s0A" secondAttribute="height" id="dXq-0x-D6g"/>
                             <constraint firstItem="Vw5-bB-fRO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gv1-cc-JVB"/>
+                            <constraint firstItem="QEW-WV-Ylm" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="iwG-B4-fQ3"/>
                         </constraints>
                     </view>
                 </viewController>
