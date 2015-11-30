@@ -27,10 +27,22 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    // No toolbar
+    [self.navigationController setToolbarHidden:YES];
+}
+
 - (IBAction)logOut:(id)sender {
     
     UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Log out?" message: @"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleAlert];
@@ -50,11 +62,7 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 
-    
-    
-    
-    
-        [PFUser logOut];
+    [PFUser logOut];
 }
 
 - (IBAction)back:(id)sender {

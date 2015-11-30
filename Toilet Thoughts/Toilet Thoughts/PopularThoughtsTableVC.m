@@ -6,6 +6,8 @@
 //  Copyright © 2015 BartandFouad. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 #import "PopularThoughtsTableVC.h"
 #import "LoginViewController.h"
 #import "UserViewController.h"
@@ -14,15 +16,18 @@
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
-#import <Parse/Parse.h>
+#import "ToiletThought.h"
 
 @interface PopularThoughtsTableVC ()
 
-@property (nonatomic, strong) NSArray *toiletThoughts;
+//@property (nonatomic, strong) NSArray *toiletThoughts;
 
 @end
 
 @implementation PopularThoughtsTableVC
+
+
+#pragma mark - goToWinning Thoughts
 
 - (IBAction)popular:(id)sender {
     
@@ -73,6 +78,7 @@
     [super viewWillAppear:YES];
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    [self.navigationController setToolbarHidden:NO];
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
@@ -95,62 +101,131 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     }
     
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                           target:nil action:NULL];
+    
+    UIBarButtonItem *addPostButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(gotoAddThoughtVC)];
+    
+    UIBarButtonItem *selectTableView = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(updateTableview)];
+    
+    
+    self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
+    [self.navigationController setToolbarItems:self.toolbarItems];
     
 }
+
+
+- (void)gotoAddThoughtVC {
+    
+    AddThoughtVC *atvc = [[AddThoughtVC alloc] init];
+    [self.navigationController pushViewController:atvc animated:YES];
+}
+
+
+- (void)updateTableview {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sort Toilet Thoughts"
+                                                                   message:@"Choose how you want the Toilet Thoughts to be sorted!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *popularThoughts = [UIAlertAction actionWithTitle:@"Popular Thoughts" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                            
+                                                              self.chosenList = 1;
+                                                              [self retrieveFromParse];
+                                                            }];
+    
+    UIAlertAction *recentThoughts = [UIAlertAction actionWithTitle:@"Recent Thoughts" style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * action) {
+                                                               
+                                                               self.chosenList = 2;
+                                                               [self retrieveFromParse];
+
+                                                           }];
+    
+    UIAlertAction *winningThoughts = [UIAlertAction actionWithTitle:@"Winning Thoughts" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              
+                                                            
+                                                          
+                                                          }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                            handler:^(UIAlertAction * action) {
+                                                                
+                                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                                                
+                                                            }];
+    [alert addAction:popularThoughts];
+    [alert addAction:recentThoughts];
+    [alert addAction:winningThoughts];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:NO completion:nil];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:@"ThoughtCustomCell"];
-    
     UINib *nib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
-    
-    [self.tableView registerNib:nib
-         forCellReuseIdentifier:@"ThoughtCustomCell"];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"ThoughtCustomCell"];
     
     [self performSelector:@selector(retrieveFromParse)];
-    
-    // Edit button
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-   
-
-    
-    
-    
-//    self.navigationController.toolbarHidden = NO;
-    
-    
-//    self.navigationController.toolbarItems = @[Item1, Item2];
-    
-    
     
     self.title = @"Popular";
 }
 
-- (void) retrieveFromParse {
+
+- (void)retrieveFromParse {
     
-    PFQuery *retrieveThoughts = [PFQuery queryWithClassName:@"ToiletThought"];
     
-    [retrieveThoughts findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if (self.chosenList == 1) {
         
-        if (!error) {
-            self.toiletThoughts = [[NSArray alloc]initWithArray:objects];
-            [self.tableView reloadData];
-        }
+        PFQuery *queryForPopularToiletThougts = [PFQuery queryWithClassName:@"ToiletThought"];
+        [queryForPopularToiletThougts orderByAscending:@"score"];
         
-    }];
+        [queryForPopularToiletThougts findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                self.toiletThoughts = [[NSArray alloc] initWithArray:objects];
+                [self.tableView reloadData];
+                
+            }
+        }];
+    } else if (self.chosenList == 2) {
+        
+        PFQuery *queryForRecentToiletThougts = [PFQuery queryWithClassName:@"ToiletThought"];
+        [queryForRecentToiletThougts orderByDescending:@"createdAt"];
+        
+        [queryForRecentToiletThougts findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                self.toiletThoughts = [[NSArray alloc] initWithArray:objects];
+                [self.tableView reloadData];
+                
+                
+            }
+        }];
+        
+    } else {
+        
+        PFQuery *standardQuery = [PFQuery queryWithClassName:@"ToiletThought"];
+        [standardQuery orderByAscending:@"score"];
+        
+        [standardQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                self.toiletThoughts = [[NSArray alloc] initWithArray:objects];
+                [self.tableView reloadData];
+                
+                
+            }
+        }];
+        
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -164,20 +239,22 @@
     return self.toiletThoughts.count;
 }
 
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView
+heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
+    
+    return 100;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ThoughtCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThoughtCustomCell" forIndexPath:indexPath];
-//    [tableView registerNib:[[UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil] forCellReuseIdentifier:@"ThoughtCustomCell"];
-    // Configure the cell...
-//    cell.textLabel.text = @"We are the best and Enrico sucks!";
     
     PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
     
 
     cell.usernameThoughtCustomCell.text = [thoughtsDict objectForKey:@"userName"];
-//    cell.thoughtImageThumbnail.image = [thoughtsDict objectForKey:@"thoughtImage"];
     cell.thoughtLabel.text = [thoughtsDict objectForKey:@"toiletThought"];
     cell.scoreThoughtCustomCell.text = [thoughtsDict objectForKey:@"score"];
+    cell.dateLabel.text = [thoughtsDict objectForKey:@"createdAt"];
     
     PFFile *thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
     PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
@@ -187,6 +264,7 @@
     
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -217,43 +295,6 @@
 }
 
 
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -276,23 +317,8 @@
      UIViewAnimationTransitionFlipFromLeft
                            forView:self.navigationController.view cache:NO];
     
-    
     [self.navigationController pushViewController:stdvc animated:YES];
     [UIView commitAnimations];
-    
-    // Push the view controller.
-//    [self.navigationController pushViewController:stdvc animated:YES];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

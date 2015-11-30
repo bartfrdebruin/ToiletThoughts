@@ -78,6 +78,10 @@
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
+    // No toolbar
+    [self.navigationController setToolbarHidden:YES];
+
+    
     // Cancel button
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
@@ -94,7 +98,7 @@
 }
 
 
-// ViewWillDisappear
+
 - (void)viewWillDisappear:(BOOL)animated {
     
         [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];

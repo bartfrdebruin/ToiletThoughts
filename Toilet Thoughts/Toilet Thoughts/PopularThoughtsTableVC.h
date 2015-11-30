@@ -11,8 +11,14 @@
 
 @interface PopularThoughtsTableVC : UITableViewController
 
+@property (nonatomic, strong) UIView *floatingView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *popular;
 @property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic) int chosenList;
+@property (nonatomic, strong) NSArray *toiletThoughts;
+
+
+
 //@property (strong, nonatomic) PFFile *thoughtImageFile;
 
 

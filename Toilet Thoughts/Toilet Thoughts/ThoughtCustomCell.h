@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameThoughtCustomCell;
 @property (weak, nonatomic) IBOutlet UILabel *scoreThoughtCustomCell;
 @property (weak, nonatomic) IBOutlet UILabel *thoughtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 
 @end
