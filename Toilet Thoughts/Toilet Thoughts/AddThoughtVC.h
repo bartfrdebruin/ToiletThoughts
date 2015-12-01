@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIView *customView;
 
+@property (weak, nonatomic) UITextField *toolbarTextField;
+
 - (IBAction)post:(id)sender;
 
 @end

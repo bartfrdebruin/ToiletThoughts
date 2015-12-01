@@ -75,23 +75,28 @@
     
     self.title = @"Add a Toilet Thought!";
     
+    
+    
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     // No toolbar
-    [self.navigationController setToolbarHidden:NO];
-    
+    [self.navigationController setToolbarHidden:YES];
+//    
 //    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
 //    [self.view addSubview:toolBar];
     
-    UITextField *txtView=[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-    txtView.backgroundColor =[UIColor  whiteColor];
-    txtView.placeholder=@"Enter your text";
-    UIBarButtonItem *txtfieldItem=[[UIBarButtonItem alloc]initWithCustomView:txtView];
-    self.toolbarItems = [NSArray arrayWithObject:txtfieldItem];
-   
+    UITextField *toolbarTextField =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+    self.toolbarTextField.backgroundColor =[UIColor  whiteColor];
+    self.toolbarTextField.placeholder=@"Enter your text";
+    self.toolbarTextField.borderStyle = UITextBorderStyleRoundedRect;
+//    toolbarTextField.delegate = toolbarTextField;
+    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
+    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:toolbarTextField];
     
+    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
     
+//   [toolbarTextField setInputAccessoryView:self.view];
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
@@ -104,7 +109,7 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
-        [self.thoughtTextField resignFirstResponder];
+        [self.toolbarTextField resignFirstResponder];
 }
 
 
@@ -200,7 +205,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [self.thoughtTextField resignFirstResponder];
+    [self.toolbarTextField resignFirstResponder];
     
     return YES;
 }
@@ -245,13 +250,13 @@
 
 - (IBAction)post:(id)sender {
     
-    [self.thoughtTextField resignFirstResponder];
+    [self.toolbarTextField resignFirstResponder];
     [self.view endEditing:YES];
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
-        [self.thoughtTextField resignFirstResponder];
+        [self.toolbarTextField resignFirstResponder];
         [self.view endEditing:YES];
 
 
