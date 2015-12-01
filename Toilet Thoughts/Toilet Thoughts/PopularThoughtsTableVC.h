@@ -16,6 +16,7 @@
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic) int chosenList;
 @property (nonatomic, strong) NSArray *toiletThoughts;
+@property (nonatomic, strong) NSArray *winningThoughts;
 
 
 

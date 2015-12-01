@@ -1,11 +1,12 @@
 //
-//  PopularThoughtsTableVC.m
+//  ListThoughtTableVC.m
 //  Toilet Thoughts
 //
-//  Created by Bart de Bruin on 24-11-15.
+//  Created by Bart de Bruin on 01-12-15.
 //  Copyright © 2015 BartandFouad. All rights reserved.
 //
 
+#import "ListThoughtTableVC.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "PopularThoughtsTableVC.h"
@@ -13,39 +14,17 @@
 #import "LoginViewController.h"
 #import "UserViewController.h"
 #import "AddThoughtVC.h"
-#import "WinningThoughtsTableVC.h"
 #import "WinningThoughtCustomVideoCell.h"
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
 
-@interface PopularThoughtsTableVC ()
-
-//@property (nonatomic, strong) NSArray *toiletThoughts;
+@interface ListThoughtTableVC ()
 
 @end
 
-@implementation PopularThoughtsTableVC
+@implementation ListThoughtTableVC
 
-
-#pragma mark - goToWinning Thoughts
-
-- (IBAction)popular:(id)sender {
-    
-    WinningThoughtsTableVC *winningTTVC = [[WinningThoughtsTableVC alloc]initWithNibName:@"WinningThoughtsTableVC" bundle:nil];
-    
-    [UIView beginAnimations:@"View Flip" context:nil];
-    [UIView setAnimationDuration:0.80];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    
-    [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromLeft
-                           forView:self.navigationController.view cache:NO];
-    
-    [self.navigationController pushViewController:winningTTVC animated:YES];
-    [UIView commitAnimations];
-    
-}
 
 #pragma mark - backToHome and goToUserScreen
 
@@ -130,10 +109,10 @@
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *popularThoughts = [UIAlertAction actionWithTitle:@"Popular Thoughts" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                            
-                                                              self.chosenList = 1;
-                                                              [self retrieveFromParse];
+                                                            handler:^(UIAlertAction * action) {
+                                                                
+                                                                self.chosenList = 1;
+                                                                [self retrieveFromParse];
                                                             }];
     
     UIAlertAction *recentThoughts = [UIAlertAction actionWithTitle:@"Recent Thoughts" style:UIAlertActionStyleDefault
@@ -141,23 +120,23 @@
                                                                
                                                                self.chosenList = 2;
                                                                [self retrieveFromParse];
-
+                                                               
                                                            }];
     
     UIAlertAction *winningThoughts = [UIAlertAction actionWithTitle:@"Winning Thoughts" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                              
-                                                              self.chosenList = 3;
-                                                              [self retrieveFromParse];
-                                                          
-                                                          }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
                                                             handler:^(UIAlertAction * action) {
                                                                 
-                                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                                                self.chosenList = 3;
+                                                                [self retrieveFromParse];
                                                                 
                                                             }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
+                                                   handler:^(UIAlertAction * action) {
+                                                       
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                       
+                                                   }];
     [alert addAction:popularThoughts];
     [alert addAction:recentThoughts];
     [alert addAction:winningThoughts];
@@ -182,7 +161,7 @@
 
 - (void)retrieveFromParse {
     
-    if (self.chosenList == 1) {
+    if (self.chosenList == 3) {
         
         PFQuery *query = [PFQuery queryWithClassName:@"WinningThought"];
         [query orderByDescending:@"score"];
@@ -194,8 +173,8 @@
                 [self.tableView reloadData];
             }
         }];
-
-    } else if (self.chosenList == 3) {
+        
+    } else if (self.chosenList == 2) {
         
         PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
         [query orderByAscending:@"score"];
@@ -208,7 +187,7 @@
             }
         }];
         
-            } else {
+    } else {
         
         PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
         [query orderByAscending:@"createdAt"];
@@ -228,7 +207,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
@@ -327,7 +306,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
     
     PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
@@ -349,5 +328,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     [self.navigationController pushViewController:stdvc animated:YES];
     [UIView commitAnimations];
 }
+
 
 @end

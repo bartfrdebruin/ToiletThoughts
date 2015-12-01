@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D90A6B51C0493D200BC9F8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1D90A6B41C0493D200BC9F8F /* Podfile */; };
+		1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */; };
+		1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */; };
 		1DB5440E1C0461FE00383E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5440D1C0461FE00383E1C /* main.m */; };
 		1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB544101C0461FE00383E1C /* AppDelegate.m */; };
 		1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB544181C0461FE00383E1C /* Assets.xcassets */; };
@@ -56,6 +58,9 @@
 
 /* Begin PBXFileReference section */
 		1D90A6B41C0493D200BC9F8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListThoughtTableVC.h; sourceTree = "<group>"; };
+		1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListThoughtTableVC.m; sourceTree = "<group>"; };
+		1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListThoughtTableVC.xib; sourceTree = "<group>"; };
 		1DB544091C0461FE00383E1C /* Toilet Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toilet Thoughts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB5440D1C0461FE00383E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1DB5440F1C0461FE00383E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 				1DF305FE1C049CD90035BD50 /* PopularThoughtsTableVC.h */,
 				1DF305FF1C049CD90035BD50 /* PopularThoughtsTableVC.m */,
 				1DF306001C049CD90035BD50 /* PopularThoughtsTableVC.xib */,
+				1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */,
+				1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */,
+				1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */,
 				1DF306031C049CEF0035BD50 /* RecentThoughtsTableVC.h */,
 				1DF306041C049CEF0035BD50 /* RecentThoughtsTableVC.m */,
 				1DF306051C049CEF0035BD50 /* RecentThoughtsTableVC.xib */,
@@ -361,6 +369,7 @@
 				1DF306021C049CD90035BD50 /* PopularThoughtsTableVC.xib in Resources */,
 				1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */,
 				1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */,
+				1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */,
+				1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */,
 				1DF306061C049CEF0035BD50 /* RecentThoughtsTableVC.m in Sources */,
 				1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
