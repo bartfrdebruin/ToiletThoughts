@@ -7,7 +7,6 @@
 //
 
 #import "SelectedThoughtDetailVC.h"
-#import "PopularThoughtsTableVC.h"
 
 @interface SelectedThoughtDetailVC ()
 

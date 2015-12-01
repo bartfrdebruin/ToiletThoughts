@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D90A6B51C0493D200BC9F8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1D90A6B41C0493D200BC9F8F /* Podfile */; };
+		1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */; };
+		1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */; };
 		1DB5440E1C0461FE00383E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5440D1C0461FE00383E1C /* main.m */; };
 		1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB544101C0461FE00383E1C /* AppDelegate.m */; };
 		1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB544181C0461FE00383E1C /* Assets.xcassets */; };
@@ -20,12 +22,6 @@
 		1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC5DDE51C0760F500AD4C3C /* LoginViewController.xib */; };
 		1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
-		1DF306011C049CD90035BD50 /* PopularThoughtsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FF1C049CD90035BD50 /* PopularThoughtsTableVC.m */; };
-		1DF306021C049CD90035BD50 /* PopularThoughtsTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306001C049CD90035BD50 /* PopularThoughtsTableVC.xib */; };
-		1DF306061C049CEF0035BD50 /* RecentThoughtsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306041C049CEF0035BD50 /* RecentThoughtsTableVC.m */; };
-		1DF306071C049CEF0035BD50 /* RecentThoughtsTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306051C049CEF0035BD50 /* RecentThoughtsTableVC.xib */; };
-		1DF3060B1C049D080035BD50 /* WinningThoughtsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306091C049D080035BD50 /* WinningThoughtsTableVC.m */; };
-		1DF3060C1C049D080035BD50 /* WinningThoughtsTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3060A1C049D080035BD50 /* WinningThoughtsTableVC.xib */; };
 		1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */; };
 		1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */; };
 		1DF306151C049DCA0035BD50 /* AddThoughtVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306131C049DCA0035BD50 /* AddThoughtVC.m */; };
@@ -56,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		1D90A6B41C0493D200BC9F8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListThoughtTableVC.h; sourceTree = "<group>"; };
+		1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListThoughtTableVC.m; sourceTree = "<group>"; };
+		1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListThoughtTableVC.xib; sourceTree = "<group>"; };
 		1DB544091C0461FE00383E1C /* Toilet Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toilet Thoughts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB5440D1C0461FE00383E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1DB5440F1C0461FE00383E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,15 +77,6 @@
 		1DF305F91C049BBB0035BD50 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1DF305FA1C049BBB0035BD50 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		1DF305FE1C049CD90035BD50 /* PopularThoughtsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularThoughtsTableVC.h; sourceTree = "<group>"; };
-		1DF305FF1C049CD90035BD50 /* PopularThoughtsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularThoughtsTableVC.m; sourceTree = "<group>"; };
-		1DF306001C049CD90035BD50 /* PopularThoughtsTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopularThoughtsTableVC.xib; sourceTree = "<group>"; };
-		1DF306031C049CEF0035BD50 /* RecentThoughtsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentThoughtsTableVC.h; sourceTree = "<group>"; };
-		1DF306041C049CEF0035BD50 /* RecentThoughtsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentThoughtsTableVC.m; sourceTree = "<group>"; };
-		1DF306051C049CEF0035BD50 /* RecentThoughtsTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentThoughtsTableVC.xib; sourceTree = "<group>"; };
-		1DF306081C049D080035BD50 /* WinningThoughtsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinningThoughtsTableVC.h; sourceTree = "<group>"; };
-		1DF306091C049D080035BD50 /* WinningThoughtsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningThoughtsTableVC.m; sourceTree = "<group>"; };
-		1DF3060A1C049D080035BD50 /* WinningThoughtsTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinningThoughtsTableVC.xib; sourceTree = "<group>"; };
 		1DF3060D1C049DAB0035BD50 /* SelectedThoughtDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedThoughtDetailVC.h; sourceTree = "<group>"; };
 		1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedThoughtDetailVC.m; sourceTree = "<group>"; };
 		1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedThoughtDetailVC.xib; sourceTree = "<group>"; };
@@ -158,15 +148,9 @@
 				1DB5440F1C0461FE00383E1C /* AppDelegate.h */,
 				1DB544101C0461FE00383E1C /* AppDelegate.m */,
 				1DB544181C0461FE00383E1C /* Assets.xcassets */,
-				1DF305FE1C049CD90035BD50 /* PopularThoughtsTableVC.h */,
-				1DF305FF1C049CD90035BD50 /* PopularThoughtsTableVC.m */,
-				1DF306001C049CD90035BD50 /* PopularThoughtsTableVC.xib */,
-				1DF306031C049CEF0035BD50 /* RecentThoughtsTableVC.h */,
-				1DF306041C049CEF0035BD50 /* RecentThoughtsTableVC.m */,
-				1DF306051C049CEF0035BD50 /* RecentThoughtsTableVC.xib */,
-				1DF306081C049D080035BD50 /* WinningThoughtsTableVC.h */,
-				1DF306091C049D080035BD50 /* WinningThoughtsTableVC.m */,
-				1DF3060A1C049D080035BD50 /* WinningThoughtsTableVC.xib */,
+				1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */,
+				1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */,
+				1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */,
 				1DF3060D1C049DAB0035BD50 /* SelectedThoughtDetailVC.h */,
 				1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */,
 				1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */,
@@ -355,12 +339,10 @@
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
 				1D90A6B51C0493D200BC9F8F /* Podfile in Resources */,
 				1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */,
-				1DF3060C1C049D080035BD50 /* WinningThoughtsTableVC.xib in Resources */,
-				1DF306071C049CEF0035BD50 /* RecentThoughtsTableVC.xib in Resources */,
 				1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */,
-				1DF306021C049CD90035BD50 /* PopularThoughtsTableVC.xib in Resources */,
 				1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */,
 				1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */,
+				1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +416,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */,
-				1DF306061C049CEF0035BD50 /* RecentThoughtsTableVC.m in Sources */,
+				1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */,
 				1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
-				1DF3060B1C049D080035BD50 /* WinningThoughtsTableVC.m in Sources */,
-				1DF306011C049CD90035BD50 /* PopularThoughtsTableVC.m in Sources */,
 				1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */,
 				1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,

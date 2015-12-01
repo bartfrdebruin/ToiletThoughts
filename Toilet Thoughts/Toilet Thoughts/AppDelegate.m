@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 #import "AddThoughtVC.h"
-#import "WinningThoughtsTableVC.h"
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -29,25 +28,7 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-        UITabBarController *tabBar = [[UITabBarController alloc]init];
-        NSArray *viewControllers = [[NSArray alloc]init];
-    
-        AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
-        WinningThoughtsTableVC *winningThoughtsTVC = [[WinningThoughtsTableVC alloc]init];
-    
-    viewControllers = @[addThoughtVC, winningThoughtsTVC,];
-    
-    tabBar.viewControllers = viewControllers;
-    
-    UIImage *addImage = [[UIImage alloc]init];
-    addImage = [UIImage imageNamed:@"Icon-40"];
-    
-        addThoughtVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Add" image:addImage tag:1];
-        winningThoughtsTVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Winners" image:nil tag:2];
-    
-    
-    
+        
     // Override point for customization after application launch.
     
     HomeViewController *homevc = [[HomeViewController alloc] init];

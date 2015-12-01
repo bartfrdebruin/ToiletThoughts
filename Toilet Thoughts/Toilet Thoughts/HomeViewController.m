@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "PopularThoughtsTableVC.h"
+#import "ListThoughtTableVC.h"
 #import "AddThoughtVC.h"
 
 @interface HomeViewController ()
@@ -16,9 +16,10 @@
 
 @implementation HomeViewController
 
+
 - (IBAction)browseThoughts:(id)sender {
     
-    PopularThoughtsTableVC *popularThoughtsTableVC = [[PopularThoughtsTableVC alloc] initWithNibName:@"PopularThoughtsTableVC" bundle:nil];
+    ListThoughtTableVC *listThoughtTableVC= [[ListThoughtTableVC alloc] initWithNibName:@"ListThoughtTableVC" bundle:nil];
     
     [UIView beginAnimations:@"View Flip" context:nil];
     [UIView setAnimationDuration:0.80];
@@ -29,7 +30,7 @@
                            forView:self.navigationController.view cache:NO];
     
     
-    [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
+    [self.navigationController pushViewController:listThoughtTableVC animated:YES];
     [UIView commitAnimations];
     
     // NavigationController without animations!
