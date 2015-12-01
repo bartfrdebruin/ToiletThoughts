@@ -16,7 +16,7 @@
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
-#import "ToiletThought.h"
+
 
 @interface PopularThoughtsTableVC ()
 
