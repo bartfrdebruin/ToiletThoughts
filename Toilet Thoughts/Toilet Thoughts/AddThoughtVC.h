@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *customView;
 @property (nonatomic) UIViewController *presentedFromVC;
 
+@property (weak, nonatomic) UITextField *toolbarTextField;
+
 - (IBAction)post:(id)sender;
 
 @end
