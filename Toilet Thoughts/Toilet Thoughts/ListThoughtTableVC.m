@@ -259,7 +259,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         cell.usernameThoughtCustomCell.text = [thoughtsDict objectForKey:@"userName"];
         cell.thoughtLabel.text = [thoughtsDict objectForKey:@"toiletThought"];
-        cell.scoreThoughtCustomCell.text = [thoughtsDict objectForKey:@"score"];
+        cell.scoreThoughtCustomCell.text = [[thoughtsDict objectForKey:@"score"] description];
         cell.dateLabel.text = [thoughtsDict objectForKey:@"createdAt"];
         
         PFFile *thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];

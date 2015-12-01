@@ -36,8 +36,6 @@
     [self.navigationController setNavigationBarHidden:NO];
     
     [listThoughtTableVC retrieveFromParseScore];
-
-    
     
 }
 

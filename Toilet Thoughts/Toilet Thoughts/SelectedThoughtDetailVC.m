@@ -53,23 +53,40 @@
 }
 
 
+- (void)scoreDown {
+    
+}
+
+
 - (void)scoreUp {
         
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
          PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
-        [toiletThought setObject:@0 forKey:@"score"];
+        
+        [toiletThought incrementKey:@"score" byAmount:@1];
+        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The score key has been incremented
+            } else {
+                // There was a problem, check error.description
+            }
+        }];
 
-   
     } else {
         
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
+                                                                       message:@"You need to be logged in to vote up or down!"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
         
     }
-
-    
-    
-    
 }
 
 
