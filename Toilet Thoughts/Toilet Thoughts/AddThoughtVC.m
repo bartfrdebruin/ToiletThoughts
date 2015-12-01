@@ -288,7 +288,6 @@
                                                                       handler:^(UIAlertAction * action) {
                                                                           
                                                                           ListThoughtTableVC *listThoughtTableVC = [[ListThoughtTableVC alloc] init];
-                                                                          [listThoughtTableVC retrieveFromParseRecent];
                                                                           
                                                                           if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
                                                                               
@@ -300,7 +299,6 @@
                                                                               [listThoughtTableVC retrieveFromParseRecent];
                                                                               [self.navigationController pushViewController:listThoughtTableVC animated:YES];
                                                                           }
-                                                                          
                                                                       }];
                 [alert addAction:defaultAction];
                 [self presentViewController:alert animated:YES completion:nil];
