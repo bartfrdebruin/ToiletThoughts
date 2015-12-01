@@ -25,7 +25,7 @@
 
 
 
-#pragma mark - viewDidLoad
+#pragma mark - view
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -82,7 +82,7 @@
     
 }
 
-#pragma mark - backToHome and goToUserScreen
+#pragma mark - navigation
 
 - (void)backToHomeScreen {
     
@@ -112,6 +112,8 @@
     [self.navigationController pushViewController:atvc animated:YES];
 }
 
+
+#pragma mark - alert
 
 - (void)updateTableview {
     
@@ -155,6 +157,9 @@
 }
 
 
+#pragma mark - queries
+
+
 - (void)retrieveFromParseRecent {
     
     PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
@@ -182,7 +187,6 @@
             [self.tableView reloadData];
         }
     }];
-
 }
 
 
@@ -201,7 +205,8 @@
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - Table view 
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -252,10 +257,9 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
         
-        
         cell.usernameThoughtCustomCell.text = [thoughtsDict objectForKey:@"userName"];
         cell.thoughtLabel.text = [thoughtsDict objectForKey:@"toiletThought"];
-        cell.scoreThoughtCustomCell.text = [thoughtsDict objectForKey:@"score"];
+        cell.scoreThoughtCustomCell.text = [[thoughtsDict objectForKey:@"score"] description];
         cell.dateLabel.text = [thoughtsDict objectForKey:@"createdAt"];
         
         PFFile *thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
@@ -306,11 +310,11 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
     
-    PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+    PFObject * thoughtsDict = self.toiletThoughts[indexPath.row];
     
     stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
     stdvc.thoughtDetail = [thoughtsDict objectForKey:@"toiletThought"];
-    stdvc.thoughtScore = [thoughtsDict objectForKey:@"score"];
+    stdvc.score = [thoughtsDict objectForKey:@"score"];
     
     // Pass the selected object to the new view controller.
     

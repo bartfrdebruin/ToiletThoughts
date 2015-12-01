@@ -265,9 +265,12 @@
         [self.thoughtTextField resignFirstResponder];
         [self.view endEditing:YES];
         
+        NSString *user = currentUser.username;
         
         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
+        [toiletThought setObject:@0 forKey:@"score"];
+        [toiletThought setObject:user forKey:@"userName"];
         
         if (self.imageView.image != nil) {
             
@@ -293,28 +296,18 @@
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                       handler:^(UIAlertAction * action) {
                                                                           
-                                                                          
-                                                                          
-                                                                          
                                                                           ListThoughtTableVC *listThoughtTableVC = [[ListThoughtTableVC alloc] init];
-                                                                          [listThoughtTableVC retrieveFromParseRecent];
                                                                           
-                                                                          [self.navigationController pushViewController:listThoughtTableVC animated:YES];
-                                                                          
-//                                                                          if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
-//                                                                              
-//                                                                              [listThoughtTableVC retrieveFromParseRecent];
-//                                                                              [self.navigationController popViewControllerAnimated:YES];
-//
-//                                                                              
-//                                                                          } else {
-//                                                                              
-//                                                                              [listThoughtTableVC retrieveFromParseRecent];
-//                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
-//
-//                                                                              NSLog(@"Pushing ViewController to go to list");
-//                                                                          }
-                                                                          
+                                                                          if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
+                                                                              
+                                                                              [listThoughtTableVC retrieveFromParseRecent];
+                                                                              [self.navigationController popViewControllerAnimated:YES];
+
+                                                                          } else {
+                                                                              
+                                                                              [listThoughtTableVC retrieveFromParseRecent];
+                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+                                                                          }
                                                                       }];
                 [alert addAction:defaultAction];
                 [self presentViewController:alert animated:YES completion:nil];
@@ -351,9 +344,6 @@
     }
     
 }
-
-
-
 
 
 @end

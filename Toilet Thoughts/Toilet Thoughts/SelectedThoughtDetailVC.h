@@ -17,6 +17,6 @@
 
 @property (nonatomic) PFFile *thoughtImageFile;
 @property (strong,nonatomic) NSString *thoughtDetail;
-@property (strong,nonatomic) NSString *thoughtScore;
+@property (nonatomic) NSInteger score;
 
 @end

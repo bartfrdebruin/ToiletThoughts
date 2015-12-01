@@ -7,6 +7,7 @@
 //
 
 #import "SelectedThoughtDetailVC.h"
+#import "Parse/parse.h"
 
 @interface SelectedThoughtDetailVC ()
 
@@ -27,35 +28,67 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
     
     self.selectedThoughtDetail.alpha = 1;
+    
     [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
         self.selectedThoughtDetail.alpha = 0.9;
     } completion:nil];
-   
-    self.selectedThoughtScore.text = self.thoughtScore;
     
-//    self.selectedThoughtScore.hidden = NO;
-//    self.selectedThoughtScore.alpha = 0.7;
-//    [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
-//        self.selectedThoughtScore.alpha = 0.0;
-//        self.selectedThoughtScore.alpha = 0.9;
-//    } completion:nil];
-
+    [self.navigationController setToolbarHidden:NO];
+    
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                           target:nil action:NULL];
+    
+    UIBarButtonItem *scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumbsup_small"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreUp)];
+    
+    UIBarButtonItem *scoreDownButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumbsdown_small"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreDown)];
+    
+    self.toolbarItems = [NSArray arrayWithObjects: scoreDownButton, space, scoreUpButton, nil];
+    
+    [self.navigationController setToolbarItems:self.toolbarItems];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)scoreDown {
+    
 }
-*/
+
+
+- (void)scoreUp {
+        
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
+        
+        [toiletThought incrementKey:@"score" byAmount:@1];
+        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The score key has been incremented
+            } else {
+                // There was a problem, check error.description
+            }
+        }];
+
+    } else {
+        
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
+                                                                       message:@"You need to be logged in to vote up or down!"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+}
+
+
 
 @end

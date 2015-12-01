@@ -1,2 +1,3 @@
 pod 'Parse'
 pod 'ParseUI'
+inhibit_all_warnings!
