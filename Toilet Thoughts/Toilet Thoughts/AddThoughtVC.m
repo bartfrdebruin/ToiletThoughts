@@ -282,27 +282,19 @@
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                       handler:^(UIAlertAction * action) {
                                                                           
-                                                                          
-                                                                          
-                                                                          
                                                                           ListThoughtTableVC *listThoughtTableVC = [[ListThoughtTableVC alloc] init];
                                                                           [listThoughtTableVC retrieveFromParseRecent];
                                                                           
-                                                                          [self.navigationController pushViewController:listThoughtTableVC animated:YES];
-                                                                          
-//                                                                          if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
-//                                                                              
-//                                                                              [listThoughtTableVC retrieveFromParseRecent];
-//                                                                              [self.navigationController popViewControllerAnimated:YES];
-//
-//                                                                              
-//                                                                          } else {
-//                                                                              
-//                                                                              [listThoughtTableVC retrieveFromParseRecent];
-//                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
-//
-//                                                                              NSLog(@"Pushing ViewController to go to list");
-//                                                                          }
+                                                                          if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
+                                                                              
+                                                                              [listThoughtTableVC retrieveFromParseRecent];
+                                                                              [self.navigationController popViewControllerAnimated:YES];
+
+                                                                          } else {
+                                                                              
+                                                                              [listThoughtTableVC retrieveFromParseRecent];
+                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+                                                                          }
                                                                           
                                                                       }];
                 [alert addAction:defaultAction];
@@ -340,9 +332,6 @@
     }
     
 }
-
-
-
 
 
 @end
