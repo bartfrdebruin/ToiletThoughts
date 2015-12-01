@@ -9,8 +9,6 @@
 #import "ListThoughtTableVC.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
-#import "PopularThoughtsTableVC.h"
-#import "RecentThoughtsTableVC.h"
 #import "LoginViewController.h"
 #import "UserViewController.h"
 #import "AddThoughtVC.h"
@@ -65,22 +63,7 @@
     [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
         
-        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
-        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
-    }
-    else {
-        
-        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
-        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
-    }
-    
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                            target:nil action:NULL];
     
@@ -90,6 +73,7 @@
     
     
     self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
+    
     [self.navigationController setToolbarItems:self.toolbarItems];
     
 }
@@ -120,7 +104,6 @@
                                                                
                                                                self.chosenList = 2;
                                                                [self retrieveFromParse];
-                                                               
                                                            }];
     
     UIAlertAction *winningThoughts = [UIAlertAction actionWithTitle:@"Winning Thoughts" style:UIAlertActionStyleDefault
@@ -128,7 +111,6 @@
                                                                 
                                                                 self.chosenList = 3;
                                                                 [self retrieveFromParse];
-                                                                
                                                             }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
