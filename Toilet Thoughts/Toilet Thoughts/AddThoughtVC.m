@@ -79,10 +79,20 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     // No toolbar
-    [self.navigationController setToolbarHidden:YES];
-
+    [self.navigationController setToolbarHidden:NO];
     
-    // Cancel button
+//    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
+//    [self.view addSubview:toolBar];
+    
+    UITextField *txtView=[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+    txtView.backgroundColor =[UIColor  whiteColor];
+    txtView.placeholder=@"Enter your text";
+    UIBarButtonItem *txtfieldItem=[[UIBarButtonItem alloc]initWithCustomView:txtView];
+    self.toolbarItems = [NSArray arrayWithObject:txtfieldItem];
+   
+    
+    
+    
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
     
