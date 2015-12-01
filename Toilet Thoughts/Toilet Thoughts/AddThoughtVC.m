@@ -239,12 +239,12 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-
     self.imageView.image = image;
     
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
+
 
 #pragma mark - post
 
@@ -258,8 +258,8 @@
         
         [self.toolbarTextField resignFirstResponder];
         [self.view endEditing:YES];
-
-
+        
+        
         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         
@@ -273,13 +273,11 @@
             
             PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
             [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
-            
         }
         
         [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             [self.view endEditing:YES];
-
             
             if (!error) {
                 
@@ -289,8 +287,28 @@
                 UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                                       handler:^(UIAlertAction * action) {
                                                                           
+                                                                          
+                                                                          
+                                                                          
                                                                           ListThoughtTableVC *listThoughtTableVC = [[ListThoughtTableVC alloc] init];
+                                                                          [listThoughtTableVC retrieveFromParseRecent];
+                                                                          
                                                                           [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+                                                                          
+//                                                                          if ([self.presentedFromVC isKindOfClass:[ListThoughtTableVC class]]) {
+//                                                                              
+//                                                                              [listThoughtTableVC retrieveFromParseRecent];
+//                                                                              [self.navigationController popViewControllerAnimated:YES];
+//
+//                                                                              
+//                                                                          } else {
+//                                                                              
+//                                                                              [listThoughtTableVC retrieveFromParseRecent];
+//                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+//
+//                                                                              NSLog(@"Pushing ViewController to go to list");
+//                                                                          }
+                                                                          
                                                                       }];
                 [alert addAction:defaultAction];
                 [self presentViewController:alert animated:YES completion:nil];
@@ -304,7 +322,7 @@
                 [self presentViewController:alert animated:YES completion:nil];
             }
         }];
-  
+        
     } else {
         
         UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
@@ -313,7 +331,7 @@
             
             [self.thoughtTextField resignFirstResponder];
             [self.view endEditing:YES];
-
+            
             LoginViewController *loginViewController = [[LoginViewController alloc] init];
             [self presentViewController:loginViewController animated:YES completion:nil];
         }];

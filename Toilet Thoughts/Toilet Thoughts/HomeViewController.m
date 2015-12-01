@@ -33,11 +33,11 @@
     [self.navigationController pushViewController:listThoughtTableVC animated:YES];
     [UIView commitAnimations];
     
-    // NavigationController without animations!
-//    [self.navigationController pushViewController:popularThoughtsTableVC animated:YES];
-    
     [self.navigationController setNavigationBarHidden:NO];
+    
+    [listThoughtTableVC retrieveFromParseScore];
 
+    
     
 }
 
