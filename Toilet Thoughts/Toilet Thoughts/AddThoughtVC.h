@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *thoughtTextField;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIView *customView;
+@property (nonatomic) UIViewController *presentedFromVC;
 
 - (IBAction)post:(id)sender;
 

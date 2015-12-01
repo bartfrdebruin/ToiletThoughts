@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "ListThoughtTableVC.h"
 
 @interface ListThoughtTableVC : UITableViewController
 
@@ -15,6 +16,10 @@
 @property (nonatomic) int chosenList;
 @property (nonatomic, strong) NSArray *toiletThoughts;
 @property (nonatomic, strong) NSArray *winningThoughts;
+@property (nonatomic) UIViewController *presentedFromAddThoughtVC;
+
+- (void)retrieveFromParseRecent;
+- (void)retrieveFromParseScore;
 
 
 @end

@@ -24,13 +24,69 @@
 @implementation ListThoughtTableVC
 
 
+
+#pragma mark - viewDidLoad
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    [self.navigationController setToolbarHidden:NO];
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (currentUser) {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+    else {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                           target:nil action:NULL];
+
+    UIBarButtonItem *addPostButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(gotoAddThoughtVC)];
+    
+    UIBarButtonItem *selectTableView = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(updateTableview)];
+        
+    self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
+    
+    [self.navigationController setToolbarItems:self.toolbarItems];
+    
+    }
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
+    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
+    
+    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
+    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+}
+
 #pragma mark - backToHome and goToUserScreen
 
 - (void)backToHomeScreen {
     
-    HomeViewController *homeScreenVC = [[HomeViewController alloc] init];
-    [self.navigationController pushViewController:homeScreenVC animated:YES];
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)goToUserScreen {
@@ -48,40 +104,11 @@
     }
 }
 
-
-#pragma mark - viewDidLoad
-
-- (void) viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:YES];
-    
-    [self.navigationItem setHidesBackButton:YES animated:NO];
-    [self.navigationController setToolbarHidden:NO];
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
-        
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                           target:nil action:NULL];
-    
-    UIBarButtonItem *addPostButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(gotoAddThoughtVC)];
-    
-    UIBarButtonItem *selectTableView = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(updateTableview)];
-    
-    
-    self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
-    
-    [self.navigationController setToolbarItems:self.toolbarItems];
-    
-}
-
-
 - (void)gotoAddThoughtVC {
     
     AddThoughtVC *atvc = [[AddThoughtVC alloc] init];
+    atvc.presentedFromVC = self;
+    
     [self.navigationController pushViewController:atvc animated:YES];
 }
 
@@ -96,21 +123,21 @@
                                                             handler:^(UIAlertAction * action) {
                                                                 
                                                                 self.chosenList = 1;
-                                                                [self retrieveFromParse];
+                                                                [self retrieveFromParseScore];
                                                             }];
     
     UIAlertAction *recentThoughts = [UIAlertAction actionWithTitle:@"Recent Thoughts" style:UIAlertActionStyleDefault
                                                            handler:^(UIAlertAction * action) {
                                                                
                                                                self.chosenList = 2;
-                                                               [self retrieveFromParse];
+                                                               [self retrieveFromParseRecent];
                                                            }];
     
     UIAlertAction *winningThoughts = [UIAlertAction actionWithTitle:@"Winning Thoughts" style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction * action) {
                                                                 
                                                                 self.chosenList = 3;
-                                                                [self retrieveFromParse];
+                                                                [self retrieveFromParseWinning];
                                                             }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
@@ -128,62 +155,50 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)retrieveFromParseRecent {
     
-    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
-    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    [query orderByAscending:@"createdAt"];
     
-    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
-    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
-    
-    [self retrieveFromParse];
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 
-- (void)retrieveFromParse {
+- (void)retrieveFromParseWinning {
     
-    if (self.chosenList == 3) {
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"WinningThought"];
-        [query orderByDescending:@"score"];
-        
-        [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
-            if (!error) {
-                
-                self.winningThoughts = [[NSArray alloc] initWithArray: objects];
-                [self.tableView reloadData];
-            }
-        }];
-        
-    } else if (self.chosenList == 2) {
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
-        [query orderByAscending:@"score"];
-        
-        [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
-            if (!error) {
-                
-                self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
-                [self.tableView reloadData];
-            }
-        }];
-        
-    } else {
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
-        [query orderByAscending:@"createdAt"];
-        
-        [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
-            if (!error) {
-                
-                self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
-                [self.tableView reloadData];
-            }
-        }];
-    }
+    PFQuery *query = [PFQuery queryWithClassName:@"WinningThought"];
+    [query orderByDescending:@"score"];
+    
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            self.winningThoughts = [[NSArray alloc] initWithArray: objects];
+            [self.tableView reloadData];
+        }
+    }];
+
 }
 
+
+- (void)retrieveFromParseScore {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    [query orderByDescending:@"score"];
+    
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            [self.tableView reloadData];
+        }
+    }];
+}
 
 
 #pragma mark - Table view data source
