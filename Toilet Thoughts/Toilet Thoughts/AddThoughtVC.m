@@ -259,9 +259,12 @@
         [self.toolbarTextField resignFirstResponder];
         [self.view endEditing:YES];
         
+        NSString *user = currentUser.username;
         
         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
+        [toiletThought setObject:@0 forKey:@"score"];
+        [toiletThought setObject:user forKey:@"userName"];
         
         if (self.imageView.image != nil) {
             

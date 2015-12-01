@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIView *customView;
 @property (nonatomic) UIViewController *presentedFromVC;
+@property (strong, nonatomic) PFUser *currentUser;
 
 @property (weak, nonatomic) UITextField *toolbarTextField;
 
