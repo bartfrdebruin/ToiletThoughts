@@ -235,7 +235,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
         
-        PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+        PFObject * thoughtsDict = [self.winningThoughts objectAtIndex:indexPath.row];
         
         cell.usernameWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningUser"];
         cell.thoughtWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningText"];
