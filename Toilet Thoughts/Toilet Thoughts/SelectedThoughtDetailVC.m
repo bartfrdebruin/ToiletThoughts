@@ -8,6 +8,9 @@
 
 #import "SelectedThoughtDetailVC.h"
 #import "Parse/parse.h"
+#import "ListThoughtTableVC.h"
+#import "UserViewController.h"
+#import "LoginViewController.h"
 
 @interface SelectedThoughtDetailVC ()
 
@@ -18,7 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Thought";
+    self.title = @"Toilet Thought";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,12 +35,32 @@
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
     
+    NSNumber *score = [self.currentThought objectForKey:@"score"];
+    self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
+    
     self.selectedThoughtDetail.alpha = 1;
     
     [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
         self.selectedThoughtDetail.alpha = 0.9;
     } completion:nil];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (currentUser) {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
+    else {
+        
+        UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        [userLoginButton setImage:[UIImage imageNamed:@"person_small.png"] forState:UIControlStateNormal];
+        [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
+    }
     
     [self.navigationController setToolbarHidden:NO];
     
@@ -53,27 +77,58 @@
 }
 
 
+- (void)goToUserScreen {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        UserViewController * userViewController = [[UserViewController alloc] init];
+        [self.navigationController pushViewController: userViewController animated:YES];
+        
+    } else {
+        
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
+
+
 - (void)scoreDown {
     
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        
+        [self.currentThought incrementKey:@"score" byAmount:@ -1];
+        [self.currentThought saveInBackground];
+        
+        NSNumber *score = [self.currentThought objectForKey:@"score"];
+        self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
+        
+    } else {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
+                                                                       message:@"You need to be logged in to vote up or down!"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 
 - (void)scoreUp {
-        
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
-         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
+        [self.currentThought incrementKey:@"score" byAmount:@1];
+        [self.currentThought saveInBackground];
         
-        [toiletThought incrementKey:@"score" byAmount:@1];
-        [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                // The score key has been incremented
-            } else {
-                // There was a problem, check error.description
-            }
-        }];
-
+        NSNumber *score = [self.currentThought objectForKey:@"score"];
+        self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
+        
     } else {
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
@@ -88,7 +143,5 @@
         
     }
 }
-
-
 
 @end

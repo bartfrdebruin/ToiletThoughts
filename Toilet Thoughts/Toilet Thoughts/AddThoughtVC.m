@@ -75,8 +75,6 @@
     
     self.title = @"Add a Toilet Thought!";
     
-    
-    
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
@@ -142,6 +140,7 @@
     
     [UIView commitAnimations];
 }
+
 
 - (void)goToUserScreen {
     
@@ -247,7 +246,6 @@
 
 
 #pragma mark - post
-
 - (IBAction)post:(id)sender {
     
     [self.toolbarTextField resignFirstResponder];
