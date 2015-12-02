@@ -79,22 +79,23 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     // No toolbar
-    [self.navigationController setToolbarHidden:YES];
+    [self.navigationController setToolbarHidden:NO];
+    
 //    
 //    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
 //    [self.view addSubview:toolBar];
     
-    UITextField *toolbarTextField =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-    self.toolbarTextField.backgroundColor =[UIColor  whiteColor];
-    self.toolbarTextField.placeholder=@"Enter your text";
-    self.toolbarTextField.borderStyle = UITextBorderStyleRoundedRect;
-//    toolbarTextField.delegate = toolbarTextField;
-    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
-    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:toolbarTextField];
-    
+    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
+    self.toolbarTextfield.placeholder=@"Enter your text";
+    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
+    self.toolbarTextfield.delegate = self;
+//    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
+    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
+
     self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
     
-//   [toolbarTextField setInputAccessoryView:self.view];
+//    [toolbarTextField setInputAccessoryView:self.customView];
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
@@ -107,7 +108,7 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
-        [self.toolbarTextField resignFirstResponder];
+        [self.thoughtTextField resignFirstResponder];
 }
 
 
@@ -176,6 +177,9 @@
     
     [self.customView  setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y - keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
     
+    
+    [self.navigationController.toolbar setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.size.height - keyboardFrame.size.height + self.navigationController.toolbar.frame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
+    
     [UIView commitAnimations];
     
 }
@@ -204,7 +208,9 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [self.toolbarTextField resignFirstResponder];
+//    [self.thoughtTextField resignFirstResponder];
+    [self.toolbarTextfield endEditing:YES];
+    [self.toolbarTextfield resignFirstResponder];
     
     return YES;
 }
@@ -248,13 +254,13 @@
 #pragma mark - post
 - (IBAction)post:(id)sender {
     
-    [self.toolbarTextField resignFirstResponder];
+    [self.thoughtTextField resignFirstResponder];
     [self.view endEditing:YES];
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
-        [self.toolbarTextField resignFirstResponder];
+        [self.thoughtTextField resignFirstResponder];
         [self.view endEditing:YES];
         
         NSString *user = currentUser.username;

@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 
-@interface AddThoughtVC : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AddThoughtVC : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -20,7 +20,7 @@
 @property (nonatomic) UIViewController *presentedFromVC;
 @property (strong, nonatomic) PFUser *currentUser;
 
-@property (weak, nonatomic) UITextField *toolbarTextField;
+@property(strong, nonatomic) UITextField *toolbarTextfield;
 
 - (IBAction)post:(id)sender;
 
