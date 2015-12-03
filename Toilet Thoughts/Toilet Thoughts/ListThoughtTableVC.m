@@ -318,8 +318,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
     stdvc.currentThought = selectedThought;
     
-    // Pass the selected object to the new view controller.
-    
     [UIView beginAnimations:@"View Flip" context:nil];
     [UIView setAnimationDuration:0.80];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];

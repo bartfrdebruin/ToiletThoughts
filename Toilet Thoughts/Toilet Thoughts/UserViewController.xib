@@ -7,9 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserViewController">
             <connections>
-                <outlet property="backButton" destination="SRu-7L-BpD" id="3nc-0H-vL3"/>
-                <outlet property="logOut" destination="VYN-UM-ZSg" id="lhV-FP-he2"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="tableView" destination="ayB-YL-hNj" id="bBk-FX-S5n"/>
+                <outlet property="userImage" destination="z2r-bz-hZI" id="VI8-61-RQS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="LCt-2k-WJF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,36 +17,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-7L-BpD">
-                    <rect key="frame" x="14" y="19" width="60" height="30"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayB-YL-hNj">
+                    <rect key="frame" x="0.0" y="338" width="414" height="398"/>
                     <animations/>
-                    <state key="normal" title="&lt;&lt; Back">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="387" id="vIk-V3-nGG"/>
+                    </constraints>
                     <connections>
-                        <action selector="back:" destination="-1" eventType="touchUpInside" id="zbf-40-KHB"/>
+                        <outlet property="dataSource" destination="-1" id="Li3-PL-Nmm"/>
+                        <outlet property="delegate" destination="-1" id="Ccp-Ib-DZq"/>
                     </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-UM-ZSg">
-                    <rect key="frame" x="340" y="16" width="61" height="33"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-bz-hZI">
+                    <rect key="frame" x="34" y="84" width="143" height="131"/>
                     <animations/>
-                    <state key="normal" title="Log out">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="iI0-1d-l8m"/>
-                    </connections>
-                </button>
+                </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="VYN-UM-ZSg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="OUf-b1-0T7"/>
-                <constraint firstAttribute="trailing" secondItem="VYN-UM-ZSg" secondAttribute="trailing" constant="13" id="y2v-AQ-g8m"/>
+                <constraint firstAttribute="trailing" secondItem="ayB-YL-hNj" secondAttribute="trailing" id="YzL-uI-erx"/>
+                <constraint firstItem="ayB-YL-hNj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lHl-dj-a8O"/>
+                <constraint firstAttribute="bottom" secondItem="ayB-YL-hNj" secondAttribute="bottom" id="wyG-8e-Wpx"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <point key="canvasLocation" x="761" y="-26"/>
+            <point key="canvasLocation" x="761" y="-2"/>
         </view>
     </objects>
 </document>
