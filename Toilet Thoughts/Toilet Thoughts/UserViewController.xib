@@ -17,28 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Henk Brugman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z6-hG-32g">
-                    <rect key="frame" x="90" y="315" width="235" height="21"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
-                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isP-JQ-nxH">
-                    <rect key="frame" x="15" y="373" width="386" height="71"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <string key="text">If my toilet could talk: "Hey sexy. Shut the door, drop your pants, climb on top of me, and satisfy your needs. Love always, Your Toilet"</string>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Userpic" translatesAutoresizingMaskIntoConstraints="NO" id="yzK-Gz-hdb">
-                    <rect key="frame" x="8" y="8" width="398" height="294"/>
-                    <animations/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-7L-BpD">
                     <rect key="frame" x="14" y="19" width="60" height="30"/>
                     <animations/>
@@ -49,14 +27,6 @@
                         <action selector="back:" destination="-1" eventType="touchUpInside" id="zbf-40-KHB"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your most popular thought:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-Yn-BDn">
-                    <rect key="frame" x="91" y="344" width="235" height="21"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-UM-ZSg">
                     <rect key="frame" x="340" y="16" width="61" height="33"/>
                     <animations/>
@@ -71,18 +41,7 @@
             <animations/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="UuO-Yn-BDn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1.5" id="5wo-oW-vI4"/>
-                <constraint firstItem="isP-JQ-nxH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="6gE-eR-0pD"/>
-                <constraint firstItem="yzK-Gz-hdb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9ul-aC-pfC"/>
-                <constraint firstAttribute="trailing" secondItem="4z6-hG-32g" secondAttribute="trailing" constant="89" id="Cab-NO-msz"/>
-                <constraint firstItem="isP-JQ-nxH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="F4A-Gc-8Pi"/>
-                <constraint firstItem="UuO-Yn-BDn" firstAttribute="top" secondItem="4z6-hG-32g" secondAttribute="bottom" constant="8" id="HrO-gI-6js"/>
-                <constraint firstItem="isP-JQ-nxH" firstAttribute="top" secondItem="UuO-Yn-BDn" secondAttribute="bottom" constant="8" id="K6c-jC-sL9"/>
                 <constraint firstItem="VYN-UM-ZSg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="OUf-b1-0T7"/>
-                <constraint firstItem="4z6-hG-32g" firstAttribute="top" secondItem="yzK-Gz-hdb" secondAttribute="bottom" constant="13" id="T1Y-pv-9wL"/>
-                <constraint firstItem="4z6-hG-32g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="Yn8-aG-kl3"/>
-                <constraint firstAttribute="trailing" secondItem="yzK-Gz-hdb" secondAttribute="trailing" constant="8" id="bvb-zk-ZoC"/>
-                <constraint firstAttribute="trailing" secondItem="isP-JQ-nxH" secondAttribute="trailing" constant="13" id="cr4-kR-JuU"/>
                 <constraint firstAttribute="trailing" secondItem="VYN-UM-ZSg" secondAttribute="trailing" constant="13" id="y2v-AQ-g8m"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -90,7 +49,4 @@
             <point key="canvasLocation" x="761" y="-26"/>
         </view>
     </objects>
-    <resources>
-        <image name="Userpic" width="259" height="194"/>
-    </resources>
 </document>

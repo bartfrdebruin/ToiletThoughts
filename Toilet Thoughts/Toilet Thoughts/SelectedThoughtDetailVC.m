@@ -19,13 +19,14 @@
 @implementation SelectedThoughtDetailVC
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
-    
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -97,6 +98,21 @@
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
+    
+        NSString *user = [self.currentThought objectForKey:@"userName"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+        [query whereKey:@"userName" equalTo:user];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            
+            if (object) {
+               
+                PFObject *userObject = object;
+                [userObject incrementKey:@"totalScore" byAmount:@-1];
+                [userObject saveInBackground];
+            }
+        }];
         
         [self.currentThought incrementKey:@"score" byAmount:@ -1];
         [self.currentThought saveInBackground];
@@ -122,6 +138,21 @@
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
+        
+        NSString *user = [self.currentThought objectForKey:@"userName"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+        [query whereKey:@"userName" equalTo:user];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            
+            if (object) {
+                
+                PFObject *userObject = object;
+                [userObject incrementKey:@"totalScore" byAmount:@1];
+                [userObject saveInBackground];
+            }
+        }];
         
         [self.currentThought incrementKey:@"score" byAmount:@1];
         [self.currentThought saveInBackground];

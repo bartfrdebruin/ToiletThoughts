@@ -25,6 +25,7 @@
     
     self.title = @"User Name";
     self.navigationController.navigationBarHidden = YES;
+    
 }
 
 
@@ -32,6 +33,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
 }
 
 

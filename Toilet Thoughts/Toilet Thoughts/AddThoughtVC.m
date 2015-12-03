@@ -269,7 +269,27 @@
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         [toiletThought setObject:@0 forKey:@"score"];
         [toiletThought setObject:user forKey:@"userName"];
+    
         
+        PFObject *totalScore = [PFObject objectWithClassName:@"TotalScore"];
+        [totalScore setObject:user forKey:@"userName"];
+        [totalScore setObject:@0 forKey:@"totalScore"];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+        
+        [query whereKey:@"userName" equalTo:user];
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+            if (objects.count == 0) {
+                
+                [totalScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (!error) {
+                        NSLog(@"succes");
+                    }
+                }];
+            }
+        }];
+
         if (self.imageView.image != nil) {
             
             // Toilet Thought Image
@@ -281,7 +301,7 @@
             PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
             [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
         }
-        
+    
         [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
             [self.view endEditing:YES];
