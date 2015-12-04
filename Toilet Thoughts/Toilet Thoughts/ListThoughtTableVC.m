@@ -68,7 +68,6 @@
     
     [self.navigationController setToolbarItems:self.toolbarItems];
     
-    self.chosenList = 1;
     
     }
 
@@ -82,6 +81,8 @@
     
     UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
     [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+    self.chosenList = 1;
     
 }
 

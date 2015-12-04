@@ -57,6 +57,8 @@
 		1B9C795751FAB2E751DE9F542AEEADBD /* PFObjectFileCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D19A36A667B63CEB2CD393AD840E1F /* PFObjectFileCoder.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1BF91E76BE12DE7FC68F1B1932B18DA5 /* PFTaskQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A09AFAEED7964785FB1994B04E78EDB8 /* PFTaskQueue.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1CA971A55F91675F85DF03CDBEE8D839 /* PFDefaultACLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B8E4B7F3DD9B2732FD850DBC7360F9 /* PFDefaultACLController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1D766CB71C11DA26002E97AE /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D766CB51C11DA26002E97AE /* YTPlayerView.h */; };
+		1D766CB81C11DA26002E97AE /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D766CB61C11DA26002E97AE /* YTPlayerView.m */; };
 		1DE6C53CBF07582CB8B97E2776504911 /* PFMutableACLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F6B53EF4ABB6F2F93A47840EB9B02 /* PFMutableACLState.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1DEAC8FAB9BF3860C37A5C8841879CE3 /* PFAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = EBB0FC6B482CBC5FC2210B77AFC40400 /* PFAssert.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1E5F9E9ACD3784490446861D71C99FA2 /* PFActivityIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6847431126AEBCACC1AD5121014B7B7B /* PFActivityIndicatorTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -572,6 +574,9 @@
 		1C5CCA40B992CA29C9A0D0A3156EF612 /* PFSQLiteStatement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteStatement.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.m; sourceTree = "<group>"; };
 		1C8AC7904F2A03591670F0DC3F9BC874 /* PFCommandRunning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunning.h; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.h; sourceTree = "<group>"; };
 		1CC8F255CBED6888C9AE2EFADE5BFB59 /* PFQueryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryUtilities.h; path = Parse/Internal/Query/Utilities/PFQueryUtilities.h; sourceTree = "<group>"; };
+		1D766CB41C11DA26002E97AE /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		1D766CB51C11DA26002E97AE /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		1D766CB61C11DA26002E97AE /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		1DF2837EEA78BCC68033367B6CAF99B3 /* PFCurrentConfigController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentConfigController.m; path = Parse/Internal/Config/Controller/PFCurrentConfigController.m; sourceTree = "<group>"; };
 		1E03EAF13F83E10D7BD86DDFEA8CDE47 /* ParseManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseManager.m; path = Parse/Internal/ParseManager.m; sourceTree = "<group>"; };
 		1E47DFD28D1322909427A06032A5F9B4 /* PFHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHTTPRequest.h; path = Parse/Internal/HTTPRequest/PFHTTPRequest.h; sourceTree = "<group>"; };
@@ -1163,6 +1168,9 @@
 		200B0287F32A336C6D8D727044720DA1 /* youtube-ios-player-helper */ = {
 			isa = PBXGroup;
 			children = (
+				1D766CB41C11DA26002E97AE /* Assets */,
+				1D766CB51C11DA26002E97AE /* YTPlayerView.h */,
+				1D766CB61C11DA26002E97AE /* YTPlayerView.m */,
 				441886A0FCBE007694B990401DBD30B0 /* YTPlayerView.h */,
 				08083D55597481A0C6991382CF06D9E4 /* YTPlayerView.m */,
 				0316D88084A1B244D5FD50AE15766CBD /* Support Files */,
@@ -1651,6 +1659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8597914C2E4789B767F439D7477EFE23 /* YTPlayerView.h in Headers */,
+				1D766CB71C11DA26002E97AE /* YTPlayerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2112,6 +2121,7 @@
 			files = (
 				F197EFBD926865657E403A8934838A62 /* youtube-ios-player-helper-dummy.m in Sources */,
 				4629316A9955236E8C1468427A24097C /* YTPlayerView.m in Sources */,
+				1D766CB81C11DA26002E97AE /* YTPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

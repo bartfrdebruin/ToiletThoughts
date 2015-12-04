@@ -19,6 +19,44 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Toilet Winners";
+    
+    
+    self.playerView.delegate = self;
+    
+    
+    NSDictionary *playerVars = @{
+                                 @"playsinline" : @1,
+                                 };
+    [self.playerView loadWithVideoId:@"M7lc1UVf-VE" playerVars:playerVars];
+
+}
+
+
+- (void)playerViewDidBecomeReady:(YTPlayerView *)playerView {
+    
+    [self.playerView playVideo];
+    
+}
+
+- (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
+    switch (state) {
+        case kYTPlayerStatePlaying:
+            NSLog(@"Started playback");
+            break;
+        case kYTPlayerStatePaused:
+            NSLog(@"Paused playback");
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)playVideo:(id)sender {
+    [self.playerView playVideo];
+}
+
+- (IBAction)stopVideo:(id)sender {
+    [self.playerView stopVideo];
 }
 
 - (void)didReceiveMemoryWarning {

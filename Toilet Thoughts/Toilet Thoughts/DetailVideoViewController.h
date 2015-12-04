@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTPlayerView.h"
 
-@interface DetailVideoViewController : UIViewController
+@interface DetailVideoViewController : UIViewController <YTPlayerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
+
+- (IBAction)playVideo:(id)sender;
+- (IBAction)stopVideo:(id)sender;
 
 @end
