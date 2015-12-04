@@ -19,7 +19,7 @@
 
 @interface UserViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet PFImageView *userImage;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *totalScore;
 
@@ -35,6 +35,10 @@
     
     self.title = self.currentUser[@"username"];
     self.userName.text = self.currentUser[@"username"];
+    PFFile *userFile = self.currentUser[@"userImage"];
+    
+    self.userImage.file = userFile;
+    [self.userImage loadInBackground];
     
     PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
     [query whereKey:@"userName" equalTo:self.currentUser[@"username"]];
@@ -47,6 +51,8 @@
             self.totalScore.text = [NSString stringWithFormat:@" %@", score];
         }
        }];
+    
+  
 
     [self.tableView setContentInset:UIEdgeInsetsMake(- 65, 0, 0, 0)];
     
@@ -113,24 +119,29 @@
 
 - (IBAction)takeAUserPicture:(id)sender {
     
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    
-    // If the device has a camera, take a picture, otherwise,
-    // just pick from photo library
-    
-    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    if (self.userImage.file == nil) {
+        
+        self.imagePicker = [[UIImagePickerController alloc] init];
+        
+        // If the device has a camera, take a picture, otherwise,
+        // just pick from photo library
+        
+        if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        } else {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        
+        self.imagePicker.mediaTypes = @[(NSString*)kUTTypeImage];
+        
+        self.imagePicker.allowsEditing = YES;
+        self.imagePicker.delegate = self;
+        
+        // Place image picker on the screen
+        [self presentViewController:self.imagePicker animated:YES completion: NULL];
+        
     }
-    
-    self.imagePicker.mediaTypes = @[(NSString*)kUTTypeImage];
-    
-    self.imagePicker.allowsEditing = YES;
-    self.imagePicker.delegate = self;
-    
-    // Place image picker on the screen
-    [self presentViewController:self.imagePicker animated:YES completion: NULL];
+
 }
 
 
@@ -158,6 +169,9 @@
             }
             
         }];
+    } else if (self.userImage.image == nil) {
+        
+        self.userImage.image = [UIImage imageNamed:@"Icon-40"];
     }
     
     self.userImage.image = image;
@@ -248,11 +262,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     [self.navigationController pushViewController:stdvc animated:YES];
     [UIView commitAnimations];
 }
-
-
-
-
-
 
 
 @end

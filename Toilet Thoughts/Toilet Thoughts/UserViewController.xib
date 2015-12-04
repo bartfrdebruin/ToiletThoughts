@@ -44,7 +44,7 @@
                         <action selector="takeAUserPicture:" destination="-1" eventType="touchUpInside" id="1jq-qS-krW"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-bz-hZI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-bz-hZI" customClass="PFImageView">
                     <rect key="frame" x="14" y="130" width="93" height="85"/>
                     <animations/>
                 </imageView>
