@@ -139,9 +139,7 @@
         
         // Place image picker on the screen
         [self presentViewController:self.imagePicker animated:YES completion: NULL];
-        
     }
-
 }
 
 
