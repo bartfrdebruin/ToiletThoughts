@@ -16,6 +16,7 @@
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
+#import "DetailVideoViewController.h"
 
 @interface ListThoughtTableVC ()
 
@@ -66,6 +67,8 @@
     self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
     
     [self.navigationController setToolbarItems:self.toolbarItems];
+    
+    self.chosenList = 1;
     
     }
 
@@ -309,25 +312,61 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+    if (self.chosenList == 1) {
+        
+        SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+        
+        PFObject * selectedThought = self.toiletThoughts[indexPath.row];
+        
+        stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
+        stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
+        stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
+        stdvc.currentThought = selectedThought;
+        
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft
+                               forView:self.navigationController.view cache:NO];
+        
+        [self.navigationController pushViewController:stdvc animated:YES];
+        [UIView commitAnimations];
+        
+    } else if (self.chosenList == 2) {
+        
+        SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+        
+        PFObject * selectedThought = self.toiletThoughts[indexPath.row];
+        
+        stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
+        stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
+        stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
+        stdvc.currentThought = selectedThought;
+        
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft
+                               forView:self.navigationController.view cache:NO];
+        
+        [self.navigationController pushViewController:stdvc animated:YES];
+        [UIView commitAnimations];
+        
+        
+    } else {
+        
+        DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
+        
+        [self.navigationController pushViewController:detailVideoViewController animated:YES];
+        
+        
+        
+    }
     
-    PFObject * selectedThought = self.toiletThoughts[indexPath.row];
-    
-    stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
-    stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
-    stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
-    stdvc.currentThought = selectedThought;
-    
-    [UIView beginAnimations:@"View Flip" context:nil];
-    [UIView setAnimationDuration:0.80];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    
-    [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromLeft
-                           forView:self.navigationController.view cache:NO];
-    
-    [self.navigationController pushViewController:stdvc animated:YES];
-    [UIView commitAnimations];
 }
 
 
