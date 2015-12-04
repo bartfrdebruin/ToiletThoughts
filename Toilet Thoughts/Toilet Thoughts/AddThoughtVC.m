@@ -79,21 +79,21 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     // No toolbar
-    [self.navigationController setToolbarHidden:NO];
+    [self.navigationController setToolbarHidden:YES];
     
 //    
 //    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
 //    [self.view addSubview:toolBar];
     
-    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
-    self.toolbarTextfield.placeholder=@"Enter your text";
-    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
-    self.toolbarTextfield.delegate = self;
-//    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
-    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
+//    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+//    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
+//    self.toolbarTextfield.placeholder=@"Enter your text";
+//    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
+//    self.toolbarTextfield.delegate = self;
+////    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
+//    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
 
-    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
+//    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
     
 //    [toolbarTextField setInputAccessoryView:self.customView];
     
@@ -178,7 +178,7 @@
     [self.customView  setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y - keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
     
     
-    [self.navigationController.toolbar setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.size.height - keyboardFrame.size.height + self.navigationController.toolbar.frame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
+//    [self.navigationController.toolbar setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.size.height - keyboardFrame.size.height + self.navigationController.toolbar.frame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
     
     [UIView commitAnimations];
     
@@ -208,9 +208,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-//    [self.thoughtTextField resignFirstResponder];
-    [self.toolbarTextfield endEditing:YES];
-    [self.toolbarTextfield resignFirstResponder];
+    [self.thoughtTextField resignFirstResponder];
+    [self.view endEditing:YES];
+//    [self.toolbarTextfield endEditing:YES];
+//    [self.toolbarTextfield resignFirstResponder];
     
     return YES;
 }

@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "HomeViewController.h"
 #import <ParseUI/ParseUI.h>
+#import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "ThoughtCustomCell.h"
 #import "ListThoughtTableVC.h"
@@ -19,6 +20,8 @@
 @interface UserViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *totalScore;
 
 @end
 
@@ -31,6 +34,21 @@
     self.currentUser = [PFUser currentUser];
     
     self.title = self.currentUser[@"username"];
+    self.userName.text = self.currentUser[@"username"];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+    [query whereKey:@"userName" equalTo:self.currentUser[@"username"]];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        
+        if (object) {
+        
+            NSNumber *score = object[@"totalScore"];
+            self.totalScore.text = [NSString stringWithFormat:@" %@", score];
+        }
+       }];
+
+    [self.tableView setContentInset:UIEdgeInsetsMake(- 65, 0, 0, 0)];
     
     if (self.currentUser) {
         
@@ -62,12 +80,9 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
     self.toiletThoughts = objects;
-        [self.tableView reloadData];
+    [self.tableView reloadData];
         
     }];
-
-    
-
 }
 
 - (void)logOut {
@@ -91,6 +106,66 @@
 
     [PFUser logOut];
 }
+
+
+#pragma mark - userImagePicker
+
+
+- (IBAction)takeAUserPicture:(id)sender {
+    
+    self.imagePicker = [[UIImagePickerController alloc] init];
+    
+    // If the device has a camera, take a picture, otherwise,
+    // just pick from photo library
+    
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    self.imagePicker.mediaTypes = @[(NSString*)kUTTypeImage];
+    
+    self.imagePicker.allowsEditing = YES;
+    self.imagePicker.delegate = self;
+    
+    // Place image picker on the screen
+    [self presentViewController:self.imagePicker animated:YES completion: NULL];
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.userImage.image = image;
+    
+    if (self.userImage.image != nil) {
+        
+        // Toilet Thought User Image
+        NSData *imageData = UIImageJPEGRepresentation(self.userImage.image, 0.4);
+        
+        // User image name
+        NSUUID *uuid = [NSUUID UUID];
+        
+        PFFile *parseUserImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
+        
+        PFUser *user = [PFUser currentUser];
+        [user setObject:parseUserImage forKey:@"userImage"];
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                
+                NSLog(@"Succes");
+            }
+            
+        }];
+    }
+    
+    self.userImage.image = image;
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+         
 
 #pragma mark - tableView
 
@@ -143,6 +218,11 @@
 heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     
     return 100;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+        return @"Your Toilet Thoughts:";
 }
 
 

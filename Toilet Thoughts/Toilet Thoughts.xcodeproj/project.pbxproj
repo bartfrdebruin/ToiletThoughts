@@ -11,6 +11,7 @@
 		1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */; };
 		1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */; };
 		1D9445E81C0DFC050073179B /* AddThoughtVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306131C049DCA0035BD50 /* AddThoughtVC.m */; };
+		1DAC01E11C11A69D0045A382 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */; };
 		1DB5440E1C0461FE00383E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5440D1C0461FE00383E1C /* main.m */; };
 		1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB544101C0461FE00383E1C /* AppDelegate.m */; };
 		1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB544181C0461FE00383E1C /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListThoughtTableVC.h; sourceTree = "<group>"; };
 		1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListThoughtTableVC.m; sourceTree = "<group>"; };
 		1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListThoughtTableVC.xib; sourceTree = "<group>"; };
+		1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1DB544091C0461FE00383E1C /* Toilet Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toilet Thoughts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB5440D1C0461FE00383E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1DB5440F1C0461FE00383E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DAC01E11C11A69D0045A382 /* MobileCoreServices.framework in Frameworks */,
 				C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +212,7 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */,
 				BCDE1ED2E777F290464C5362 /* libPods.a */,
 			);
 			name = Frameworks;
