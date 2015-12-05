@@ -16,6 +16,7 @@
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
+#import "DetailVideoViewController.h"
 
 @interface ListThoughtTableVC ()
 
@@ -67,6 +68,7 @@
     
     [self.navigationController setToolbarItems:self.toolbarItems];
     
+    
     }
 
 
@@ -79,6 +81,8 @@
     
     UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
     [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+    self.chosenList = 1;
     
 }
 
@@ -237,13 +241,13 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
         
-        PFObject * thoughtsDict = [self.winningThoughts objectAtIndex:indexPath.row];
+        PFObject * currentThought = [self.winningThoughts objectAtIndex:indexPath.row];
         
-        cell.usernameWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningUser"];
-        cell.thoughtWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningText"];
-        cell.scoreWinningThoughtCVC.text = [thoughtsDict objectForKey:@"winningScore"];
+        cell.usernameWinningThoughtCVC.text = [currentThought objectForKey:@"winningUser"];
+        cell.thoughtWinningThoughtCVC.text = [currentThought objectForKey:@"winningText"];
+        cell.scoreWinningThoughtCVC.text = [currentThought objectForKey:@"winningScore"];
         
-        PFFile *winningImageFile = [thoughtsDict objectForKey:@"winningImage"];
+        PFFile *winningImageFile = [currentThought objectForKey:@"winningImage"];
         PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
         thumbnail.image = [UIImage imageNamed:@"Icon-40"];
         thumbnail.file = winningImageFile;
@@ -255,14 +259,17 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         ThoughtCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThoughtCustomCell" forIndexPath:indexPath];
         
-        PFObject * thoughtsDict = [self.toiletThoughts objectAtIndex:indexPath.row];
+        PFObject * currentThought = [self.toiletThoughts objectAtIndex:indexPath.row];
         
-        cell.usernameThoughtCustomCell.text = [thoughtsDict objectForKey:@"userName"];
-        cell.thoughtLabel.text = [thoughtsDict objectForKey:@"toiletThought"];
-        cell.scoreThoughtCustomCell.text = [[thoughtsDict objectForKey:@"score"] description];
-        cell.dateLabel.text = [thoughtsDict objectForKey:@"createdAt"];
+        cell.usernameThoughtCustomCell.text = [currentThought objectForKey:@"userName"];
+        cell.thoughtLabel.text = [currentThought objectForKey:@"toiletThought"];
         
-        PFFile *thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
+        NSNumber *score = [currentThought objectForKey:@"score"];
+        cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+        
+        cell.dateLabel.text = [currentThought objectForKey:@"createdAt"];
+        
+        PFFile *thoughtImageFile = [currentThought objectForKey:@"thoughtImage"];
         PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
         thumbnail.image = [UIImage imageNamed:@"Icon-40"];
         thumbnail.file = thoughtImageFile;
@@ -292,7 +299,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     cell.layer.transform = rotation;
     cell.layer.anchorPoint = CGPointMake(0, 0.5);
     
-    
     //3. Define the final state (After the animation) and commit the animation
     [UIView beginAnimations:@"rotation" context:NULL];
     [UIView setAnimationDuration:0.8];
@@ -300,7 +306,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     cell.alpha = 1;
     cell.layer.shadowOffset = CGSizeMake(0, 0);
     [UIView commitAnimations];
-    
 }
 
 
@@ -308,26 +313,61 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+    if (self.chosenList == 1) {
+        
+        SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+        
+        PFObject * selectedThought = self.toiletThoughts[indexPath.row];
+        
+        stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
+        stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
+        stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
+        stdvc.currentThought = selectedThought;
+        
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft
+                               forView:self.navigationController.view cache:NO];
+        
+        [self.navigationController pushViewController:stdvc animated:YES];
+        [UIView commitAnimations];
+        
+    } else if (self.chosenList == 2) {
+        
+        SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
+        
+        PFObject * selectedThought = self.toiletThoughts[indexPath.row];
+        
+        stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
+        stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
+        stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
+        stdvc.currentThought = selectedThought;
+        
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft
+                               forView:self.navigationController.view cache:NO];
+        
+        [self.navigationController pushViewController:stdvc animated:YES];
+        [UIView commitAnimations];
+        
+        
+    } else {
+        
+        DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
+        
+        [self.navigationController pushViewController:detailVideoViewController animated:YES];
+        
+        
+        
+    }
     
-    PFObject * thoughtsDict = self.toiletThoughts[indexPath.row];
-    
-    stdvc.thoughtImageFile = [thoughtsDict objectForKey:@"thoughtImage"];
-    stdvc.thoughtDetail = [thoughtsDict objectForKey:@"toiletThought"];
-    stdvc.score = [thoughtsDict objectForKey:@"score"];
-    
-    // Pass the selected object to the new view controller.
-    
-    [UIView beginAnimations:@"View Flip" context:nil];
-    [UIView setAnimationDuration:0.80];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    
-    [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromLeft
-                           forView:self.navigationController.view cache:NO];
-    
-    [self.navigationController pushViewController:stdvc animated:YES];
-    [UIView commitAnimations];
 }
 
 

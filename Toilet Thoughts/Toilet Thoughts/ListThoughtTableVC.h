@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "ListThoughtTableVC.h"
+#import "WinningThoughtCustomVideoCell.h"
+#import "ThoughtCustomCell.h"
 
 @interface ListThoughtTableVC : UITableViewController
 
@@ -17,6 +19,7 @@
 @property (nonatomic, strong) NSArray *toiletThoughts;
 @property (nonatomic, strong) NSArray *winningThoughts;
 @property (nonatomic) UIViewController *presentedFromAddThoughtVC;
+@property (nonatomic, strong) PFObject * currentThought;
 
 - (void)retrieveFromParseRecent;
 - (void)retrieveFromParseScore;
