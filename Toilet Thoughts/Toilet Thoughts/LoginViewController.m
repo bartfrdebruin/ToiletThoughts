@@ -20,12 +20,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+//    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+//    [keyboardDoneButtonView sizeToFit];
+//    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+//                                                                   style:UIBarButtonItemStyleBordered target:self
+//                                                                  action:@selector(doneClicked:)];
+//    UITextField *toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+//    toolbarTextfield.backgroundColor =[UIColor  whiteColor];
+//    toolbarTextfield.placeholder=@"Enter your text";
+//    toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
+//    toolbarTextfield.inputAccessoryView = toolbarTextfield;
+//    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:toolbarTextfield];
+//    
+//    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton,textfieldItem, nil]];
+//    self.passWord.inputAccessoryView = keyboardDoneButtonView;
+//    self.userName.inputAccessoryView = keyboardDoneButtonView;
+//    toolbarTextfield.inputAccessoryView = keyboardDoneButtonView;
+    
 }
-                             
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 
 - (void)viewWillAppear:(BOOL)animated {

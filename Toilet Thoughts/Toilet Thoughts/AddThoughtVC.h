@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <AVFoundation/AVFoundation.h>
 
 
-@interface AddThoughtVC : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface AddThoughtVC : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *thoughtTextField;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *record;
 @property (weak, nonatomic) IBOutlet UIView *customView;
 @property (nonatomic) UIViewController *presentedFromVC;
 @property (strong, nonatomic) PFUser *currentUser;
+
 
 @property(strong, nonatomic) UITextField *toolbarTextfield;
 

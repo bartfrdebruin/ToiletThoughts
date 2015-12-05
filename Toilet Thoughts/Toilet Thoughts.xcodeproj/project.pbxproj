@@ -30,6 +30,7 @@
 		1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */; };
 		1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */; };
 		1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */; };
+		2B71356F1C0F0F97003B717B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B71356E1C0F0F97003B717B /* AVFoundation.framework */; };
 		C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE1ED2E777F290464C5362 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		1DF306211C049E250035BD50 /* WinningThoughtCustomVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinningThoughtCustomVideoCell.h; sourceTree = "<group>"; };
 		1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningThoughtCustomVideoCell.m; sourceTree = "<group>"; };
 		1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinningThoughtCustomVideoCell.xib; sourceTree = "<group>"; };
+		2B71356E1C0F0F97003B717B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDE1ED2E777F290464C5362 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B71356F1C0F0F97003B717B /* AVFoundation.framework in Frameworks */,
 				C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +212,7 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B71356E1C0F0F97003B717B /* AVFoundation.framework */,
 				BCDE1ED2E777F290464C5362 /* libPods.a */,
 			);
 			name = Frameworks;
