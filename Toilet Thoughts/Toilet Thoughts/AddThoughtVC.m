@@ -35,8 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"Add a Toilet Thought!";
-    
+    self.title = @"New";
     
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -45,6 +44,8 @@
     [self.navigationController setToolbarHidden:YES];
     
     // Audio recording settings
+    
+    self.play.hidden = YES;
     
     [ self.record addTarget:self
                      action:@selector(methodTouchDown:)
@@ -260,8 +261,15 @@
 
 - (IBAction)takePicture:(id)sender {
     
+    
     self.imagePicker = [[UIImagePickerController alloc] init];
     
+    UIView* overlayView = [[UIView alloc] initWithFrame:self.imagePicker.view.frame];
+    // letting png transparency be
+    overlayView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
+    [overlayView.layer setOpaque:NO];
+    overlayView.opaque = NO;
+
     // If the device has a camera, take a picture, otherwise,
     // just pick from photo library
     
@@ -272,9 +280,12 @@
     }
     
     self.imagePicker.mediaTypes = @[(NSString*)kUTTypeImage];
-    
+    self.imagePicker.cameraOverlayView = overlayView;
     self.imagePicker.allowsEditing = YES;
     self.imagePicker.delegate = self;
+    self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+//    self.imagePicker.showsCameraControls = NO;
+    
     
     // Place image picker on the screen
     [self presentViewController:self.imagePicker animated:YES completion: NULL];
@@ -405,7 +416,6 @@
 
 - (IBAction)recordPressed:(id)sender {
     
-    
     if (self.player.playing)
     {
         [self.player stop];
@@ -438,6 +448,7 @@
     if (self.player.playing)
     {
         [self.player stop];
+        
     }
     
     if (!self.recorder.recording)
@@ -466,6 +477,9 @@
     
     [self.recorder stop];
     
+    self.play.hidden = NO;
+    self.record.hidden = YES;
+    
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
     
@@ -486,6 +500,14 @@
     [myTestObject saveInBackground];
     
     NSLog(@"TouchUpInside");
+}
+- (IBAction)playTapped:(id)sender {
+    
+    if (!self.recorder.recording) {
+        self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
+        [self.player setDelegate:self];
+        [self.player play];
+    }
 }
 
 @end
