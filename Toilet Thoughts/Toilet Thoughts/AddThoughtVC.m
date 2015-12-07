@@ -13,6 +13,7 @@
 #import <ParseUI/ParseUI.h>
 #import "LoginViewController.h"
 #import "ListThoughtTableVC.h"
+#import <AVFoundation/AVFoundation.h>
 
 
 @import MobileCoreServices;
@@ -20,6 +21,8 @@
 @interface AddThoughtVC ()
 
 @property (nonatomic) CGRect normalFrame;
+@property (nonatomic) AVAudioRecorder *recorder;
+@property (nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -27,6 +30,78 @@
 
 
 #pragma mark - viewDidLoad
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"Add a Toilet Thought!";
+    
+    
+    // No back button
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    // No toolbar
+    [self.navigationController setToolbarHidden:YES];
+    
+    // Audio recording settings
+    
+    [ self.record addTarget:self
+                     action:@selector(methodTouchDown:)
+           forControlEvents:UIControlEventTouchDown];
+    
+    [self.record addTarget:self
+                    action:@selector(methodTouchUpInside:)
+          forControlEvents: UIControlEventTouchUpInside];
+    
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"MyAudioMemoTemp.m4a",
+                               nil];
+    
+    NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    
+    NSMutableDictionary *recordString = [[NSMutableDictionary alloc]init];
+    
+    [recordString setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordString setValue:[NSNumber numberWithFloat:8000.0] forKey:AVSampleRateKey];
+    [recordString setValue:[NSNumber numberWithInt: 1] forKey:AVNumberOfChannelsKey];
+    
+    self.recorder = [[AVAudioRecorder alloc]initWithURL:outputFileUrl settings:recordString error:nil];
+    
+    self.recorder.delegate = self;
+    
+    self.recorder.meteringEnabled = YES;
+    
+    [self.recorder prepareToRecord];
+    
+    //
+    //    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
+    //    [self.view addSubview:toolBar];
+    
+    //    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
+    //    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
+    //    self.toolbarTextfield.placeholder=@"Enter your text";
+    //    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
+    //    self.toolbarTextfield.delegate = self;
+    ////    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
+    //    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
+    
+    //    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
+    
+    //    [toolbarTextField setInputAccessoryView:self.customView];
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
+    
+    UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                          action:@selector(handleTap:)];
+    [self.view addGestureRecognizer:tapOutsiteTextField];
+}
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,42 +142,6 @@
     
     [super viewDidAppear:YES];
     
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    self.title = @"Add a Toilet Thought!";
-    
-    // No back button
-    [self.navigationItem setHidesBackButton:YES animated:NO];
-    
-    // No toolbar
-    [self.navigationController setToolbarHidden:YES];
-    
-//    
-//    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
-//    [self.view addSubview:toolBar];
-    
-//    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-//    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
-//    self.toolbarTextfield.placeholder=@"Enter your text";
-//    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
-//    self.toolbarTextfield.delegate = self;
-////    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
-//    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
-
-//    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
-    
-//    [toolbarTextField setInputAccessoryView:self.customView];
-    
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
-    [self.navigationItem setLeftBarButtonItem:cancelButton];
-    
-    UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                          action:@selector(handleTap:)];
-    [self.view addGestureRecognizer:tapOutsiteTextField];
 }
 
 
@@ -364,5 +403,89 @@
     
 }
 
+- (IBAction)recordPressed:(id)sender {
+    
+    
+    if (self.player.playing)
+    {
+        [self.player stop];
+    }
+    
+    if (!self.recorder.recording)
+    {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        
+        [session setActive:YES error:nil];
+        
+        [self.recorder record];
+        
+        [self.record setTitle:@"Pause" forState:UIControlStateNormal];
+        
+        [self.recorder record];
+        
+    }
+    
+    else
+    {
+        [self.recorder pause];
+        [self.record setTitle:@"Record" forState:UIControlStateNormal];
+    }
+    
+}
+
+-(void)methodTouchDown:(id)sender{
+    
+    if (self.player.playing)
+    {
+        [self.player stop];
+    }
+    
+    if (!self.recorder.recording)
+    {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        
+        [session setActive:YES error:nil];
+        
+        [self.recorder record];
+        
+        [self.record setTitle:@"Recording" forState:UIControlStateNormal];
+        
+    }
+    
+    else
+    {
+        [self.recorder pause];
+        [self.record setTitle:@"Record" forState:UIControlStateNormal];
+    }
+
+    
+    NSLog(@"TouchDown");
+}
+
+-(void)methodTouchUpInside:(id)sender{
+    
+    [self.recorder stop];
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive:NO error:nil];
+    
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"MyAudioMemoTemp.m4a",
+                               nil];
+    
+    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+    
+    NSData * audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+    
+    PFObject * myTestObject = [PFObject objectWithClassName:@"TestObject"];
+    
+    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:audioData];
+    
+    myTestObject[@"audioFile"] = audioFile;
+    [myTestObject saveInBackground];
+    
+    NSLog(@"TouchUpInside");
+}
 
 @end
