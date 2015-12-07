@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="customView" destination="HNk-9I-DJe" id="ZFI-Cw-YS2"/>
                 <outlet property="imageView" destination="B2m-eE-HdP" id="hC2-aZ-hcz"/>
+                <outlet property="play" destination="uRe-ZJ-fID" id="zzw-zP-3gL"/>
                 <outlet property="postButton" destination="dRS-XM-hPF" id="bxC-Dt-dVn"/>
                 <outlet property="record" destination="gtm-vb-zHE" id="gqY-iq-k5E"/>
                 <outlet property="thoughtTextField" destination="OsY-2P-IKj" id="Zrs-Dz-ajL"/>
@@ -47,15 +48,6 @@
                                 <action selector="post:" destination="-1" eventType="touchUpInside" id="eFn-qu-yaR"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Enter your Toilet Thoughts here: " clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-2P-IKj">
-                            <rect key="frame" x="20" y="368" width="283" height="95"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="Bnk-Ps-Y8i"/>
-                            </connections>
-                        </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtm-vb-zHE">
                             <rect key="frame" x="20" y="475" width="135" height="57"/>
                             <animations/>
@@ -66,6 +58,27 @@
                             </state>
                             <connections>
                                 <action selector="recordPressed:" destination="-1" eventType="touchUpInside" id="gfC-ul-o8u"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="line" placeholder="Enter your Toilet Thoughts here: " clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OsY-2P-IKj">
+                            <rect key="frame" x="20" y="368" width="283" height="95"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Bnk-Ps-Y8i"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-ZJ-fID">
+                            <rect key="frame" x="20" y="475" width="135" height="57"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <state key="normal" title="Play">
+                                <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="A5G-me-ckF"/>
                             </connections>
                         </button>
                     </subviews>
