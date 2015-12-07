@@ -57,9 +57,6 @@
 		1B9C795751FAB2E751DE9F542AEEADBD /* PFObjectFileCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D19A36A667B63CEB2CD393AD840E1F /* PFObjectFileCoder.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1BF91E76BE12DE7FC68F1B1932B18DA5 /* PFTaskQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A09AFAEED7964785FB1994B04E78EDB8 /* PFTaskQueue.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1CA971A55F91675F85DF03CDBEE8D839 /* PFDefaultACLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B8E4B7F3DD9B2732FD850DBC7360F9 /* PFDefaultACLController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1D766CB71C11DA26002E97AE /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D766CB51C11DA26002E97AE /* YTPlayerView.h */; };
-		1D766CB81C11DA26002E97AE /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D766CB61C11DA26002E97AE /* YTPlayerView.m */; };
-		1DC9C8D51C157D50009FFB5E /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1DC9C8D41C157D50009FFB5E /* Assets.bundle */; };
 		1DE6C53CBF07582CB8B97E2776504911 /* PFMutableACLState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F6B53EF4ABB6F2F93A47840EB9B02 /* PFMutableACLState.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1DEAC8FAB9BF3860C37A5C8841879CE3 /* PFAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = EBB0FC6B482CBC5FC2210B77AFC40400 /* PFAssert.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1E5F9E9ACD3784490446861D71C99FA2 /* PFActivityIndicatorTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6847431126AEBCACC1AD5121014B7B7B /* PFActivityIndicatorTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -124,6 +121,7 @@
 		4435F2AB4100E8DCFA02C62771D94936 /* PFPushChannelsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A53DF682A037442D549F9C273D0B3824 /* PFPushChannelsController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		45A4A03CE90CE668BDC394F49EC0F5EE /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E03EAF13F83E10D7BD86DDFEA8CDE47 /* ParseManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4603D5078CFE96166AC71489076522BF /* PFAnonymousUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A628E7549167A9647BADBFF59ED4FF7 /* PFAnonymousUtils.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4629316A9955236E8C1468427A24097C /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08083D55597481A0C6991382CF06D9E4 /* YTPlayerView.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		46A151168E7330EF7D42CF17B0D8DA88 /* PFAnonymousAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 618CCCA4258162EE13442A026B03E052 /* PFAnonymousAuthenticationProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		47B02BEE5984541FEBD3633CD210713F /* PFOfflineQueryLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB28D30163B58B0369C1BC34EC06F77 /* PFOfflineQueryLogic.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		4992A782C28970EA1CE04DF9695056D7 /* PFInstallationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C91985BDA0D0B33894F3D6DEDF79D1 /* PFInstallationController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -230,6 +228,7 @@
 		842DB4A8B2A1C324CFD8504F1C439573 /* PFBase64Encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 383D5E1FE11EB72B172B3D4ADB58FA31 /* PFBase64Encoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		84825B28043F468163EA7257553E0506 /* PFUserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 622BDD924447A9F75B2F195D12262FC1 /* PFUserState.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		84A6280CBA36E5A31C4FAA65AF4E0F04 /* PFConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA430F5C84038CCFE0EE23AA03B1C82 /* PFConfigController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8597914C2E4789B767F439D7477EFE23 /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 441886A0FCBE007694B990401DBD30B0 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8618C21EB0A737B37F7B034DE2240B09 /* PFConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 46CABCE751B6F4C9E0619773C3145E69 /* PFConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		862B99A18FCE0AC08691043E11FFACEA /* PFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB193834C56469F9DDD205436786A4 /* PFQuery.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		86F49AB698F8E2A0021A4FE7E61CF230 /* PFSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F9D91158683020617CE14E3650553D /* PFSession.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -532,6 +531,7 @@
 		077E9EAA7274DB784C390B4932E5526D /* PFAnonymousAuthenticationProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnonymousAuthenticationProvider.m; path = Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.m; sourceTree = "<group>"; };
 		079C2808CFB43ACC872763CE0504A241 /* PFConfigController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfigController.h; path = Parse/Internal/Config/Controller/PFConfigController.h; sourceTree = "<group>"; };
 		07D76905D5FAB890462398F5FA5E30DB /* PFUserPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserPrivate.h; path = Parse/Internal/User/PFUserPrivate.h; sourceTree = "<group>"; };
+		08083D55597481A0C6991382CF06D9E4 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
 		0824EA2E7D4E619A2890371C64B03C8A /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
 		08285D40EEA00E7AC6D18703CCFF0728 /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/PFObject+Subclass.h"; sourceTree = "<group>"; };
 		09148023EB5A4B68B8BF2778B727BFFC /* PFUserAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserAuthenticationDelegate.h; path = Parse/PFUserAuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -572,9 +572,6 @@
 		1C5CCA40B992CA29C9A0D0A3156EF612 /* PFSQLiteStatement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteStatement.m; path = Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.m; sourceTree = "<group>"; };
 		1C8AC7904F2A03591670F0DC3F9BC874 /* PFCommandRunning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunning.h; path = Parse/Internal/Commands/CommandRunner/PFCommandRunning.h; sourceTree = "<group>"; };
 		1CC8F255CBED6888C9AE2EFADE5BFB59 /* PFQueryUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryUtilities.h; path = Parse/Internal/Query/Utilities/PFQueryUtilities.h; sourceTree = "<group>"; };
-		1D766CB51C11DA26002E97AE /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
-		1D766CB61C11DA26002E97AE /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
-		1DC9C8D41C157D50009FFB5E /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		1DF2837EEA78BCC68033367B6CAF99B3 /* PFCurrentConfigController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentConfigController.m; path = Parse/Internal/Config/Controller/PFCurrentConfigController.m; sourceTree = "<group>"; };
 		1E03EAF13F83E10D7BD86DDFEA8CDE47 /* ParseManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseManager.m; path = Parse/Internal/ParseManager.m; sourceTree = "<group>"; };
 		1E47DFD28D1322909427A06032A5F9B4 /* PFHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHTTPRequest.h; path = Parse/Internal/HTTPRequest/PFHTTPRequest.h; sourceTree = "<group>"; };
@@ -630,6 +627,7 @@
 		42D97A7B2743E60177D143A4B4B4E9C9 /* PFObjectFilePersistenceController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFilePersistenceController.m; path = Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.m; sourceTree = "<group>"; };
 		42F40419569598FB428A0C6621F14922 /* PFRESTUserCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTUserCommand.m; path = Parse/Internal/Commands/PFRESTUserCommand.m; sourceTree = "<group>"; };
 		437CBC23F04B37E7C37CFEF7CE7900C2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		441886A0FCBE007694B990401DBD30B0 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
 		4444913FC1C129801D9392927900390B /* BFCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenSource.m; path = Bolts/Common/BFCancellationTokenSource.m; sourceTree = "<group>"; };
 		455DAFE756EFE6AC1AA03893646BD835 /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse/PFUser.h; sourceTree = "<group>"; };
 		469BB533D982AEB20F9277F39DD686F1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -1165,9 +1163,8 @@
 		200B0287F32A336C6D8D727044720DA1 /* youtube-ios-player-helper */ = {
 			isa = PBXGroup;
 			children = (
-				1DC9C8D41C157D50009FFB5E /* Assets.bundle */,
-				1D766CB51C11DA26002E97AE /* YTPlayerView.h */,
-				1D766CB61C11DA26002E97AE /* YTPlayerView.m */,
+				441886A0FCBE007694B990401DBD30B0 /* YTPlayerView.h */,
+				08083D55597481A0C6991382CF06D9E4 /* YTPlayerView.m */,
 				0316D88084A1B244D5FD50AE15766CBD /* Support Files */,
 			);
 			path = "youtube-ios-player-helper";
@@ -1653,7 +1650,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D766CB71C11DA26002E97AE /* YTPlayerView.h in Headers */,
+				8597914C2E4789B767F439D7477EFE23 /* YTPlayerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2063,7 +2060,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DC9C8D51C157D50009FFB5E /* Assets.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2115,7 +2111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F197EFBD926865657E403A8934838A62 /* youtube-ios-player-helper-dummy.m in Sources */,
-				1D766CB81C11DA26002E97AE /* YTPlayerView.m in Sources */,
+				4629316A9955236E8C1468427A24097C /* YTPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

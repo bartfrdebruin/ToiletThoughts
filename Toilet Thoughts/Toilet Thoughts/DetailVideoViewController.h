@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "YTPlayerView.h"
+#import "YTPlayerView.h"
 
 @interface DetailVideoViewController : UIViewController <YTPlayerViewDelegate>
 
