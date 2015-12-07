@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1D07DABB1C158DE4007DC892 /* Assets.bundle */; };
+		1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */; };
 		1D90A6B51C0493D200BC9F8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1D90A6B41C0493D200BC9F8F /* Podfile */; };
 		1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */; };
 		1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */; };
@@ -54,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D07DABB1C158DE4007DC892 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		1D07DABD1C159629007DC892 /* TAAYouTubeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAYouTubeWrapper.h; sourceTree = "<group>"; };
+		1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAYouTubeWrapper.m; sourceTree = "<group>"; };
 		1D90A6B41C0493D200BC9F8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListThoughtTableVC.h; sourceTree = "<group>"; };
 		1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListThoughtTableVC.m; sourceTree = "<group>"; };
@@ -156,6 +161,8 @@
 				1DB5440F1C0461FE00383E1C /* AppDelegate.h */,
 				1DB544101C0461FE00383E1C /* AppDelegate.m */,
 				1DB544181C0461FE00383E1C /* Assets.xcassets */,
+				1D07DABD1C159629007DC892 /* TAAYouTubeWrapper.h */,
+				1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */,
 				1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */,
 				1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */,
 				1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */,
@@ -193,6 +200,7 @@
 		1DB5440C1C0461FE00383E1C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1D07DABB1C158DE4007DC892 /* Assets.bundle */,
 				1D90A6B41C0493D200BC9F8F /* Podfile */,
 				1DB5440D1C0461FE00383E1C /* main.m */,
 			);
@@ -349,6 +357,7 @@
 				1DB5441C1C0461FE00383E1C /* LaunchScreen.storyboard in Resources */,
 				1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */,
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
+				1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */,
 				1D90A6B51C0493D200BC9F8F /* Podfile in Resources */,
 				1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */,
 				1DAC01E61C11C8260045A382 /* DetailVideoViewController.xib in Resources */,
@@ -434,6 +443,7 @@
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
 				1DAC01E51C11C8260045A382 /* DetailVideoViewController.m in Sources */,
+				1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */,
 				1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */,
 				1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,

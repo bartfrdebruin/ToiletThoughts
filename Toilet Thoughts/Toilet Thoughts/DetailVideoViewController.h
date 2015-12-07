@@ -11,7 +11,7 @@
 
 @interface DetailVideoViewController : UIViewController <YTPlayerViewDelegate>
 
-@property (weak, nonatomic) IBOutlet YTPlayerView *playerView;
+@property(nonatomic, strong) IBOutlet YTPlayerView *playerView;
 
 - (IBAction)playVideo:(id)sender;
 - (IBAction)stopVideo:(id)sender;
