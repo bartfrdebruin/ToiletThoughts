@@ -35,8 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"Add a Toilet Thought!";
-    
+    self.title = @"New";
     
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
