@@ -17,6 +17,9 @@
 #import "ThoughtCustomCell.h"
 #import "HomeViewController.h"
 #import "DetailVideoViewController.h"
+#import "TAAYouTubeWrapper.h"
+#import "GTLYouTube.h"
+
 
 @interface ListThoughtTableVC ()
 
@@ -186,7 +189,7 @@
     
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
-            
+    
             self.winningThoughts = [[NSArray alloc] initWithArray: objects];
             [self.tableView reloadData];
         }
@@ -242,7 +245,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
         
         PFObject * currentThought = [self.winningThoughts objectAtIndex:indexPath.row];
-        
+    
         cell.usernameWinningThoughtCVC.text = [currentThought objectForKey:@"winningUser"];
         cell.thoughtWinningThoughtCVC.text = [currentThought objectForKey:@"winningText"];
         cell.scoreWinningThoughtCVC.text = [currentThought objectForKey:@"winningScore"];
@@ -362,10 +365,11 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
         
+        PFObject *selectedWinningThought = self.winningThoughts[indexPath.row];
+        
+        detailVideoViewController.currentWinningThought = selectedWinningThought;
+        
         [self.navigationController pushViewController:detailVideoViewController animated:YES];
-        
-        
-        
     }
     
 }

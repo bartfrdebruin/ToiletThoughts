@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSArray *winningThoughts;
 @property (nonatomic) UIViewController *presentedFromAddThoughtVC;
 @property (nonatomic, strong) PFObject * currentThought;
+@property (nonatomic, strong) NSArray *videoObjects;
 
 - (void)retrieveFromParseRecent;
 - (void)retrieveFromParseScore;

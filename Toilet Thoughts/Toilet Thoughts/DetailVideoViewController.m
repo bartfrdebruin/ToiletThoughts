@@ -7,6 +7,8 @@
 //
 
 #import "DetailVideoViewController.h"
+#import "TAAYouTubeWrapper.h"
+#import "GTLYouTube.h"
 
 @interface DetailVideoViewController ()
 
@@ -19,15 +21,23 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Toilet Winners";
-    
-    self.playerView.delegate = self;
-    
     [self.navigationController setToolbarHidden:YES];
 
-    NSDictionary *playerVars = @{
-                                 @"playsinline" : @1,
-                                 };
-    [self.playerView loadWithVideoId:@"M7lc1UVf-VE" playerVars:playerVars];
+    
+    self.playerView.delegate = self;
+
+    NSDictionary *playerVars = @{ @"playsinline" : @0,};
+    [self.playerView loadWithVideoId:self.currentWinningThought[@"winningThoughtID"]playerVars:playerVars];
+    
+    self.toiletThought.text = self.currentWinningThought[@"winningText"];
+    self.winningUser.text = self.currentWinningThought[@"winningUser"];
+    
+    NSNumber *score = [self.currentWinningThought objectForKey:@"winningScore"];
+    self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+
+
+    
+
 }
 
 
@@ -43,6 +53,8 @@
             NSLog(@"Started playback");
             break;
         case kYTPlayerStatePaused:
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
             NSLog(@"Paused playback");
             break;
         default:

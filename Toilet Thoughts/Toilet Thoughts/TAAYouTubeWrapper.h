@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define kYouTubeAPIKey @"AIzaSyCvhqxhWV4TwcfNXF-qC5BKFJhVYOvPUUA"
+#define kYouTubeAPIKey @"AIzaSyBy799iVs42ls5Wqgk1f3lR3xaGZaw-hoE"
 
 @interface TAAYouTubeWrapper : NSObject
 
