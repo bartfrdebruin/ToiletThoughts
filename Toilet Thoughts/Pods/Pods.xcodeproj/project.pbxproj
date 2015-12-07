@@ -89,6 +89,7 @@
 		29C440D1A3AC5A1BAD139A2662FCBCE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A2CCF3A503CB64BF8AD5F59D0A85F /* Foundation.framework */; };
 		2A39CE66C7973F15AD64DCE52F0AE3C4 /* PFUserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A1A69FE47D508651A4E06906D02F9B /* PFUserController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2AAE07E1B1BF8A301D825672143DC578 /* PFCommandCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6602DA3EEC37CE5D651B8EE9C2218916 /* PFCommandCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B3D566C1C157A1E0069261F /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D566B1C157A1E0069261F /* Assets.bundle */; };
 		2BDD29CA0D42FCCCEA9FE8E4AAF0F8E9 /* PFConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9046B402BE745C735AE2F0AA6F537E /* PFConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D510C6B08FCEEA15909053EE091DF11 /* PFObjectUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 67CD2A01809808A8E7836CD769A28C95 /* PFObjectUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2DA9F313EBE97FECB2F6423513E3FF0C /* PFPropertyInfo_Runtime.h in Headers */ = {isa = PBXBuildFile; fileRef = 469D014A3A29D3D9EFC6DE34A8DE8936 /* PFPropertyInfo_Runtime.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -603,6 +604,7 @@
 		2A60C5769D3B03408CAB20A434A9C37A /* PFUserFileCodingLogic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserFileCodingLogic.m; path = Parse/Internal/User/Coder/File/PFUserFileCodingLogic.m; sourceTree = "<group>"; };
 		2AF29AE7B34EB33B6B3BF45088AC7EE4 /* PFSignUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSignUpViewController.h; path = ParseUI/Classes/SignUpViewController/PFSignUpViewController.h; sourceTree = "<group>"; };
 		2B29311005266720280031F166E7E5C0 /* PFConfig_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig_Private.h; path = Parse/Internal/Config/PFConfig_Private.h; sourceTree = "<group>"; };
+		2B3D566B1C157A1E0069261F /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		2B611BE8020ED0E749F9B0975B57253C /* PFPropertyInfo_Runtime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPropertyInfo_Runtime.m; path = Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.m; sourceTree = "<group>"; };
 		2C27169D2FCFD437F07AB97A8C43DA24 /* PFOfflineStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineStore.h; path = Parse/Internal/LocalDataStore/OfflineStore/PFOfflineStore.h; sourceTree = "<group>"; };
 		2D1FA87917E475160490443152F4ED28 /* PFRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRole.h; path = Parse/PFRole.h; sourceTree = "<group>"; };
@@ -1173,6 +1175,7 @@
 				1D766CB61C11DA26002E97AE /* YTPlayerView.m */,
 				441886A0FCBE007694B990401DBD30B0 /* YTPlayerView.h */,
 				08083D55597481A0C6991382CF06D9E4 /* YTPlayerView.m */,
+				2B3D566B1C157A1E0069261F /* Assets.bundle */,
 				0316D88084A1B244D5FD50AE15766CBD /* Support Files */,
 			);
 			path = "youtube-ios-player-helper";
@@ -2069,6 +2072,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3D566C1C157A1E0069261F /* Assets.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
