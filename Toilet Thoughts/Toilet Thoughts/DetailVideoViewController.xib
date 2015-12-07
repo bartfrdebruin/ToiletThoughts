@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVideoViewController">
             <connections>
-                <outlet property="playerView" destination="ikn-7n-zyj" id="sQh-2I-6Os"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="playerView" destination="Dwv-rd-lhx" id="bqn-1Q-puC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="oYv-UI-c95"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -16,32 +16,35 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xd-b6-CNr">
-                    <rect key="frame" x="26" y="358" width="30" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Xd-b6-CNr">
+                    <rect key="frame" x="44" y="557" width="30" height="30"/>
                     <animations/>
                     <state key="normal" title="Play"/>
                     <connections>
                         <action selector="playVideo:" destination="-1" eventType="touchUpInside" id="Jy7-Bb-BoG"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-WZ-kHy">
-                    <rect key="frame" x="542" y="358" width="32" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-WZ-kHy">
+                    <rect key="frame" x="542" y="557" width="32" height="30"/>
                     <animations/>
                     <state key="normal" title="Stop"/>
                     <connections>
                         <action selector="stopVideo:" destination="-1" eventType="touchUpInside" id="1V4-dM-0Lc"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ikn-7n-zyj" customClass="YTPlayerView">
-                    <rect key="frame" x="26" y="38" width="548" height="306"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-rd-lhx" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="49" width="600" height="256"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="TYg-WZ-kHy" secondAttribute="trailing" constant="26" id="1Pz-lY-bH0"/>
+                <constraint firstAttribute="bottom" secondItem="8Xd-b6-CNr" secondAttribute="bottom" constant="13" id="G0p-FS-SBZ"/>
+                <constraint firstAttribute="bottom" secondItem="TYg-WZ-kHy" secondAttribute="bottom" constant="13" id="QeS-1j-ySH"/>
+                <constraint firstItem="8Xd-b6-CNr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="lNV-8O-qNr"/>
             </constraints>
         </view>
     </objects>
