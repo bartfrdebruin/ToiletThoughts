@@ -16,7 +16,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LEMirroredImagePicker.h"
 
-
 @import MobileCoreServices;
 
 @interface AddThoughtVC ()
@@ -29,7 +28,6 @@
 @end
 
 @implementation AddThoughtVC
-
 
 #pragma mark - viewDidLoad
 
@@ -106,6 +104,7 @@
     [self.view addGestureRecognizer:tapOutsiteTextField];
 }
 
+# pragma mark - viewWillAppear
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -141,6 +140,8 @@
                                                object:self.view.window];
 }
 
+# pragma mark - viewDidAppear
+
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:YES];
@@ -153,7 +154,7 @@
         [self.thoughtTextField resignFirstResponder];
 }
 
-
+# pragma mark - viewWillDisappear
 
 - (void)viewWillDisappear:(BOOL)animated {
     
@@ -166,6 +167,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+# pragma mark - cancelAndGoBack
 
 - (void)cancelAndGoBack {
     
@@ -184,6 +187,7 @@
     [UIView commitAnimations];
 }
 
+# pragma mark - goToUserScreen
 
 - (void)goToUserScreen {
     
@@ -200,7 +204,7 @@
     }
 }
 
-#pragma mark - textField
+#pragma mark - keyboardWillShow
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     
@@ -225,6 +229,8 @@
     [UIView commitAnimations];
     
 }
+
+# pragma mark - keyboardWillHide
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     
@@ -303,6 +309,7 @@
     [self presentViewController:self.imagePicker animated:YES completion: NULL];
 }
 
+#pragma mark - imagePickerController
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
@@ -314,8 +321,8 @@
     
 }
 
-
 #pragma mark - post
+
 - (IBAction)post:(id)sender {
     
     [self.thoughtTextField resignFirstResponder];
@@ -427,6 +434,8 @@
     
 }
 
+#pragma mark - IBAction recordPressed
+
 - (IBAction)recordPressed:(id)sender {
     
     if (self.player.playing)
@@ -455,6 +464,19 @@
     }
     
 }
+
+#pragma mark - IBAction playTapped
+
+- (IBAction)playTapped:(id)sender {
+    
+    if (!self.recorder.recording) {
+        self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
+        [self.player setDelegate:self];
+        [self.player play];
+    }
+}
+
+#pragma mark - methodTouchDown
 
 -(void)methodTouchDown:(id)sender{
     
@@ -486,6 +508,8 @@
     NSLog(@"TouchDown");
 }
 
+#pragma mark - methodTouchUpInside
+
 -(void)methodTouchUpInside:(id)sender{
     
     [self.recorder stop];
@@ -513,14 +537,6 @@
     [myTestObject saveInBackground];
     
     NSLog(@"TouchUpInside");
-}
-- (IBAction)playTapped:(id)sender {
-    
-    if (!self.recorder.recording) {
-        self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
-        [self.player setDelegate:self];
-        [self.player play];
-    }
 }
 
 @end
