@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="loginSuccess" destination="TCk-Ie-yEH" id="JiU-km-dC7"/>
                 <outlet property="passWord" destination="UgH-es-CE5" id="4yU-9v-NRN"/>
                 <outlet property="userName" destination="poW-uM-sm6" id="EFA-h4-Gya"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -45,7 +46,7 @@
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title=" Log in!">
-                        <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="logIn:" destination="-1" eventType="touchUpInside" id="W0O-3Q-EvK"/>
@@ -56,7 +57,7 @@
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Sign up!">
-                        <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="signIn:" destination="-1" eventType="touchUpInside" id="fzu-rt-2TG"/>
@@ -68,21 +69,21 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="2fU-8j-3zL"/>
                     </constraints>
-                    <color key="textColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abi-P5-Ckn">
                     <rect key="frame" x="0.0" y="19" width="600" height="44"/>
                     <animations/>
-                    <color key="barTintColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
-                        <color key="textColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </textAttributes>
                     <items>
                         <navigationItem title="Sign or Log in!" id="Ld9-Je-r3d">
                             <barButtonItem key="leftBarButtonItem" title="Cancel" id="FPK-9k-OnD">
-                                <color key="tintColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="cancel:" destination="-1" id="hB0-Y2-e2b"/>
                                 </connections>
@@ -90,9 +91,13 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="V" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-Ie-yEH">
+                    <rect key="frame" x="232" y="384" width="137" height="128"/>
+                    <animations/>
+                </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="abi-P5-Ckn" secondAttribute="trailing" id="2N9-tq-169"/>
                 <constraint firstItem="vIO-og-Nhp" firstAttribute="top" secondItem="xrC-AK-Smi" secondAttribute="top" id="5LR-ha-IJz"/>
@@ -106,6 +111,7 @@
                 <constraint firstItem="UgH-es-CE5" firstAttribute="leading" secondItem="vIO-og-Nhp" secondAttribute="leading" id="ejU-QD-nmN"/>
                 <constraint firstItem="poW-uM-sm6" firstAttribute="leading" secondItem="UgH-es-CE5" secondAttribute="leading" id="hzF-hw-BYc"/>
                 <constraint firstItem="poW-uM-sm6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="181" id="iwU-Bd-Mon"/>
+                <constraint firstItem="TCk-Ie-yEH" firstAttribute="top" secondItem="xrC-AK-Smi" secondAttribute="bottom" constant="50" id="u81-PI-bIB"/>
                 <constraint firstItem="abi-P5-Ckn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uI8-3T-Ji8"/>
                 <constraint firstItem="UgH-es-CE5" firstAttribute="trailing" secondItem="mBr-hB-tRm" secondAttribute="trailing" id="uiT-7A-O1Z"/>
                 <constraint firstItem="UgH-es-CE5" firstAttribute="top" secondItem="poW-uM-sm6" secondAttribute="bottom" constant="48" id="vdE-YU-CQe"/>
@@ -119,4 +125,7 @@
             </userDefinedRuntimeAttributes>
         </view>
     </objects>
+    <resources>
+        <image name="V" width="146" height="130"/>
+    </resources>
 </document>

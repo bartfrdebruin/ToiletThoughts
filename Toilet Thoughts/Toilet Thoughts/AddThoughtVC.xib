@@ -44,10 +44,10 @@
                             <rect key="frame" x="168" y="475" width="135" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Post!">
-                                <color key="titleColor" red="1" green="1" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="post:" destination="-1" eventType="touchUpInside" id="eFn-qu-yaR"/>
@@ -57,10 +57,10 @@
                             <rect key="frame" x="20" y="475" width="135" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Record">
-                                <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="recordPressed:" destination="-1" eventType="touchUpInside" id="gfC-ul-o8u"/>
@@ -80,10 +80,10 @@
                             <rect key="frame" x="20" y="475" width="135" height="57"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <color key="backgroundColor" red="0.45882352939999999" green="0.10980392160000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <state key="normal" title="Play">
-                                <color key="titleColor" red="1" green="1" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="A5G-me-ckF"/>

@@ -7,30 +7,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="logIn" destination="bST-mu-aSd" id="cKz-zr-JcF"/>
-                <outlet property="signIn" destination="dpf-7o-HjE" id="LbF-WV-NJ8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="fSe-Sn-2pd"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="151124 toiletThoughtslogo" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">
-                    <rect key="frame" x="159" y="59" width="281" height="281"/>
+                    <rect key="frame" x="66" y="59" width="281" height="417"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="281" id="ItK-QF-xhC"/>
-                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
-                    <rect key="frame" x="179" y="340" width="240" height="72"/>
+                    <rect key="frame" x="86" y="476" width="240" height="72"/>
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="FvZ-vQ-ka4"/>
-                        <constraint firstAttribute="width" constant="240" id="LqA-CO-oeH"/>
+                        <constraint firstAttribute="height" constant="72" id="iCo-ux-ZeI"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                     <state key="normal" title="Add Thoughts!">
@@ -41,11 +35,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo">
-                    <rect key="frame" x="179" y="457" width="240" height="72"/>
+                    <rect key="frame" x="86" y="593" width="240" height="72"/>
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="LWF-Nr-n72"/>
+                        <constraint firstAttribute="height" constant="72" id="bGE-n9-ryQ"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                     <state key="normal" title="Browse Thoughts!">
@@ -55,49 +49,40 @@
                         <action selector="browseThoughts:" destination="-1" eventType="touchUpInside" id="g30-Nm-psm"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpf-7o-HjE">
-                    <rect key="frame" x="477" y="48" width="67" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Thought vlak iphone 6+" translatesAutoresizingMaskIntoConstraints="NO" id="nf4-Um-lJN">
+                    <rect key="frame" x="-1" y="0.0" width="415" height="244"/>
                     <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="67" id="gfr-Rs-7vp"/>
+                        <constraint firstAttribute="height" constant="212" id="WQQ-mZ-BfN"/>
                     </constraints>
-                    <state key="normal" title="Sign up">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bST-mu-aSd">
-                    <rect key="frame" x="53" y="48" width="69" height="30"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="69" id="SLP-E4-hTf"/>
-                    </constraints>
-                    <state key="normal" title="Log in">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
+                </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.45882352941176469" green="0.10980392156862745" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2V5-QZ-evd"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="5Wp-Bn-QsL"/>
-                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="71" id="Gfy-3H-oZ1"/>
-                <constraint firstItem="dpf-7o-HjE" firstAttribute="baseline" secondItem="bST-mu-aSd" secondAttribute="baseline" id="M9t-sB-StM"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="MkW-vj-z5k"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="45" id="PUJ-Tt-1hV"/>
-                <constraint firstAttribute="trailing" secondItem="dpf-7o-HjE" secondAttribute="trailing" constant="56" id="bOt-q7-m8A"/>
-                <constraint firstItem="bST-mu-aSd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="iZv-3c-iAg"/>
-                <constraint firstItem="bST-mu-aSd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="lTC-Ee-2n8"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="centerX" secondItem="l1f-lI-M40" secondAttribute="centerX" id="uwg-q8-V1U"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="leading" secondItem="gE0-k8-gOP" secondAttribute="leading" id="vaO-Gg-avK"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" id="xOy-ub-DfE"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1XG-SM-YpJ"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="86" id="1oN-aI-rph"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="4IX-U8-x9D"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="6FR-Up-eHC"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="45" id="6LS-ZQ-x5d"/>
+                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="71" id="6n3-o9-5aN"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="gE0-k8-gOP" secondAttribute="centerX" id="9oM-3V-PcE"/>
+                <constraint firstItem="nf4-Um-lJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hc1-jP-qcO"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="nf4-Um-lJN" secondAttribute="centerX" id="Hr2-zJ-CKK"/>
+                <constraint firstAttribute="trailing" secondItem="nf4-Um-lJN" secondAttribute="trailing" id="JzA-wS-Fgm"/>
+                <constraint firstItem="nf4-Um-lJN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bMA-dc-MX3"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" id="nIC-uM-wCB"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="qPk-x4-ymk"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="leading" secondItem="gE0-k8-gOP" secondAttribute="leading" id="qlb-zt-jhZ"/>
+                <constraint firstItem="nf4-Um-lJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sLR-8W-65M"/>
             </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="725" y="443"/>
         </view>
     </objects>
     <resources>
         <image name="151124 toiletThoughtslogo" width="800" height="800"/>
+        <image name="Thought vlak iphone 6+" width="414" height="266"/>
     </resources>
 </document>
