@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="loginSuccess" destination="TCk-Ie-yEH" id="JiU-km-dC7"/>
                 <outlet property="passWord" destination="UgH-es-CE5" id="4yU-9v-NRN"/>
+                <outlet property="play" destination="vtk-pU-DEz" id="wBW-aG-SQ8"/>
                 <outlet property="userName" destination="poW-uM-sm6" id="EFA-h4-Gya"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -95,6 +96,16 @@
                     <rect key="frame" x="232" y="384" width="137" height="128"/>
                     <animations/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-pU-DEz">
+                    <rect key="frame" x="285" y="118" width="30" height="30"/>
+                    <animations/>
+                    <state key="normal" title="Play">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="playPressed:" destination="-1" eventType="touchUpInside" id="sSm-60-VHg"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
