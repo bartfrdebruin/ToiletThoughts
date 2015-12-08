@@ -90,6 +90,7 @@
         
     [PFUser logInWithUsernameInBackground:self.userName.text password:self.passWord.text
                                     block:^(PFUser *user, NSError *error) {
+                                        
                                         if (user) {
                                             
                                             [self dismissViewControllerAnimated:YES completion:nil];
@@ -97,10 +98,19 @@
                                             [self.userName resignFirstResponder];
                                             [self.passWord resignFirstResponder];
                                             
+                                            
                                             [self.view endEditing:YES];
 
                                         
-                                        } else {
+                                        } else { CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+                                            animation.keyPath = @"position.x";
+                                            animation.values = @[ @0, @10, @-10, @10, @0 ];
+                                            animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
+                                            animation.duration = 0.4;
+                                            
+                                            animation.additive = YES;
+                                            
+                                            [self.passWord.layer addAnimation:animation forKey:@"shake"];
 
                                         
                                         }

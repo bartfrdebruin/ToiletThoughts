@@ -264,11 +264,17 @@
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     
-    UIView* overlayView = [[UIView alloc] initWithFrame:self.imagePicker.view.frame];
+//    UIView* overlayView = [[UIView alloc] initWithFrame:self.imagePicker.view.frame];
     // letting png transparency be
-    overlayView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
-    [overlayView.layer setOpaque:NO];
-    overlayView.opaque = NO;
+//    overlayView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
+//    [overlayView.layer setOpaque:NO];
+//    overlayView.opaque = NO;
+    
+    UIImageView *overlayView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
+    
+        [overlayView.layer setOpaque:NO];
+        overlayView.opaque = NO;
+
 
     // If the device has a camera, take a picture, otherwise,
     // just pick from photo library
@@ -284,6 +290,7 @@
     self.imagePicker.allowsEditing = YES;
     self.imagePicker.delegate = self;
     self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
 //    self.imagePicker.showsCameraControls = NO;
     
     

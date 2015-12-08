@@ -39,11 +39,17 @@
     NSNumber *score = [self.currentThought objectForKey:@"score"];
     self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
     
+    self.thoughtBalloon.alpha = 1;
+    
     self.selectedThoughtDetail.alpha = 1;
     
-    [UIView animateWithDuration:3.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
+    [UIView animateWithDuration:4.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
-        self.selectedThoughtDetail.alpha = 0.9;
+        self.thoughtBalloon.alpha = 0.0;
+        self.selectedThoughtDetail.alpha = 1;
+        self.thoughtBalloon.alpha = 1;
+        self.selectedThoughtDetail.alpha = 0.0;
+        self.thoughtBalloon.alpha = 0.0;
     } completion:nil];
     
     PFUser *currentUser = [PFUser currentUser];
