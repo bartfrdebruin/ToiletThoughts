@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "ListThoughtTableVC.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LEMirroredImagePicker.h"
 
 
 @import MobileCoreServices;
@@ -23,6 +24,7 @@
 @property (nonatomic) CGRect normalFrame;
 @property (nonatomic) AVAudioRecorder *recorder;
 @property (nonatomic) AVAudioPlayer *player;
+@property(nonatomic) LEMirroredImagePicker *mirrorFrontPicker;
 
 @end
 
@@ -264,6 +266,9 @@
     
     self.imagePicker = [[UIImagePickerController alloc] init];
     
+    self.mirrorFrontPicker = [[LEMirroredImagePicker alloc] initWithImagePicker:self.imagePicker];
+    [self.mirrorFrontPicker mirrorFrontCamera];
+    
 //    UIView* overlayView = [[UIView alloc] initWithFrame:self.imagePicker.view.frame];
     // letting png transparency be
 //    overlayView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
@@ -302,6 +307,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
     self.imageView.image = image;
     
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -499,7 +505,7 @@
     
     NSData * audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
     
-    PFObject * myTestObject = [PFObject objectWithClassName:@"TestObject"];
+    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
     
     PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:audioData];
     

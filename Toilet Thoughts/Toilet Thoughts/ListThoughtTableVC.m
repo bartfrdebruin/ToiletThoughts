@@ -71,6 +71,8 @@
     
     [self.navigationController setToolbarItems:self.toolbarItems];
     
+    [self.tableView reloadData];
+    
     
 }
 

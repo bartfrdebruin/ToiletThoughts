@@ -155,6 +155,7 @@ PODS:
   - gtm-http-fetcher (1.0.141)
   - gtm-oauth2 (1.0.126):
     - gtm-http-fetcher (~> 1.0.141)
+  - LEMirroredImagePicker (0.1.0)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
   - ParseUI (1.1.7):
@@ -164,6 +165,7 @@ PODS:
 
 DEPENDENCIES:
   - Google-API-Client
+  - LEMirroredImagePicker
   - Parse
   - ParseUI
   - youtube-ios-player-helper (~> 0.1.4)
@@ -173,6 +175,7 @@ SPEC CHECKSUMS:
   Google-API-Client: cb712cf122f1d7fda966de4c2bc551324573366c
   gtm-http-fetcher: 6d4617e7d343b6e4c082b777541c334eb6f5d81e
   gtm-oauth2: 2a18b824e4f8a02df6cfe987beb59ae9d9697f9d
+  LEMirroredImagePicker: f9cedc540976a6a9ba6c0bef0295be9b477c8acc
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
   ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
   youtube-ios-player-helper: 8706bb155ffee74fbe5f2f5cf41c2dafe60dc155

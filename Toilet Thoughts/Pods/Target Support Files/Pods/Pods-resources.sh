@@ -61,12 +61,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "Parse/Parse/Resources/en.lproj"
   install_resource "ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"
+  install_resource "${BUILT_PRODUCTS_DIR}/LEMirroredImagePicker.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "Parse/Parse/Resources/en.lproj"
   install_resource "ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"
+  install_resource "${BUILT_PRODUCTS_DIR}/LEMirroredImagePicker.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
 fi
 
