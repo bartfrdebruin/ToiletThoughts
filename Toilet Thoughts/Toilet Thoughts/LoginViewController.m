@@ -93,13 +93,19 @@
                                         
                                         if (user) {
                                             
-                                            [self dismissViewControllerAnimated:YES completion:nil];
+                                            self.loginSuccess.hidden = NO;
                                             
                                             [self.userName resignFirstResponder];
                                             [self.passWord resignFirstResponder];
                                             
                                             
                                             [self.view endEditing:YES];
+                                            
+                                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                            });
+                                            
+                                        
 
                                         
                                         } else { CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];

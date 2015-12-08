@@ -72,7 +72,6 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [self colorWithHexString:@"CF007E"];
     
-    
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
