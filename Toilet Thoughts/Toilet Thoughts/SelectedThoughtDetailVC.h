@@ -19,5 +19,10 @@
 @property (strong,nonatomic) NSString *thoughtDetail;
 @property (nonatomic) NSInteger score;
 @property (nonatomic, strong) PFObject *currentThought;
+@property (nonatomic, strong) PFObject *userObject;
+@property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) NSString *user;
+@property (nonatomic, strong) UIBarButtonItem *scoreUpButton;
+@property (nonatomic, strong) UIBarButtonItem *scoreDownButton;
 
 @end

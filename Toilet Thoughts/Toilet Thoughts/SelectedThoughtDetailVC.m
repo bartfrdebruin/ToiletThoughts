@@ -104,36 +104,40 @@
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
-    
+        
         NSString *user = [self.currentThought objectForKey:@"userName"];
         
-        PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
-        [query whereKey:@"userName" equalTo:user];
-        
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
+        } else {
             
-            if (object) {
-               
-                PFObject *userObject = object;
-                [userObject incrementKey:@"totalScore" byAmount:@-1];
-                [userObject saveInBackground];
-            }
-        }];
-        
-        [self.currentThought incrementKey:@"score" byAmount:@ -1];
-        [self.currentThought saveInBackground];
-        
-        NSNumber *score = [self.currentThought objectForKey:@"score"];
-        self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
-        
-    } else {
+            PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+            [query whereKey:@"userName" equalTo:user];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+                
+                if (object) {
+                    
+                    PFObject *userObject = object;
+                    [userObject incrementKey:@"totalScore" byAmount:@-1];
+                    [userObject saveInBackground];
+                }
+            }];
+            
+            [self.currentThought incrementKey:@"score" byAmount:@ -1];
+            [self.currentThought saveInBackground];
+            
+            
+            NSNumber *score = [self.currentThought objectForKey:@"score"];
+            self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
+        } 
+    }
+    
+    else {
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
                                                                        message:@"You need to be logged in to vote up or down!"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
-        
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -147,26 +151,30 @@
         
         NSString *user = [self.currentThought objectForKey:@"userName"];
         
-        PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
-        [query whereKey:@"userName" equalTo:user];
-        
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
+        } else {
             
-            if (object) {
+            PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+            [query whereKey:@"userName" equalTo:user];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
                 
-                PFObject *userObject = object;
-                [userObject incrementKey:@"totalScore" byAmount:@1];
-                [userObject saveInBackground];
-            }
-        }];
-        
-        [self.currentThought incrementKey:@"score" byAmount:@1];
-        [self.currentThought saveInBackground];
-        
-        NSNumber *score = [self.currentThought objectForKey:@"score"];
-        self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
-        
-    } else {
+                if (object) {
+                    
+                    PFObject *userObject = object;
+                    [userObject incrementKey:@"totalScore" byAmount:@1];
+                    [userObject saveInBackground];
+                }
+            }];
+            
+            [self.currentThought incrementKey:@"score" byAmount:@1];
+            [self.currentThought saveInBackground];
+            
+            NSNumber *score = [self.currentThought objectForKey:@"score"];
+            self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
+            
+        }
+    }
+    else {
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
                                                                        message:@"You need to be logged in to vote up or down!"
@@ -174,11 +182,11 @@
         
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
-        
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
         
     }
+    
 }
 
 @end
