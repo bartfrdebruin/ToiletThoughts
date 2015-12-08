@@ -59,20 +59,20 @@
         [userLoginButton addTarget:self action:@selector(goToUserScreen) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     }
-
+    
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                            target:nil action:NULL];
-
+    
     UIBarButtonItem *addPostButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(gotoAddThoughtVC)];
     
     UIBarButtonItem *selectTableView = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(updateTableview)];
-        
+    
     self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
     
     [self.navigationController setToolbarItems:self.toolbarItems];
     
     
-    }
+}
 
 
 - (void)viewDidLoad {
@@ -189,7 +189,7 @@
     
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
-    
+            
             self.winningThoughts = [[NSArray alloc] initWithArray: objects];
             [self.tableView reloadData];
         }
@@ -212,7 +212,7 @@
 }
 
 
-#pragma mark - Table view 
+#pragma mark - Table view
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -245,7 +245,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
         
         PFObject * currentThought = [self.winningThoughts objectAtIndex:indexPath.row];
-    
+        
         cell.usernameWinningThoughtCVC.text = [currentThought objectForKey:@"winningUser"];
         cell.thoughtWinningThoughtCVC.text = [currentThought objectForKey:@"winningText"];
         cell.scoreWinningThoughtCVC.text = [currentThought objectForKey:@"winningScore"];
@@ -279,7 +279,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         [thumbnail loadInBackground];
         
         return cell;
-        
     }
     
 }

@@ -21,12 +21,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-rd-lhx" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="25" width="600" height="279"/>
+                    <rect key="frame" x="0.0" y="25" width="600" height="329"/>
                     <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="toilet thought" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-hR-XYt">
-                    <rect key="frame" x="8" y="324" width="584" height="63"/>
+                    <rect key="frame" x="8" y="362" width="584" height="63"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -35,23 +35,23 @@
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="winning score" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20s-dF-l10">
+                    <rect key="frame" x="388" y="483" width="204" height="31"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="EOp-fp-JEx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="user" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-vs-0l3">
-                    <rect key="frame" x="388" y="395" width="204" height="29"/>
+                    <rect key="frame" x="388" y="433" width="204" height="29"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="204" id="LCG-wR-GPo"/>
                         <constraint firstAttribute="height" constant="29" id="e9v-Hh-aqH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="winning score" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20s-dF-l10">
-                    <rect key="frame" x="388" y="445" width="204" height="31"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="31" id="EOp-fp-JEx"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -65,7 +65,7 @@
                 <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="Gmw-xH-cJH"/>
                 <constraint firstItem="Mwj-vs-0l3" firstAttribute="trailing" secondItem="20s-dF-l10" secondAttribute="trailing" id="JZf-Aj-8YU"/>
                 <constraint firstItem="Mwj-vs-0l3" firstAttribute="top" secondItem="O2v-hR-XYt" secondAttribute="bottom" constant="8" symbolic="YES" id="Ja0-To-UcC"/>
-                <constraint firstAttribute="bottom" secondItem="20s-dF-l10" secondAttribute="bottom" constant="124" id="MOD-7U-OQT"/>
+                <constraint firstAttribute="bottom" secondItem="20s-dF-l10" secondAttribute="bottom" constant="86" id="MOD-7U-OQT"/>
                 <constraint firstItem="O2v-hR-XYt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ORX-Tq-URZ"/>
                 <constraint firstItem="O2v-hR-XYt" firstAttribute="top" secondItem="Dwv-rd-lhx" secondAttribute="bottom" constant="18" id="QO8-Jm-iCu"/>
                 <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tdn-kq-z7M"/>
@@ -76,7 +76,7 @@
                 <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="cIE-Gp-Ufd"/>
                 <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gIT-yd-rzi"/>
                 <constraint firstItem="O2v-hR-XYt" firstAttribute="centerX" secondItem="Dwv-rd-lhx" secondAttribute="centerX" id="kUA-9J-MH3"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="top" secondItem="Dwv-rd-lhx" secondAttribute="bottom" constant="20" id="kZo-dm-vu1"/>
+                <constraint firstItem="O2v-hR-XYt" firstAttribute="top" secondItem="Dwv-rd-lhx" secondAttribute="bottom" constant="8" id="kZo-dm-vu1"/>
                 <constraint firstAttribute="bottom" secondItem="Dwv-rd-lhx" secondAttribute="bottom" id="mXW-1h-lGJ"/>
                 <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="p9M-iX-Jpk"/>
                 <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="pzI-Of-WbW"/>
