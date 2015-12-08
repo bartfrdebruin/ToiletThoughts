@@ -18,6 +18,9 @@
 @property (nonatomic) PFFile *thoughtImageFile;
 @property (strong,nonatomic) NSString *thoughtDetail;
 @property (nonatomic) NSInteger score;
+@property (nonatomic) NSNumber *scoreNumber;
+@property (nonatomic) BOOL hasUserVotedDown;
+@property (nonatomic) BOOL hasUserVotedUp;
 @property (nonatomic, strong) PFObject *currentThought;
 @property (nonatomic, strong) PFObject *userObject;
 @property (nonatomic, strong) PFUser *currentUser;
