@@ -54,20 +54,50 @@
     self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.scoreUpButton, nil];
     
     [self.navigationController setToolbarItems:self.toolbarItems];
-
-    if([[NSUserDefaults standardUserDefaults] boolForKey:self.currentThought.objectId]) {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *savedVote = [defaults objectForKey:self.currentThought.objectId];
+    
+    if ([savedVote isEqualToString:@"voteDown"]) {
         
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"userVotedDown"]) {
-            
-            self.scoreDownButton.enabled = NO;
-
-        } else {
+        self.scoreDownButton.enabled = NO;
         
-            self.scoreUpButton.enabled = NO;
-        }
+    } else if ([savedVote isEqualToString:@"voteUp"]) {
+        
+        self.scoreUpButton.enabled = NO;
+
+    } else {
+        
     }
+    
+    
+    
+    
+    
+
+
+
+//        if ([self.voteDown objectForKey:self.currentThought.objectId]) {
+//
+//            self.scoreDownButton.enabled = NO;
+//        }
+//
+//         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"userVotedUp"]){
+//
+//            self.scoreUpButton.enabled = NO;
+//        }
+
+
+// If user has posted the thought himself, he cannot upvote the thought
+if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
+    
+    self.scoreDownButton.enabled = NO;
+    self.scoreUpButton.enabled = NO;
+}
 
 }
+
 
 - (void)didReceiveMemoryWarning {
     
@@ -144,15 +174,16 @@
             self.scoreNumber = [self.currentThought objectForKey:@"score"];
             self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", self.scoreNumber];
             
-        } if (self.hasUserVotedDown) {
+        }
+        if (self.hasUserVotedDown) {
             
             self.scoreDownButton.enabled = NO;
+            self.scoreUpButton.enabled = YES;
             
-//            NSString *currentThoughtObject = self.currentThought objectForKey:@""
+            NSString *voteDown = @"voteDown";
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:self.currentThought.objectId];
-            [defaults setBool:YES forKey:@"userVotedDown"];
+            [defaults setObject:voteDown forKey:self.currentThought.objectId];
             [defaults synchronize];
             
              }
@@ -205,9 +236,12 @@
         if (self.hasUserVotedUp) {
             
             self.scoreUpButton.enabled = NO;
+            self.scoreDownButton.enabled = YES;
+            
+            NSString *voteUp = @"voteUp";
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:self.currentThought.objectId];
+            [defaults setObject:voteUp forKey:self.currentThought.objectId];
             [defaults synchronize];
         }
     }
