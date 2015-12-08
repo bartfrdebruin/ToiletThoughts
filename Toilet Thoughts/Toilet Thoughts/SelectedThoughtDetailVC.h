@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtScore;
 @property (weak, nonatomic) IBOutlet PFImageView *selectedThoughtImage;
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
+@property (weak, nonatomic) IBOutlet UIImageView *thoughtBalloon;
 @property (nonatomic) PFFile *thoughtImageFile;
 @property (strong,nonatomic) NSString *thoughtDetail;
 @property (nonatomic) NSInteger score;

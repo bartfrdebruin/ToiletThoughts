@@ -12,6 +12,7 @@
 
 
 @interface AddThoughtVC : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIGestureRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *balloon;
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

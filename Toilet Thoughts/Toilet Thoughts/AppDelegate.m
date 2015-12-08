@@ -37,36 +37,75 @@
     
     self.window.rootViewController = navigationController;
     
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:1.0
-                                                               green:0.9921568627
-                                                                blue:0.3529411765
-                                                               alpha:1.0f]];
+    [[UINavigationBar appearance] setTintColor:[self colorWithHexString:@"FFFFFF"]];
     
-    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.4588235294
-                                                                      green:0.1098039216
-                                                                       blue:0.2705882353
-                                                                      alpha:1.0f];
+//    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.4588235294
+//                                                                      green:0.1098039216
+//                                                                       blue:0.2705882353
+//                                                                      alpha:1.0f];
     
     // To do: change the deprecated classes intro appropiate ones and updated the values.
-    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0 green:0.9921568627 blue:0.3529411765 alpha:1.0]}];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor colorWithRed:1.0
+                                                                                                           green:0.9921568627
+                                                                                                            blue:0.3529411765
+                                                                                                           alpha:1.0]}];
     
     [navigationController setNavigationBarHidden:YES];
     
     // TitleColor
-    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:1.0
-                                                         green:0.9921568627
-                                                          blue:0.3529411765
-                                                         alpha:1.0f]];
+//    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:1.0
+//                                                         green:0.9921568627
+//                                                          blue:0.3529411765
+//                                                         alpha:1.0f]];
+    navigationController.navigationBar.barTintColor = [self colorWithHexString:@"CF007E"];
+    [[UIToolbar appearance] setTintColor:[self colorWithHexString:@"FFFFFF"]];
+    [[UIToolbar appearance] setBarTintColor:[self colorWithHexString:@"CF007E"]];
     
     // BartintColor
-    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.4588235294
-                                                            green:0.1098039216
-                                                             blue:0.2705882353
-                                                            alpha:1.0f]];
+//    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.4588235294
+//                                                            green:0.1098039216
+//                                                             blue:0.2705882353
+//                                                            alpha:1.0f]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     
     return YES;
+}
+
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

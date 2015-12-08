@@ -29,12 +29,12 @@
 		1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
 		1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */; };
-		1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */; };
 		1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */; };
 		1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3061D1C049E100035BD50 /* ThoughtCustomCell.m */; };
 		1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */; };
 		1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */; };
 		1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */; };
+		2B3D56711C1644300069261F /* SelectedThoughtDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D56701C1644300069261F /* SelectedThoughtDetailVC.xib */; };
 		C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE1ED2E777F290464C5362 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,6 @@
 		1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		1DF3060D1C049DAB0035BD50 /* SelectedThoughtDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedThoughtDetailVC.h; sourceTree = "<group>"; };
 		1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedThoughtDetailVC.m; sourceTree = "<group>"; };
-		1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedThoughtDetailVC.xib; sourceTree = "<group>"; };
 		1DF306121C049DCA0035BD50 /* AddThoughtVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddThoughtVC.h; sourceTree = "<group>"; };
 		1DF306131C049DCA0035BD50 /* AddThoughtVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddThoughtVC.m; sourceTree = "<group>"; };
 		1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddThoughtVC.xib; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		1DF306211C049E250035BD50 /* WinningThoughtCustomVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinningThoughtCustomVideoCell.h; sourceTree = "<group>"; };
 		1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningThoughtCustomVideoCell.m; sourceTree = "<group>"; };
 		1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinningThoughtCustomVideoCell.xib; sourceTree = "<group>"; };
+		2B3D56701C1644300069261F /* SelectedThoughtDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedThoughtDetailVC.xib; sourceTree = "<group>"; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BCDE1ED2E777F290464C5362 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,7 +171,7 @@
 				1DAC01E41C11C8260045A382 /* DetailVideoViewController.xib */,
 				1DF3060D1C049DAB0035BD50 /* SelectedThoughtDetailVC.h */,
 				1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */,
-				1DF3060F1C049DAB0035BD50 /* SelectedThoughtDetailVC.xib */,
+				2B3D56701C1644300069261F /* SelectedThoughtDetailVC.xib */,
 				1DF306121C049DCA0035BD50 /* AddThoughtVC.h */,
 				1DF306131C049DCA0035BD50 /* AddThoughtVC.m */,
 				1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */,
@@ -352,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B3D56711C1644300069261F /* SelectedThoughtDetailVC.xib in Resources */,
 				1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */,
 				1DC5DDE21C073E8900AD4C3C /* UserViewController.xib in Resources */,
 				1DB5441C1C0461FE00383E1C /* LaunchScreen.storyboard in Resources */,
@@ -359,7 +360,6 @@
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
 				1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */,
 				1D90A6B51C0493D200BC9F8F /* Podfile in Resources */,
-				1DF306111C049DAB0035BD50 /* SelectedThoughtDetailVC.xib in Resources */,
 				1DAC01E61C11C8260045A382 /* DetailVideoViewController.xib in Resources */,
 				1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */,
 				1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */,
