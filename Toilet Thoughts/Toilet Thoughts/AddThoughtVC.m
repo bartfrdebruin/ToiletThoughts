@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"New";
+    self.toolbarTextfield.delegate = self;
     
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -81,21 +82,6 @@
     
     [self.recorder prepareToRecord];
     
-    //
-    //    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0,400, 320, 60)];
-    //    [self.view addSubview:toolBar];
-    
-    //    self.toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-    //    self.toolbarTextfield.backgroundColor =[UIColor  whiteColor];
-    //    self.toolbarTextfield.placeholder=@"Enter your text";
-    //    self.toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
-    //    self.toolbarTextfield.delegate = self;
-    ////    toolbarTextField.inputAccessoryView = self.navigationController.toolbar;
-    //    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:self.toolbarTextfield];
-    
-    //    self.toolbarItems = [NSArray arrayWithObject:textfieldItem];
-    
-    //    [toolbarTextField setInputAccessoryView:self.customView];
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAndGoBack)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
@@ -110,8 +96,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:YES];
-    
-//    self.view.frame = CGRectMake(0, 0, 320, 568);
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
@@ -147,12 +131,14 @@
     
     [super viewDidAppear:YES];
     
+    
 }
 
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
-        [self.thoughtTextField resignFirstResponder];
+        [self.toolbarTextfield resignFirstResponder];
+        [self.view endEditing:YES];
 }
 
 # pragma mark - viewWillDisappear
@@ -222,10 +208,7 @@
     [UIView setAnimationDuration:animationDuration *100];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.customView  setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y - keyboardFrame.size.height, self.customView.frame.size.width, self.customView.frame.size.height)];
-    
-    
-//    [self.navigationController.toolbar setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.size.height - keyboardFrame.size.height + self.navigationController.toolbar.frame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
+    [self.view  setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
     
@@ -248,21 +231,33 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:animationCurve];
     
-    [self.customView setFrame:CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + keyboardFrame.size.height,self.customView.frame.size.width, self.customView.frame.size.height)];
+    [self.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + keyboardFrame.size.height,self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
     
 }
 
+#pragma mark - textfields
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [self.thoughtTextField resignFirstResponder];
-    [self.view endEditing:YES];
-//    [self.toolbarTextfield endEditing:YES];
-//    [self.toolbarTextfield resignFirstResponder];
+    [self.toolbarTextfield endEditing:YES];
+    [self.toolbarTextfield resignFirstResponder];
+//
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = [self.toolbarTextfield.text stringByReplacingCharactersInRange:range withString:string];
+    [self updateTextLabelsWithText: newString];
     
     return YES;
+}
+
+-(void)updateTextLabelsWithText:(NSString *)string
+{
+    [self.thougtLabel setText:string];
 }
 
 
@@ -270,8 +265,7 @@
 
 - (IBAction)takePicture:(id)sender {
     
-    
-    self.imagePicker = [[UIImagePickerController alloc] init];
+        self.imagePicker = [[UIImagePickerController alloc] init];
     
     self.mirrorFrontPicker = [[LEMirroredImagePicker alloc] initWithImagePicker:self.imagePicker];
     [self.mirrorFrontPicker mirrorFrontCamera];
@@ -327,7 +321,7 @@
 
 - (IBAction)post:(id)sender {
     
-    if ([self.thoughtTextField.text  isEqual: @""]){
+    if ([self.toolbarTextfield.text  isEqual: @""]){
         self.warningLabel.alpha = 1;
         
         CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
@@ -363,13 +357,13 @@
 //    myTestObject[@"audioFile"] = audioFile;
 //    [myTestObject saveInBackground];
     
-    [self.thoughtTextField resignFirstResponder];
+    [self.toolbarTextfield resignFirstResponder];
     [self.view endEditing:YES];
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
-        [self.thoughtTextField resignFirstResponder];
+        [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
         
         NSString *user = currentUser.username;
@@ -548,6 +542,7 @@
     NSLog(@"TouchDown");
 }
 
+
 #pragma mark - methodTouchUpInside
 
 -(void)methodTouchUpInside:(id)sender{
@@ -578,5 +573,6 @@
     
     NSLog(@"TouchUpInside");
 }
+
 
 @end
