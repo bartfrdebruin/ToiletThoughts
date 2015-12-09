@@ -16,11 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="151124 toiletThoughtslogo" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="151124 toiletThoughtslogo" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">
                     <rect key="frame" x="66" y="59" width="281" height="417"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
                     <rect key="frame" x="86" y="476" width="240" height="72"/>
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +35,7 @@
                         <action selector="addThoughts:" destination="-1" eventType="touchUpInside" id="yB5-1T-BTp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo">
                     <rect key="frame" x="86" y="593" width="240" height="72"/>
                     <animations/>
                     <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *loginSuccess;
 @property (weak, nonatomic) IBOutlet UIButton *play;
 
+
 - (IBAction)signIn:(id)sender;
 - (IBAction)logIn:(id)sender;
 - (IBAction)cancel:(id)sender;
