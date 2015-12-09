@@ -24,8 +24,11 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
     
+    // Checking the current user
     PFUser *currentUser = [PFUser currentUser];
     
+    
+    // Login button
     if (currentUser) {
         
         UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
@@ -41,69 +44,48 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     }
     
-    [self.navigationController setToolbarHidden:NO];
-    
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                            target:nil action:NULL];
     
-    
     self.scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumbsup_small"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreUp)];
-    
     self.scoreDownButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumbsdown_small"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreDown)];
     
     self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.scoreUpButton, nil];
     
-    [self.navigationController setToolbarItems:self.toolbarItems];
+//    // Toolbar
+//    [self.navigationController setToolbarHidden:NO];
+//    [self.navigationController setToolbarItems:self.toolbarItems];
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *savedVote = [defaults objectForKey:self.currentThought.objectId];
+//    
+//    
+//    // If the user has posted an up or down vote
+//    if ([savedVote isEqualToString:@"voteDown"]) {
+//        
+//        self.scoreDownButton.enabled = NO;
+//        self.scoreUpButton.enabled = YES;
+//        
+//     
+//    } else if ([savedVote isEqualToString:@"voteUp"]) {
+//        
+//        self.scoreUpButton.enabled = NO;
+//        self.scoreDownButton.enabled = YES;
+//        
+//    } else {
+//        
+//    }
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *savedVote = [defaults objectForKey:self.currentThought.objectId];
-    
-    if ([savedVote isEqualToString:@"voteDown"]) {
+    // If user has posted the thought himself, he cannot upvote the thought
+    if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
         
         self.scoreDownButton.enabled = NO;
-        
-    } else if ([savedVote isEqualToString:@"voteUp"]) {
-        
         self.scoreUpButton.enabled = NO;
-
-    } else {
-        
     }
     
-    
-    
-    
-    
-
-
-
-//        if ([self.voteDown objectForKey:self.currentThought.objectId]) {
-//
-//            self.scoreDownButton.enabled = NO;
-//        }
-//
-//         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"userVotedUp"]){
-//
-//            self.scoreUpButton.enabled = NO;
-//        }
-
-
-// If user has posted the thought himself, he cannot upvote the thought
-if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
-    
-    self.scoreDownButton.enabled = NO;
-    self.scoreUpButton.enabled = NO;
 }
 
-}
-
-
-- (void)didReceiveMemoryWarning {
-    
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -128,6 +110,8 @@ if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.
 }
 
 
+#pragma mark - loading new viewcontrollers
+
 - (void)goToUserScreen {
     
     PFUser *currentUser = [PFUser currentUser];
@@ -141,6 +125,27 @@ if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
+}
+
+
+#pragma mark - score up score down user is wrong
+
+- (void)userIsWrong {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *savedVote = [defaults objectForKey:self.currentThought.objectId];
+    
+    // If the user has posted an up or down vote
+    if ([savedVote isEqualToString:@"voteDown"]) {
+        
+        self.scoreDownButton.enabled = NO;
+        self.scoreUpButton.enabled = YES;
+        
+    } else if ([savedVote isEqualToString:@"voteUp"])
+        
+        self.scoreDownButton.enabled = YES;
+        self.scoreUpButton.enabled = NO;
+
 }
 
 
@@ -226,7 +231,6 @@ if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.
             
             [self.currentThought incrementKey:@"score" byAmount:@1];
             [self.currentThought saveInBackground];
-        
             self.hasUserVotedUp = YES;
 
             NSNumber *score = [self.currentThought objectForKey:@"score"];
@@ -234,7 +238,6 @@ if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.
         }
         
         if (self.hasUserVotedUp) {
-            
             self.scoreUpButton.enabled = NO;
             self.scoreDownButton.enabled = YES;
             
