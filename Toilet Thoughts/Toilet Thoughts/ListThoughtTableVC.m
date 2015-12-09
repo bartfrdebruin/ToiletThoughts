@@ -219,7 +219,7 @@
             
             self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
             
-            PFFile *audioThought = self.toiletThoughts[@"audioFile"];
+//            PFFile *audioThought = self.toiletThoughts[@"audioFile"];
             
             [self.tableView reloadData];
         }
