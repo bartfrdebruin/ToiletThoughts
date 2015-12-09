@@ -10,6 +10,7 @@
 #import "ListThoughtTableVC.h"
 #import "AddThoughtVC.h"
 
+
 @interface HomeViewController ()
 
 @end
@@ -66,7 +67,6 @@
     
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -109,8 +109,6 @@
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
-
-
 
 
 - (void)viewWillAppear:(BOOL)animated {
