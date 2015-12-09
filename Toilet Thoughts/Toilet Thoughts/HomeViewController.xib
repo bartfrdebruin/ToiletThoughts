@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="browse" destination="K15-wk-WHo" id="U9o-bc-3eh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="fSe-Sn-2pd"/>
             </connections>
         </placeholder>
@@ -16,65 +15,80 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="151124 toiletThoughtslogo" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">
-                    <rect key="frame" x="66" y="59" width="281" height="417"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
+                    <rect key="frame" x="74" y="583" width="126" height="92"/>
                     <animations/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE0-k8-gOP">
-                    <rect key="frame" x="86" y="476" width="240" height="72"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="iCo-ux-ZeI"/>
+                        <constraint firstAttribute="height" constant="92" id="iCo-ux-ZeI"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                    <state key="normal" title="Add Thoughts!">
+                    <state key="normal" image="A088A136-B282-419F-8D87-76599E5E5780">
                         <color key="titleColor" red="0.38039215686274508" green="0.062745098039215685" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="addThoughts:" destination="-1" eventType="touchUpInside" id="yB5-1T-BTp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo">
-                    <rect key="frame" x="86" y="593" width="240" height="72"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo">
+                    <rect key="frame" x="220" y="583" width="133" height="92"/>
                     <animations/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="bGE-n9-ryQ"/>
+                        <constraint firstAttribute="height" constant="92" id="bGE-n9-ryQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                    <state key="normal" title="Browse Thoughts!">
+                    <state key="normal" image="B7C2533D-AAB2-4E46-9712-49949718C58A">
                         <color key="titleColor" red="0.38039215686274508" green="0.062745098039215685" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="browseThoughts:" destination="-1" eventType="touchUpInside" id="g30-Nm-psm"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Thought vlak iphone 6+" translatesAutoresizingMaskIntoConstraints="NO" id="nf4-Um-lJN">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thought vlak iphone 6+" translatesAutoresizingMaskIntoConstraints="NO" id="nf4-Um-lJN">
                     <rect key="frame" x="-1" y="0.0" width="415" height="244"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="212" id="WQQ-mZ-BfN"/>
+                        <constraint firstAttribute="height" constant="244" id="WQQ-mZ-BfN"/>
                     </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Browse Thoughts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YU1-ii-AdH">
+                    <rect key="frame" x="220" y="683" width="133" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Add Thoughts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-aY-sse">
+                    <rect key="frame" x="83" y="683" width="109" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="151124 toiletThoughts_white" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">
+                    <rect key="frame" x="44" y="197" width="324" height="398"/>
+                    <animations/>
                 </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1XG-SM-YpJ"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="86" id="1oN-aI-rph"/>
-                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" id="4IX-U8-x9D"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="6FR-Up-eHC"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="45" id="6LS-ZQ-x5d"/>
-                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="71" id="6n3-o9-5aN"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="gE0-k8-gOP" secondAttribute="centerX" id="9oM-3V-PcE"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-1" id="1XG-SM-YpJ"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="74" id="1oN-aI-rph"/>
+                <constraint firstAttribute="bottom" secondItem="uCS-aY-sse" secondAttribute="bottom" constant="32" id="2f2-iP-YlY"/>
+                <constraint firstItem="gE0-k8-gOP" firstAttribute="top" secondItem="l1f-lI-M40" secondAttribute="bottom" constant="-12" id="4IX-U8-x9D"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="197" id="6FR-Up-eHC"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="top" secondItem="gE0-k8-gOP" secondAttribute="bottom" constant="-92" id="6LS-ZQ-x5d"/>
+                <constraint firstAttribute="bottom" secondItem="K15-wk-WHo" secondAttribute="bottom" constant="61" id="6n3-o9-5aN"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="gE0-k8-gOP" secondAttribute="centerX" constant="69" id="9oM-3V-PcE"/>
+                <constraint firstItem="YU1-ii-AdH" firstAttribute="leading" secondItem="uCS-aY-sse" secondAttribute="trailing" constant="28" id="B8d-bD-ztm"/>
+                <constraint firstAttribute="trailing" secondItem="YU1-ii-AdH" secondAttribute="trailing" constant="61" id="CvD-bR-3wB"/>
                 <constraint firstItem="nf4-Um-lJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hc1-jP-qcO"/>
                 <constraint firstItem="l1f-lI-M40" firstAttribute="centerX" secondItem="nf4-Um-lJN" secondAttribute="centerX" id="Hr2-zJ-CKK"/>
                 <constraint firstAttribute="trailing" secondItem="nf4-Um-lJN" secondAttribute="trailing" id="JzA-wS-Fgm"/>
-                <constraint firstItem="nf4-Um-lJN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bMA-dc-MX3"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" id="nIC-uM-wCB"/>
-                <constraint firstItem="l1f-lI-M40" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="qPk-x4-ymk"/>
-                <constraint firstItem="K15-wk-WHo" firstAttribute="leading" secondItem="gE0-k8-gOP" secondAttribute="leading" id="qlb-zt-jhZ"/>
+                <constraint firstAttribute="bottom" secondItem="YU1-ii-AdH" secondAttribute="bottom" constant="32" id="Kze-RQ-b0B"/>
+                <constraint firstItem="nf4-Um-lJN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-1" id="bMA-dc-MX3"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="trailing" secondItem="gE0-k8-gOP" secondAttribute="trailing" constant="153" id="nIC-uM-wCB"/>
+                <constraint firstItem="uCS-aY-sse" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="83" id="oCG-oM-YVi"/>
+                <constraint firstItem="l1f-lI-M40" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="qPk-x4-ymk"/>
+                <constraint firstItem="K15-wk-WHo" firstAttribute="leading" secondItem="gE0-k8-gOP" secondAttribute="leading" constant="146" id="qlb-zt-jhZ"/>
                 <constraint firstItem="nf4-Um-lJN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sLR-8W-65M"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -83,7 +97,9 @@
         </view>
     </objects>
     <resources>
-        <image name="151124 toiletThoughtslogo" width="800" height="800"/>
+        <image name="151124 toiletThoughts_white" width="800" height="800"/>
+        <image name="A088A136-B282-419F-8D87-76599E5E5780" width="35" height="35"/>
+        <image name="B7C2533D-AAB2-4E46-9712-49949718C58A" width="59" height="44"/>
         <image name="Thought vlak iphone 6+" width="414" height="266"/>
     </resources>
 </document>
