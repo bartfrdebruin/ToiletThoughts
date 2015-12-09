@@ -29,7 +29,21 @@
 
 
 
-#pragma mark - view
+#pragma mark - viewDidload
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
+    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
+    
+    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
+    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+    self.chosenList = 1;
+    
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -72,23 +86,6 @@
     [self.navigationController setToolbarItems:self.toolbarItems];
     
     [self.tableView reloadData];
-    
-    
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
-    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
-    
-    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
-    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
-    
-    self.chosenList = 1;
-    
 }
 
 #pragma mark - navigation
@@ -213,6 +210,22 @@
     }];
 }
 
+- (void)retrieveFromParseAudioFile {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            
+            PFFile *audioThought = self.toiletThoughts[@"audioFile"];
+            
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 
 #pragma mark - Table view
 
@@ -279,6 +292,8 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         thumbnail.image = [UIImage imageNamed:@"Icon-40"];
         thumbnail.file = thoughtImageFile;
         [thumbnail loadInBackground];
+        
+        
         
         return cell;
     }
@@ -349,6 +364,9 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
+        
+        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        
         
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:0.80];

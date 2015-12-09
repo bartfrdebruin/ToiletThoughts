@@ -104,11 +104,8 @@
         self.thoughtBalloon.alpha = 0.0;
         self.selectedThoughtDetail.alpha = 1;
         self.thoughtBalloon.alpha = 1;
-        self.selectedThoughtDetail.alpha = 0.0;
-        self.thoughtBalloon.alpha = 0.0;
     } completion:nil];
 }
-
 
 #pragma mark - loading new viewcontrollers
 
