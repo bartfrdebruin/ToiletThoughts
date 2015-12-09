@@ -134,6 +134,7 @@
                     <color key="value" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="251" y="303"/>
         </view>
     </objects>
     <resources>

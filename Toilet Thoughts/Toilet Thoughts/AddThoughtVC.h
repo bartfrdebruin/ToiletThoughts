@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIButton *record;
 @property (weak, nonatomic) IBOutlet UIButton *play;
+@property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *customView;
 @property (nonatomic) UIViewController *presentedFromVC;

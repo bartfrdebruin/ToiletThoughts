@@ -343,6 +343,8 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
         
+        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:0.80];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];

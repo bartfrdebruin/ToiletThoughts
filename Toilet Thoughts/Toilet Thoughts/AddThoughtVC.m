@@ -275,17 +275,10 @@
     self.mirrorFrontPicker = [[LEMirroredImagePicker alloc] initWithImagePicker:self.imagePicker];
     [self.mirrorFrontPicker mirrorFrontCamera];
     
-//    UIView* overlayView = [[UIView alloc] initWithFrame:self.imagePicker.view.frame];
-    // letting png transparency be
-//    overlayView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
-//    [overlayView.layer setOpaque:NO];
-//    overlayView.opaque = NO;
-    
     UIImageView *overlayView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Thought vlak iphone 6"]];
     
         [overlayView.layer setOpaque:NO];
         overlayView.opaque = NO;
-
 
     // If the device has a camera, take a picture, otherwise,
     // just pick from photo library
@@ -302,7 +295,7 @@
     self.imagePicker.delegate = self;
     self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     
-//    self.imagePicker.showsCameraControls = NO;
+    // self.imagePicker.showsCameraControls = NO;
     
     
     // Place image picker on the screen
@@ -315,15 +308,44 @@
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.imageView.image = image;
+    // Add a watermark to the pictures.
+    UIImage *watermark = [UIImage imageNamed:@"TaugeTvLogo"];
+    
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    [watermark drawInRect:CGRectMake(image.size.width - watermark.size.width, image.size.height - watermark.size.height, watermark.size.width, watermark.size.height)];
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.imageView.image = result;
     
     [self dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 #pragma mark - post
 
 - (IBAction)post:(id)sender {
+    
+    if ([self.thoughtTextField.text  isEqual: @""]){
+        self.warningLabel.alpha = 1;
+        
+        CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
+        CGPoint original = CGPointMake(self.thoughtTextField.center.x, self.thoughtTextField.center.y);
+        
+        self.thoughtTextField.placeholder = @"";
+        
+        self.warningLabel.hidden = NO;
+        [UIView animateWithDuration:4.5 delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.warningLabel.alpha = 0.0;
+            
+        }completion:nil];
+        [UIView animateWithDuration:0.9 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:100 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.thoughtTextField.center = point;
+        }completion:nil];
+        self.thoughtTextField.center = original;
+        
+    }
+
     
     [self.thoughtTextField resignFirstResponder];
     [self.view endEditing:YES];
@@ -432,6 +454,7 @@
         [self presentViewController:logOrSignIn animated:YES completion:nil];
     }
     
+    
 }
 
 #pragma mark - IBAction recordPressed
@@ -471,6 +494,7 @@
     
     if (!self.recorder.recording) {
         self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
+        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         [self.player setDelegate:self];
         [self.player play];
     }
