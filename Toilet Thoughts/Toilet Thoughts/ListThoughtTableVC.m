@@ -29,7 +29,21 @@
 
 
 
-#pragma mark - view
+#pragma mark - viewDidload
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
+    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
+    
+    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
+    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
+    
+    self.chosenList = 1;
+    
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -71,23 +85,6 @@
     
     [self.navigationController setToolbarItems:self.toolbarItems];
     
-    [self.tableView reloadData];
-    
-    
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
-    [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
-    
-    UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
-    [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
-    
-    self.chosenList = 1;
     [self.tableView reloadData];
 }
 
@@ -213,6 +210,22 @@
     }];
 }
 
+- (void)retrieveFromParseAudioFile {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    
+    [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            
+//            PFFile *audioThought = self.toiletThoughts[@"audioFile"];
+            
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 
 #pragma mark - Table view
 
@@ -280,37 +293,39 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         thumbnail.file = thoughtImageFile;
         [thumbnail loadInBackground];
         
+        
+        
         return cell;
     }
     
 }
 
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    
-//    //1. Setup the CATransform3D structure
-//    CATransform3D rotation;
-//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-//    rotation.m34 = 1.0/ -600;
-//    
-//    
-//    //2. Define the initial state (Before the animation)
-//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-//    cell.layer.shadowOffset = CGSizeMake(10, 10);
-//    cell.alpha = 0;
-//    
-//    cell.layer.transform = rotation;
-//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-//    
-//    //3. Define the final state (After the animation) and commit the animation
-//    [UIView beginAnimations:@"rotation" context:NULL];
-//    [UIView setAnimationDuration:0.8];
-//    cell.layer.transform = CATransform3DIdentity;
-//    cell.alpha = 1;
-//    cell.layer.shadowOffset = CGSizeMake(0, 0);
-//    [UIView commitAnimations];
-//}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    //1. Setup the CATransform3D structure
+    CATransform3D rotation;
+    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+    rotation.m34 = 1.0/ -600;
+    
+    
+    //2. Define the initial state (Before the animation)
+    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+    cell.layer.shadowOffset = CGSizeMake(10, 10);
+    cell.alpha = 0;
+    
+    cell.layer.transform = rotation;
+    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+    
+    //3. Define the final state (After the animation) and commit the animation
+    [UIView beginAnimations:@"rotation" context:NULL];
+    [UIView setAnimationDuration:0.8];
+    cell.layer.transform = CATransform3DIdentity;
+    cell.alpha = 1;
+    cell.layer.shadowOffset = CGSizeMake(0, 0);
+    [UIView commitAnimations];
+}
 
 
 #pragma mark - Table view delegate
@@ -349,6 +364,9 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
+        
+        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        
         
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:0.80];
