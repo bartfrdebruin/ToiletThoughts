@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectedThoughtDetailVC">
             <connections>
+                <outlet property="playAudioThought" destination="yoN-B9-7BJ" id="WnL-UL-Vbl"/>
                 <outlet property="selectedThoughtDetail" destination="0Du-wr-Nw8" id="KMB-nO-Lgj"/>
                 <outlet property="selectedThoughtImage" destination="aoZ-lz-Slf" id="5jy-es-7k9"/>
                 <outlet property="selectedThoughtScore" destination="0Lt-Wb-hIx" id="9lW-Tm-bGV"/>
@@ -51,6 +52,14 @@
                     <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-B9-7BJ">
+                    <rect key="frame" x="304" y="236" width="30" height="30"/>
+                    <animations/>
+                    <state key="normal" title="Play"/>
+                    <connections>
+                        <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="buv-rl-ueH"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

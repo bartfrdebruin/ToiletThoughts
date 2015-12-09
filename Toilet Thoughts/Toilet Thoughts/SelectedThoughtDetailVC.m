@@ -11,8 +11,12 @@
 #import "ListThoughtTableVC.h"
 #import "UserViewController.h"
 #import "LoginViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SelectedThoughtDetailVC ()
+
+@property (nonatomic) AVAudioRecorder *recorder;
+@property (nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -99,6 +103,7 @@
     
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
+    
     
     NSNumber *score = [self.currentThought objectForKey:@"score"];
     self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
@@ -293,6 +298,31 @@
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }
+}
+- (IBAction)playTapped:(id)sender {
+    
+    NSLog(@"play tapped");
+    
+    self.audioThoughtFile = self.currentThought[@"audioFile"];
+    
+    [self.audioThoughtFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            
+            self.player = [[AVAudioPlayer alloc] initWithData:data
+                                                        error:&error];
+            [self.player play];
+        }
+    }];
+    NSError *error;
+    
+    
+    
+    if (error)
+        NSLog(@"Error: %@",
+              [error localizedDescription]);
+//    else
+//        [self.player play];
+    
 }
 
 @end

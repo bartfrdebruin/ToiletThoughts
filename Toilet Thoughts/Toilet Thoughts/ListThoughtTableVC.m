@@ -338,12 +338,13 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         PFObject * selectedThought = self.toiletThoughts[indexPath.row];
         
+        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        
         stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
-        
-        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        stdvc.audioThoughtFile = audioThought;
         
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:0.80];
@@ -362,12 +363,13 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         PFObject * selectedThought = self.toiletThoughts[indexPath.row];
         
+        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        
         stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
-        
-        PFFile *audioThought = [selectedThought objectForKey:@"audioFile"];
+        stdvc.audioThoughtFile = audioThought;
         
         
         [UIView beginAnimations:@"View Flip" context:nil];

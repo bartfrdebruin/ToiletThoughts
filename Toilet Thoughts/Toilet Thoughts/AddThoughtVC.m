@@ -24,6 +24,7 @@
 @property (nonatomic) AVAudioRecorder *recorder;
 @property (nonatomic) AVAudioPlayer *player;
 @property(nonatomic) LEMirroredImagePicker *mirrorFrontPicker;
+@property (nonatomic) NSData *audioData;
 
 @end
 
@@ -339,7 +340,22 @@
         self.thoughtTextField.center = original;
         
     }
-
+    
+//    NSArray *pathComponents = [NSArray arrayWithObjects:
+//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                               @"MyAudioMemoTemp.m4a",
+//                               nil];
+//    
+//    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+//    
+//    NSData * audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+//    
+//    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+//    
+//    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:audioData];
+//    
+//    myTestObject[@"audioFile"] = audioFile;
+//    [myTestObject saveInBackground];
     
     [self.toolbarTextfield resignFirstResponder];
     [self.view endEditing:YES];
@@ -546,11 +562,11 @@
     
     NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
     
-    NSData * audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+    self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
     
     PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
     
-    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:audioData];
+    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
     
     myTestObject[@"audioFile"] = audioFile;
     [myTestObject saveInBackground];
