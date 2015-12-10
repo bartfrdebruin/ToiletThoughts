@@ -16,8 +16,11 @@
 
 - (id)initWithFrame:(CGRect)frame asset:(AVURLAsset *)asset color:(UIColor *)normalColor progressColor:(UIColor *)progressColor {
     if (self = [super initWithFrame:frame]) {
+//        NSError *error;
         
+  //      player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL fileTypeHint:@"AVFileTypeAppleM4A" error:nil];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL error:nil];
+//        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         player.delegate = self;
         
         waveformView = [[SCWaveformView alloc] init];

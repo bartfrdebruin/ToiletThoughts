@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playAudioThought;
 
 @property (nonatomic, strong) PFFile *thoughtImageFile;
-@property (nonatomic, strong) PFFile *audioThoughtFile;
+@property (nonatomic, strong) PFFile *audioThought;
 @property (strong,nonatomic) NSString *thoughtDetail;
 @property (nonatomic) NSInteger score;
 @property (nonatomic) NSNumber *scoreNumber;

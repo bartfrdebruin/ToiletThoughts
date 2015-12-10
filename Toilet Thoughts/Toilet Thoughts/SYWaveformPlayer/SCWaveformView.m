@@ -118,7 +118,7 @@ void SCRenderPixelWaveformInContext(CGContextRef context, float halfGraphHeight,
     AVAssetReaderTrackOutput *output = [[AVAssetReaderTrackOutput alloc] initWithTrack:songTrack outputSettings:outputSettingsDict];
     [reader addOutput:output];
     
-    UInt32 channelCount;
+    UInt32 channelCount = 0;
     NSArray *formatDesc = songTrack.formatDescriptions;
     for (unsigned int i = 0; i < [formatDesc count]; ++i) {
         CMAudioFormatDescriptionRef item = (__bridge CMAudioFormatDescriptionRef)[formatDesc objectAtIndex:i];

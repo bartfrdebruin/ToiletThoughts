@@ -26,8 +26,6 @@
 @property (nonatomic) AVAudioPlayer *player;
 @property(nonatomic) LEMirroredImagePicker *mirrorFrontPicker;
 @property (nonatomic) NSData *audioData;
-@property (nonatomic) NSInteger weekOfYear;
-
 
 @end
 
@@ -92,14 +90,6 @@
     UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleTap:)];
     [self.view addGestureRecognizer:tapOutsiteTextField];
-    
-    NSDate *date = [NSDate date];
-    NSCalendar *calender = [NSCalendar currentCalendar];
-    NSLog(@"week: %li", (long)[[calender components: NSCalendarUnitWeekOfYear fromDate:date] weekOfYear]);
-    NSLog(@"yearWhereWeekIsContainedIn: %li", (long) [[calender components:NSCalendarUnitYear fromDate:date] year]);
-    NSLog(@"hourOfMoment: %li", (long)[[calender components:NSCalendarUnitHour fromDate:date] hour]);
-    
-    self.weekOfYear = [[calender components:NSCalendarUnitWeekOfYear fromDate:date] weekOfYear];
 }
 
 # pragma mark - viewWillAppear
@@ -141,7 +131,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:YES];
- 
+    
+    
 }
 
 
@@ -373,6 +364,8 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
+  //      NSString *thoughtString = [NSString stringWithFormat:@"%@", self.thoughtTextField.text];
+        
         NSArray *pathComponents = [NSArray arrayWithObjects:
                                    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
                                    @"MyAudioMemoTemp.m4a",
@@ -382,11 +375,12 @@
         
         self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
         
-        PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+//        PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+        
         PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
         
-        myTestObject[@"audioFile"] = audioFile;
-        [myTestObject saveInBackground];
+//        myTestObject[@"audioFile"] = audioFile;
+//        [myTestObject saveInBackground];
         
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
@@ -396,11 +390,10 @@
         NSString *user = currentUser.username;
         
         PFObject *toiletThought = [PFObject objectWithClassName:@"ToiletThought"];
-        [toiletThought setObject:self.toolbarTextfield.text forKey:@"toiletThought"];
+        [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         [toiletThought setObject:@0 forKey:@"score"];
         [toiletThought setObject:user forKey:@"userName"];
-//        [toiletThought setObject:STDVC.audioThoughtFile forKey:@"audioFile"];
-        [toiletThought setObject:@(self.weekOfYear) forKey:@"weekNumber"];
+        [toiletThought setObject:audioFile forKey:@"audioFile"];
     
         
         PFObject *totalScore = [PFObject objectWithClassName:@"TotalScore"];
@@ -408,6 +401,7 @@
         [totalScore setObject:@0 forKey:@"totalScore"];
         
         PFQuery *query = [PFQuery queryWithClassName:@"TotalScore"];
+        
         [query whereKey:@"userName" equalTo:user];
         [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
@@ -425,7 +419,10 @@
             
             // Toilet Thought Image
             NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.4);
+            
+            // Lekker image name
             NSUUID *uuid = [NSUUID UUID];
+            
             PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
             [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
         
@@ -441,6 +438,7 @@
         }
     
         [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
             [self.view endEditing:YES];
             
             if (!error) {
