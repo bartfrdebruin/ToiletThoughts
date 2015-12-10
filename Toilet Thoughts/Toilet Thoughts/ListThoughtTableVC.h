@@ -21,6 +21,7 @@
 @property (nonatomic) UIViewController *presentedFromAddThoughtVC;
 @property (nonatomic, strong) PFObject * currentThought;
 @property (nonatomic, strong) NSArray *videoObjects;
+@property (nonatomic, strong) PFObject *highestScoreObject;
 
 - (void)retrieveFromParseRecent;
 - (void)retrieveFromParseScore;

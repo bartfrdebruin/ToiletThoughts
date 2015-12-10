@@ -9,7 +9,8 @@
 #import "HomeViewController.h"
 #import "ListThoughtTableVC.h"
 #import "AddThoughtVC.h"
-
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface HomeViewController ()
 
@@ -52,9 +53,7 @@
      UIViewAnimationTransitionFlipFromLeft
                            forView:self.navigationController.view cache:NO];
     
-    
-//    [self.navigationController presentViewController:addThoughtVC animated:YES completion:nil];
-        [self.navigationController pushViewController:addThoughtVC animated:YES];
+    [self.navigationController pushViewController:addThoughtVC animated:YES];
 
     
      [UIView commitAnimations];
@@ -66,7 +65,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+   
+    NSDate *date = [NSDate date];
+    NSCalendar *calender = [NSCalendar currentCalendar];
+    
+    NSLog(@"week: %li", (long)[[calender components: NSCalendarUnitWeekOfYear fromDate:date] weekOfYear]);
+    NSLog(@"yearWhereWeekIsContainedIn: %li", (long) [[calender components:NSCalendarUnitYear fromDate:date] year]);
+    NSLog(@"hourOfMoment: %li", (long)[[calender components:NSCalendarUnitHour fromDate:date] hour]);
+    
+    self.weekOfYear = [[calender components:NSCalendarUnitWeekOfYear fromDate:date] weekOfYear];
+    self.year = [[calender components:NSCalendarUnitYear fromDate:date] year]*100;
+    
+    self.weekAndYear = (self.weekOfYear + self.year);
+  
+    if (self.weekOfYear == 1) {
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+        [query whereKey:@"weekNumber" equalTo:@(self.weekOfYear - 49)];
+        [query orderByDescending:@"score"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+            
+            if (objects) {
+                self.highestScoreObject = objects[0];
+                self.highestScoringToiletThought.text = self.highestScoreObject[@"toiletThought"];
+            }
+        }];
+    }
+
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    [query whereKey:@"weekNumber" equalTo:@(self.weekAndYear - 1)];
+    //[query orderByDescending:@"score"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if (objects) {
+            self.highestScoreObject = objects[0];
+            self.highestScoringToiletThought.text = self.highestScoreObject[@"toiletThought"];
+            self.highestScoringUser.text = self.highestScoreObject[@"userName"];
+            
+            NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
+            self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
+
+            
+        }
+    }];
 
     }
 
@@ -81,19 +123,5 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

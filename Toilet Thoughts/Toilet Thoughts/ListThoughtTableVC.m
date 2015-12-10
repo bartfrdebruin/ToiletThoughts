@@ -28,6 +28,10 @@
 @implementation ListThoughtTableVC
 
 
+#pragma mark - timeIntervalSinceNow
+
+
+
 
 #pragma mark - viewDidload
 
@@ -42,8 +46,9 @@
     [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     self.chosenList = 1;
-    
-}
+
+   }
+
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -82,7 +87,6 @@
     UIBarButtonItem *selectTableView = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(updateTableview)];
     
     self.toolbarItems = [NSArray arrayWithObjects:space, addPostButton, space, selectTableView, nil];
-    
     [self.navigationController setToolbarItems:self.toolbarItems];
     
     [self.tableView reloadData];
@@ -238,11 +242,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (self.chosenList == 3) {
-        
         return self.winningThoughts.count;
         
     } else {
-        
         return self.toiletThoughts.count;
     }
 }
