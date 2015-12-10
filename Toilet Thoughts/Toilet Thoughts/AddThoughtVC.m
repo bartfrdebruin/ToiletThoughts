@@ -15,6 +15,7 @@
 #import "ListThoughtTableVC.h"
 #import <AVFoundation/AVFoundation.h>
 #import "LEMirroredImagePicker.h"
+#import "SelectedThoughtDetailVC.h"
 
 @import MobileCoreServices;
 
@@ -363,8 +364,26 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
+        NSArray *pathComponents = [NSArray arrayWithObjects:
+                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                                   @"MyAudioMemoTemp.m4a",
+                                   nil];
+        
+        NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+        
+        self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+        
+        PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+        
+        PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
+        
+        myTestObject[@"audioFile"] = audioFile;
+        [myTestObject saveInBackground];
+        
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
+        
+//        SelectedThoughtDetailVC *STDVC = [[SelectedThoughtDetailVC alloc]init];
         
         NSString *user = currentUser.username;
         
@@ -372,6 +391,7 @@
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         [toiletThought setObject:@0 forKey:@"score"];
         [toiletThought setObject:user forKey:@"userName"];
+//        [toiletThought setObject:STDVC.audioThoughtFile forKey:@"audioFile"];
     
         
         PFObject *totalScore = [PFObject objectWithClassName:@"TotalScore"];
@@ -403,6 +423,16 @@
             
             PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
             [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
+        
+        
+//        if (self.audioData != nil) {
+//            
+//            PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
+//            [toiletThought setObject:audioFile forKey:@"audioFile"];
+//            
+//            NSLog(@"no audio");
+//        }
+            
         }
     
         [toiletThought saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -564,12 +594,12 @@
     
     self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
     
-    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
-    
-    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
-    
-    myTestObject[@"audioFile"] = audioFile;
-    [myTestObject saveInBackground];
+//    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+//    
+//    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
+//    
+//    myTestObject[@"audioFile"] = audioFile;
+//    [myTestObject saveInBackground];
     
     NSLog(@"TouchUpInside");
 }

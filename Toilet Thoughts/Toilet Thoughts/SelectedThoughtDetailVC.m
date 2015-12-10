@@ -12,6 +12,7 @@
 #import "UserViewController.h"
 #import "LoginViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SYWaveformPlayerView.h"
 
 @interface SelectedThoughtDetailVC ()
 
@@ -27,6 +28,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
+    
+    NSArray *pathComponents = [NSArray arrayWithObjects:
+                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+                               @"MyAudioMemoTemp.m4a",
+                               nil];
+    
+    NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:outputFileUrl options:nil];
+    
+    SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
+    [self.view addSubview:playerView];
     
     // Checking the current user
     PFUser *currentUser = [PFUser currentUser];
@@ -304,12 +317,21 @@
     NSLog(@"play tapped");
     
     self.audioThoughtFile = self.currentThought[@"audioFile"];
+
     
     [self.audioThoughtFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             
             self.player = [[AVAudioPlayer alloc] initWithData:data
                                                         error:&error];
+            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+            
+            
+//            AVAsset *audio = [AVAsset assetWithURL:self.audioThoughtFile.url];
+//            AVPlayerItem *item = [AVPlayerItem playerItemWithAsset: audio];
+            
+            [self.player setVolume:1.0];
+            [self.player setDelegate:self];
             [self.player play];
         }
     }];
@@ -320,9 +342,10 @@
     if (error)
         NSLog(@"Error: %@",
               [error localizedDescription]);
-//    else
-//        [self.player play];
+
     
 }
+
+
 
 @end

@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <ParseUI/ParseUI.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface SelectedThoughtDetailVC : UIViewController
+@interface SelectedThoughtDetailVC : UIViewController <AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtScore;
 @property (weak, nonatomic) IBOutlet PFImageView *selectedThoughtImage;
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
 @property (weak, nonatomic) IBOutlet UIImageView *thoughtBalloon;
 @property (weak, nonatomic) IBOutlet UIButton *playAudioThought;
+
 @property (nonatomic, strong) PFFile *thoughtImageFile;
 @property (nonatomic, strong) PFFile *audioThoughtFile;
 @property (strong,nonatomic) NSString *thoughtDetail;

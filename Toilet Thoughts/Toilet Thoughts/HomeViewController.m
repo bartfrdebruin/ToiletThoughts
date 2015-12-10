@@ -42,9 +42,6 @@
 
 - (IBAction)addThoughts:(id)sender {
     
-//    self.logIn.hidden = NO;
-//    self.signIn.hidden = NO;
-    
     AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc] initWithNibName:@"AddThoughtVC" bundle:nil];
     
     [UIView beginAnimations:@"View Flip" context:nil];
