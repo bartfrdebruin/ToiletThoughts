@@ -344,7 +344,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
-        stdvc.audioThoughtFile = audioThought;
+        stdvc.audioThought = audioThought;
         
         [UIView beginAnimations:@"View Flip" context:nil];
         [UIView setAnimationDuration:0.80];
@@ -369,7 +369,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         stdvc.thoughtDetail = [selectedThought objectForKey:@"toiletThought"];
         stdvc.score = [[selectedThought objectForKey:@"score"] integerValue];
         stdvc.currentThought = selectedThought;
-        stdvc.audioThoughtFile = audioThought;
+        stdvc.audioThought = audioThought;
         
         
         [UIView beginAnimations:@"View Flip" context:nil];

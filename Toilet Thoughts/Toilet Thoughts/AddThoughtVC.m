@@ -364,6 +364,8 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
+  //      NSString *thoughtString = [NSString stringWithFormat:@"%@", self.thoughtTextField.text];
+        
         NSArray *pathComponents = [NSArray arrayWithObjects:
                                    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
                                    @"MyAudioMemoTemp.m4a",
@@ -373,12 +375,12 @@
         
         self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
         
-        PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
+//        PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
         
         PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
         
-        myTestObject[@"audioFile"] = audioFile;
-        [myTestObject saveInBackground];
+//        myTestObject[@"audioFile"] = audioFile;
+//        [myTestObject saveInBackground];
         
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
@@ -391,7 +393,7 @@
         [toiletThought setObject:self.thoughtTextField.text forKey:@"toiletThought"];
         [toiletThought setObject:@0 forKey:@"score"];
         [toiletThought setObject:user forKey:@"userName"];
-//        [toiletThought setObject:STDVC.audioThoughtFile forKey:@"audioFile"];
+        [toiletThought setObject:audioFile forKey:@"audioFile"];
     
         
         PFObject *totalScore = [PFObject objectWithClassName:@"TotalScore"];

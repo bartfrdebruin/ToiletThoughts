@@ -29,17 +29,58 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
     
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemoTemp.m4a",
-                               nil];
+    self.audioThought = self.currentThought[@"audioFile"];
     
-    NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+    [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (data) {
+            
+            NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+            
+//            NSArray *pathComponents = [NSArray arrayWithObjects:
+//                                       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                                       @"MyAudioMemoTemp.m4a",
+//                                       nil];
+            
+//            NSURL *outoutputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+            
+//            NSFileManager *manager = [NSFileManager defaultManager];
+//            [manager createFileAtPath:tempFilePath contents:data attributes:nil];
+            
+            NSURL *audioUrl = [NSURL URLWithString:tempFilePath];
+            
+            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
+                [self.view addSubview:playerView];
+            });
+            
+            
+        }
+    }];
     
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:outputFileUrl options:nil];
     
-    SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
-    [self.view addSubview:playerView];
+    
+    
+    
+//    NSArray *pathComponents = [NSArray arrayWithObjects:
+//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                               @"MyAudioMemoTemp.m4a",
+//                               nil];
+//
+//    NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+    
+//    NSURL *audioUrl = [NSURL URLWithString:self.audioThought.url];
+    
+//    NSURL *fileURL = [[outputFileUrl URLByAppendingPathComponent:@"MyAudioMemoTemp"] URLByAppendingPathExtension:@"m4a"];
+    
+//    NSData *urlData = [NSData dataWithContentsOfURL:outputFileUrl];
+//    [urlData writeToFile:fileURL options:NSAtomicWrite error:nil];
+//    [urlData writeToURL:outputFileUrl options:NSAtomicWrite error:nil];
+    
+//    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:outputFileUrl options:nil];
+//
+//    SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
+//        [self.view addSubview:playerView];
     
     // Checking the current user
     PFUser *currentUser = [PFUser currentUser];
@@ -316,10 +357,10 @@
     
     NSLog(@"play tapped");
     
-    self.audioThoughtFile = self.currentThought[@"audioFile"];
+    self.audioThought = self.currentThought[@"audioFile"];
 
     
-    [self.audioThoughtFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+    [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             
             self.player = [[AVAudioPlayer alloc] initWithData:data
