@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "ListThoughtTableVC.h"
 #import "WinningThoughtCustomVideoCell.h"
-#import "ThoughtCustomCell.h"
+#import "GTLYouTube.h"
 
 @interface ListThoughtTableVC : UITableViewController
 
@@ -22,6 +22,8 @@
 @property (nonatomic, strong) PFObject * currentThought;
 @property (nonatomic, strong) NSArray *videoObjects;
 @property (nonatomic, strong) PFObject *highestScoreObject;
+@property (nonatomic, strong) GTLYouTubeChannel *taugeTVChannel;
+@property (nonatomic, strong) NSArray *taugeTVPlaylist;
 
 - (void)retrieveFromParseRecent;
 - (void)retrieveFromParseScore;

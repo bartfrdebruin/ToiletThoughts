@@ -1,6 +1,8 @@
 pod 'Parse'
 pod 'ParseUI'
 pod "youtube-ios-player-helper", "~> 0.1.4"
-pod 'Google-API-Client'
-inhibit_all_warnings!
+pod 'Google-API-Client/YouTube'
 pod "LEMirroredImagePicker"
+pod 'SDWebImage', '~>3.7'
+inhibit_all_warnings!
+
