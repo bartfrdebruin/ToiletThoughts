@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
 @property (weak, nonatomic) IBOutlet UIImageView *thoughtBalloon;
 @property (weak, nonatomic) IBOutlet UIButton *playAudioThought;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (nonatomic, strong) PFFile *thoughtImageFile;
 @property (nonatomic, strong) PFFile *audioThought;

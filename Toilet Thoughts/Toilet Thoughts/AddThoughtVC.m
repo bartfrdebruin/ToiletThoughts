@@ -19,13 +19,13 @@
 
 @import MobileCoreServices;
 
-@interface AddThoughtVC ()
+@interface AddThoughtVC ()<UITextFieldDelegate>
 
 @property (nonatomic) CGRect normalFrame;
 @property (nonatomic) AVAudioRecorder *recorder;
 @property (nonatomic) AVAudioPlayer *player;
 @property(nonatomic) LEMirroredImagePicker *mirrorFrontPicker;
-@property (nonatomic) NSData *audioData;
+#define MAXLENGTH 10
 
 @end
 
@@ -39,6 +39,10 @@
     
     self.title = @"New";
     self.toolbarTextfield.delegate = self;
+    self.postButton.enabled = NO;
+    
+    self.micRecord.action = @selector(recordPressed1);
+    
     
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -50,13 +54,20 @@
     
     self.play.hidden = YES;
     
-    [ self.record addTarget:self
-                     action:@selector(methodTouchDown:)
-           forControlEvents:UIControlEventTouchDown];
+//    [ self.record addTarget:self
+//                     action:@selector(methodTouchDown:)
+//           forControlEvents:UIControlEventTouchDown];
+//    
+//    [self.record addTarget:self
+//                    action:@selector(methodTouchUpInside:)
+//          forControlEvents: UIControlEventTouchUpInside];
     
-    [self.record addTarget:self
-                    action:@selector(methodTouchUpInside:)
-          forControlEvents: UIControlEventTouchUpInside];
+    self.micRecord.target = self;
+    self.micRecord.action = @selector(methodTouchDown:);
+    
+    self.micRecord.target = self;
+    self.micRecord.action = @selector(methodTouchUpInside:);
+   
     
     NSArray *pathComponents = [NSArray arrayWithObjects:
                                [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -89,7 +100,9 @@
     
     UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleTap:)];
-    [self.view addGestureRecognizer:tapOutsiteTextField];
+    
+        [self.view addGestureRecognizer:tapOutsiteTextField];
+    
 }
 
 # pragma mark - viewWillAppear
@@ -138,8 +151,13 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
+        self.postButton.enabled = YES;
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
+    if ([self.toolbarTextfield.text isEqual:@""]) {
+        self.postButton.enabled = NO;
+    }
+    
 }
 
 # pragma mark - viewWillDisappear
@@ -250,10 +268,12 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    
     NSString *newString = [self.toolbarTextfield.text stringByReplacingCharactersInRange:range withString:string];
     [self updateTextLabelsWithText: newString];
     
     return YES;
+    
 }
 
 -(void)updateTextLabelsWithText:(NSString *)string
@@ -322,7 +342,9 @@
 
 - (IBAction)post:(id)sender {
     
-    if ([self.toolbarTextfield.text  isEqual: @""]){
+    if (![self.toolbarTextfield.text isEqual: @""]){
+        
+        self.postButton.enabled = YES;
         self.warningLabel.alpha = 1;
         
         CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
@@ -363,7 +385,7 @@
     
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
-        
+        self.postButton.enabled = YES;
   //      NSString *thoughtString = [NSString stringWithFormat:@"%@", self.thoughtTextField.text];
         
         NSArray *pathComponents = [NSArray arrayWithObjects:
@@ -496,12 +518,14 @@
         [self presentViewController:logOrSignIn animated:YES completion:nil];
     }
     
-    
 }
 
 #pragma mark - IBAction recordPressed
 
 - (IBAction)recordPressed:(id)sender {
+    
+    self.thoughtTextField.hidden = YES;
+    self.postButton.enabled = YES;
     
     if (self.player.playing)
     {
@@ -528,6 +552,46 @@
         [self.record setTitle:@"Record" forState:UIControlStateNormal];
     }
     
+}
+
+- (void)recordPressed1 {
+    self.thoughtTextField.hidden = YES;
+    self.postButton.enabled = YES;
+    
+    if (self.player.playing)
+    {
+        [self.player stop];
+    }
+    
+    if (!self.recorder.recording)
+    {
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        
+        [session setActive:YES error:nil];
+        
+        [self.recorder record];
+        
+        [self.record setTitle:@"Pause" forState:UIControlStateNormal];
+        
+        [self.recorder record];
+        
+        
+//        if (!self.recorder.recording) {
+//            self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
+//            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+//            [self.player setDelegate:self];
+//            [self.player play];
+//        }
+    }
+    
+    else
+    {
+        
+        [self.recorder pause];
+        [self.record setTitle:@"Record" forState:UIControlStateNormal];
+        ;
+    }
+
 }
 
 #pragma mark - IBAction playTapped
@@ -562,6 +626,8 @@
         
         [self.record setTitle:@"Recording" forState:UIControlStateNormal];
         
+        [self.micRecord setImage:[UIImage imageNamed:@"play open"]];
+        
     }
     
     else
@@ -583,6 +649,7 @@
     
     self.play.hidden = NO;
     self.record.hidden = YES;
+    
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
