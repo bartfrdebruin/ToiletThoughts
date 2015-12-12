@@ -20,24 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-//    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
-//    [keyboardDoneButtonView sizeToFit];
-//    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-//                                                                   style:UIBarButtonItemStyleBordered target:self
-//                                                                  action:@selector(doneClicked:)];
-//    UITextField *toolbarTextfield =[[UITextField alloc]initWithFrame:CGRectMake(0, 400, 260, 30)];
-//    toolbarTextfield.backgroundColor =[UIColor  whiteColor];
-//    toolbarTextfield.placeholder=@"Enter your text";
-//    toolbarTextfield.borderStyle = UITextBorderStyleRoundedRect;
-//    toolbarTextfield.inputAccessoryView = toolbarTextfield;
-//    UIBarButtonItem *textfieldItem = [[UIBarButtonItem alloc]initWithCustomView:toolbarTextfield];
-//    
-//    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton,textfieldItem, nil]];
-//    self.passWord.inputAccessoryView = keyboardDoneButtonView;
-//    self.userName.inputAccessoryView = keyboardDoneButtonView;
-//    toolbarTextfield.inputAccessoryView = keyboardDoneButtonView;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,17 +64,24 @@
             [self dismissViewControllerAnimated:YES completion:nil];
             
         } else {
+            
+            CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+            animation.keyPath = @"position.x";
+            animation.values = @[ @0, @10, @-10, @10, @0 ];
+            animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
+            animation.duration = 0.4;
+            
+            animation.additive = YES;
+            
+            [self.passWord.layer addAnimation:animation forKey:@"shake"];
+            [self.userName.layer addAnimation:animation forKey:@"shake"];
+
         }
     }];
 }
-- (IBAction)playPressed:(id)sender {
-    
-   
-
-}
 
 - (IBAction)logIn:(id)sender {
-        
+    
     [PFUser logInWithUsernameInBackground:self.userName.text password:self.passWord.text
                                     block:^(PFUser *user, NSError *error) {
                                         
@@ -109,11 +98,11 @@
                                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                                 [self dismissViewControllerAnimated:YES completion:nil];
                                             });
-                                            
-                                        
 
                                         
-                                        } else { CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+                                        } else {
+                                            
+                                            CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
                                             animation.keyPath = @"position.x";
                                             animation.values = @[ @0, @10, @-10, @10, @0 ];
                                             animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
@@ -122,6 +111,7 @@
                                             animation.additive = YES;
                                             
                                             [self.passWord.layer addAnimation:animation forKey:@"shake"];
+                                            [self.userName.layer addAnimation:animation forKey:@"shake"];
 
                                         
                                         }
@@ -132,9 +122,5 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-    
-    
 
 @end
