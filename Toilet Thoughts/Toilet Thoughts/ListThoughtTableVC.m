@@ -407,29 +407,23 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     } else {
         
         DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
-        
-        GTLYouTubeVideo * selectedVideo = [self.taugeTVPlaylist objectAtIndex:indexPath.row];
-        NSString *identifierOfVideo = selectedVideo.identifier;
+        GTLYouTubeVideo *selectedVideo = [self.taugeTVPlaylist objectAtIndex:indexPath.row];
         
         PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
-        [query whereKey:@"WinningYouTubeVideoThoughtID" containsString:identifierOfVideo];
+        [query whereKey:@"winningYouTubeVideoThoughtID" equalTo:selectedVideo.identifier];
         
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
             
-            if (object) {
-            PFObject *currentVideoObject = object;
+            if (objects) {
+                self.currentVideoObject = objects[0];
+                
+                detailVideoViewController.currentWinningThought = self.currentVideoObject;
+                [self.navigationController pushViewController:detailVideoViewController animated:YES];
             }
+
         }];
-         
-         
-//        GTLYouTubeVideoSnippet *currentVideoSnippet = selectedVideo.snippet;
-//        NSString *currentVideoSnippetURL = currentVideoSnippet.thumbnails.standard.url;
+        
 //
-//        
-//        PFObject *selectedWinningThought = self.taugeTVPlaylist[indexPath.row];
-//        detailVideoViewController.currentWinningThought = selectedWinningThought;
-//        
-//        [self.navigationController pushViewController:detailVideoViewController animated:YES];
     }
     
 }

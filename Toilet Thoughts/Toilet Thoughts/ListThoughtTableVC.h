@@ -24,6 +24,8 @@
 @property (nonatomic, strong) PFObject *highestScoreObject;
 @property (nonatomic, strong) GTLYouTubeChannel *taugeTVChannel;
 @property (nonatomic, strong) NSArray *taugeTVPlaylist;
+@property (nonatomic, strong) PFObject *currentVideoObject;
+@property (nonatomic, strong) PFObject *detailVideoObject;
 
 - (void)retrieveFromParseRecent;
 - (void)retrieveFromParseScore;

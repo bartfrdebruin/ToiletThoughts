@@ -26,13 +26,13 @@
     self.playerView.delegate = self;
 
     NSDictionary *playerVars = @{ @"playsinline" : @1,};
-    [self.playerView loadWithVideoId:self.currentWinningThought[@"winningThoughtID"]playerVars:playerVars];
+    [self.playerView loadWithVideoId:self.currentWinningThought[@"winningYouTubeVideoThoughtID"]playerVars:playerVars];
     
-    self.toiletThought.text = self.currentWinningThought[@"winningText"];
-    self.winningUser.text = self.currentWinningThought[@"winningUser"];
-    
-    NSNumber *score = [self.currentWinningThought objectForKey:@"winningScore"];
-    self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+//    self.toiletThought.text = self.currentWinningThought[@"winningText"];
+//    self.winningUser.text = self.currentWinningThought[@"winningUser"];
+//    
+//    NSNumber *score = [self.currentWinningThought objectForKey:@"winningScore"];
+//    self.winningScore.text = [NSString stringWithFormat:@" %@", score];
 }
 
 

@@ -2,17 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVideoViewController">
             <connections>
-                <outlet property="playerView" destination="Dwv-rd-lhx" id="bqn-1Q-puC"/>
-                <outlet property="toiletThought" destination="O2v-hR-XYt" id="yK2-1T-XDK"/>
+                <outlet property="playerView" destination="i7j-g6-veN" id="ktY-3d-aXU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="oYv-UI-c95"/>
-                <outlet property="winningScore" destination="20s-dF-l10" id="800-cb-MLt"/>
-                <outlet property="winningUser" destination="Mwj-vs-0l3" id="DBb-RJ-bDA"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,44 +17,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Inspiring toilet thought:" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-hR-XYt">
-                    <rect key="frame" x="8" y="399" width="584" height="63"/>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7j-g6-veN" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="64" width="600" height="337"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="winning score" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20s-dF-l10">
-                    <rect key="frame" x="388" y="483" width="204" height="31"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="user" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-vs-0l3">
-                    <rect key="frame" x="388" y="433" width="204" height="29"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-rd-lhx" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="60" width="600" height="337"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="Dwv-rd-lhx" secondAttribute="height" multiplier="16:9" id="agR-Zx-Ivw"/>
+                        <constraint firstAttribute="height" constant="337" id="fz1-Ye-5eG"/>
+                        <constraint firstAttribute="width" secondItem="i7j-g6-veN" secondAttribute="height" multiplier="16:9" id="hmI-3D-lI0"/>
+                        <constraint firstAttribute="width" constant="600" id="kKC-nN-6yS"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="8kW-he-VxC"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="Hwd-b1-v4U"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ixc-H0-Nfv"/>
-                <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="qua-yD-t7k"/>
+                <constraint firstItem="i7j-g6-veN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Ejb-AV-zrV"/>
+                <constraint firstItem="i7j-g6-veN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XeJ-CV-huu"/>
+                <constraint firstAttribute="trailing" secondItem="i7j-g6-veN" secondAttribute="trailing" id="kwK-j6-UBz"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="8kW-he-VxC"/>
-                </mask>
-            </variation>
         </view>
     </objects>
 </document>
