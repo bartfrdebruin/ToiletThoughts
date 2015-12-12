@@ -29,10 +29,6 @@
 @implementation ListThoughtTableVC
 
 
-#pragma mark - timeIntervalSinceNow
-
-
-
 
 #pragma mark - viewDidload
 
@@ -196,8 +192,8 @@
 
 - (void)retrieveFromParseWinning {
         
-    PFQuery *query = [PFQuery queryWithClassName:@"WinningThought"];
-//    [query whereKeyExists:@"winningYouTubeVideoThoughtID"];
+    PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+    [query whereKeyExists:@"winningYouTubeVideoThoughtID"];
     [query orderByDescending:@"score"];
     
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
@@ -412,10 +408,28 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
         
-        PFObject *selectedWinningThought = self.winningThoughts[indexPath.row];
-        detailVideoViewController.currentWinningThought = selectedWinningThought;
+        GTLYouTubeVideo * selectedVideo = [self.taugeTVPlaylist objectAtIndex:indexPath.row];
+        NSString *identifierOfVideo = selectedVideo.identifier;
         
-        [self.navigationController pushViewController:detailVideoViewController animated:YES];
+        PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
+        [query whereKey:@"WinningYouTubeVideoThoughtID" containsString:identifierOfVideo];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            
+            if (object) {
+            PFObject *currentVideoObject = object;
+            }
+        }];
+         
+         
+//        GTLYouTubeVideoSnippet *currentVideoSnippet = selectedVideo.snippet;
+//        NSString *currentVideoSnippetURL = currentVideoSnippet.thumbnails.standard.url;
+//
+//        
+//        PFObject *selectedWinningThought = self.taugeTVPlaylist[indexPath.row];
+//        detailVideoViewController.currentWinningThought = selectedWinningThought;
+//        
+//        [self.navigationController pushViewController:detailVideoViewController animated:YES];
     }
     
 }
