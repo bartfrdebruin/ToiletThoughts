@@ -1,154 +1,9 @@
 PODS:
   - Bolts/Tasks (1.5.0)
-  - Google-API-Client (1.0.422):
-    - Google-API-Client/AdSense (= 1.0.422)
-    - Google-API-Client/Analytics (= 1.0.422)
-    - Google-API-Client/AppState (= 1.0.422)
-    - Google-API-Client/Bigquery (= 1.0.422)
-    - Google-API-Client/Blogger (= 1.0.422)
-    - Google-API-Client/Books (= 1.0.422)
-    - Google-API-Client/Calendar (= 1.0.422)
-    - Google-API-Client/CivicInfo (= 1.0.422)
-    - Google-API-Client/Common (= 1.0.422)
-    - Google-API-Client/Compute (= 1.0.422)
-    - Google-API-Client/Discovery (= 1.0.422)
-    - Google-API-Client/DoubleClickBidManager (= 1.0.422)
-    - Google-API-Client/Drive (= 1.0.422)
-    - Google-API-Client/Gmail (= 1.0.422)
-    - Google-API-Client/Groupssettings (= 1.0.422)
-    - Google-API-Client/Licensing (= 1.0.422)
-    - Google-API-Client/MapsEngine (= 1.0.422)
-    - Google-API-Client/Mirror (= 1.0.422)
-    - Google-API-Client/Orkut (= 1.0.422)
-    - Google-API-Client/Plus (= 1.0.422)
-    - Google-API-Client/PlusDomains (= 1.0.422)
-    - Google-API-Client/Prediction (= 1.0.422)
-    - Google-API-Client/QPXExpress (= 1.0.422)
-    - Google-API-Client/Spectrum (= 1.0.422)
-    - Google-API-Client/SQLAdmin (= 1.0.422)
-    - Google-API-Client/Storage (= 1.0.422)
-    - Google-API-Client/Tasks (= 1.0.422)
-    - Google-API-Client/Urlshortener (= 1.0.422)
-    - Google-API-Client/YouTube (= 1.0.422)
-    - Google-API-Client/YouTubeAnalytics (= 1.0.422)
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/AdSense (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Analytics (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/AppState (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Bigquery (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Blogger (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Books (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Calendar (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/CivicInfo (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
   - Google-API-Client/Common (1.0.422):
     - gtm-http-fetcher (~> 1.0.141)
     - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Compute (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Discovery (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/DoubleClickBidManager (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Drive (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Gmail (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Groupssettings (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Licensing (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/MapsEngine (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Mirror (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Orkut (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Plus (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/PlusDomains (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Prediction (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/QPXExpress (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Spectrum (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/SQLAdmin (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Storage (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Tasks (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/Urlshortener (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
   - Google-API-Client/YouTube (1.0.422):
-    - Google-API-Client/Common
-    - gtm-http-fetcher (~> 1.0.141)
-    - gtm-oauth2 (~> 1.0.125)
-  - Google-API-Client/YouTubeAnalytics (1.0.422):
     - Google-API-Client/Common
     - gtm-http-fetcher (~> 1.0.141)
     - gtm-oauth2 (~> 1.0.125)
@@ -161,13 +16,17 @@ PODS:
   - ParseUI (1.1.7):
     - Bolts/Tasks (~> 1.3)
     - Parse (~> 1.9)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
   - youtube-ios-player-helper (0.1.5)
 
 DEPENDENCIES:
-  - Google-API-Client
+  - Google-API-Client/YouTube
   - LEMirroredImagePicker
   - Parse
   - ParseUI
+  - SDWebImage (~> 3.7)
   - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
@@ -178,6 +37,7 @@ SPEC CHECKSUMS:
   LEMirroredImagePicker: f9cedc540976a6a9ba6c0bef0295be9b477c8acc
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
   ParseUI: c2bcdfbb00330e464b5b773266ae221697a3bb7b
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   youtube-ios-player-helper: 8706bb155ffee74fbe5f2f5cf41c2dafe60dc155
 
 COCOAPODS: 0.39.0

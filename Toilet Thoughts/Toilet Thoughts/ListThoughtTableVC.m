@@ -19,6 +19,7 @@
 #import "DetailVideoViewController.h"
 #import "TAAYouTubeWrapper.h"
 #import "GTLYouTube.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface ListThoughtTableVC ()
@@ -38,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UINib *thoughtNib = [UINib nibWithNibName:@"ThoughtCustomCell" bundle:nil];
     [self.tableView registerNib:thoughtNib forCellReuseIdentifier:@"ThoughtCustomCell"];
@@ -47,8 +49,14 @@
     
     self.chosenList = 1;
 
-   }
-
+    [TAAYouTubeWrapper videosForChannel:@"UCW657Mv0k4cDN7vbg2srPNQ" onCompletion:^(BOOL succeeded, NSArray *videos, NSError *error) {
+        
+        if (videos) {
+            self.taugeTVPlaylist = videos;
+        }
+    }];
+    
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     
@@ -91,6 +99,7 @@
     
     [self.tableView reloadData];
 }
+
 
 #pragma mark - navigation
 
@@ -173,7 +182,7 @@
 - (void)retrieveFromParseRecent {
     
     PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
-    [query orderByAscending:@"createdAt"];
+    [query orderByDescending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -186,8 +195,9 @@
 
 
 - (void)retrieveFromParseWinning {
-    
+        
     PFQuery *query = [PFQuery queryWithClassName:@"WinningThought"];
+//    [query whereKeyExists:@"winningYouTubeVideoThoughtID"];
     [query orderByDescending:@"score"];
     
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
@@ -230,9 +240,7 @@
     }];
 }
 
-
 #pragma mark - Table view
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -242,7 +250,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (self.chosenList == 3) {
-        return self.winningThoughts.count;
+        return self.taugeTVPlaylist.count;
         
     } else {
         return self.toiletThoughts.count;
@@ -252,27 +260,41 @@
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView
 heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     
-    return 100;
+    if
+        (self.chosenList == 3)
+    {
+        
+        return 180;
+        
+    } else {
+        
+        return 100;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.chosenList == 3) {
-        
+    
+
         WinningThoughtCustomVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WinningThoughtCustomVideoCell" forIndexPath:indexPath];
         
-        PFObject * currentThought = [self.winningThoughts objectAtIndex:indexPath.row];
+        GTLYouTubeVideo * currentVideo = [self.taugeTVPlaylist objectAtIndex:indexPath.row];
+        GTLYouTubeVideoSnippet *currentVideoSnippet = currentVideo.snippet;
+        cell.usernameWinningThoughtCVC.text = currentVideoSnippet.title;
+        NSString *currentVideoSnippetURL = currentVideoSnippet.thumbnails.standard.url;
         
-        cell.usernameWinningThoughtCVC.text = [currentThought objectForKey:@"winningUser"];
-        cell.thoughtWinningThoughtCVC.text = [currentThought objectForKey:@"winningText"];
-        cell.scoreWinningThoughtCVC.text = [currentThought objectForKey:@"winningScore"];
-        
-        PFFile *winningImageFile = [currentThought objectForKey:@"winningImage"];
-        PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
-        thumbnail.image = [UIImage imageNamed:@"Icon-40"];
-        thumbnail.file = winningImageFile;
-        [thumbnail loadInBackground];
-        
+        [cell.thumbnailWinningThoughtCVC sd_setImageWithURL:[NSURL URLWithString:currentVideoSnippetURL]];
+                                                             
+//                                                                    //        cell.thoughtWinningThoughtCVC.text = [currentVideo objectForKey:@"winningText"];
+//        cell.scoreWinningThoughtCVC.text = [currentThought objectForKey:@"winningScore"];
+//        
+//        PFFile *winningImageFile = [currentThought objectForKey:@"winningImage"];
+//        PFImageView *thumbnail = (PFImageView *)[cell viewWithTag:100];
+//        thumbnail.image = [UIImage imageNamed:@"Icon-40"];
+//        thumbnail.file = winningImageFile;
+//        [thumbnail loadInBackground];
+    
         return cell;
         
     } else {
@@ -299,7 +321,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         return cell;
     }
-    
+
 }
 
 
@@ -391,7 +413,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         DetailVideoViewController *detailVideoViewController = [[DetailVideoViewController alloc] init];
         
         PFObject *selectedWinningThought = self.winningThoughts[indexPath.row];
-        
         detailVideoViewController.currentWinningThought = selectedWinningThought;
         
         [self.navigationController pushViewController:detailVideoViewController animated:YES];

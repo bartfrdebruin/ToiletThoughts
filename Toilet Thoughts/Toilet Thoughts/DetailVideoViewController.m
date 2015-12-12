@@ -23,10 +23,9 @@
     self.title = @"Toilet Winners";
     [self.navigationController setToolbarHidden:YES];
 
-    
     self.playerView.delegate = self;
 
-    NSDictionary *playerVars = @{ @"playsinline" : @0,};
+    NSDictionary *playerVars = @{ @"playsinline" : @1,};
     [self.playerView loadWithVideoId:self.currentWinningThought[@"winningThoughtID"]playerVars:playerVars];
     
     self.toiletThought.text = self.currentWinningThought[@"winningText"];

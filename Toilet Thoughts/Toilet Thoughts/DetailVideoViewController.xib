@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVideoViewController">
@@ -20,76 +20,42 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-rd-lhx" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="25" width="600" height="329"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="toilet thought" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-hR-XYt">
-                    <rect key="frame" x="8" y="362" width="584" height="63"/>
-                    <animations/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Inspiring toilet thought:" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2v-hR-XYt">
+                    <rect key="frame" x="8" y="399" width="584" height="63"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="63" id="xHv-nf-C36"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="winning score" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20s-dF-l10">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="winning score" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20s-dF-l10">
                     <rect key="frame" x="388" y="483" width="204" height="31"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="31" id="EOp-fp-JEx"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="user" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-vs-0l3">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="user" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwj-vs-0l3">
                     <rect key="frame" x="388" y="433" width="204" height="29"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="204" id="LCG-wR-GPo"/>
-                        <constraint firstAttribute="height" constant="29" id="e9v-Hh-aqH"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-rd-lhx" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="60" width="600" height="337"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Dwv-rd-lhx" secondAttribute="height" multiplier="16:9" id="agR-Zx-Ivw"/>
+                    </constraints>
+                </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="20s-dF-l10" firstAttribute="top" secondItem="Mwj-vs-0l3" secondAttribute="bottom" constant="21" id="7XH-bn-ARB"/>
-                <constraint firstItem="20s-dF-l10" firstAttribute="leading" secondItem="Mwj-vs-0l3" secondAttribute="leading" id="7bP-w5-t5M"/>
-                <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="Gmw-xH-cJH"/>
-                <constraint firstItem="Mwj-vs-0l3" firstAttribute="trailing" secondItem="20s-dF-l10" secondAttribute="trailing" id="JZf-Aj-8YU"/>
-                <constraint firstItem="Mwj-vs-0l3" firstAttribute="top" secondItem="O2v-hR-XYt" secondAttribute="bottom" constant="8" symbolic="YES" id="Ja0-To-UcC"/>
-                <constraint firstAttribute="bottom" secondItem="20s-dF-l10" secondAttribute="bottom" constant="86" id="MOD-7U-OQT"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ORX-Tq-URZ"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="top" secondItem="Dwv-rd-lhx" secondAttribute="bottom" constant="18" id="QO8-Jm-iCu"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tdn-kq-z7M"/>
-                <constraint firstItem="20s-dF-l10" firstAttribute="top" secondItem="Mwj-vs-0l3" secondAttribute="bottom" constant="21" id="UWx-Kb-3vB"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="Z6t-Vb-M14"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="trailing" secondItem="Mwj-vs-0l3" secondAttribute="trailing" id="aAT-lu-3Q2"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="asb-KQ-Kkq"/>
-                <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="cIE-Gp-Ufd"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gIT-yd-rzi"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="centerX" secondItem="Dwv-rd-lhx" secondAttribute="centerX" id="kUA-9J-MH3"/>
-                <constraint firstItem="O2v-hR-XYt" firstAttribute="top" secondItem="Dwv-rd-lhx" secondAttribute="bottom" constant="8" id="kZo-dm-vu1"/>
-                <constraint firstAttribute="bottom" secondItem="Dwv-rd-lhx" secondAttribute="bottom" id="mXW-1h-lGJ"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="p9M-iX-Jpk"/>
-                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="pzI-Of-WbW"/>
-                <constraint firstAttribute="bottom" secondItem="Dwv-rd-lhx" secondAttribute="bottom" id="uB6-3n-FP7"/>
+                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="8kW-he-VxC"/>
+                <constraint firstItem="Dwv-rd-lhx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="Hwd-b1-v4U"/>
+                <constraint firstItem="Dwv-rd-lhx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ixc-H0-Nfv"/>
+                <constraint firstAttribute="trailing" secondItem="Dwv-rd-lhx" secondAttribute="trailing" id="qua-yD-t7k"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="mXW-1h-lGJ"/>
-                    <exclude reference="p9M-iX-Jpk"/>
-                    <exclude reference="uB6-3n-FP7"/>
-                    <exclude reference="QO8-Jm-iCu"/>
-                    <exclude reference="asb-KQ-Kkq"/>
-                    <exclude reference="7XH-bn-ARB"/>
+                    <exclude reference="8kW-he-VxC"/>
                 </mask>
             </variation>
         </view>
