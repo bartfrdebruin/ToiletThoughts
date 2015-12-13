@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVideoViewController">
             <connections>
-                <outlet property="playerView" destination="i7j-g6-veN" id="ktY-3d-aXU"/>
+                <outlet property="playerView" destination="Pcn-kB-laC" id="vE0-lG-qLf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="oYv-UI-c95"/>
             </connections>
         </placeholder>
@@ -17,22 +17,30 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7j-g6-veN" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="64" width="600" height="337"/>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcn-kB-laC" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="401"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" image="YES"/>
+                    </accessibility>
                     <constraints>
-                        <constraint firstAttribute="height" constant="337" id="fz1-Ye-5eG"/>
-                        <constraint firstAttribute="width" secondItem="i7j-g6-veN" secondAttribute="height" multiplier="16:9" id="hmI-3D-lI0"/>
-                        <constraint firstAttribute="width" constant="600" id="kKC-nN-6yS"/>
+                        <constraint firstAttribute="width" secondItem="Pcn-kB-laC" secondAttribute="height" multiplier="16:9" constant="-112.8888888888888" id="KWo-JI-SM1"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="i7j-g6-veN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Ejb-AV-zrV"/>
-                <constraint firstItem="i7j-g6-veN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XeJ-CV-huu"/>
-                <constraint firstAttribute="trailing" secondItem="i7j-g6-veN" secondAttribute="trailing" id="kwK-j6-UBz"/>
+                <constraint firstAttribute="bottom" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="199" id="6wV-bi-sZO"/>
+                <constraint firstItem="Pcn-kB-laC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7fm-2t-7fs"/>
+                <constraint firstAttribute="trailing" secondItem="Pcn-kB-laC" secondAttribute="trailing" id="FSI-tb-5Aw"/>
+                <constraint firstItem="Pcn-kB-laC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z2q-gA-TQi"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="6wV-bi-sZO"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="460" y="367"/>
         </view>
     </objects>
 </document>
