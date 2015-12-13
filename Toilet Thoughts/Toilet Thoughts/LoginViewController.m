@@ -48,6 +48,7 @@
 
 - (IBAction)signIn:(id)sender {
     
+    
     [self.userName resignFirstResponder];
     [self.passWord resignFirstResponder];
     [self.view endEditing:YES];
@@ -75,10 +76,19 @@
             
             [self.passWord.layer addAnimation:animation forKey:@"shake"];
             [self.userName.layer addAnimation:animation forKey:@"shake"];
-
+            
+            UIAlertController *usernameExistsAlready = [UIAlertController alertControllerWithTitle:@"This username is taken!" message:@"Please try Again!" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+                [usernameExistsAlready dismissViewControllerAnimated:YES completion:nil];
+                
+            }];
+            [usernameExistsAlready addAction:ok];
+            [self presentViewController:usernameExistsAlready animated:YES completion:nil];
         }
     }];
+        
 }
+    
 
 - (IBAction)logIn:(id)sender {
     

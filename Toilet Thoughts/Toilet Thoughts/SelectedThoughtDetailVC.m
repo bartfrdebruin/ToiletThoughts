@@ -60,8 +60,6 @@
             [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
             
             [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
-
-            NSError *error = nil;
             
             AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
             

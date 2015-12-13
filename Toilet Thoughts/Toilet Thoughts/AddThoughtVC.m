@@ -142,7 +142,6 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
-//        self.postButton.enabled = YES;
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
     if (self.toolbarTextfield.editing) {
@@ -339,14 +338,15 @@
 
 - (IBAction)post:(id)sender {
     
-    if ([self.toolbarTextfield.text isEqual: @""]){
-        
+    self.postButton.enabled = NO;
+    
+    if ([self.toolbarTextfield.text isEqual: @""])
+    
+    {
         self.warningLabel.alpha = 1;
         
         CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
         CGPoint original = CGPointMake(self.thoughtTextField.center.x, self.thoughtTextField.center.y);
-        
-        self.thoughtTextField.placeholder = @"";
         
         self.warningLabel.hidden = NO;
         [UIView animateWithDuration:4.5 delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -382,7 +382,6 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         self.postButton.enabled = YES;
-  //      NSString *thoughtString = [NSString stringWithFormat:@"%@", self.thoughtTextField.text];
         
         NSArray *pathComponents = [NSArray arrayWithObjects:
                                    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -486,9 +485,9 @@
         
     } else {
         
-        UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign up or Log in!" message:@"If you want your thoughts to be saved, you need to Sign up or Log in!" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.thoughtTextField resignFirstResponder];
             [self.view endEditing:YES];
