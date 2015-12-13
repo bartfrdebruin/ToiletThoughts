@@ -322,7 +322,12 @@
 				TargetAttributes = {
 					1DB544081C0461FE00383E1C = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = EXEUSZ2G5F;
+						DevelopmentTeam = HZWL927386;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1DB544211C0461FE00383E1C = {
 						CreatedOnToolsVersion = 7.1.1;

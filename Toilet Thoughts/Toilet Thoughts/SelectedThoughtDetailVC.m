@@ -76,9 +76,7 @@
         }
     }];
     
-    
-    
-    
+
     
 //    NSArray *pathComponents = [NSArray arrayWithObjects:
 //                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -173,6 +171,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    [backButton setTitle:@"<Back" forState:UIControlStateNormal];
+    [backButton setTintColor:[UIColor whiteColor]];
+    [backButton addTarget:self action:@selector(backToListThoughtTVC) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
     
@@ -191,6 +197,26 @@
         self.thoughtBalloon.alpha = 1;
     } completion:nil];
 }
+
+#pragma mark - navigation
+
+- (void)backToListThoughtTVC {
+    
+    ListThoughtTableVC *listThoughtTableVC= [[ListThoughtTableVC alloc] init];
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    
+    [self.navigationController pushViewController:listThoughtTableVC animated:NO];
+    [UIView commitAnimations];
+}
+
 
 #pragma mark - loading new viewcontrollers
 

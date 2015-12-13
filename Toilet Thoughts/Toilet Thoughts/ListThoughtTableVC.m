@@ -46,6 +46,7 @@
     [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
     
     self.chosenList = 1;
+    [self.tableView reloadData];
 
    }
 
@@ -57,8 +58,9 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     [self.navigationController setToolbarHidden:NO];
     
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    [backButton setTitle:@"<Back" forState:UIControlStateNormal];
+    [backButton setTintColor:[UIColor whiteColor]];
     [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
@@ -96,7 +98,17 @@
 
 - (void)backToHomeScreen {
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+   [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    [UIView commitAnimations];
 }
 
 - (void)goToUserScreen {
@@ -119,7 +131,22 @@
     AddThoughtVC *atvc = [[AddThoughtVC alloc] init];
     atvc.presentedFromVC = self;
     
-    [self.navigationController pushViewController:atvc animated:YES];
+    AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc] initWithNibName:@"AddThoughtVC" bundle:nil];
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    [self.navigationController pushViewController:addThoughtVC animated:YES];
+    
+    
+    [UIView commitAnimations];
+    
+//    [self.navigationController pushViewController:atvc animated:YES];
 }
 
 
@@ -303,31 +330,31 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
 }
 
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    
-//    //1. Setup the CATransform3D structure
-//    CATransform3D rotation;
-//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-//    rotation.m34 = 1.0/ -600;
-//    
-//    
-//    //2. Define the initial state (Before the animation)
-//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-//    cell.layer.shadowOffset = CGSizeMake(10, 10);
-//    cell.alpha = 0;
-//    
-//    cell.layer.transform = rotation;
-//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-//    
-//    //3. Define the final state (After the animation) and commit the animation
-//    [UIView beginAnimations:@"rotation" context:NULL];
-//    [UIView setAnimationDuration:0.8];
-//    cell.layer.transform = CATransform3DIdentity;
-//    cell.alpha = 1;
-//    cell.layer.shadowOffset = CGSizeMake(0, 0);
-//    [UIView commitAnimations];
-//}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    //1. Setup the CATransform3D structure
+    CATransform3D rotation;
+    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+    rotation.m34 = 1.0 / -600;
+    
+    
+    //2. Define the initial state (Before the animation)
+    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+    cell.layer.shadowOffset = CGSizeMake(10, 10);
+    cell.alpha = 0;
+    
+    cell.layer.transform = rotation;
+    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+    
+    //3. Define the final state (After the animation) and commit the animation
+    [UIView beginAnimations:@"rotation" context:NULL];
+    [UIView setAnimationDuration:0.8];
+    cell.layer.transform = CATransform3DIdentity;
+    cell.alpha = 1;
+    cell.layer.shadowOffset = CGSizeMake(0, 0);
+    [UIView commitAnimations];
+}
 
 
 #pragma mark - Table view delegate
@@ -353,11 +380,12 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         [UIView setAnimationTransition:
-         UIViewAnimationTransitionFlipFromLeft
+         UIViewAnimationTransitionFlipFromRight
                                forView:self.navigationController.view cache:NO];
         
         [self.navigationController pushViewController:stdvc animated:YES];
         [UIView commitAnimations];
+        [self.tableView reloadData];
         
     } else if (self.chosenList == 2) {
         
@@ -379,11 +407,12 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         [UIView setAnimationTransition:
-         UIViewAnimationTransitionFlipFromLeft
+         UIViewAnimationTransitionFlipFromRight
                                forView:self.navigationController.view cache:NO];
         
         [self.navigationController pushViewController:stdvc animated:YES];
         [UIView commitAnimations];
+        [self.tableView reloadData];
         
         
     } else {
@@ -395,6 +424,8 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         detailVideoViewController.currentWinningThought = selectedWinningThought;
         
         [self.navigationController pushViewController:detailVideoViewController animated:YES];
+        
+        [self.tableView reloadData];
     }
     
 }
