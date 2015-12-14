@@ -168,19 +168,17 @@
 #pragma mark - navigation
 
 - (void)backToListThoughtTVC {
-    
-    ListThoughtTableVC *listThoughtTableVC= [[ListThoughtTableVC alloc] init];
-    
+        
     [UIView beginAnimations:@"View Flip" context:nil];
     [UIView setAnimationDuration:0.80];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     
     [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromRight
+     UIViewAnimationTransitionFlipFromLeft
                            forView:self.navigationController.view cache:NO];
     
     
-    [self.navigationController pushViewController:listThoughtTableVC animated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
     [UIView commitAnimations];
 }
 

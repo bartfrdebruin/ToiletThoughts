@@ -58,13 +58,15 @@
     
     [super viewWillAppear:YES];
     
-//    [self.navigationItem setHidesBackButton:YES animated:NO];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     [self.navigationController setToolbarHidden:NO];
     
-//    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-//    [backButton setImage:[UIImage imageNamed:@"home_yellow_small.png"] forState:UIControlStateNormal];
-//    [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    // Custom Back button to support custom navigation.
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    [backButton setTitle:@"<Back" forState:UIControlStateNormal];
+    [backButton setTintColor:[UIColor whiteColor]];
+    [backButton addTarget:self action:@selector(backToHomeScreen) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     PFUser *currentUser = [PFUser currentUser];
     
@@ -101,7 +103,20 @@
 
 - (void)backToHomeScreen {
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    // Custom ViewController animation.
+    HomeViewController *homeVC = [[HomeViewController alloc]init];
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromLeft
+                           forView:self.navigationController.view cache:NO];
+    
+    
+    [self.navigationController pushViewController:homeVC animated:NO];
+    [UIView commitAnimations];
 }
 
 - (void)goToUserScreen {
@@ -124,7 +139,17 @@
     AddThoughtVC *atvc = [[AddThoughtVC alloc] init];
     atvc.presentedFromVC = self;
     
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromRight
+                           forView:self.navigationController.view cache:NO];
+    
+    
     [self.navigationController pushViewController:atvc animated:YES];
+    [UIView commitAnimations];
 }
 
 
@@ -371,7 +396,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         [UIView setAnimationTransition:
-         UIViewAnimationTransitionFlipFromLeft
+         UIViewAnimationTransitionFlipFromRight
                                forView:self.navigationController.view cache:NO];
         
         [self.navigationController pushViewController:stdvc animated:YES];

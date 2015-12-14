@@ -36,8 +36,8 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
-                    <rect key="frame" x="-2" y="56" width="323" height="313"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
+                    <rect key="frame" x="-2" y="0.0" width="323" height="524"/>
                     <animations/>
                 </imageView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a thought." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJn-fY-pE8">
@@ -96,10 +96,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
-                    <rect key="frame" x="-2" y="0.0" width="323" height="170"/>
+                    <rect key="frame" x="-2" y="64" width="323" height="170"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="170" id="TwY-hn-9kl"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="170" id="iuL-Ga-qsN"/>
+                        <constraint firstAttribute="width" constant="323" id="tuB-PM-nJA"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -107,8 +109,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="1mh-MH-2oH"/>
+                <constraint firstItem="rMh-dZ-WU6" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="top" constant="64" id="7Js-GB-57K"/>
                 <constraint firstAttribute="trailing" secondItem="D6J-Z4-dJX" secondAttribute="trailing" constant="32" id="AgZ-E9-DcB"/>
-                <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="56" id="DHT-FV-NBC"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DHT-FV-NBC"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="rMh-dZ-WU6" secondAttribute="leading" id="Dht-Jk-NpF"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FZq-Dz-K2H"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="Nka-bl-1WF"/>
@@ -117,13 +120,13 @@
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="sJn-fY-pE8" secondAttribute="centerX" id="SnO-CV-jbo"/>
                 <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="TX2-s1-o8f"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRd-Dc-4Pe"/>
-                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="rMh-dZ-WU6" secondAttribute="bottom" constant="354" id="m72-or-AFI"/>
-                <constraint firstItem="sJn-fY-pE8" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" constant="37" id="npn-kz-Yqs"/>
+                <constraint firstItem="sJn-fY-pE8" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" constant="-118" id="npn-kz-Yqs"/>
                 <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="nvk-lg-J05"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="sJn-fY-pE8" secondAttribute="bottom" constant="97" id="rKC-1y-p3W"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="uht-pb-OUx"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="D6J-Z4-dJX" secondAttribute="bottom" constant="61" id="vX2-RO-0yP"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="131" y="270"/>
         </view>
