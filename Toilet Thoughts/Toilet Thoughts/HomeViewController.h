@@ -21,6 +21,8 @@
 @property (nonatomic, strong) PFObject *highestScoreObject;
 @property (strong, nonatomic) IBOutlet UILabel *highestScoringUser;
 @property (strong, nonatomic) IBOutlet UILabel *highestScoreNumberLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbsUp;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbsDown;
 
 
 
