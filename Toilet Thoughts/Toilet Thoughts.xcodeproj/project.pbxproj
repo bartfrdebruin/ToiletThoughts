@@ -37,7 +37,7 @@
 		2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */; };
 		2B3D56891C18FA690069261F /* SCWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56881C18FA690069261F /* SCWaveformView.m */; };
 		2B3D568B1C1A1B940069261F /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */; };
-		C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE1ED2E777F290464C5362 /* libPods.a */; };
+		C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +109,6 @@
 		2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D1778C97852FABE9D3C32A5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */,
+				C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +237,6 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCDE1ED2E777F290464C5362 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
