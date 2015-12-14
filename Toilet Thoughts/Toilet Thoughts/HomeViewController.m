@@ -120,6 +120,12 @@
             if (self.highestScoreObject[@"score"] >= 0) {
                 
                 self.thumbsDown.hidden = YES;
+                self.highestScoreNumberLabel.textColor = [UIColor greenColor];
+                
+            } else {
+                
+                self.thumbsUp.hidden = YES;
+                self.highestScoreNumberLabel.textColor = [UIColor redColor];
                 
             }
             
