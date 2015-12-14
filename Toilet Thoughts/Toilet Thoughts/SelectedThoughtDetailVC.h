@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playAudioThought;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
+@property (nonatomic, strong) NSTimer *audioTimer;
 @property (nonatomic, strong) PFFile *thoughtImageFile;
 @property (nonatomic, strong) PFFile *audioThought;
 @property (strong,nonatomic) NSString *thoughtDetail;

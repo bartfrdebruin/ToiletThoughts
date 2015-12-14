@@ -3,19 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddThoughtVC">
             <connections>
                 <outlet property="balloon" destination="rMh-dZ-WU6" id="WaC-0W-20Z"/>
                 <outlet property="imageView" destination="B2m-eE-HdP" id="hC2-aZ-hcz"/>
-                <outlet property="micRecord" destination="Ymg-CN-hKW" id="myv-01-hiA"/>
-                <outlet property="play" destination="uRe-ZJ-fID" id="zzw-zP-3gL"/>
                 <outlet property="postButton" destination="P0F-dl-lTd" id="Mf0-PM-E7V"/>
-                <outlet property="record" destination="gtm-vb-zHE" id="ed1-3N-aFk"/>
+                <outlet property="record" destination="Tj6-wY-KTE" id="K3y-VJ-R9X"/>
                 <outlet property="thoughtTextField" destination="K1z-qR-5FI" id="AWS-0x-84e"/>
                 <outlet property="thougtLabel" destination="D6J-Z4-dJX" id="zq2-nM-Z3O"/>
                 <outlet property="toolBar" destination="kEn-H0-dHB" id="L5T-kF-VW9"/>
@@ -29,10 +24,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
-                    <rect key="frame" x="-2" y="56" width="323" height="313"/>
-                    <animations/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-6C-y7i">
                     <rect key="frame" x="84" y="228" width="153" height="112"/>
                     <animations/>
@@ -45,34 +36,10 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-ZJ-fID">
-                    <rect key="frame" x="8" y="471" width="135" height="38"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
+                    <rect key="frame" x="-2" y="56" width="323" height="313"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="38" id="dsp-0D-Ei7"/>
-                        <constraint firstAttribute="width" constant="135" id="m91-fN-nSF"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                    <state key="normal" title="Play">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="A5G-me-ckF"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtm-vb-zHE">
-                    <rect key="frame" x="8" y="471" width="135" height="38"/>
-                    <animations/>
-                    <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                    <state key="normal" title="Record">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="recordPressed:" destination="-1" eventType="touchUpInside" id="gfC-ul-o8u"/>
-                    </connections>
-                </button>
+                </imageView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a thought." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJn-fY-pE8">
                     <rect key="frame" x="71" y="406" width="178" height="21"/>
                     <animations/>
@@ -85,19 +52,25 @@
                     <animations/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="EO6-OO-iVQ"/>
-                        <barButtonItem image="mic-1" id="Ymg-CN-hKW">
-                            <connections>
-                                <action selector="recordPressed:" destination="-1" id="oJj-gi-u4o"/>
-                            </connections>
+                        <barButtonItem style="plain" id="sjX-7i-Ety">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tj6-wY-KTE">
+                                <rect key="frame" x="23" y="10" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="mic-1"/>
+                                <connections>
+                                    <action selector="recordPressed:" destination="-1" eventType="touchUpInside" id="fe5-1H-bVD"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="X1C-an-8cY"/>
                         <barButtonItem style="plain" id="Uz2-eo-xmp">
-                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" id="K1z-qR-5FI">
-                                <rect key="frame" x="60" y="7" width="215" height="30"/>
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your thought" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" id="K1z-qR-5FI">
+                                <rect key="frame" x="64" y="7" width="215" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="D6J-Z4-dJX" id="ZQb-Nt-6q1"/>
                                 </connections>
@@ -134,32 +107,25 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="1mh-MH-2oH"/>
-                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="gtm-vb-zHE" secondAttribute="bottom" constant="15" id="640-7k-h63"/>
-                <constraint firstItem="gtm-vb-zHE" firstAttribute="baseline" secondItem="uRe-ZJ-fID" secondAttribute="firstBaseline" id="7I5-Vh-0OU"/>
-                <constraint firstItem="uRe-ZJ-fID" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="9vF-hj-xLl"/>
                 <constraint firstAttribute="trailing" secondItem="D6J-Z4-dJX" secondAttribute="trailing" constant="32" id="AgZ-E9-DcB"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="56" id="DHT-FV-NBC"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="rMh-dZ-WU6" secondAttribute="leading" id="Dht-Jk-NpF"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FZq-Dz-K2H"/>
-                <constraint firstItem="uRe-ZJ-fID" firstAttribute="baseline" secondItem="gtm-vb-zHE" secondAttribute="firstBaseline" id="Ke9-OR-k6n"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="Nka-bl-1WF"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="trailing" secondItem="B2m-eE-HdP" secondAttribute="trailing" id="Oas-xT-Tp4"/>
-                <constraint firstItem="gtm-vb-zHE" firstAttribute="top" secondItem="sJn-fY-pE8" secondAttribute="bottom" constant="44" id="QHd-n8-bek"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QcO-m4-GWT"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="sJn-fY-pE8" secondAttribute="centerX" id="SnO-CV-jbo"/>
                 <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="TX2-s1-o8f"/>
-                <constraint firstItem="uRe-ZJ-fID" firstAttribute="top" secondItem="gtm-vb-zHE" secondAttribute="top" id="WHY-gB-dsR"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRd-Dc-4Pe"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="rMh-dZ-WU6" secondAttribute="bottom" constant="354" id="m72-or-AFI"/>
                 <constraint firstItem="sJn-fY-pE8" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" constant="37" id="npn-kz-Yqs"/>
                 <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="nvk-lg-J05"/>
-                <constraint firstItem="gtm-vb-zHE" firstAttribute="leading" secondItem="uRe-ZJ-fID" secondAttribute="leading" id="u1P-gU-MLo"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="sJn-fY-pE8" secondAttribute="bottom" constant="97" id="rKC-1y-p3W"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="uht-pb-OUx"/>
-                <constraint firstItem="gtm-vb-zHE" firstAttribute="top" secondItem="D6J-Z4-dJX" secondAttribute="bottom" constant="8" symbolic="YES" id="w5q-ax-HkU"/>
-                <constraint firstItem="uRe-ZJ-fID" firstAttribute="trailing" secondItem="gtm-vb-zHE" secondAttribute="trailing" id="w9N-dm-DOk"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="D6J-Z4-dJX" secondAttribute="bottom" constant="61" id="vX2-RO-0yP"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-            <point key="canvasLocation" x="289" y="418"/>
+            <point key="canvasLocation" x="131" y="270"/>
         </view>
     </objects>
     <resources>

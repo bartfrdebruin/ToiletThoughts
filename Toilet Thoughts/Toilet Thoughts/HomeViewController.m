@@ -64,17 +64,12 @@
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-   
-    
-    NSString *string = @"If life is like a box of chocolates, what is death? I don't know, do you? If so, let me know!";
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:string forKey:@"string"];
-    [dict setObject:@0 forKey:@"currentCount"];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(typingLabel:) userInfo:dict repeats:YES];
-    [timer fire];
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
     
     //
    
@@ -124,9 +119,22 @@
             }
     }];
 
+    NSString *string = @"If life is like a box of chocolates, what is death? I don't know, do you? If so, let me know!";
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:string forKey:@"string"];
+    [dict setObject:@0 forKey:@"currentCount"];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(typingLabel:) userInfo:dict repeats:YES];
+    [timer fire];
+    
+    
     }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
     
     [super viewWillAppear:YES];
     

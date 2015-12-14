@@ -8,6 +8,7 @@
 
 #import "SYWaveformPlayerView.h"
 
+
 @implementation SYWaveformPlayerView {
     AVAudioPlayer *player;
     SCWaveformView *waveformView;
@@ -85,6 +86,8 @@
 }
 
 - (void)playPauseTapped{
+    
+    
     if(player.playing){
         [playPauseButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
         [player pause];

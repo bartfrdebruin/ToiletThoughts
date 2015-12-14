@@ -30,6 +30,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    self.navigationController.navigationBarHidden =YES;
+    
+    // Makes the NavigationBar transparent
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
     
     self.currentUser = [PFUser currentUser];
     
@@ -59,7 +69,7 @@
     if (self.currentUser) {
         
         UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        [userLoginButton setImage:[UIImage imageNamed:@"person_loggedIn_small"] forState:UIControlStateNormal];
+        [userLoginButton setImage:[UIImage imageNamed:@"profile WHITE ACTIVE"] forState:UIControlStateNormal];
         [userLoginButton addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userLoginButton];
     }
@@ -96,13 +106,15 @@
     UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Log out?" message: @"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
+                                                          handler:^(UIAlertAction * action) {
+                                                          
+                                                              [alert dismissViewControllerAnimated:YES completion:nil];                                                          }];
     
     UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                           
                                                               HomeViewController *hvc = [[HomeViewController alloc] init];
-                                                              [self.navigationController pushViewController:hvc animated:yes];
+                                                              [self.navigationController pushViewController:hvc animated:YES];
                                                           
                                                           }];
     [alert addAction:cancel];

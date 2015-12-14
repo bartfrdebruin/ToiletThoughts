@@ -19,9 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *thoughtTextField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *postButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *micRecord;
 @property (weak, nonatomic) IBOutlet UIButton *record;
 @property (weak, nonatomic) IBOutlet UIButton *play;
+@property (weak, nonatomic) IBOutlet UIButton *play1;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (nonatomic) UIViewController *presentedFromVC;
 @property (strong, nonatomic) PFUser *currentUser;
