@@ -13,7 +13,6 @@
 		1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */; };
 		1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */; };
 		1D9445E81C0DFC050073179B /* AddThoughtVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306131C049DCA0035BD50 /* AddThoughtVC.m */; };
-		1DAC01E11C11A69D0045A382 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */; };
 		1DAC01E51C11C8260045A382 /* DetailVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC01E31C11C8260045A382 /* DetailVideoViewController.m */; };
 		1DAC01E61C11C8260045A382 /* DetailVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DAC01E41C11C8260045A382 /* DetailVideoViewController.xib */; };
 		1DB5440E1C0461FE00383E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5440D1C0461FE00383E1C /* main.m */; };
@@ -35,10 +34,10 @@
 		1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */; };
 		1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */; };
 		2B3D56711C1644300069261F /* SelectedThoughtDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D56701C1644300069261F /* SelectedThoughtDetailVC.xib */; };
-		2B3D56831C18ED090069261F /* SYWaveformPlayer in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D56821C18ED090069261F /* SYWaveformPlayer */; };
 		2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */; };
 		2B3D56891C18FA690069261F /* SCWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56881C18FA690069261F /* SCWaveformView.m */; };
-		6D6E8F908ED503F63A30A279 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1778C97852FABE9D3C32A5E /* libPods.a */; };
+		2B3D568B1C1A1B940069261F /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */; };
+		C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCDE1ED2E777F290464C5362 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListThoughtTableVC.h; sourceTree = "<group>"; };
 		1D9445E41C0D934E0073179B /* ListThoughtTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListThoughtTableVC.m; sourceTree = "<group>"; };
 		1D9445E51C0D934E0073179B /* ListThoughtTableVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListThoughtTableVC.xib; sourceTree = "<group>"; };
-		1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1DAC01E21C11C8260045A382 /* DetailVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoViewController.h; sourceTree = "<group>"; };
 		1DAC01E31C11C8260045A382 /* DetailVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoViewController.m; sourceTree = "<group>"; };
 		1DAC01E41C11C8260045A382 /* DetailVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoViewController.xib; sourceTree = "<group>"; };
@@ -104,11 +102,11 @@
 		1DF306221C049E250035BD50 /* WinningThoughtCustomVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinningThoughtCustomVideoCell.m; sourceTree = "<group>"; };
 		1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinningThoughtCustomVideoCell.xib; sourceTree = "<group>"; };
 		2B3D56701C1644300069261F /* SelectedThoughtDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectedThoughtDetailVC.xib; sourceTree = "<group>"; };
-		2B3D56821C18ED090069261F /* SYWaveformPlayer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SYWaveformPlayer; sourceTree = "<group>"; };
 		2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYWaveformPlayerView.m; path = SYWaveformPlayer/SYWaveformPlayerView.m; sourceTree = "<group>"; };
 		2B3D56861C18FA4C0069261F /* SYWaveformPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SYWaveformPlayerView.h; path = SYWaveformPlayer/SYWaveformPlayerView.h; sourceTree = "<group>"; };
 		2B3D56871C18FA580069261F /* SCWaveformView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCWaveformView.h; path = SYWaveformPlayer/SCWaveformView.h; sourceTree = "<group>"; };
 		2B3D56881C18FA690069261F /* SCWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCWaveformView.m; path = SYWaveformPlayer/SCWaveformView.m; sourceTree = "<group>"; };
+		2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1778C97852FABE9D3C32A5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DAC01E11C11A69D0045A382 /* MobileCoreServices.framework in Frameworks */,
-				6D6E8F908ED503F63A30A279 /* libPods.a in Frameworks */,
+				C1CB636C6A313DF95F0CE4A8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +163,6 @@
 		1DB5440B1C0461FE00383E1C /* Toilet Thoughts */ = {
 			isa = PBXGroup;
 			children = (
-				2B3D56821C18ED090069261F /* SYWaveformPlayer */,
 				1DB5440F1C0461FE00383E1C /* AppDelegate.h */,
 				1DB544101C0461FE00383E1C /* AppDelegate.m */,
 				2B3D56871C18FA580069261F /* SCWaveformView.h */,
@@ -174,6 +170,7 @@
 				2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */,
 				2B3D56861C18FA4C0069261F /* SYWaveformPlayerView.h */,
 				1DB544181C0461FE00383E1C /* Assets.xcassets */,
+				2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */,
 				1D07DABD1C159629007DC892 /* TAAYouTubeWrapper.h */,
 				1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */,
 				1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */,
@@ -241,8 +238,7 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DAC01DF1C11A3130045A382 /* MobileCoreServices.framework */,
-				D1778C97852FABE9D3C32A5E /* libPods.a */,
+				BCDE1ED2E777F290464C5362 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -371,12 +367,12 @@
 				1DB5441C1C0461FE00383E1C /* LaunchScreen.storyboard in Resources */,
 				1DB544191C0461FE00383E1C /* Assets.xcassets in Resources */,
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
-				2B3D56831C18ED090069261F /* SYWaveformPlayer in Resources */,
 				1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */,
 				1D90A6B51C0493D200BC9F8F /* Podfile in Resources */,
 				1DAC01E61C11C8260045A382 /* DetailVideoViewController.xib in Resources */,
 				1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */,
 				1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */,
+				2B3D568B1C1A1B940069261F /* I Need A Dollar.mp3 in Resources */,
 				1DF306251C049E250035BD50 /* WinningThoughtCustomVideoCell.xib in Resources */,
 				1D9445E71C0D934E0073179B /* ListThoughtTableVC.xib in Resources */,
 			);

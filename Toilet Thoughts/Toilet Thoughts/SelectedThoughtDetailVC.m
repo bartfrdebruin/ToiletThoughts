@@ -28,31 +28,49 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
+     [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     
-    self.audioThought = self.currentThought[@"audioFile"];
+//    self.audioThought = self.currentThought[@"audioFile"];
     
     [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {
             
-            NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+//            NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             
-//            NSArray *pathComponents = [NSArray arrayWithObjects:
-//                                       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"m"]];
+            
+//            NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"m"];
+            
+//            array = [NSArray arrayWithObjects:
+//                                       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject],
 //                                       @"MyAudioMemoTemp.m4a",
 //                                       nil];
-            
-//            NSURL *outoutputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
+//            
+//            NSURL *outoutputFileUrl = [NSURL fileURLWithPathComponents:array];
             
 //            NSFileManager *manager = [NSFileManager defaultManager];
 //            [manager createFileAtPath:tempFilePath contents:data attributes:nil];
+//            
+//            NSURL *audioUrl = [NSURL URLWithString:tempFilePath];
+            [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+            NSString *identifier = [[NSProcessInfo processInfo] globallyUniqueString];
+            NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.txt"];
+            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+            NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
+            [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
             
-            NSURL *audioUrl = [NSURL URLWithString:tempFilePath];
+            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+
+            NSError *error = nil;
             
-            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:audioUrl options:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
-                [self.view addSubview:playerView];
-            });
+            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
+            
+//            dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+                SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor blackColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
+            [self.view addSubview:playerView];
+//            });
             
             
         }

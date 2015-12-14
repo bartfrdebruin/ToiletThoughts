@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SCWaveformView.h"
 
-@interface SYWaveformPlayerView : UIView  <AVAudioPlayerDelegate, AVPlayerItemLegibleOutputPushDelegate>
+@interface SYWaveformPlayerView : UIView  <AVAudioPlayerDelegate>
 
 - (id)initWithFrame:(CGRect)frame asset:(AVURLAsset *)asset color:(UIColor *)normalColor progressColor:(UIColor *)progressColor;
 

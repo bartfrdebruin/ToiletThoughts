@@ -14,13 +14,42 @@
     UIButton *playPauseButton;
 }
 
+//- (id)initWithFrame:(CGRect)frame asset:(AVURLAsset *)asset color:(UIColor *)normalColor progressColor:(UIColor *)progressColor {
+//    if (self = [super initWithFrame:frame]) {
+////        NSError *error;
+//        
+//  //      player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL fileTypeHint:@"AVFileTypeAppleM4A" error:nil];
+//        player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL error:nil];
+////        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+//        player.delegate = self;
+//        
+//        waveformView = [[SCWaveformView alloc] init];
+//        waveformView.normalColor = normalColor;
+//        waveformView.progressColor = progressColor;
+//        waveformView.alpha = 0.8;
+//        waveformView.backgroundColor = [UIColor clearColor];
+//        waveformView.asset = asset;
+//        [self addSubview:waveformView];
+//        
+//        playPauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [playPauseButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
+//        [playPauseButton addTarget:self
+//                   action:@selector(playPauseTapped)
+//         forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:playPauseButton];
+//        
+//        [NSTimer scheduledTimerWithTimeInterval:0.1 target: self
+//                                                          selector: @selector(updateWaveform:) userInfo: nil repeats: YES];
+//
+//    }
+//  
+//    return self;
+//}
+
 - (id)initWithFrame:(CGRect)frame asset:(AVURLAsset *)asset color:(UIColor *)normalColor progressColor:(UIColor *)progressColor {
     if (self = [super initWithFrame:frame]) {
-//        NSError *error;
         
-  //      player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL fileTypeHint:@"AVFileTypeAppleM4A" error:nil];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:asset.URL error:nil];
-//        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         player.delegate = self;
         
         waveformView = [[SCWaveformView alloc] init];
@@ -34,15 +63,15 @@
         playPauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [playPauseButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
         [playPauseButton addTarget:self
-                   action:@selector(playPauseTapped)
-         forControlEvents:UIControlEventTouchUpInside];
+                            action:@selector(playPauseTapped)
+                  forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:playPauseButton];
         
         [NSTimer scheduledTimerWithTimeInterval:0.1 target: self
-                                                          selector: @selector(updateWaveform:) userInfo: nil repeats: YES];
-
+                                       selector: @selector(updateWaveform:) userInfo: nil repeats: YES];
+        
     }
-  
+    
     return self;
 }
 
