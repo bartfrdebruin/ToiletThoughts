@@ -12,7 +12,7 @@
                 <outlet property="taugeTVIntroduction" destination="tIV-Vm-i2C" id="Sjf-aF-Ca0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="oYv-UI-c95"/>
                 <outlet property="winningScore" destination="cNv-WR-yla" id="IaA-Uz-tWz"/>
-                <outlet property="winningToiletThought" destination="5rG-wX-xpx" id="OF7-Ew-uT1"/>
+                <outlet property="winningToiletThought" destination="qnG-iF-qAd" id="lp3-41-8Sz"/>
                 <outlet property="winningUser" destination="ntd-XS-pu3" id="tVv-Qd-gEl"/>
             </connections>
         </placeholder>
@@ -37,42 +37,72 @@
                     <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningToiletThought" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rG-wX-xpx">
-                    <rect key="frame" x="30" y="459" width="540" height="44"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="16"/>
-                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Achter info COMPACT" translatesAutoresizingMaskIntoConstraints="NO" id="Zrl-06-p3W">
+                    <rect key="frame" x="0.0" y="401" width="600" height="139"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningUser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntd-XS-pu3">
-                    <rect key="frame" x="30" y="508" width="386" height="20"/>
+                    <rect key="frame" x="30" y="511" width="386" height="20"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                     <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningScore" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-WR-yla">
-                    <rect key="frame" x="441" y="508" width="129" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningScore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-WR-yla">
+                    <rect key="frame" x="448" y="511" width="129" height="20"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningToiletThought" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rG-wX-xpx">
+                    <rect key="frame" x="30" y="539" width="540" height="123"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnG-iF-qAd">
+                    <rect key="frame" x="30" y="411" width="540" height="92"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="0EE-fu-Lst"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="14" name="HelveticaNeue-LightItalic"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="centerY" secondItem="Zrl-06-p3W" secondAttribute="centerY" id="26o-pw-ajt"/>
                 <constraint firstAttribute="bottom" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="199" id="6wV-bi-sZO"/>
                 <constraint firstItem="Pcn-kB-laC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7fm-2t-7fs"/>
+                <constraint firstItem="cNv-WR-yla" firstAttribute="top" secondItem="qnG-iF-qAd" secondAttribute="bottom" constant="8" id="8Oj-73-f7o"/>
                 <constraint firstItem="ntd-XS-pu3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="ATY-UJ-Lvl"/>
                 <constraint firstAttribute="trailing" secondItem="Pcn-kB-laC" secondAttribute="trailing" id="FSI-tb-5Aw"/>
                 <constraint firstItem="tIV-Vm-i2C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Fc0-Pj-Lo8"/>
                 <constraint firstItem="5rG-wX-xpx" firstAttribute="trailing" secondItem="tIV-Vm-i2C" secondAttribute="trailing" id="GfK-QO-qCs"/>
                 <constraint firstAttribute="trailing" secondItem="tIV-Vm-i2C" secondAttribute="trailing" constant="30" id="IPH-FC-P1T"/>
+                <constraint firstItem="cNv-WR-yla" firstAttribute="top" secondItem="5rG-wX-xpx" secondAttribute="bottom" constant="10" id="NIc-io-fSQ"/>
+                <constraint firstAttribute="trailing" secondItem="Zrl-06-p3W" secondAttribute="trailing" id="PkG-XB-JOO"/>
                 <constraint firstItem="5rG-wX-xpx" firstAttribute="centerX" secondItem="tIV-Vm-i2C" secondAttribute="centerX" id="QNI-xg-61o"/>
                 <constraint firstItem="5rG-wX-xpx" firstAttribute="leading" secondItem="tIV-Vm-i2C" secondAttribute="leading" id="TQq-VW-xh6"/>
                 <constraint firstAttribute="trailing" secondItem="cNv-WR-yla" secondAttribute="trailing" constant="30" id="VUt-W5-aX0"/>
+                <constraint firstItem="qnG-iF-qAd" firstAttribute="leading" secondItem="tIV-Vm-i2C" secondAttribute="leading" id="WmU-WO-bYc"/>
                 <constraint firstItem="Pcn-kB-laC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z2q-gA-TQi"/>
                 <constraint firstItem="cNv-WR-yla" firstAttribute="centerY" secondItem="ntd-XS-pu3" secondAttribute="centerY" id="ZXf-1a-grS"/>
+                <constraint firstItem="qnG-iF-qAd" firstAttribute="trailing" secondItem="tIV-Vm-i2C" secondAttribute="trailing" id="h4a-mg-GUI"/>
                 <constraint firstItem="ntd-XS-pu3" firstAttribute="top" secondItem="5rG-wX-xpx" secondAttribute="bottom" constant="5" id="iFd-Uw-JN5"/>
+                <constraint firstItem="Zrl-06-p3W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iNo-Yd-vVC"/>
                 <constraint firstItem="tIV-Vm-i2C" firstAttribute="top" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="15" id="nGt-8r-34o"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="top" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="10" id="r7p-vR-bkj"/>
                 <constraint firstItem="5rG-wX-xpx" firstAttribute="top" secondItem="tIV-Vm-i2C" secondAttribute="bottom" constant="4" id="sKp-dv-bhk"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="leading" secondItem="Zrl-06-p3W" secondAttribute="trailing" constant="-570" id="sfW-7i-Z65"/>
+                <constraint firstItem="qnG-iF-qAd" firstAttribute="top" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="10" id="vAe-gc-l5j"/>
+                <constraint firstItem="Zrl-06-p3W" firstAttribute="top" secondItem="Pcn-kB-laC" secondAttribute="bottom" id="wFI-A3-mKm"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -82,4 +112,7 @@
             <point key="canvasLocation" x="460" y="367"/>
         </view>
     </objects>
+    <resources>
+        <image name="Achter info COMPACT" width="320" height="85"/>
+    </resources>
 </document>

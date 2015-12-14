@@ -33,6 +33,7 @@
 
     NSNumber *score = [self.currentWinningThought objectForKey:@"score"];
     self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+    
 }
 
 
