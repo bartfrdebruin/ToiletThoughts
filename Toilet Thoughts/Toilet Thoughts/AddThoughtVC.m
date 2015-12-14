@@ -25,7 +25,7 @@
 @property (nonatomic) AVAudioRecorder *recorder;
 @property (nonatomic) AVAudioPlayer *player;
 @property(nonatomic) LEMirroredImagePicker *mirrorFrontPicker;
-#define MAXLENGTH 10
+#define MAXLENGTH 100
 
 @end
 
@@ -194,8 +194,18 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromLeft
+                               forView:self.navigationController.view cache:NO];
+        
+        
         UserViewController * userViewController = [[UserViewController alloc] init];
         [self.navigationController pushViewController: userViewController animated:YES];
+        [UIView commitAnimations];
         
     } else {
         

@@ -16,7 +16,6 @@
                 <outlet property="toolBar" destination="kEn-H0-dHB" id="L5T-kF-VW9"/>
                 <outlet property="toolbarTextfield" destination="K1z-qR-5FI" id="XsR-bD-qaj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="warningLabel" destination="sJn-fY-pE8" id="e9G-ak-6nb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,17 +35,10 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
                     <rect key="frame" x="-2" y="0.0" width="323" height="524"/>
                     <animations/>
                 </imageView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a thought." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJn-fY-pE8">
-                    <rect key="frame" x="71" y="406" width="178" height="21"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEn-H0-dHB">
                     <rect key="frame" x="-19" y="524" width="339" height="44"/>
                     <animations/>
@@ -92,7 +84,7 @@
                         <constraint firstAttribute="height" constant="131" id="oHV-s2-ayh"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
@@ -104,6 +96,13 @@
                         <constraint firstAttribute="width" constant="323" id="tuB-PM-nJA"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap here to take a picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-ar-dmd">
+                    <rect key="frame" x="63" y="273" width="195" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -114,15 +113,14 @@
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DHT-FV-NBC"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="rMh-dZ-WU6" secondAttribute="leading" id="Dht-Jk-NpF"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FZq-Dz-K2H"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="GhP-q3-EZx"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="Nka-bl-1WF"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="trailing" secondItem="B2m-eE-HdP" secondAttribute="trailing" id="Oas-xT-Tp4"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QcO-m4-GWT"/>
-                <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="sJn-fY-pE8" secondAttribute="centerX" id="SnO-CV-jbo"/>
                 <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="TX2-s1-o8f"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aah-g4-mVl"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRd-Dc-4Pe"/>
-                <constraint firstItem="sJn-fY-pE8" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" constant="-118" id="npn-kz-Yqs"/>
                 <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="nvk-lg-J05"/>
-                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="sJn-fY-pE8" secondAttribute="bottom" constant="97" id="rKC-1y-p3W"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="uht-pb-OUx"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="D6J-Z4-dJX" secondAttribute="bottom" constant="61" id="vX2-RO-0yP"/>
             </constraints>

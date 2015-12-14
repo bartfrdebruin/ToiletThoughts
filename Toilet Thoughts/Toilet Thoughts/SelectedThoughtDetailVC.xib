@@ -32,8 +32,8 @@
                         <constraint firstAttribute="height" constant="210" id="ZGl-Zn-KlC"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Du-wr-Nw8">
-                    <rect key="frame" x="43" y="97" width="286" height="86"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Du-wr-Nw8">
+                    <rect key="frame" x="92" y="97" width="237" height="86"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="86" id="ReO-Nl-skm"/>
@@ -53,19 +53,20 @@
                     <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-B9-7BJ">
-                    <rect key="frame" x="304" y="236" width="30" height="30"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-WE-t9K">
+                    <rect key="frame" x="70" y="139" width="259" height="3"/>
                     <animations/>
-                    <state key="normal" title="Play"/>
+                    <color key="progressTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="trackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </progressView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoN-B9-7BJ">
+                    <rect key="frame" x="38" y="129" width="31" height="22"/>
+                    <animations/>
+                    <state key="normal" title="Play" image="play open PAARS"/>
                     <connections>
                         <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="buv-rl-ueH"/>
                     </connections>
                 </button>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-WE-t9K">
-                    <rect key="frame" x="43" y="139" width="286" height="3"/>
-                    <color key="progressTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.98756094859999999" colorSpace="calibratedRGB"/>
-                </progressView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -98,5 +99,6 @@
     <resources>
         <image name="Icon-60" width="60" height="60"/>
         <image name="Thought balloon START SCREEN" width="320" height="222"/>
+        <image name="play open PAARS" width="22" height="22"/>
     </resources>
 </document>

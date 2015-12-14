@@ -136,6 +136,10 @@
                                         
                                         if (user) {
                                             
+                                            AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
+                                            
+                                            addThoughtVC.postButton.enabled = YES;
+                                            
                                             self.loginSuccess.hidden = NO;
                                             
                                             [self.userName resignFirstResponder];
@@ -144,13 +148,13 @@
                                             
                                             [self.view endEditing:YES];
                                             
-                                            [UIButton animateWithDuration:0.3 animations:^{
-                                                const CGFloat scale2 = 20;
-                                                const CGFloat scale3 = 30;
-                                                [self.logIn setTransform:CGAffineTransformMakeScale(scale2, scale3)];
+//                                            [UIButton animateWithDuration:0.8 animations:^{
+//                                                const CGFloat scale2 = 0.25;
+//                                                const CGFloat scale3 = 1.0;
+//                                                [self.logIn setTransform:CGAffineTransformMakeScale(scale2, scale3)];
+                                            
                                                 
-                                                
-                                            }];
+//                                            }];
                                             
                                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                                 [self dismissViewControllerAnimated:YES completion:nil];
