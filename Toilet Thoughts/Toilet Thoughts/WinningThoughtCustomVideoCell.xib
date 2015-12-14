@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -24,12 +25,22 @@
                         <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="play open PAARS" translatesAutoresizingMaskIntoConstraints="NO" id="OI6-0O-4C8">
+                        <rect key="frame" x="135" y="37" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="AcH-No-4KE"/>
+                            <constraint firstAttribute="width" constant="56" id="TAj-Bn-tEx"/>
+                            <constraint firstAttribute="width" secondItem="OI6-0O-4C8" secondAttribute="height" multiplier="1:1" id="ayd-Pi-iPa"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="cue-DQ-ZRq" secondAttribute="bottom" constant="-8" id="D21-We-D7O"/>
-                    <constraint firstItem="cue-DQ-ZRq" firstAttribute="leading" secondItem="BM4-sY-Cjj" secondAttribute="leadingMargin" constant="-8" id="HP1-Kr-6Eb"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cue-DQ-ZRq" secondAttribute="trailing" constant="-8" id="frc-ps-wXj"/>
-                    <constraint firstItem="cue-DQ-ZRq" firstAttribute="top" secondItem="BM4-sY-Cjj" secondAttribute="topMargin" constant="-8" id="iMJ-3h-Pj3"/>
+                    <constraint firstItem="cue-DQ-ZRq" firstAttribute="leading" secondItem="BM4-sY-Cjj" secondAttribute="leadingMargin" constant="-8" id="EAh-C1-NjB"/>
+                    <constraint firstItem="OI6-0O-4C8" firstAttribute="centerX" secondItem="cue-DQ-ZRq" secondAttribute="centerX" id="WGa-t8-Ak0"/>
+                    <constraint firstItem="cue-DQ-ZRq" firstAttribute="top" secondItem="BM4-sY-Cjj" secondAttribute="topMargin" constant="-8" id="eA0-pt-H1Y"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cue-DQ-ZRq" secondAttribute="trailing" constant="-8" id="k9I-ND-Wro"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cue-DQ-ZRq" secondAttribute="bottom" constant="-8" id="lJM-qf-HVZ"/>
+                    <constraint firstItem="OI6-0O-4C8" firstAttribute="centerY" secondItem="cue-DQ-ZRq" secondAttribute="centerY" id="ynb-9n-smt"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -39,4 +50,7 @@
             <point key="canvasLocation" x="66" y="311"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="play open PAARS" width="22" height="22"/>
+    </resources>
 </document>
