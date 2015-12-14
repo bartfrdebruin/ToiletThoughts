@@ -1,6 +1,17 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 128,
+          "left" : 127
+        }
+      },
       "idiom" : "universal",
       "filename" : "pausebutton.png",
       "scale" : "1x"
