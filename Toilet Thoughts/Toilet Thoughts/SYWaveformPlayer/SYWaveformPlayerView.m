@@ -66,7 +66,7 @@
         [playPauseButton addTarget:self
                             action:@selector(playPauseTapped)
                   forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:playPauseButton];
+//        [self addSubview:playPauseButton];
         
         [NSTimer scheduledTimerWithTimeInterval:0.1 target: self
                                        selector: @selector(updateWaveform:) userInfo: nil repeats: YES];
