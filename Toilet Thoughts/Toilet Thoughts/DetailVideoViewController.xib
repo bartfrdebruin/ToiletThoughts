@@ -2,14 +2,18 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVideoViewController">
             <connections>
-                <outlet property="playerView" destination="i7j-g6-veN" id="ktY-3d-aXU"/>
+                <outlet property="playerView" destination="Pcn-kB-laC" id="vE0-lG-qLf"/>
+                <outlet property="taugeTVIntroduction" destination="tIV-Vm-i2C" id="Sjf-aF-Ca0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="oYv-UI-c95"/>
+                <outlet property="winningScore" destination="cNv-WR-yla" id="IaA-Uz-tWz"/>
+                <outlet property="winningToiletThought" destination="5rG-wX-xpx" id="OF7-Ew-uT1"/>
+                <outlet property="winningUser" destination="ntd-XS-pu3" id="tVv-Qd-gEl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -17,22 +21,65 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7j-g6-veN" customClass="YTPlayerView">
-                    <rect key="frame" x="0.0" y="64" width="600" height="337"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcn-kB-laC" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="401"/>
+                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" image="YES"/>
+                    </accessibility>
                     <constraints>
-                        <constraint firstAttribute="height" constant="337" id="fz1-Ye-5eG"/>
-                        <constraint firstAttribute="width" secondItem="i7j-g6-veN" secondAttribute="height" multiplier="16:9" id="hmI-3D-lI0"/>
-                        <constraint firstAttribute="width" constant="600" id="kKC-nN-6yS"/>
+                        <constraint firstAttribute="width" secondItem="Pcn-kB-laC" secondAttribute="height" multiplier="16:9" constant="-112.8888888888888" id="KWo-JI-SM1"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="introduction tauge tv" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIV-Vm-i2C">
+                    <rect key="frame" x="30" y="416" width="540" height="39"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningToiletThought" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rG-wX-xpx">
+                    <rect key="frame" x="30" y="459" width="540" height="44"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningUser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntd-XS-pu3">
+                    <rect key="frame" x="30" y="508" width="386" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="winningScore" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-WR-yla">
+                    <rect key="frame" x="441" y="508" width="129" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="i7j-g6-veN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Ejb-AV-zrV"/>
-                <constraint firstItem="i7j-g6-veN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XeJ-CV-huu"/>
-                <constraint firstAttribute="trailing" secondItem="i7j-g6-veN" secondAttribute="trailing" id="kwK-j6-UBz"/>
+                <constraint firstAttribute="bottom" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="199" id="6wV-bi-sZO"/>
+                <constraint firstItem="Pcn-kB-laC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7fm-2t-7fs"/>
+                <constraint firstItem="ntd-XS-pu3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="ATY-UJ-Lvl"/>
+                <constraint firstAttribute="trailing" secondItem="Pcn-kB-laC" secondAttribute="trailing" id="FSI-tb-5Aw"/>
+                <constraint firstItem="tIV-Vm-i2C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Fc0-Pj-Lo8"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="trailing" secondItem="tIV-Vm-i2C" secondAttribute="trailing" id="GfK-QO-qCs"/>
+                <constraint firstAttribute="trailing" secondItem="tIV-Vm-i2C" secondAttribute="trailing" constant="30" id="IPH-FC-P1T"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="centerX" secondItem="tIV-Vm-i2C" secondAttribute="centerX" id="QNI-xg-61o"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="leading" secondItem="tIV-Vm-i2C" secondAttribute="leading" id="TQq-VW-xh6"/>
+                <constraint firstAttribute="trailing" secondItem="cNv-WR-yla" secondAttribute="trailing" constant="30" id="VUt-W5-aX0"/>
+                <constraint firstItem="Pcn-kB-laC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z2q-gA-TQi"/>
+                <constraint firstItem="cNv-WR-yla" firstAttribute="centerY" secondItem="ntd-XS-pu3" secondAttribute="centerY" id="ZXf-1a-grS"/>
+                <constraint firstItem="ntd-XS-pu3" firstAttribute="top" secondItem="5rG-wX-xpx" secondAttribute="bottom" constant="5" id="iFd-Uw-JN5"/>
+                <constraint firstItem="tIV-Vm-i2C" firstAttribute="top" secondItem="Pcn-kB-laC" secondAttribute="bottom" constant="15" id="nGt-8r-34o"/>
+                <constraint firstItem="5rG-wX-xpx" firstAttribute="top" secondItem="tIV-Vm-i2C" secondAttribute="bottom" constant="4" id="sKp-dv-bhk"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="6wV-bi-sZO"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="460" y="367"/>
         </view>
     </objects>
 </document>

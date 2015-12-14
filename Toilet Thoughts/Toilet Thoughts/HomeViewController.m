@@ -100,6 +100,10 @@
             if (objects) {
                 self.highestScoreObject = objects[0];
                 self.highestScoringToiletThought.text = self.highestScoreObject[@"toiletThought"];
+                self.highestScoringUser.text = self.highestScoreObject[@"userName"];
+                
+                NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
+                self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
             }
         }];
     }
@@ -107,7 +111,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
     [query whereKey:@"weekNumber" equalTo:@(self.weekAndYear - 1)];
-    //[query orderByDescending:@"score"];
+    [query orderByDescending:@"score"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if (objects) {
@@ -117,9 +121,7 @@
             
             NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
             self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
-
-            
-        }
+            }
     }];
 
     }

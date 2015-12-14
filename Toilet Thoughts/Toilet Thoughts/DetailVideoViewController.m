@@ -28,11 +28,11 @@
     NSDictionary *playerVars = @{ @"playsinline" : @1,};
     [self.playerView loadWithVideoId:self.currentWinningThought[@"winningYouTubeVideoThoughtID"]playerVars:playerVars];
     
-//    self.toiletThought.text = self.currentWinningThought[@"winningText"];
-//    self.winningUser.text = self.currentWinningThought[@"winningUser"];
-//    
-//    NSNumber *score = [self.currentWinningThought objectForKey:@"winningScore"];
-//    self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+    self.winningToiletThought.text = self.currentWinningThought[@"toiletThought"];
+    self.winningUser.text = self.currentWinningThought[@"userName"];
+
+    NSNumber *score = [self.currentWinningThought objectForKey:@"score"];
+    self.winningScore.text = [NSString stringWithFormat:@" %@", score];
 }
 
 
