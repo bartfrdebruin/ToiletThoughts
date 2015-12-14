@@ -37,12 +37,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
     self.title = @"New";
     self.toolbarTextfield.delegate = self;
     self.postButton.enabled = NO;
-    
-    self.micRecord.action = @selector(recordPressed1);
-    
     
     // No back button
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -54,20 +55,14 @@
     
     self.play.hidden = YES;
     
-//    [ self.record addTarget:self
-//                     action:@selector(methodTouchDown:)
-//           forControlEvents:UIControlEventTouchDown];
-//    
-//    [self.record addTarget:self
-//                    action:@selector(methodTouchUpInside:)
-//          forControlEvents: UIControlEventTouchUpInside];
+    [ self.record addTarget:self
+                     action:@selector(methodTouchDown:)
+           forControlEvents:UIControlEventTouchDown];
     
-    self.micRecord.target = self;
-    self.micRecord.action = @selector(methodTouchDown:);
+    [self.record addTarget:self
+                    action:@selector(methodTouchUpInside:)
+          forControlEvents: UIControlEventTouchUpInside];
     
-    self.micRecord.target = self;
-    self.micRecord.action = @selector(methodTouchUpInside:);
-   
     
     NSArray *pathComponents = [NSArray arrayWithObjects:
                                [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -151,11 +146,10 @@
 
 - (void)handleTap:(UITapGestureRecognizer *)sender {
 
-        self.postButton.enabled = YES;
         [self.toolbarTextfield resignFirstResponder];
         [self.view endEditing:YES];
-    if ([self.toolbarTextfield.text isEqual:@""]) {
-        self.postButton.enabled = NO;
+    if (self.toolbarTextfield.editing) {
+        self.postButton.enabled = YES;
     }
     
 }
@@ -272,13 +266,19 @@
     NSString *newString = [self.toolbarTextfield.text stringByReplacingCharactersInRange:range withString:string];
     [self updateTextLabelsWithText: newString];
     
+    // Here i give the thoughttextfield a maximum number of characters.
+    if (self.thoughtTextField.text.length >= MAXLENGTH && range.length == 0)
+    {
+        return !(self.thoughtTextField.text.length >= MAXLENGTH && range.length == 0);
+    }
     return YES;
-    
 }
 
 -(void)updateTextLabelsWithText:(NSString *)string
 {
     [self.thougtLabel setText:string];
+    self.postButton.enabled = YES;
+    self.record.enabled = NO;
 }
 
 
@@ -342,15 +342,15 @@
 
 - (IBAction)post:(id)sender {
     
-    if (![self.toolbarTextfield.text isEqual: @""]){
-        
-        self.postButton.enabled = YES;
+    self.postButton.enabled = NO;
+    
+    if ([self.toolbarTextfield.text isEqual: @""])
+    
+    {
         self.warningLabel.alpha = 1;
         
         CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
         CGPoint original = CGPointMake(self.thoughtTextField.center.x, self.thoughtTextField.center.y);
-        
-        self.thoughtTextField.placeholder = @"";
         
         self.warningLabel.hidden = NO;
         [UIView animateWithDuration:4.5 delay:0.0 usingSpringWithDamping:1 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -386,7 +386,6 @@
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         self.postButton.enabled = YES;
-  //      NSString *thoughtString = [NSString stringWithFormat:@"%@", self.thoughtTextField.text];
         
         NSArray *pathComponents = [NSArray arrayWithObjects:
                                    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -447,15 +446,6 @@
             
             PFFile *thoughtImage = [PFFile fileWithName:uuid.UUIDString data:imageData];
             [toiletThought setObject:thoughtImage forKey:@"thoughtImage"];
-        
-        
-//        if (self.audioData != nil) {
-//            
-//            PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:self.audioData];
-//            [toiletThought setObject:audioFile forKey:@"audioFile"];
-//            
-//            NSLog(@"no audio");
-//        }
             
         }
     
@@ -481,7 +471,18 @@
                                                                           } else {
                                                                               
                                                                               [listThoughtTableVC retrieveFromParseRecent];
-                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+                                                                              [UIView beginAnimations:@"View Flip" context:nil];
+                                                                              [UIView setAnimationDuration:0.80];
+                                                                              [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                                                                              
+                                                                              [UIView setAnimationTransition:
+                                                                               UIViewAnimationTransitionFlipFromRight
+                                                                                                     forView:self.navigationController.view cache:NO];
+                                                                              
+                                                                              
+                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:NO];
+                                                                              [UIView commitAnimations];
+                                                                              
                                                                           }
                                                                       }];
                 [alert addAction:defaultAction];
@@ -499,9 +500,9 @@
         
     } else {
         
-        UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign or Log in!" message:@"If you want your thoughts to be saved, you need to Sign or Log in!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *logOrSignIn = [UIAlertController alertControllerWithTitle:@"Sign up or Log in!" message:@"If you want your thoughts to be saved, you need to Sign up or Log in!" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Log in" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [self.thoughtTextField resignFirstResponder];
             [self.view endEditing:YES];
@@ -540,8 +541,6 @@
         
         [self.recorder record];
         
-        [self.record setTitle:@"Pause" forState:UIControlStateNormal];
-        
         [self.recorder record];
         
     }
@@ -549,54 +548,15 @@
     else
     {
         [self.recorder pause];
-        [self.record setTitle:@"Record" forState:UIControlStateNormal];
     }
     
 }
 
-- (void)recordPressed1 {
-    self.thoughtTextField.hidden = YES;
-    self.postButton.enabled = YES;
-    
-    if (self.player.playing)
-    {
-        [self.player stop];
-    }
-    
-    if (!self.recorder.recording)
-    {
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        
-        [session setActive:YES error:nil];
-        
-        [self.recorder record];
-        
-        [self.record setTitle:@"Pause" forState:UIControlStateNormal];
-        
-        [self.recorder record];
-        
-        
-//        if (!self.recorder.recording) {
-//            self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
-//            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
-//            [self.player setDelegate:self];
-//            [self.player play];
-//        }
-    }
-    
-    else
-    {
-        
-        [self.recorder pause];
-        [self.record setTitle:@"Record" forState:UIControlStateNormal];
-        ;
-    }
 
-}
 
-#pragma mark - IBAction playTapped
+#pragma mark - playTapped
 
-- (IBAction)playTapped:(id)sender {
+- (void)playTapped:(id)sender {
     
     if (!self.recorder.recording) {
         self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
@@ -624,16 +584,11 @@
         
         [self.recorder record];
         
-        [self.record setTitle:@"Recording" forState:UIControlStateNormal];
-        
-        [self.micRecord setImage:[UIImage imageNamed:@"play open"]];
-        
     }
     
     else
     {
         [self.recorder pause];
-        [self.record setTitle:@"Record" forState:UIControlStateNormal];
     }
 
     
@@ -647,21 +602,25 @@
     
     [self.recorder stop];
     
-    self.play.hidden = NO;
-    self.record.hidden = YES;
-    
-    
+    [self.record setImage:[UIImage imageNamed:@"play open"] forState:UIControlStateNormal];
+    [self.record removeTarget:self action:@selector(methodTouchUpInside:) forControlEvents:UIControlEventTouchDown];
+    [self.record removeTarget:self action:@selector(methodTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.record addTarget:self action:@selector(playTapped:) forControlEvents:UIControlEventTouchDown];
+    [self.record addTarget:self action:@selector(playTapped:) forControlEvents:UIControlEventTouchUpInside];
+
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
     [audioSession setActive:NO error:nil];
     
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemoTemp.m4a",
-                               nil];
-    
-    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
-    
-    self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+//    NSArray *pathComponents = [NSArray arrayWithObjects:
+//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                               @"MyAudioMemoTemp.m4a",
+//                               nil];
+//    
+//    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+//    
+//    self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
     
 //    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
 //    
