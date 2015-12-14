@@ -19,41 +19,37 @@
 @property (nonatomic) AVAudioRecorder *recorder;
 @property (nonatomic) AVAudioPlayer *player;
 
+
 @end
 
 @implementation SelectedThoughtDetailVC
+
+
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
-     [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     
-//    self.audioThought = self.currentThought[@"audioFile"];
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
+     [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     
     [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {
             
-//            NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             
-//            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:@"m"]];
-            
-//            NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"m"];
-            
-//            array = [NSArray arrayWithObjects:
-//                                       [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject],
-//                                       @"MyAudioMemoTemp.m4a",
-//                                       nil];
+// NSArray *pathComponents = [NSArray arrayWithObjects:
+//                           [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                                           @"MyAudioMemoTemp.m4a",
+//                                           nil];
 //            
-//            NSURL *outoutputFileUrl = [NSURL fileURLWithPathComponents:array];
+// NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
             
-//            NSFileManager *manager = [NSFileManager defaultManager];
-//            [manager createFileAtPath:tempFilePath contents:data attributes:nil];
-//            
-//            NSURL *audioUrl = [NSURL URLWithString:tempFilePath];
             [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
-            NSString *identifier = [[NSProcessInfo processInfo] globallyUniqueString];
             NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.txt"];
             NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
             NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
@@ -63,38 +59,11 @@
             
             AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
             
-//            dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
                 SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor blackColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
             [self.view addSubview:playerView];
-//            });
-            
             
         }
     }];
-    
-
-    
-//    NSArray *pathComponents = [NSArray arrayWithObjects:
-//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-//                               @"MyAudioMemoTemp.m4a",
-//                               nil];
-//
-//    NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
-    
-//    NSURL *audioUrl = [NSURL URLWithString:self.audioThought.url];
-    
-//    NSURL *fileURL = [[outputFileUrl URLByAppendingPathComponent:@"MyAudioMemoTemp"] URLByAppendingPathExtension:@"m4a"];
-    
-//    NSData *urlData = [NSData dataWithContentsOfURL:outputFileUrl];
-//    [urlData writeToFile:fileURL options:NSAtomicWrite error:nil];
-//    [urlData writeToURL:outputFileUrl options:NSAtomicWrite error:nil];
-    
-//    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:outputFileUrl options:nil];
-//
-//    SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
-//        [self.view addSubview:playerView];
     
     // Checking the current user
     PFUser *currentUser = [PFUser currentUser];
@@ -409,13 +378,11 @@
                                                         error:&error];
             [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
             
-            
-//            AVAsset *audio = [AVAsset assetWithURL:self.audioThoughtFile.url];
-//            AVPlayerItem *item = [AVPlayerItem playerItemWithAsset: audio];
-            
             [self.player setVolume:1.0];
             [self.player setDelegate:self];
             [self.player play];
+            
+          self.audioTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(audioProgressUpdate) userInfo:nil repeats:YES];
         }
     }];
     NSError *error;
@@ -428,7 +395,11 @@
 
     
 }
-
+- (void)audioProgressUpdate
+{
+    if (self.player != nil && self.player.duration > 0.0)
+        [self.progressView setProgress:(self.player.currentTime / self.player.duration)];
+}
 
 
 @end

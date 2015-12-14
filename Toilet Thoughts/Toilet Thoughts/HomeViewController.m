@@ -67,6 +67,10 @@
     
     [super viewDidLoad];
     
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
     //
    
     NSDate *date = [NSDate date];
@@ -125,6 +129,10 @@
     }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
     
     [super viewWillAppear:YES];
     

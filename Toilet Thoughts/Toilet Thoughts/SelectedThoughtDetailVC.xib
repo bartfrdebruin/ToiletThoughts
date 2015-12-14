@@ -61,9 +61,11 @@
                         <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="buv-rl-ueH"/>
                     </connections>
                 </button>
-                <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-WE-t9K">
-                    <rect key="frame" x="43" y="139" width="286" height="2"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-WE-t9K">
+                    <rect key="frame" x="43" y="139" width="286" height="3"/>
                     <animations/>
+                    <color key="progressTintColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="trackTintColor" red="1" green="1" blue="1" alpha="0.98756094859999999" colorSpace="calibratedRGB"/>
                 </progressView>
             </subviews>
             <animations/>

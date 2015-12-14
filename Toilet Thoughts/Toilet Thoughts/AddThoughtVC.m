@@ -37,6 +37,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // To set the navigationbar to normal
+    [self.navigationController.navigationBar setBackgroundImage:nil
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
     self.title = @"New";
     self.toolbarTextfield.delegate = self;
     self.postButton.enabled = NO;
@@ -467,7 +471,18 @@
                                                                           } else {
                                                                               
                                                                               [listThoughtTableVC retrieveFromParseRecent];
-                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+                                                                              [UIView beginAnimations:@"View Flip" context:nil];
+                                                                              [UIView setAnimationDuration:0.80];
+                                                                              [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                                                                              
+                                                                              [UIView setAnimationTransition:
+                                                                               UIViewAnimationTransitionFlipFromRight
+                                                                                                     forView:self.navigationController.view cache:NO];
+                                                                              
+                                                                              
+                                                                              [self.navigationController pushViewController:listThoughtTableVC animated:NO];
+                                                                              [UIView commitAnimations];
+                                                                              
                                                                           }
                                                                       }];
                 [alert addAction:defaultAction];
@@ -598,14 +613,14 @@
     
     [audioSession setActive:NO error:nil];
     
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemoTemp.m4a",
-                               nil];
-    
-    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
-    
-    self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
+//    NSArray *pathComponents = [NSArray arrayWithObjects:
+//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
+//                               @"MyAudioMemoTemp.m4a",
+//                               nil];
+//    
+//    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
+//    
+//    self.audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
     
 //    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
 //    
