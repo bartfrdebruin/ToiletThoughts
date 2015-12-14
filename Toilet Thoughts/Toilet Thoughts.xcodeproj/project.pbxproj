@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C77931828097B41C4640877 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC9690C4F09531EBF48020E /* libPods.a */; };
 		1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1D07DABB1C158DE4007DC892 /* Assets.bundle */; };
 		1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */; };
 		1D90A6B51C0493D200BC9F8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1D90A6B41C0493D200BC9F8F /* Podfile */; };
@@ -107,6 +108,7 @@
 		2B3D56871C18FA580069261F /* SCWaveformView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCWaveformView.h; path = SYWaveformPlayer/SCWaveformView.h; sourceTree = "<group>"; };
 		2B3D56881C18FA690069261F /* SCWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCWaveformView.m; path = SYWaveformPlayer/SCWaveformView.m; sourceTree = "<group>"; };
 		2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
+		3CC9690C4F09531EBF48020E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */,
+				0C77931828097B41C4640877 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +240,7 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CC9690C4F09531EBF48020E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
