@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreThoughtCustomCell;
 @property (weak, nonatomic) IBOutlet UILabel *thoughtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbsDown;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbsUp;
 
 
 @end

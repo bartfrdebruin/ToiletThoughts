@@ -11,12 +11,7 @@
 @implementation ThoughtCustomCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    if (self.scoreThoughtCustomCell <= 0) {
         
-        self.scoreThoughtCustomCell.textColor = [UIColor redColor];
-    }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

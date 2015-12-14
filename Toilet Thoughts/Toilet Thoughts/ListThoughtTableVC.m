@@ -328,7 +328,21 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         cell.thoughtLabel.text = [currentThought objectForKey:@"toiletThought"];
         
         NSNumber *score = [currentThought objectForKey:@"score"];
-        cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+        
+        if (score >= 0) {
+            
+            cell.scoreThoughtCustomCell.textColor = [UIColor redColor];
+            cell.thumbsUp.hidden = YES;
+            cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+
+        
+        } else  {
+            
+            cell.scoreThoughtCustomCell.textColor = [UIColor greenColor];
+            cell.thumbsDown.hidden = YES;
+            cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+
+        }
         
         cell.dateLabel.text = [currentThought objectForKey:@"createdAt"];
         
@@ -337,8 +351,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         thumbnail.image = [UIImage imageNamed:@"Icon-40"];
         thumbnail.file = thoughtImageFile;
         [thumbnail loadInBackground];
-        
-        
         
         return cell;
     }
