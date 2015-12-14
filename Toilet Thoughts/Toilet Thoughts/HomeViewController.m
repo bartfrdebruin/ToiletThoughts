@@ -116,6 +116,13 @@
             
             NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
             self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
+            
+            if (self.highestScoreObject[@"score"] >= 0) {
+                
+                self.thumbsDown.hidden = YES;
+                
+            }
+            
             }
     }];
 
