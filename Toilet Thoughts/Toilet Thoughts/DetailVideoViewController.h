@@ -15,7 +15,7 @@
 @property (nonatomic, strong) IBOutlet YTPlayerView *playerView;
 @property (nonatomic, strong) NSArray *videoObjects;
 @property (nonatomic, strong) PFObject *currentWinningThought;
-@property (strong, nonatomic) IBOutlet UILabel *taugeTVIntroduction;
+@property (strong, nonatomic) IBOutlet UITextView *taugeTVIntroduction;
 @property (strong, nonatomic) IBOutlet UITextView *winningToiletThought;
 @property (strong, nonatomic) IBOutlet UILabel *winningUser;
 @property (strong, nonatomic) IBOutlet UILabel *winningScore;
