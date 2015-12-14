@@ -33,8 +33,8 @@
     self.title = @"Toilet Thought";
     
     // To set the navigationbar to normal
-    [self.navigationController.navigationBar setBackgroundImage:nil
-                                                  forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:nil
+//                                                  forBarMetrics:UIBarMetricsDefault];
     
      [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     
@@ -176,7 +176,7 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     
     [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromLeft
+     UIViewAnimationTransitionFlipFromRight
                            forView:self.navigationController.view cache:NO];
     
     
