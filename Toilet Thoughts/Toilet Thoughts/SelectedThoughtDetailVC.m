@@ -41,7 +41,8 @@
     [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {
             
-            
+            NSBundle *thisBundle = [NSBundle bundleForClass:[self class]];
+            NSURL *url = [thisBundle URLForResource:@"MyAudioMemoTemp" withExtension:@"m4a"];
 // NSArray *pathComponents = [NSArray arrayWithObjects:
 //                           [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
 //                                           @"MyAudioMemoTemp.m4a",
@@ -49,15 +50,15 @@
 //            
 // NSURL *outputFileUrl = [NSURL fileURLWithPathComponents:pathComponents];
             
-            [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
-            NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.txt"];
-            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
-            NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
-            [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
+//            [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+//            NSString *fileName = [NSString stringWithFormat:@"%@_%@", [[NSProcessInfo processInfo] globallyUniqueString], @"file.txt"];
+//            NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:fileName]];
+//            NSURL *directoryURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo] globallyUniqueString]] isDirectory:YES];
+//            [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&error];
             
-            [data writeToURL:fileURL options:NSDataWritingAtomic error:&error];
+            [data writeToURL:url options:NSDataWritingAtomic error:&error];
             
-            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileURL options:nil];
+            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
             
                 SYWaveformPlayerView *playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(40, 110, self.view.frame.size.width-70, 50) asset:asset color:[UIColor blackColor] progressColor:[UIColor colorWithRed:207 green:0 blue:126 alpha:1]];
             [self.view addSubview:playerView];
@@ -148,21 +149,32 @@
     
     self.selectedThoughtImage.file = self.thoughtImageFile;
     self.selectedThoughtDetail.text = self.thoughtDetail;
+    self.playAudioThought.hidden = YES;
+    self.progressView.hidden = NO;
     
     
     NSNumber *score = [self.currentThought objectForKey:@"score"];
     self.selectedThoughtScore.text = [NSString stringWithFormat:@" %@", score];
     
     self.thoughtBalloon.alpha = 1;
-    
+    self.selectedThoughtScore.alpha = 1;
     self.selectedThoughtDetail.alpha = 1;
     
+    if (![self.selectedThoughtDetail.text isEqualToString:@""]) {
+    
+        self.playAudioThought.hidden = YES;
+        self.progressView.hidden = YES;
+        
     [UIView animateWithDuration:4.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
+        self.selectedThoughtScore.alpha = 0;
         self.thoughtBalloon.alpha = 0.0;
         self.selectedThoughtDetail.alpha = 1;
+        self.selectedThoughtScore.alpha = 1;
         self.thoughtBalloon.alpha = 1;
     } completion:nil];
+        
+            }
 }
 
 #pragma mark - navigation
