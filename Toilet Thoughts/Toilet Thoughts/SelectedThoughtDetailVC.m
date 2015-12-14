@@ -141,7 +141,7 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
-    [backButton setTitle:@"<Back" forState:UIControlStateNormal];
+    [backButton setTitle:@"< Back" forState:UIControlStateNormal];
     [backButton setTintColor:[UIColor whiteColor]];
     [backButton addTarget:self action:@selector(backToListThoughtTVC) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
