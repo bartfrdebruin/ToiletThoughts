@@ -340,20 +340,20 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         cell.thoughtLabel.text = [currentThought objectForKey:@"toiletThought"];
         
         NSNumber *score = [currentThought objectForKey:@"score"];
+        int scoreInIntValue = [score intValue];
         
-        if (score >= 0) {
+        if (scoreInIntValue >= 0) {
             
-            cell.scoreThoughtCustomCell.textColor = [UIColor redColor];
-            cell.thumbsUp.hidden = YES;
-            cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
-
-        
-        } else  {
-            
-            cell.scoreThoughtCustomCell.textColor = [UIColor greenColor];
             cell.thumbsDown.hidden = YES;
+            cell.thumbsUp.hidden = NO;
             cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
 
+        
+        } else if (scoreInIntValue < 0) {
+            
+            cell.thumbsUp.hidden = YES;
+            cell.thumbsDown.hidden = NO;
+            cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
         }
         
         cell.dateLabel.text = [currentThought objectForKey:@"createdAt"];
@@ -370,33 +370,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     }
 
 }
-
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    
-//    //1. Setup the CATransform3D structure
-//    CATransform3D rotation;
-//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-//    rotation.m34 = 1.0/ -600;
-//    
-//    
-//    //2. Define the initial state (Before the animation)
-//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-//    cell.layer.shadowOffset = CGSizeMake(10, 10);
-//    cell.alpha = 0;
-//    
-//    cell.layer.transform = rotation;
-//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-//    
-//    //3. Define the final state (After the animation) and commit the animation
-//    [UIView beginAnimations:@"rotation" context:NULL];
-//    [UIView setAnimationDuration:0.8];
-//    cell.layer.transform = CATransform3DIdentity;
-//    cell.alpha = 1;
-//    cell.layer.shadowOffset = CGSizeMake(0, 0);
-//    [UIView commitAnimations];
-//}
 
 
 #pragma mark - Table view delegate
@@ -471,12 +444,8 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
                 detailVideoViewController.currentWinningThought = self.currentVideoObject;
                 [self.navigationController pushViewController:detailVideoViewController animated:YES];
             }
-
         }];
-        
-//
     }
-    
 }
 
 

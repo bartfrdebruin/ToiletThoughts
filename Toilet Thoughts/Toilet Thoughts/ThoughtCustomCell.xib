@@ -17,9 +17,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-6X-TjR">
-                        <rect key="frame" x="86" y="52" width="71" height="17"/>
+                        <rect key="frame" x="86" y="52" width="124" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="71" id="Ask-lI-15m"/>
+                            <constraint firstAttribute="width" constant="124" id="Ask-lI-15m"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +41,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apH-1i-QLm">
-                        <rect key="frame" x="247" y="52" width="65" height="21"/>
+                        <rect key="frame" x="247" y="56" width="65" height="21"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -71,18 +71,18 @@
                     <constraint firstItem="bAZ-6X-TjR" firstAttribute="top" secondItem="5WC-cU-aZ0" secondAttribute="bottom" constant="-1" id="Ifj-AY-YWc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bAZ-6X-TjR" secondAttribute="bottom" constant="1" id="Jqh-7F-2Or"/>
                     <constraint firstItem="5WC-cU-aZ0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="NjW-jd-CPk"/>
-                    <constraint firstItem="dCw-2H-3CB" firstAttribute="leading" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="79" id="TC1-41-iPD"/>
+                    <constraint firstItem="dCw-2H-3CB" firstAttribute="leading" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="26" id="TC1-41-iPD"/>
                     <constraint firstItem="apH-1i-QLm" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="UTV-jY-H6u"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Cax-fV-Ibz" secondAttribute="bottom" id="X70-fr-Scl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ZKv-Pc-gjK" secondAttribute="bottom" constant="-8" id="bol-eJ-nsm"/>
                     <constraint firstItem="5WC-cU-aZ0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="d7d-Eg-7cp"/>
-                    <constraint firstItem="apH-1i-QLm" firstAttribute="top" secondItem="5WC-cU-aZ0" secondAttribute="bottom" constant="-1" id="dHq-oW-s45"/>
-                    <constraint firstItem="Cax-fV-Ibz" firstAttribute="leading" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="79" id="gDC-8Q-hmQ"/>
-                    <constraint firstItem="bAZ-6X-TjR" firstAttribute="centerY" secondItem="apH-1i-QLm" secondAttribute="centerY" constant="-2" id="icR-kp-elH"/>
+                    <constraint firstItem="apH-1i-QLm" firstAttribute="top" secondItem="5WC-cU-aZ0" secondAttribute="bottom" constant="3" id="dHq-oW-s45"/>
+                    <constraint firstItem="Cax-fV-Ibz" firstAttribute="leading" secondItem="bAZ-6X-TjR" secondAttribute="trailing" constant="26" id="gDC-8Q-hmQ"/>
+                    <constraint firstItem="bAZ-6X-TjR" firstAttribute="centerY" secondItem="apH-1i-QLm" secondAttribute="centerY" constant="-6" id="icR-kp-elH"/>
                     <constraint firstItem="5WC-cU-aZ0" firstAttribute="leading" secondItem="ZKv-Pc-gjK" secondAttribute="trailing" constant="8" id="nBJ-M2-63T"/>
                     <constraint firstItem="ZKv-Pc-gjK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="paL-1f-bA3"/>
                     <constraint firstItem="apH-1i-QLm" firstAttribute="leading" secondItem="dCw-2H-3CB" secondAttribute="trailing" constant="-14" id="ssd-cm-9RV"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="apH-1i-QLm" secondAttribute="bottom" constant="-3" id="txp-Ot-Q1a"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="apH-1i-QLm" secondAttribute="bottom" constant="-7" id="txp-Ot-Q1a"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

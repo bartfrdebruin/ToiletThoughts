@@ -123,17 +123,21 @@
             [timer fire];
             
             NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
-            self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
+            int scoreInIntValue = [highestScoreNumber intValue];
             
-            if (self.highestScoreObject[@"score"] >= 0) {
+            if (scoreInIntValue >= 0) {
                 
                 self.thumbsDown.hidden = YES;
-                self.highestScoreNumberLabel.textColor = [UIColor greenColor];
+                self.thumbsUp.hidden = NO;
+                self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
+
                 
-            } else {
+            } else if (scoreInIntValue < 0) {
                 
                 self.thumbsUp.hidden = YES;
-                self.highestScoreNumberLabel.textColor = [UIColor redColor];
+                self.thumbsDown.hidden = NO;
+                self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
+
                 
             }
             
