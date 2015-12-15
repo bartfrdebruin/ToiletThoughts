@@ -122,7 +122,6 @@
 
 - (IBAction)logIn:(id)sender {
     
-    [self.logIn setTitle:@"" forState:UIControlStateNormal];
     
     if ([self.userName.text isEqualToString:@""]) {
         NSLog(@"no user");
@@ -135,10 +134,10 @@
                                             
                                             AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc]init];
                                             
-                                            addThoughtVC.postButton.enabled = YES;
+                                            addThoughtVC.postButton.enabled = NO;
                                             
                                             self.loginSuccess.hidden = NO;
-                                            
+                                
                                             [self.userName resignFirstResponder];
                                             [self.passWord resignFirstResponder];
                                             

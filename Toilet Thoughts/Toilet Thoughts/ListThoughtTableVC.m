@@ -337,8 +337,13 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         PFObject * currentThought = [self.toiletThoughts objectAtIndex:indexPath.row];
         
         cell.usernameThoughtCustomCell.text = [currentThought objectForKey:@"userName"];
+        
         cell.thoughtLabel.text = [currentThought objectForKey:@"toiletThought"];
         
+        if ([cell.thoughtLabel.text isEqualToString:@""]) {
+            
+            cell.thoughtLabel.text = @"This thought was recorded by audio.";
+        }
         NSNumber *score = [currentThought objectForKey:@"score"];
         int scoreInIntValue = [score intValue];
         
