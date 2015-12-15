@@ -57,9 +57,8 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [self.userName resignFirstResponder];
-    [self.passWord resignFirstResponder];
-    [self.passWord endEditing:YES];
+//    [self.userName resignFirstResponder];
+    [self.passWord becomeFirstResponder];
     
     return YES;
 }
@@ -69,9 +68,6 @@
     
     if (![self.userName.text isEqualToString:@"USERNAME"]) {
         
-    
-    
-    
     [self.userName resignFirstResponder];
     [self.passWord resignFirstResponder];
     [self.view endEditing:YES];
@@ -189,6 +185,8 @@
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     
+    if ([self.userName isFirstResponder]) {
+    
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
@@ -205,7 +203,7 @@
     [self.view  setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - keyboardFrame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
     
     [UIView commitAnimations];
-    
+    }
 }
 
 # pragma mark - keyboardWillHide

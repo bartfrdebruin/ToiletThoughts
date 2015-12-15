@@ -15,6 +15,7 @@
 #import "ThoughtCustomCell.h"
 #import "ListThoughtTableVC.h"
 #import "SelectedThoughtDetailVC.h"
+#import "AddThoughtVC.h"
 
 
 @interface UserViewController ()
@@ -29,6 +30,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.userImage.layer.cornerRadius = self.userImage.bounds.size.width/ 2;
+    self.userImage.clipsToBounds = YES;
+    self.userImage.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.userImage.layer.borderWidth = 2;
+    
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     // Do any additional setup after loading the view from its nib.
 //    self.navigationController.navigationBarHidden =YES;
     
@@ -100,28 +108,36 @@
         
     }];
 }
-
-- (void)logOut {
-    
+- (IBAction)logOut:(id)sender {
     UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Log out?" message: @"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                          
-                                                              [alert dismissViewControllerAnimated:YES completion:nil];                                                          }];
+                                                   handler:^(UIAlertAction * action) {
+                                                       
+                                                       [alert dismissViewControllerAnimated:YES completion:nil];                                                          }];
     
     UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {
-                                                          
-                                                              HomeViewController *hvc = [[HomeViewController alloc] init];
-                                                              [self.navigationController pushViewController:hvc animated:YES];
-                                                          
-                                                          }];
+                                                handler:^(UIAlertAction * action) {
+                                                    
+                                                    HomeViewController *hvc = [[HomeViewController alloc] init];
+                                                    
+                                                    [UIView beginAnimations:@"View Flip" context:nil];
+                                                    [UIView setAnimationDuration:0.80];
+                                                    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+                                                    
+                                                    [UIView setAnimationTransition:
+                                                     UIViewAnimationTransitionFlipFromLeft
+                                                                           forView:self.navigationController.view cache:NO];
+                                                    
+                                                    [UIView commitAnimations];
+                                                    [self.navigationController pushViewController:hvc animated:YES];
+                                                    
+                                                }];
     [alert addAction:cancel];
     [alert addAction:yes];
     
     [self presentViewController:alert animated:YES completion:nil];
-
+    
     [PFUser logOut];
 }
 
@@ -152,6 +168,43 @@
         // Place image picker on the screen
         [self presentViewController:self.imagePicker animated:YES completion: NULL];
     }
+}
+- (IBAction)addThought:(id)sender {
+    
+    AddThoughtVC *atvc = [[AddThoughtVC alloc] init];
+    atvc.presentedFromVC = self;
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromRight
+                           forView:self.navigationController.view cache:NO];
+    
+    
+    [self.navigationController pushViewController:atvc animated:YES];
+    [UIView commitAnimations];
+}
+- (IBAction)goToList:(id)sender {
+    
+    ListThoughtTableVC *listThoughtTableVC= [[ListThoughtTableVC alloc] initWithNibName:@"ListThoughtTableVC" bundle:nil];
+    
+    [UIView beginAnimations:@"View Flip" context:nil];
+    [UIView setAnimationDuration:0.80];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [UIView setAnimationTransition:
+     UIViewAnimationTransitionFlipFromRight
+                           forView:self.navigationController.view cache:NO];
+    
+    
+    [self.navigationController pushViewController:listThoughtTableVC animated:YES];
+    [UIView commitAnimations];
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    [listThoughtTableVC retrieveFromParseScore];
 }
 
 
