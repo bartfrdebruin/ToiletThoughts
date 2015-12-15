@@ -319,7 +319,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     
     [UIView setAnimationTransition:
-     UIViewAnimationTransitionFlipFromLeft
+     UIViewAnimationTransitionFlipFromRight
                            forView:self.navigationController.view cache:NO];
     
     [self.navigationController pushViewController:stdvc animated:YES];
