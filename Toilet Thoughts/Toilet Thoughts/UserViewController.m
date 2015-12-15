@@ -271,8 +271,22 @@
     cell.thoughtLabel.text = [currentThought objectForKey:@"toiletThought"];
     
     NSNumber *score = [currentThought objectForKey:@"score"];
-    cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
     
+    int scoreInIntValue = [score intValue];
+    
+    if (scoreInIntValue >= 0) {
+        
+        cell.thumbsDown.hidden = YES;
+        cell.thumbsUp.hidden = NO;
+        cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+        
+        
+    } else if (scoreInIntValue < 0) {
+        
+        cell.thumbsUp.hidden = YES;
+        cell.thumbsDown.hidden = NO;
+        cell.scoreThoughtCustomCell.text = [NSString stringWithFormat:@" %@", score];
+    }    
     cell.dateLabel.text = [currentThought objectForKey:@"createdAt"];
     
     PFFile *thoughtImageFile = [currentThought objectForKey:@"thoughtImage"];

@@ -34,10 +34,12 @@
                         <color key="textColor" red="0.81176470588235294" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZKv-Pc-gjK" customClass="PFImageView">
+                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZKv-Pc-gjK" customClass="PFImageView">
                         <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ZKv-Pc-gjK" secondAttribute="height" multiplier="1:1" id="BNP-bt-447"/>
+                            <constraint firstAttribute="width" constant="78" id="bdJ-Ty-ycD"/>
+                            <constraint firstAttribute="height" constant="78" id="lGZ-aW-J9a"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apH-1i-QLm">
