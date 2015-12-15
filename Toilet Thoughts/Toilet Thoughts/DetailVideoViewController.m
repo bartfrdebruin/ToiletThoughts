@@ -31,6 +31,8 @@
     
     self.winningToiletThought.text = self.currentWinningThought[@"toiletThought"];
     self.winningUser.text = self.currentWinningThought[@"userName"];
+    self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
+
 
     NSNumber *score = [self.currentWinningThought objectForKey:@"score"];
     self.winningScore.text = [NSString stringWithFormat:@" %@", score];
@@ -39,17 +41,19 @@
     
     if (scoreInIntValue >= 0) {
         
-//        self.thumbDown.hidden = YES;
+        self.thumbDown.hidden = YES;
         self.thumbUp.hidden = NO;
-        self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
+        self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+
 
         
     } else if (scoreInIntValue < 0) {
         
         self.thumbUp.hidden = YES;
-//        self.thumbDown.hidden = NO;
-        self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
-    }    
+        self.thumbDown.hidden = NO;
+        self.winningScore.text = [NSString stringWithFormat:@" %@", score];
+
+    }
 }
 
 
