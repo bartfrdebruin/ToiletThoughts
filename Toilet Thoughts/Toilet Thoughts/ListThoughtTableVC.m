@@ -125,13 +125,25 @@
     if (currentUser) {
         
         UserViewController * userViewController = [[UserViewController alloc] init];
+        
+        [UIView beginAnimations:@"View Flip" context:nil];
+        [UIView setAnimationDuration:0.80];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        
+        [UIView setAnimationTransition:
+         UIViewAnimationTransitionFlipFromRight
+                               forView:self.navigationController.view cache:NO];
+        
         [self.navigationController pushViewController: userViewController animated:YES];
+        [UIView commitAnimations];
+        
         
     } else {
         
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
+        
 }
 
 - (void)gotoAddThoughtVC {
@@ -351,6 +363,8 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         thumbnail.image = [UIImage imageNamed:@"Icon-40"];
         thumbnail.file = thoughtImageFile;
         [thumbnail loadInBackground];
+        
+        
         
         return cell;
     }

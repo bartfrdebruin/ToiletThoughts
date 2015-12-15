@@ -13,10 +13,14 @@
 
 @interface UserViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *userPicture;
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSArray *toiletThoughts;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
+@property (weak, nonatomic) IBOutlet UIButton *addThought;
+@property (weak, nonatomic) IBOutlet UIButton *logOut;
 
+@property (weak, nonatomic) IBOutlet UIButton *goToList;
 
 
 @end

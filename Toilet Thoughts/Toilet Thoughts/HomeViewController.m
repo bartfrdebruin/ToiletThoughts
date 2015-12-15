@@ -114,6 +114,14 @@
             self.highestScoringToiletThought.text = self.highestScoreObject[@"toiletThought"];
             self.highestScoringUser.text = self.highestScoreObject[@"userName"];
             
+            // Here we create the animation to show the highest scoring thought on the Homescreen.
+            NSString *string = self.highestScoringToiletThought.text;
+            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+            [dict setObject:string forKey:@"string"];
+            [dict setObject:@0 forKey:@"currentCount"];
+            NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(typingLabel:) userInfo:dict repeats:YES];
+            [timer fire];
+            
             NSNumber *highestScoreNumber = [self.highestScoreObject objectForKey:@"score"];
             int scoreInIntValue = [highestScoreNumber intValue];
             
@@ -136,13 +144,7 @@
             }
     }];
 
-    NSString *string = @"If life is like a box of chocolates, what is death? I don't know, do you? If so, let me know!";
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:string forKey:@"string"];
-    [dict setObject:@0 forKey:@"currentCount"];
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(typingLabel:) userInfo:dict repeats:YES];
-    [timer fire];
+
     
     
     }
