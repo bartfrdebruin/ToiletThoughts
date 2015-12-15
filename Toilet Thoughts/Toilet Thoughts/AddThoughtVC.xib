@@ -78,12 +78,15 @@
                     </items>
                     <color key="barTintColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                 </toolbar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
-                    <rect key="frame" x="0.0" y="348" width="323" height="170"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" preservesSuperviewLayoutMargins="YES" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
+                    <rect key="frame" x="0.0" y="348" width="323" height="176"/>
                     <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="176" id="55o-9n-rtN"/>
                         <constraint firstAttribute="height" constant="170" id="n1J-86-yEn"/>
                         <constraint firstAttribute="width" constant="323" id="n2k-WB-1pY"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="323" id="zYR-3R-ehu"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap here to take a picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-ar-dmd">
@@ -114,16 +117,19 @@
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DOE-jZ-2Vg"/>
                 <constraint firstAttribute="trailing" secondItem="B2m-eE-HdP" secondAttribute="trailing" id="Enz-LD-sTH"/>
                 <constraint firstItem="ms1-ar-dmd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="GhP-q3-EZx"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="rMh-dZ-WU6" secondAttribute="bottom" id="JEc-TG-O5P"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" id="Muy-BB-Tkw"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="Nka-bl-1WF"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="rMh-dZ-WU6" secondAttribute="bottom" constant="6" id="PYi-D4-QQV"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PdK-ew-yxP"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QcO-m4-GWT"/>
                 <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="TX2-s1-o8f"/>
+                <constraint firstAttribute="trailing" secondItem="rMh-dZ-WU6" secondAttribute="trailing" id="Wpg-Eu-IEi"/>
                 <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aah-g4-mVl"/>
                 <constraint firstAttribute="trailing" secondItem="rMh-dZ-WU6" secondAttribute="trailing" constant="-3" id="hyK-kA-mwd"/>
                 <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="iRd-Dc-4Pe"/>
                 <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="nvk-lg-J05"/>
+                <constraint firstItem="rMh-dZ-WU6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pQE-b2-X32"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="uht-pb-OUx"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="D6J-Z4-dJX" secondAttribute="bottom" constant="66" id="vX2-RO-0yP"/>
             </constraints>

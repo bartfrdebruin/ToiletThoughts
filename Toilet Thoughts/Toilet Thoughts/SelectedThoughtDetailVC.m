@@ -129,7 +129,7 @@
 //        
 //    UIBarButtonItem *displayScoreButton = [[UIBarButtonItem alloc] initWithCustomView:scoreLabel];
 
-    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.shareButton, space, self.scoreUpButton, nil];
+    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.scoreUpButton, nil];
     
     // If user has posted the thought himself, he cannot upvote the thought
     if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
@@ -216,7 +216,7 @@
         self.playAudioThought.hidden = YES;
         self.progressView.hidden = YES;
         
-    [UIView animateWithDuration:4.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
+    [UIView animateWithDuration:4.0 delay:0.0 options: UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
         self.selectedThoughtScore.alpha = 0;
         self.thoughtBalloon.alpha = 0.0;
