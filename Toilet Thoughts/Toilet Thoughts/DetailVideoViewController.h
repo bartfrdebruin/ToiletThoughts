@@ -20,7 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *winningUser;
 @property (strong, nonatomic) IBOutlet UILabel *winningScore;
 @property (strong, nonatomic) IBOutlet UIImageView *thumbUp;
-//@property (strong, nonatomic) IBOutlet UIImageView *thumbDown;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbDown;
 
 
 
