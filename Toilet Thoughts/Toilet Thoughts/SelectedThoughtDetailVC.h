@@ -33,5 +33,6 @@
 @property (nonatomic, strong) NSString *user;
 @property (nonatomic, strong) UIBarButtonItem *scoreUpButton;
 @property (nonatomic, strong) UIBarButtonItem *scoreDownButton;
+@property (nonatomic, strong) UIBarButtonItem *shareButton;
 
 @end

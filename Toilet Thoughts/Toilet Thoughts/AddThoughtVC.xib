@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddThoughtVC">
             <connections>
                 <outlet property="balloon" destination="rMh-dZ-WU6" id="WaC-0W-20Z"/>
+                <outlet property="camerText" destination="ms1-ar-dmd" id="uFB-iX-wGx"/>
                 <outlet property="imageView" destination="B2m-eE-HdP" id="hC2-aZ-hcz"/>
                 <outlet property="postButton" destination="P0F-dl-lTd" id="Mf0-PM-E7V"/>
                 <outlet property="record" destination="Tj6-wY-KTE" id="K3y-VJ-R9X"/>
@@ -35,7 +36,7 @@
                         <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2m-eE-HdP">
                     <rect key="frame" x="-2" y="0.0" width="323" height="524"/>
                     <animations/>
                 </imageView>
@@ -109,7 +110,11 @@
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="1mh-MH-2oH"/>
                 <constraint firstAttribute="trailing" secondItem="D6J-Z4-dJX" secondAttribute="trailing" constant="33" id="AgZ-E9-DcB"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DHT-FV-NBC"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DKc-Ga-grH"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DOE-jZ-2Vg"/>
+                <constraint firstAttribute="trailing" secondItem="B2m-eE-HdP" secondAttribute="trailing" id="Enz-LD-sTH"/>
                 <constraint firstItem="ms1-ar-dmd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="GhP-q3-EZx"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" id="Muy-BB-Tkw"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="Nka-bl-1WF"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="rMh-dZ-WU6" secondAttribute="bottom" constant="6" id="PYi-D4-QQV"/>
                 <constraint firstItem="rMh-dZ-WU6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PdK-ew-yxP"/>

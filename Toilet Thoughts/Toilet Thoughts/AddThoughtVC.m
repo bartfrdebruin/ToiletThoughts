@@ -336,6 +336,8 @@
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
+    self.camerText.hidden = YES;
+    
     // Add a watermark to the pictures.
     UIImage *watermark = [UIImage imageNamed:@"TaugeTvLogo"];
     
@@ -359,7 +361,6 @@
     if ([self.toolbarTextfield.text isEqual: @""])
     
     {
-        self.warningLabel.alpha = 1;
         
         CGPoint point = CGPointMake(self.thoughtTextField.center.x + 10, self.thoughtTextField.center.y + 5);
         CGPoint original = CGPointMake(self.thoughtTextField.center.x, self.thoughtTextField.center.y);
@@ -376,21 +377,7 @@
         
     }
     
-//    NSArray *pathComponents = [NSArray arrayWithObjects:
-//                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-//                               @"MyAudioMemoTemp.m4a",
-//                               nil];
-//    
-//    NSString * path = [pathComponents[0] stringByAppendingPathComponent:@"MyAudioMemoTemp.m4a"];
-//    
-//    NSData * audioData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
-//    
-//    PFObject * myTestObject = [PFObject objectWithClassName:@"ToiletThought"];
-//    
-//    PFFile * audioFile = [PFFile fileWithName:@"MyAudioMemoTemp.m4a" data:audioData];
-//    
-//    myTestObject[@"audioFile"] = audioFile;
-//    [myTestObject saveInBackground];
+
     
     [self.toolbarTextfield resignFirstResponder];
     [self.view endEditing:YES];
@@ -572,7 +559,7 @@
     
     if (!self.recorder.recording) {
         self.player = [[AVAudioPlayer alloc]initWithContentsOfURL:self.recorder.url error:nil];
-        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+//        [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
         [self.player setDelegate:self];
         [self.player play];
     }

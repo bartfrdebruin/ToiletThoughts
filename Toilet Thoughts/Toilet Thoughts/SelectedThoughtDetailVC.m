@@ -13,6 +13,7 @@
 #import "LoginViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SYWaveformPlayerView.h"
+#import <Social/Social.h>
 
 @interface SelectedThoughtDetailVC ()
 
@@ -38,7 +39,7 @@
 //    [self.navigationController.navigationBar setBackgroundImage:nil
 //                                                  forBarMetrics:UIBarMetricsDefault];
     
-     [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+//     [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
     
     [self.audioThought getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (data) {
@@ -73,6 +74,8 @@
     
     // Login button
     if (currentUser) {
+        
+       self.shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Share"] style:UIBarButtonItemStylePlain target:self action:@selector(share)];
         
         UIButton *userLoginButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
         [userLoginButton setImage:[UIImage imageNamed:@"profile WHITE ACTIVE"] forState:UIControlStateNormal];
@@ -126,7 +129,7 @@
 //        
 //    UIBarButtonItem *displayScoreButton = [[UIBarButtonItem alloc] initWithCustomView:scoreLabel];
 
-    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.scoreUpButton, nil];
+    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.shareButton, space, self.scoreUpButton, nil];
     
     // If user has posted the thought himself, he cannot upvote the thought
     if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
@@ -135,6 +138,53 @@
         self.scoreUpButton.enabled = NO;
     }
     
+}
+
+-(void)share {
+    UIAlertController * inviteFriendsSelected = [UIAlertController alertControllerWithTitle:@"Invite your friends"
+                                                                                    message:nil                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction* inviteFriendsTwitter = [UIAlertAction actionWithTitle:@"Invite via Twitter" style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * action)
+                                           {
+                                               SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                               [tweetSheet setInitialText:@"Come to my event that i just created in the CUapp; www.cu.com."];
+                                               [self presentViewController:tweetSheet animated:YES completion:nil];
+                                               
+                                           }];
+    
+    UIAlertAction* inviteFriendsFacebook = [UIAlertAction actionWithTitle:@"Invite via Facebook" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action)
+                                            {
+                                                SLComposeViewController *facebookSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+                                                [facebookSheet setInitialText:@"Come to my event that i just created in the CUapp; www.cu.com."];
+                                                [self presentViewController:facebookSheet animated:YES completion:nil];
+                                                
+                                            }];
+    
+    UIAlertAction * inviteFriendsContacts = [UIAlertAction actionWithTitle:@"Invite via contacts" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {
+                                                                       
+                                                                       NSArray * activityItems = @[[NSString stringWithFormat:@"I would like to invite you to my event, which i created in the awesome CU?app."], [NSURL URLWithString:@"http://www.theappacademy.nl"]];
+                                                                       
+                                                                       NSArray * excludeActivities = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeMessage, UIActivityTypeAddToReadingList];
+                                                                       
+                                                                       UIActivityViewController *doIt =[[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+                                                                       doIt.excludedActivityTypes = excludeActivities;
+                                                                       [self presentViewController:doIt animated:YES completion:nil];
+                                                                       
+                                                                       
+                                                                   }];
+    UIAlertAction *Cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:NULL];
+    
+    [inviteFriendsSelected addAction:inviteFriendsTwitter];
+    [inviteFriendsSelected addAction:inviteFriendsFacebook];
+    [inviteFriendsSelected addAction:inviteFriendsContacts];
+    [inviteFriendsSelected addAction:Cancel];
+    
+    [self presentViewController:inviteFriendsSelected animated:YES completion:nil];
+    
+
 }
 
 
@@ -365,7 +415,7 @@
     else {
         
         // Not logged in
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Not logged in!"
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"You are not logged in"
                                                                        message:@"You need to be logged in to vote up or down!"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
@@ -387,7 +437,7 @@
             
             self.player = [[AVAudioPlayer alloc] initWithData:data
                                                         error:&error];
-            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+//            [[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
             
             [self.player setVolume:1.0];
             [self.player setDelegate:self];

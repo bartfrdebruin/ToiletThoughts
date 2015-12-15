@@ -64,6 +64,18 @@
                         <constraint firstAttribute="width" constant="150" id="Pzb-L8-AGd"/>
                     </constraints>
                 </imageView>
+                <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayB-YL-hNj">
+                    <rect key="frame" x="0.0" y="478" width="414" height="344"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="344" id="Bgh-Ma-rZB"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Li3-PL-Nmm"/>
+                        <outlet property="delegate" destination="-1" id="Ccp-Ib-DZq"/>
+                    </connections>
+                </tableView>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Achter info COMPACT" translatesAutoresizingMaskIntoConstraints="NO" id="bCX-c7-L61">
                     <rect key="frame" x="0.0" y="288" width="414" height="128"/>
                     <animations/>
@@ -110,38 +122,6 @@
                         <action selector="addThought:" destination="-1" eventType="touchUpInside" id="7l1-cx-Md2"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-DV-xAG">
-                    <rect key="frame" x="235" y="296" width="51" height="32"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="51" id="hx3-Gt-l6z"/>
-                        <constraint firstAttribute="height" constant="32" id="tKG-gd-7UI"/>
-                    </constraints>
-                    <state key="normal" image="profile WHITE PASSIVE"/>
-                    <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="4so-sk-Cwu"/>
-                    </connections>
-                </button>
-                <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayB-YL-hNj">
-                    <rect key="frame" x="0.0" y="478" width="414" height="344"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="344" id="Bgh-Ma-rZB"/>
-                    </constraints>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="Li3-PL-Nmm"/>
-                        <outlet property="delegate" destination="-1" id="Ccp-Ib-DZq"/>
-                    </connections>
-                </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumb up WHITE PASSIVE" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-80-EOt">
-                    <rect key="frame" x="23" y="334" width="40" height="40"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="6vZ-ae-6eO"/>
-                        <constraint firstAttribute="width" constant="40" id="fKq-av-uki"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGf-pM-raD">
                     <rect key="frame" x="355" y="299" width="51" height="32"/>
                     <animations/>
@@ -154,6 +134,26 @@
                         <action selector="goToList:" destination="-1" eventType="touchUpInside" id="axf-Zw-0ZW"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-DV-xAG">
+                    <rect key="frame" x="235" y="296" width="51" height="32"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="51" id="hx3-Gt-l6z"/>
+                        <constraint firstAttribute="height" constant="32" id="tKG-gd-7UI"/>
+                    </constraints>
+                    <state key="normal" image="profile WHITE PASSIVE"/>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="4so-sk-Cwu"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumb up WHITE PASSIVE" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-80-EOt">
+                    <rect key="frame" x="23" y="334" width="40" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6vZ-ae-6eO"/>
+                        <constraint firstAttribute="width" constant="40" id="fKq-av-uki"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <animations/>
             <constraints>

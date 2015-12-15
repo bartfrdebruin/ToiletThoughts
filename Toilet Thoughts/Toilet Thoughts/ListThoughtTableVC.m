@@ -342,7 +342,7 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
         
         if ([cell.thoughtLabel.text isEqualToString:@""]) {
             
-            cell.thoughtLabel.text = @"This thought was recorded by audio.";
+            cell.thoughtLabel.text = @"'This thought was recorded by audio.'";
         }
         NSNumber *score = [currentThought objectForKey:@"score"];
         int scoreInIntValue = [score intValue];

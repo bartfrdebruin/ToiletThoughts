@@ -69,12 +69,14 @@
                         <action selector="signIn:" destination="-1" eventType="touchUpInside" id="fzu-rt-2TG"/>
                     </connections>
                 </button>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="V" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-Ie-yEH">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="V" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-Ie-yEH">
                     <rect key="frame" x="139" y="118" width="137" height="128"/>
                     <animations/>
                     <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="4Mx-8K-I73"/>
                         <constraint firstAttribute="width" constant="137" id="Hjr-1q-oxm"/>
                         <constraint firstAttribute="height" constant="128" id="ZBa-3C-G47"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="dRG-iD-1EU"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile WHITE PASSIVE" translatesAutoresizingMaskIntoConstraints="NO" id="EfL-X0-JUt">
@@ -154,6 +156,7 @@
                 <constraint firstItem="UgH-es-CE5" firstAttribute="top" secondItem="poW-uM-sm6" secondAttribute="bottom" constant="21" id="8ea-3e-NOo"/>
                 <constraint firstItem="QX6-7K-7j7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="E1z-cH-DNW"/>
                 <constraint firstItem="uav-vu-dqf" firstAttribute="top" secondItem="vNB-v5-8Ix" secondAttribute="bottom" constant="5" id="EG9-vo-1I2"/>
+                <constraint firstItem="TCk-Ie-yEH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="EoW-H9-jaT"/>
                 <constraint firstItem="hSC-7D-iLV" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KJs-kI-cGU"/>
                 <constraint firstItem="UgH-es-CE5" firstAttribute="leading" secondItem="vNB-v5-8Ix" secondAttribute="trailing" constant="25" id="KXT-Ie-ZIV"/>
                 <constraint firstItem="uav-vu-dqf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L76-in-eLl"/>
@@ -169,8 +172,10 @@
                 <constraint firstItem="vNB-v5-8Ix" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="oV6-ua-gj3"/>
                 <constraint firstItem="vIO-og-Nhp" firstAttribute="top" secondItem="mBr-hB-tRm" secondAttribute="bottom" constant="2" id="pFD-iT-H0h"/>
                 <constraint firstAttribute="bottom" secondItem="vIO-og-Nhp" secondAttribute="bottom" constant="44" id="ttT-kz-4sY"/>
+                <constraint firstItem="TCk-Ie-yEH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vJU-O3-Y8z"/>
                 <constraint firstItem="PE8-vJ-YbL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="vKC-Ll-fYg"/>
                 <constraint firstItem="EfL-X0-JUt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="39" id="w7e-CL-4G2"/>
+                <constraint firstItem="TCk-Ie-yEH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="139" id="wnu-1B-wc6"/>
                 <constraint firstItem="mBr-hB-tRm" firstAttribute="top" secondItem="uav-vu-dqf" secondAttribute="bottom" constant="21" id="x5u-y0-VGE"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
