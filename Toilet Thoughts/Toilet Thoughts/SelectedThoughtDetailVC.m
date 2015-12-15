@@ -32,6 +32,8 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Toilet Thought";
     
+     [self.navigationController setNavigationBarHidden:NO];
+    
     // To set the navigationbar to normal
 //    [self.navigationController.navigationBar setBackgroundImage:nil
 //                                                  forBarMetrics:UIBarMetricsDefault];
