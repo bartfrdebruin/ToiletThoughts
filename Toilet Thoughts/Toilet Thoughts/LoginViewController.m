@@ -59,6 +59,7 @@
     
     [self.userName resignFirstResponder];
     [self.passWord resignFirstResponder];
+    [self.passWord endEditing:YES];
     
     return YES;
 }
@@ -229,5 +230,6 @@
     [UIView commitAnimations];
     
 }
+
 
 @end
