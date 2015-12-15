@@ -25,7 +25,8 @@
 
     self.playerView.delegate = self;
 
-    NSDictionary *playerVars = @{ @"playsinline" : @1,};
+    NSDictionary *playerVars = @{ @"playsinline" : @1,
+                                  @"showinfo" : @0};
     [self.playerView loadWithVideoId:self.currentWinningThought[@"winningYouTubeVideoThoughtID"]playerVars:playerVars];
     
     self.winningToiletThought.text = self.currentWinningThought[@"toiletThought"];
@@ -34,8 +35,21 @@
     NSNumber *score = [self.currentWinningThought objectForKey:@"score"];
     self.winningScore.text = [NSString stringWithFormat:@" %@", score];
     
-    self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
+    int scoreInIntValue = [score intValue];
     
+    if (scoreInIntValue >= 0) {
+        
+//        self.thumbDown.hidden = YES;
+        self.thumbUp.hidden = NO;
+        self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
+
+        
+    } else if (scoreInIntValue < 0) {
+        
+        self.thumbUp.hidden = YES;
+//        self.thumbDown.hidden = NO;
+        self.taugeTVIntroduction.text = self.currentWinningThought[@"taugeTVIntroduction"];
+    }    
 }
 
 
