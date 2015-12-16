@@ -37,13 +37,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
+    [self.navigationController.view insertSubview:self.balloonView belowSubview:self.navigationController.navigationBar];
     
     // To set the navigationbar to normal
-    [self.navigationController.navigationBar setBackgroundImage:nil
-                                                  forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:nil
+//                                                  forBarMetrics:UIBarMetricsDefault];
     
     self.title = @"New";
+    
     self.toolbarTextfield.delegate = self;
     self.postButton.enabled = NO;
     
@@ -220,6 +223,8 @@
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
@@ -242,6 +247,8 @@
 # pragma mark - keyboardWillHide
 
 - (void)keyboardWillHide:(NSNotification*)notification {
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
