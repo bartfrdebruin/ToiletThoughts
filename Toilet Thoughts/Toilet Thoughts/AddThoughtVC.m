@@ -223,7 +223,7 @@
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
@@ -248,7 +248,7 @@
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
