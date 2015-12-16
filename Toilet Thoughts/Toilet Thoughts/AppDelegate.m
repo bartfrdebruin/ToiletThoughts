@@ -10,6 +10,9 @@
 #import "HomeViewController.h"
 #import "AddThoughtVC.h"
 #import <Parse/Parse.h>
+#import "Reachability.h"
+#import "NoInternetViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -28,44 +31,22 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-        
-    // Override point for customization after application launch.
     
     HomeViewController *homevc = [[HomeViewController alloc] init];
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homevc];
     
     self.window.rootViewController = navigationController;
     
-    
-    
     [[UINavigationBar appearance] setTintColor:[self colorWithHexString:@"FFFFFF"]];
     
-    
-//    navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.4588235294
-//                                                                      green:0.1098039216
-//                                                                       blue:0.2705882353
-//                                                                      alpha:1.0f];
-    
-    // To do: change the deprecated classes intro appropiate ones and updated the values.
+        // To do: change the deprecated classes intro appropiate ones and updated the values.
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName:[self colorWithHexString:@"FFFFFF"]}];
     
     [navigationController setNavigationBarHidden:YES];
     
-    // TitleColor
-//    [[UIToolbar appearance] setTintColor:[UIColor colorWithRed:1.0
-//                                                         green:0.9921568627
-//                                                          blue:0.3529411765
-//                                                         alpha:1.0f]];
     navigationController.navigationBar.barTintColor = [self colorWithHexString:@"CF007E"];
     [[UIToolbar appearance] setTintColor:[self colorWithHexString:@"FFFFFF"]];
     [[UIToolbar appearance] setBarTintColor:[self colorWithHexString:@"CF007E"]];
-    
-    // BartintColor
-//    [[UIToolbar appearance] setBarTintColor:[UIColor colorWithRed:0.4588235294
-//                                                            green:0.1098039216
-//                                                             blue:0.2705882353
-//                                                            alpha:1.0f]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     

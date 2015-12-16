@@ -11,8 +11,13 @@
 #import "AddThoughtVC.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "NoInternetViewController.h"
+#import "Reachability.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic) Reachability *internetReachability;
+
 
 @end
 
@@ -63,6 +68,34 @@
     
 }
 
+- (void)reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInterfaceWithReachability:curReach];
+}
+
+- (void)updateInterfaceWithReachability:(Reachability *)reachability {
+    
+    NetworkStatus netStatus = [reachability currentReachabilityStatus];
+    
+    if (netStatus == NotReachable) {
+        
+        NoInternetViewController *noInternetViewController = [[NoInternetViewController alloc] init];
+        [self presentViewController:noInternetViewController animated:YES completion: nil];
+        
+    } else {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+    
+    
+}
+
+
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -71,8 +104,12 @@
     [self.navigationController.navigationBar setBackgroundImage:nil
                                                   forBarMetrics:UIBarMetricsDefault];
     
-    //
-   
+    self.internetReachability = [Reachability reachabilityForInternetConnection];
+    [self.internetReachability startNotifier];
+    [self updateInterfaceWithReachability:self.internetReachability];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
     NSDate *date = [NSDate date];
     NSCalendar *calender = [NSCalendar currentCalendar];
     
@@ -84,7 +121,7 @@
     self.year = [[calender components:NSCalendarUnitYear fromDate:date] year]*100;
     
     self.weekAndYear = (self.weekOfYear + self.year);
-  
+    
     if (self.weekOfYear == 1) {
         
         PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
@@ -102,7 +139,7 @@
             }
         }];
     }
-
+    
     
     PFQuery *query = [PFQuery queryWithClassName:@"ToiletThought"];
     [query whereKey:@"weekNumber" equalTo:@(self.weekAndYear - 1)];
@@ -130,24 +167,18 @@
                 self.thumbsDown.hidden = YES;
                 self.thumbsUp.hidden = NO;
                 self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
-
+                
                 
             } else if (scoreInIntValue < 0) {
                 
                 self.thumbsUp.hidden = YES;
                 self.thumbsDown.hidden = NO;
                 self.highestScoreNumberLabel.text = [NSString stringWithFormat:@" %@", highestScoreNumber];
-
                 
             }
-            
-            }
+        }
     }];
-
-
-    
-    
-    }
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     

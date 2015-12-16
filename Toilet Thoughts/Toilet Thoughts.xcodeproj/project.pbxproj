@@ -26,6 +26,9 @@
 		1DC5DDE21C073E8900AD4C3C /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC5DDE01C073E8900AD4C3C /* UserViewController.xib */; };
 		1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC5DDE41C0760F500AD4C3C /* LoginViewController.m */; };
 		1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DC5DDE51C0760F500AD4C3C /* LoginViewController.xib */; };
+		1DE961091C2168DD00263DF2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE961081C2168DD00263DF2 /* Reachability.m */; };
+		1DE9610D1C21769500263DF2 /* NoInternetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9610B1C21769500263DF2 /* NoInternetViewController.m */; };
+		1DE9610E1C21769500263DF2 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */; };
 		1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
 		1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */; };
@@ -88,6 +91,11 @@
 		1DC5DDE31C0760F500AD4C3C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1DC5DDE41C0760F500AD4C3C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1DC5DDE51C0760F500AD4C3C /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		1DE961071C2168DD00263DF2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		1DE961081C2168DD00263DF2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		1DE9610A1C21769500263DF2 /* NoInternetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoInternetViewController.h; sourceTree = "<group>"; };
+		1DE9610B1C21769500263DF2 /* NoInternetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoInternetViewController.m; sourceTree = "<group>"; };
+		1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
 		1DF305F91C049BBB0035BD50 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1DF305FA1C049BBB0035BD50 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -171,6 +179,8 @@
 				2B3D56881C18FA690069261F /* SCWaveformView.m */,
 				2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */,
 				2B3D56861C18FA4C0069261F /* SYWaveformPlayerView.h */,
+				1DE961071C2168DD00263DF2 /* Reachability.h */,
+				1DE961081C2168DD00263DF2 /* Reachability.m */,
 				1DB544181C0461FE00383E1C /* Assets.xcassets */,
 				2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */,
 				1D07DABD1C159629007DC892 /* TAAYouTubeWrapper.h */,
@@ -187,6 +197,9 @@
 				1DF306121C049DCA0035BD50 /* AddThoughtVC.h */,
 				1DF306131C049DCA0035BD50 /* AddThoughtVC.m */,
 				1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */,
+				1DE9610A1C21769500263DF2 /* NoInternetViewController.h */,
+				1DE9610B1C21769500263DF2 /* NoInternetViewController.m */,
+				1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */,
 				1DF3061C1C049E100035BD50 /* ThoughtCustomCell.h */,
 				1DF3061D1C049E100035BD50 /* ThoughtCustomCell.m */,
 				1DF3061E1C049E100035BD50 /* ThoughtCustomCell.xib */,
@@ -376,6 +389,7 @@
 				1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */,
 				1D07DABC1C158DE4007DC892 /* Assets.bundle in Resources */,
 				1D90A6B51C0493D200BC9F8F /* Podfile in Resources */,
+				1DE9610E1C21769500263DF2 /* NoInternetViewController.xib in Resources */,
 				1DAC01E61C11C8260045A382 /* DetailVideoViewController.xib in Resources */,
 				1DC5DDE71C0760F500AD4C3C /* LoginViewController.xib in Resources */,
 				1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */,
@@ -458,11 +472,13 @@
 				2B3D56891C18FA690069261F /* SCWaveformView.m in Sources */,
 				1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */,
 				1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */,
+				1DE961091C2168DD00263DF2 /* Reachability.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
 				1DAC01E51C11C8260045A382 /* DetailVideoViewController.m in Sources */,
 				2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */,
 				1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */,
+				1DE9610D1C21769500263DF2 /* NoInternetViewController.m in Sources */,
 				1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */,
 				1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,
