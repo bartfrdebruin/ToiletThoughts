@@ -68,33 +68,6 @@
     
 }
 
-- (void)reachabilityChanged:(NSNotification *)note
-{
-    Reachability* curReach = [note object];
-    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
-    [self updateInterfaceWithReachability:curReach];
-}
-
-- (void)updateInterfaceWithReachability:(Reachability *)reachability {
-    
-    NetworkStatus netStatus = [reachability currentReachabilityStatus];
-    
-    if (netStatus == NotReachable) {
-        
-        NoInternetViewController *noInternetViewController = [[NoInternetViewController alloc] init];
-        [self presentViewController:noInternetViewController animated:YES completion: nil];
-        
-    } else {
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }
-    
-    
-}
-
-
-
 
 - (void)viewDidLoad {
     
@@ -103,12 +76,6 @@
     // To set the navigationbar to normal
     [self.navigationController.navigationBar setBackgroundImage:nil
                                                   forBarMetrics:UIBarMetricsDefault];
-    
-    self.internetReachability = [Reachability reachabilityForInternetConnection];
-    [self.internetReachability startNotifier];
-    [self updateInterfaceWithReachability:self.internetReachability];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
     NSDate *date = [NSDate date];
     NSCalendar *calender = [NSCalendar currentCalendar];
@@ -194,6 +161,44 @@
     [self.navigationController setToolbarHidden:YES];
 
 }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:YES];
+    
+    self.internetReachability = [Reachability reachabilityForInternetConnection];
+    [self.internetReachability startNotifier];
+    [self updateInterfaceWithReachability:self.internetReachability];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+}
+
+
+- (void)reachabilityChanged:(NSNotification *)note {
+    
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self updateInterfaceWithReachability:curReach];
+}
+
+- (void)updateInterfaceWithReachability:(Reachability *)reachability {
+    
+    NetworkStatus netStatus = [reachability currentReachabilityStatus];
+    if (netStatus == NotReachable) {
+        
+        self.thumbsDown.hidden = YES;
+        self.thumbsUp.hidden = YES;
+        NoInternetViewController *noInternetViewController = [[NoInternetViewController alloc] init];
+        [self presentViewController:noInternetViewController animated:YES completion: nil];
+        
+    } else {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+
 
 -(void)typingLabel:(NSTimer*)theTimer
 {
