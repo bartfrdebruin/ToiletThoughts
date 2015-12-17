@@ -29,7 +29,7 @@
 		1DE961091C2168DD00263DF2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE961081C2168DD00263DF2 /* Reachability.m */; };
 		1DE9610D1C21769500263DF2 /* NoInternetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9610B1C21769500263DF2 /* NoInternetViewController.m */; };
 		1DE9610E1C21769500263DF2 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */; };
-		1DE961121C22C29500263DF2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
+		1DE961141C22F92A00263DF2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE961101C22AB2B00263DF2 /* HomeViewController.swift */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
 		1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */; };
 		1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */; };
@@ -480,11 +480,11 @@
 				1DE961091C2168DD00263DF2 /* Reachability.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
-				1DE961121C22C29500263DF2 /* HomeViewController.m in Sources */,
 				1DAC01E51C11C8260045A382 /* DetailVideoViewController.m in Sources */,
 				2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */,
 				1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */,
 				1DE9610D1C21769500263DF2 /* NoInternetViewController.m in Sources */,
+				1DE961141C22F92A00263DF2 /* HomeViewController.swift in Sources */,
 				1DC5DDE11C073E8900AD4C3C /* UserViewController.m in Sources */,
 				1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,
