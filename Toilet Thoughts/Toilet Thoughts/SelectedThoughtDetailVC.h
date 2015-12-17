@@ -12,12 +12,14 @@
 
 @interface SelectedThoughtDetailVC : UIViewController <AVAudioPlayerDelegate>
 
+
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtScore;
 @property (weak, nonatomic) IBOutlet PFImageView *selectedThoughtImage;
 @property (weak, nonatomic) IBOutlet UILabel *selectedThoughtDetail;
 @property (weak, nonatomic) IBOutlet UIImageView *thoughtBalloon;
 @property (weak, nonatomic) IBOutlet UIButton *playAudioThought;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIButton *flush;
 
 @property (nonatomic, strong) NSTimer *audioTimer;
 @property (nonatomic, strong) PFFile *thoughtImageFile;
@@ -34,5 +36,6 @@
 @property (nonatomic, strong) UIBarButtonItem *scoreUpButton;
 @property (nonatomic, strong) UIBarButtonItem *scoreDownButton;
 @property (nonatomic, strong) UIBarButtonItem *shareButton;
+@property (nonatomic, strong) UIBarButtonItem *flushToilet;
 
 @end

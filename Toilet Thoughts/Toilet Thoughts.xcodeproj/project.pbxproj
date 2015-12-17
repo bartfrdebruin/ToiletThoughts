@@ -38,6 +38,9 @@
 		2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56841C18FA340069261F /* SYWaveformPlayerView.m */; };
 		2B3D56891C18FA690069261F /* SCWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3D56881C18FA690069261F /* SCWaveformView.m */; };
 		2B3D568B1C1A1B940069261F /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */; };
+		2B44C7051C21A61900139C41 /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44C7041C21A61800139C41 /* UIView+Genie.m */; };
+		2B44C7071C21A70600139C41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B44C7061C21A70600139C41 /* Foundation.framework */; };
+		2B44C7091C21A71300139C41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B44C7081C21A71300139C41 /* QuartzCore.framework */; };
 		C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -108,6 +111,10 @@
 		2B3D56871C18FA580069261F /* SCWaveformView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SCWaveformView.h; path = SYWaveformPlayer/SCWaveformView.h; sourceTree = "<group>"; };
 		2B3D56881C18FA690069261F /* SCWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCWaveformView.m; path = SYWaveformPlayer/SCWaveformView.m; sourceTree = "<group>"; };
 		2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
+		2B44C7031C21A61800139C41 /* UIView+Genie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Genie.h"; sourceTree = "<group>"; };
+		2B44C7041C21A61800139C41 /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
+		2B44C7061C21A70600139C41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2B44C7081C21A71300139C41 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3CC9690C4F09531EBF48020E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B44C7091C21A71300139C41 /* QuartzCore.framework in Frameworks */,
+				2B44C7071C21A70600139C41 /* Foundation.framework in Frameworks */,
 				C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */,
 				0C77931828097B41C4640877 /* libPods.a in Frameworks */,
 			);
@@ -196,6 +205,8 @@
 				1DF305F91C049BBB0035BD50 /* HomeViewController.h */,
 				1DF305FA1C049BBB0035BD50 /* HomeViewController.m */,
 				1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */,
+				2B44C7031C21A61800139C41 /* UIView+Genie.h */,
+				2B44C7041C21A61800139C41 /* UIView+Genie.m */,
 				1DC5DDDE1C073E8900AD4C3C /* UserViewController.h */,
 				1DC5DDDF1C073E8900AD4C3C /* UserViewController.m */,
 				1DC5DDE01C073E8900AD4C3C /* UserViewController.xib */,
@@ -240,6 +251,8 @@
 		3C575E9AE1CC1379CD330E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B44C7081C21A71300139C41 /* QuartzCore.framework */,
+				2B44C7061C21A70600139C41 /* Foundation.framework */,
 				3CC9690C4F09531EBF48020E /* libPods.a */,
 			);
 			name = Frameworks;
@@ -457,6 +470,7 @@
 				1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */,
 				2B3D56891C18FA690069261F /* SCWaveformView.m in Sources */,
 				1D9445E61C0D934E0073179B /* ListThoughtTableVC.m in Sources */,
+				2B44C7051C21A61900139C41 /* UIView+Genie.m in Sources */,
 				1DF306241C049E250035BD50 /* WinningThoughtCustomVideoCell.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,

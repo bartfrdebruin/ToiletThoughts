@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectedThoughtDetailVC">
             <connections>
+                <outlet property="flush" destination="WE4-aX-GDY" id="clm-aY-M3W"/>
                 <outlet property="playAudioThought" destination="yoN-B9-7BJ" id="WnL-UL-Vbl"/>
                 <outlet property="progressView" destination="aWh-WE-t9K" id="hiK-9t-s29"/>
                 <outlet property="selectedThoughtDetail" destination="0Du-wr-Nw8" id="KMB-nO-Lgj"/>
@@ -67,14 +68,31 @@
                         <action selector="playTapped:" destination="-1" eventType="touchUpInside" id="buv-rl-ueH"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WE4-aX-GDY">
+                    <rect key="frame" x="150" y="576" width="52" height="51"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="a1E-Kd-WHJ"/>
+                        <constraint firstAttribute="width" constant="74" id="o5l-cX-6G8"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="flush:" destination="-1" eventType="touchUpInside" id="g6l-Jn-TBy"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="WE4-aX-GDY" firstAttribute="centerX" secondItem="w9Q-FN-Yi2" secondAttribute="centerX" id="5c1-rk-AXQ"/>
                 <constraint firstAttribute="bottom" secondItem="aoZ-lz-Slf" secondAttribute="bottom" id="5fN-Gk-zqt"/>
                 <constraint firstItem="0Du-wr-Nw8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="85K-Fk-Z7O"/>
                 <constraint firstItem="w9Q-FN-Yi2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-1" id="M2A-jF-B5J"/>
                 <constraint firstAttribute="trailing" secondItem="w9Q-FN-Yi2" secondAttribute="trailing" constant="1" id="Rku-Sr-gTB"/>
+                <constraint firstAttribute="bottom" secondItem="WE4-aX-GDY" secondAttribute="bottom" constant="40" id="SpB-Bt-NdD"/>
                 <constraint firstItem="0Du-wr-Nw8" firstAttribute="centerX" secondItem="w9Q-FN-Yi2" secondAttribute="centerX" id="TfO-Ez-EM9"/>
                 <constraint firstItem="aoZ-lz-Slf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U7P-ub-Me9"/>
                 <constraint firstAttribute="trailing" secondItem="aoZ-lz-Slf" secondAttribute="trailing" id="YZw-1O-J7O"/>
@@ -93,7 +111,7 @@
                     <exclude reference="yFI-5C-emO"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="325.5" y="247.5"/>
+            <point key="canvasLocation" x="311.5" y="50.5"/>
         </view>
     </objects>
     <resources>
