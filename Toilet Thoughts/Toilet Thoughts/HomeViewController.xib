@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="highestScoreNumberLabel" destination="8zY-3o-K8K" id="YX8-eQ-pVX"/>
-                <outlet property="highestScoringToiletThought" destination="Dla-0m-mba" id="gTW-7z-K4i"/>
-                <outlet property="highestScoringUser" destination="tLe-E7-c50" id="Xof-3i-onV"/>
+                <outlet property="highestScoreNumberLabel" destination="8zY-3o-K8K" id="Tga-O8-d99"/>
+                <outlet property="highestScoringToiletThought" destination="Dla-0m-mba" id="hiq-sd-ilj"/>
+                <outlet property="highestScoringUser" destination="tLe-E7-c50" id="hNn-OT-r5R"/>
                 <outlet property="thumbsDown" destination="YMk-vK-l3w" id="VQE-dj-kQg"/>
-                <outlet property="thumbsUp" destination="hdw-Eu-7ll" id="7RF-dN-eEp"/>
+                <outlet property="thumbsUp" destination="hdw-Eu-7ll" id="ScF-Xl-jPm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="fSe-Sn-2pd"/>
             </connections>
         </placeholder>
@@ -75,7 +75,7 @@
                         <color key="titleColor" red="0.38039215686274508" green="0.062745098039215685" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="addThoughts:" destination="-1" eventType="touchUpInside" id="yB5-1T-BTp"/>
+                        <action selector="addThoughts:" destination="-1" eventType="touchUpInside" id="oHf-Lk-apN"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K15-wk-WHo" userLabel="Browse Button">
@@ -88,7 +88,7 @@
                         <color key="titleColor" red="0.38039215686274508" green="0.062745098039215685" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="browseThoughts:" destination="-1" eventType="touchUpInside" id="g30-Nm-psm"/>
+                        <action selector="browseThoughts:" destination="-1" eventType="touchUpInside" id="3up-O8-HQV"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="151124 toiletThoughts_white" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-lI-M40">

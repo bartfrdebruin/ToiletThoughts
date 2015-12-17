@@ -220,7 +220,7 @@
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
             
-            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            self.toiletThoughts = [[NSMutableArray alloc] initWithArray: objects];
             [self.tableView reloadData];
         }
     }];
@@ -236,7 +236,7 @@
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
             
-            self.winningThoughts = [[NSArray alloc] initWithArray: objects];
+            self.winningThoughts = [[NSMutableArray alloc] initWithArray: objects];
             [self.tableView reloadData];
         }
     }];
@@ -251,7 +251,7 @@
     [query findObjectsInBackgroundWithBlock: ^(NSArray *objects, NSError *error) {
         if (!error) {
             
-            self.toiletThoughts = [[NSArray alloc] initWithArray: objects];
+            self.toiletThoughts = [[NSMutableArray alloc] initWithArray: objects];
             [self.tableView reloadData];
         }
     }];

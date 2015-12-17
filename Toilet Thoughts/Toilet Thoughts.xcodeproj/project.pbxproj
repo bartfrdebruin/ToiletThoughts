@@ -29,7 +29,7 @@
 		1DE961091C2168DD00263DF2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE961081C2168DD00263DF2 /* Reachability.m */; };
 		1DE9610D1C21769500263DF2 /* NoInternetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE9610B1C21769500263DF2 /* NoInternetViewController.m */; };
 		1DE9610E1C21769500263DF2 /* NoInternetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */; };
-		1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
+		1DE961121C22C29500263DF2 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF305FA1C049BBB0035BD50 /* HomeViewController.m */; };
 		1DF305FD1C049BBB0035BD50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */; };
 		1DF306101C049DAB0035BD50 /* SelectedThoughtDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3060E1C049DAB0035BD50 /* SelectedThoughtDetailVC.m */; };
 		1DF306161C049DCA0035BD50 /* AddThoughtVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF306141C049DCA0035BD50 /* AddThoughtVC.xib */; };
@@ -96,6 +96,8 @@
 		1DE9610A1C21769500263DF2 /* NoInternetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoInternetViewController.h; sourceTree = "<group>"; };
 		1DE9610B1C21769500263DF2 /* NoInternetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoInternetViewController.m; sourceTree = "<group>"; };
 		1DE9610C1C21769500263DF2 /* NoInternetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoInternetViewController.xib; sourceTree = "<group>"; };
+		1DE9610F1C22AB2B00263DF2 /* Toilet Thoughts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Toilet Thoughts-Bridging-Header.h"; sourceTree = "<group>"; };
+		1DE961101C22AB2B00263DF2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1DF305F91C049BBB0035BD50 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		1DF305FA1C049BBB0035BD50 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				1DF306231C049E250035BD50 /* WinningThoughtCustomVideoCell.xib */,
 				1DF305F91C049BBB0035BD50 /* HomeViewController.h */,
 				1DF305FA1C049BBB0035BD50 /* HomeViewController.m */,
+				1DE961101C22AB2B00263DF2 /* HomeViewController.swift */,
 				1DF305FB1C049BBB0035BD50 /* HomeViewController.xib */,
 				1DC5DDDE1C073E8900AD4C3C /* UserViewController.h */,
 				1DC5DDDF1C073E8900AD4C3C /* UserViewController.m */,
@@ -218,6 +221,7 @@
 				1DB5441A1C0461FE00383E1C /* LaunchScreen.storyboard */,
 				1DB5441D1C0461FE00383E1C /* Info.plist */,
 				1DB5440C1C0461FE00383E1C /* Supporting Files */,
+				1DE9610F1C22AB2B00263DF2 /* Toilet Thoughts-Bridging-Header.h */,
 			);
 			path = "Toilet Thoughts";
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 		1DB544011C0461FE00383E1C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = BartandFouad;
 				TargetAttributes = {
@@ -475,6 +480,7 @@
 				1DE961091C2168DD00263DF2 /* Reachability.m in Sources */,
 				1DF3061F1C049E100035BD50 /* ThoughtCustomCell.m in Sources */,
 				1DB544111C0461FE00383E1C /* AppDelegate.m in Sources */,
+				1DE961121C22C29500263DF2 /* HomeViewController.m in Sources */,
 				1DAC01E51C11C8260045A382 /* DetailVideoViewController.m in Sources */,
 				2B3D56851C18FA340069261F /* SYWaveformPlayerView.m in Sources */,
 				1D07DABF1C159629007DC892 /* TAAYouTubeWrapper.m in Sources */,
@@ -483,7 +489,6 @@
 				1DC5DDE61C0760F500AD4C3C /* LoginViewController.m in Sources */,
 				1DB5440E1C0461FE00383E1C /* main.m in Sources */,
 				1D9445E81C0DFC050073179B /* AddThoughtVC.m in Sources */,
-				1DF305FC1C049BBB0035BD50 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,12 +622,15 @@
 			baseConfigurationReference = 6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Toilet Thoughts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.toiletthoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dd426d7a-223a-411d-8298-7aa77500c4f7";
+				SWIFT_OBJC_BRIDGING_HEADER = "Toilet Thoughts/Toilet Thoughts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -631,12 +639,14 @@
 			baseConfigurationReference = 4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Toilet Thoughts/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.toiletthoughts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "dd426d7a-223a-411d-8298-7aa77500c4f7";
+				SWIFT_OBJC_BRIDGING_HEADER = "Toilet Thoughts/Toilet Thoughts-Bridging-Header.h";
 			};
 			name = Release;
 		};

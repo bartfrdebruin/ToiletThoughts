@@ -48,6 +48,7 @@
 //    self.navigationController.view.backgroundColor = [UIColor clearColor];
 //    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
     
+    self.tableView.delegate = self;
     
     self.currentUser = [PFUser currentUser];
     
@@ -72,7 +73,8 @@
     
   
 
-    [self.tableView setContentInset:UIEdgeInsetsMake(- 65, 0, 0, 0)];
+    [self.tableView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    //[UIEdgeInsetsMa]
     
     if (self.currentUser) {
         
@@ -108,6 +110,8 @@
         
     }];
 }
+
+
 - (IBAction)logOut:(id)sender {
     UIAlertController *alert = [UIAlertController  alertControllerWithTitle: @"Log out?" message: @"Are you sure you want to log out?" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -299,6 +303,60 @@
 }
 
 
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *deleteButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+        
+        PFObject * objectToBeDeleted = [self.toiletThoughts objectAtIndex:indexPath.row];
+        NSMutableArray *mutableToiletThoughts = [[NSMutableArray alloc] init];
+        
+        mutableToiletThoughts = [self.toiletThoughts mutableCopy];
+        
+        for (PFObject *object in self.toiletThoughts) {
+            
+            if (objectToBeDeleted == object) {
+                [mutableToiletThoughts removeObject:object];
+                
+                self.toiletThoughts = mutableToiletThoughts;
+            }
+        }
+        [tableView reloadData];
+        
+        [objectToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+           
+        }];
+    }];
+    
+    return @[deleteButton];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        PFObject * objectToBeDeleted = [self.toiletThoughts objectAtIndex:indexPath.row];
+        [objectToBeDeleted deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            if (succeeded) {
+            
+            NSLog(@"succes");
+                 [tableView reloadData];
+            }
+        }];
+    }
+}
+
+
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.toiletThoughts.count;
@@ -320,7 +378,6 @@ heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SelectedThoughtDetailVC *stdvc = [[SelectedThoughtDetailVC alloc]init];
-    
     PFObject * selectedThought = self.toiletThoughts[indexPath.row];
     
     stdvc.thoughtImageFile = [selectedThought objectForKey:@"thoughtImage"];

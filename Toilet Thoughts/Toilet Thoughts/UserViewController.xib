@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -25,7 +25,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88e-zO-Bhi">
                     <rect key="frame" x="172" y="117" width="71" height="53"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="11b-qA-uUa"/>
                         <constraint firstAttribute="width" constant="71" id="355-tO-8zU"/>
@@ -53,11 +52,9 @@
                 </button>
                 <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toiletArt" translatesAutoresizingMaskIntoConstraints="NO" id="Az9-IT-HvL">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
-                    <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2r-bz-hZI" customClass="PFImageView">
                     <rect key="frame" x="132" y="94" width="150" height="150"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="ER9-mA-Ydc"/>
                         <constraint firstAttribute="width" secondItem="z2r-bz-hZI" secondAttribute="height" multiplier="1:1" id="G6z-N1-H35"/>
@@ -66,7 +63,6 @@
                 </imageView>
                 <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ayB-YL-hNj">
                     <rect key="frame" x="0.0" y="478" width="414" height="344"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="344" id="Bgh-Ma-rZB"/>
@@ -78,7 +74,6 @@
                 </tableView>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Achter info COMPACT" translatesAutoresizingMaskIntoConstraints="NO" id="bCX-c7-L61">
                     <rect key="frame" x="0.0" y="288" width="414" height="128"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="RWQ-lH-yEe"/>
                         <constraint firstAttribute="width" constant="414" id="ds0-t7-edy"/>
@@ -86,7 +81,6 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dem-mD-Vsb">
                     <rect key="frame" x="10" y="296" width="217" height="20"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="79s-4h-aaF"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Vf4-4K-GuS"/>
@@ -98,7 +92,6 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="totalScore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7Y-xD-PSq">
                     <rect key="frame" x="79" y="353" width="95" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="501" id="5y7-5F-v6E"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="DfO-eA-fWf"/>
@@ -110,7 +103,6 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFK-ta-rjE">
                     <rect key="frame" x="286" y="296" width="51" height="32"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="5wj-Fd-uKj"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="RyB-Nc-iaH"/>
@@ -124,7 +116,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGf-pM-raD">
                     <rect key="frame" x="355" y="299" width="51" height="32"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="51" id="1Ss-rE-c1m"/>
                         <constraint firstAttribute="height" constant="32" id="Pxr-Wm-kcC"/>
@@ -136,7 +127,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56u-DV-xAG">
                     <rect key="frame" x="235" y="296" width="51" height="32"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="51" id="hx3-Gt-l6z"/>
                         <constraint firstAttribute="height" constant="32" id="tKG-gd-7UI"/>
@@ -148,14 +138,12 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Thumb up WHITE PASSIVE" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-80-EOt">
                     <rect key="frame" x="23" y="334" width="40" height="40"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="6vZ-ae-6eO"/>
                         <constraint firstAttribute="width" constant="40" id="fKq-av-uki"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstItem="QFK-ta-rjE" firstAttribute="leading" secondItem="56u-DV-xAG" secondAttribute="trailing" constant="8" id="274-2c-3PC"/>
                 <constraint firstItem="QFK-ta-rjE" firstAttribute="top" secondItem="Az9-IT-HvL" secondAttribute="bottom" constant="8" id="2r1-Pa-yyR"/>

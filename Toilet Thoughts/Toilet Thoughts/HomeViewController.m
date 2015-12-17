@@ -46,6 +46,7 @@
     
 }
 
+
 - (IBAction)addThoughts:(id)sender {
     
     AddThoughtVC *addThoughtVC = [[AddThoughtVC alloc] initWithNibName:@"AddThoughtVC" bundle:nil];
