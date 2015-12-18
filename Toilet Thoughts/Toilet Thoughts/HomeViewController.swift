@@ -130,12 +130,14 @@ import UIKit
                     self.highestScoreNumberLabel.text = "\(highestScoreNumber)"
                     
                     // Here we write the animation for the homeScreen Thought
-                    let string = "self.highestScoringToiletThought!"
-                    let dict: NSMutableDictionary = NSMutableDictionary()
+                    let string = self.highestScoringToiletThought.text
+                    let dict = NSMutableDictionary()
 
                     dict["string"] = string
                     dict["currentCount"] = 0
-                    let timer = NSTimer.init(timeInterval: 0.1, target: self, selector: "typingLabel", userInfo: dict, repeats: true)
+                    
+                    let timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "typingLabel:", userInfo: dict, repeats: true)
+                    
                     timer.fire()
                     
                 } else if scoreIntValue < 0 {
@@ -200,19 +202,19 @@ import UIKit
     func typingLabel(theTimer:NSTimer) {
         
         let userInfoDict = theTimer.userInfo as! NSMutableDictionary
+        
         let theString = (theTimer.userInfo!["string"] as! NSString)
         var currentCount = (theTimer.userInfo!["currentCount"]as! Int)
-        currentCount++
+        currentCount += 1
         
         userInfoDict ["currentCount"] = currentCount
         
-        if currentCount > theString.length {
+        if currentCount > (theString.length - 1) {
             
             theTimer.invalidate()
         }
     
-        self.highestScoringToiletThought.text = "theString.substringToIndex currentCount"
-
+        self.highestScoringToiletThought.text = theString.substringToIndex(currentCount)
         }
     }
     
