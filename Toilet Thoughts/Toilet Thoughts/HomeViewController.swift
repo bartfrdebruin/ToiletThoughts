@@ -171,7 +171,9 @@ import UIKit
         self.internetReachability = (Reachability .reachabilityForInternetConnection())
         self.internetReachability!.startNotifier()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
+        self.updateInterfaceWithReachability(self.internetReachability!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
     }
     
     func reachabilityChanged(note: NSNotification) {
@@ -190,7 +192,7 @@ import UIKit
             let noInternetViewController = NoInternetViewController()
             self.presentViewController(noInternetViewController, animated: true, completion:nil)
         } else {
-            
+
            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
