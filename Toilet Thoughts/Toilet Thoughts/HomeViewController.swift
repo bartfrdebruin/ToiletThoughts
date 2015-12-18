@@ -169,7 +169,7 @@ import UIKit
         super.viewDidAppear(true)
         
         self.internetReachability = (Reachability .reachabilityForInternetConnection())
-        self.internetReachability! .startNotifier()
+        self.internetReachability!.startNotifier()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
     }
