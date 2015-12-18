@@ -15,11 +15,11 @@
 #import "WinningThoughtCustomVideoCell.h"
 #import "SelectedThoughtDetailVC.h"
 #import "ThoughtCustomCell.h"
-#import "HomeViewController.h"
 #import "DetailVideoViewController.h"
 #import "TAAYouTubeWrapper.h"
 #import "GTLYouTube.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ToiletThoughts-Swift.h"
 
 
 @interface ListThoughtTableVC ()

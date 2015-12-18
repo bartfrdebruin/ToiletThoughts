@@ -72,7 +72,7 @@
 		1DAC01E21C11C8260045A382 /* DetailVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoViewController.h; sourceTree = "<group>"; };
 		1DAC01E31C11C8260045A382 /* DetailVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoViewController.m; sourceTree = "<group>"; };
 		1DAC01E41C11C8260045A382 /* DetailVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoViewController.xib; sourceTree = "<group>"; };
-		1DB544091C0461FE00383E1C /* Toilet Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toilet Thoughts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DB544091C0461FE00383E1C /* ToiletThoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToiletThoughts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB5440D1C0461FE00383E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1DB5440F1C0461FE00383E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DB544101C0461FE00383E1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		1DB5440A1C0461FE00383E1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DB544091C0461FE00383E1C /* Toilet Thoughts.app */,
+				1DB544091C0461FE00383E1C /* ToiletThoughts.app */,
 				1DB544221C0461FE00383E1C /* Toilet ThoughtsTests.xctest */,
 				1DB5442D1C0461FE00383E1C /* Toilet ThoughtsUITests.xctest */,
 			);
@@ -274,9 +274,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DB544081C0461FE00383E1C /* Toilet Thoughts */ = {
+		1DB544081C0461FE00383E1C /* ToiletThoughts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DB544361C0461FF00383E1C /* Build configuration list for PBXNativeTarget "Toilet Thoughts" */;
+			buildConfigurationList = 1DB544361C0461FF00383E1C /* Build configuration list for PBXNativeTarget "ToiletThoughts" */;
 			buildPhases = (
 				5123F0B37DA3B7640DF83DB7 /* Check Pods Manifest.lock */,
 				1DB544051C0461FE00383E1C /* Sources */,
@@ -289,9 +289,9 @@
 			);
 			dependencies = (
 			);
-			name = "Toilet Thoughts";
+			name = ToiletThoughts;
 			productName = "Toilet Thoughts";
-			productReference = 1DB544091C0461FE00383E1C /* Toilet Thoughts.app */;
+			productReference = 1DB544091C0461FE00383E1C /* ToiletThoughts.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1DB544211C0461FE00383E1C /* Toilet ThoughtsTests */ = {
@@ -374,7 +374,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DB544081C0461FE00383E1C /* Toilet Thoughts */,
+				1DB544081C0461FE00383E1C /* ToiletThoughts */,
 				1DB544211C0461FE00383E1C /* Toilet ThoughtsTests */,
 				1DB5442C1C0461FE00383E1C /* Toilet ThoughtsUITests */,
 			);
@@ -513,12 +513,12 @@
 /* Begin PBXTargetDependency section */
 		1DB544241C0461FE00383E1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1DB544081C0461FE00383E1C /* Toilet Thoughts */;
+			target = 1DB544081C0461FE00383E1C /* ToiletThoughts */;
 			targetProxy = 1DB544231C0461FE00383E1C /* PBXContainerItemProxy */;
 		};
 		1DB5442F1C0461FE00383E1C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1DB544081C0461FE00383E1C /* Toilet Thoughts */;
+			target = 1DB544081C0461FE00383E1C /* ToiletThoughts */;
 			targetProxy = 1DB5442E1C0461FE00383E1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,7 +710,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DB544361C0461FF00383E1C /* Build configuration list for PBXNativeTarget "Toilet Thoughts" */ = {
+		1DB544361C0461FF00383E1C /* Build configuration list for PBXNativeTarget "ToiletThoughts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DB544371C0461FF00383E1C /* Debug */,

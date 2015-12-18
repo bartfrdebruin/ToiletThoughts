@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
 #import "AddThoughtVC.h"
 #import <Parse/Parse.h>
 #import "Reachability.h"
 #import "NoInternetViewController.h"
+#import "ToiletThoughts-Swift.h"
 
 
 @interface AppDelegate ()

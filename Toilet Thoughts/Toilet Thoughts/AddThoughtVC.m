@@ -8,7 +8,6 @@
 
 #import "AddThoughtVC.h"
 #import "UserViewController.h"
-#import "HomeViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import "LoginViewController.h"
@@ -16,6 +15,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LEMirroredImagePicker.h"
 #import "SelectedThoughtDetailVC.h"
+#import "ToiletThoughts-Swift.h"
+
 
 @import MobileCoreServices;
 

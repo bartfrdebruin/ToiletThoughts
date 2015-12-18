@@ -8,7 +8,6 @@
 
 #import "UserViewController.h"
 #import "LoginViewController.h"
-#import "HomeViewController.h"
 #import <ParseUI/ParseUI.h>
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
@@ -16,6 +15,8 @@
 #import "ListThoughtTableVC.h"
 #import "SelectedThoughtDetailVC.h"
 #import "AddThoughtVC.h"
+#import "ToiletThoughts-Swift.h"
+
 
 
 @interface UserViewController ()

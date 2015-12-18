@@ -8,7 +8,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ToiletThoughts" customModuleProvider="target">
             <connections>
                 <outlet property="highestScoreNumberLabel" destination="8zY-3o-K8K" id="Tga-O8-d99"/>
                 <outlet property="highestScoringToiletThought" destination="Dla-0m-mba" id="hiq-sd-ilj"/>

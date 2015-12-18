@@ -11,12 +11,12 @@ import UIKit
 
 @objc class HomeViewController: UIViewController {
     
-    var internetReachability: Reachability
-    var homeVC: UIViewController
-    var weekOfYear: NSInteger
-    var weekAndYear: NSInteger
-    var week: NSInteger
-    var year: NSInteger
+    var internetReachability: Reachability?
+    var homeVC: UIViewController?
+    var weekOfYear: NSInteger = 0
+    var weekAndYear: NSInteger = 0
+    var week: NSInteger = 0
+    var year: NSInteger = 0
     
     @IBOutlet var highestScoringToiletThought: UILabel!
     @IBOutlet var highestScoringUser: UILabel!
@@ -24,12 +24,30 @@ import UIKit
     @IBOutlet var thumbsUp: UIImageView!
     @IBOutlet var thumbsDown: UIImageView!
     
-    var highestScoreObject: PFObject
+    var highestScoreObject: PFObject!
+    
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    
+        super.init(nibName: "HomeViewController", bundle: nil)
+    }
+
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        internetReachability = nil
+        homeVC = nil
+        highestScoreObject = nil
+    
+        super.init(coder: aDecoder)
+    }
+
     
     
     @IBAction func browseThoughts(sender: AnyObject) {
         
-        let listThoughtTableVC: ListThoughtTableVC = ListThoughtTableVC(nibName: "listThoughtTableVC", bundle: nil)
+        let listThoughtTableVC = ListThoughtTableVC()
         
         UIView.beginAnimations("View Flip", context: nil)
         UIView.setAnimationDuration(0.80)
@@ -45,7 +63,7 @@ import UIKit
     
     @IBAction func addThoughts(sender: AnyObject) {
         
-        let addThoughtVC: AddThoughtVC = AddThoughtVC(nibName: "AddThoughtVC", bundle: nil)
+        let addThoughtVC = AddThoughtVC()
         
         UIView.beginAnimations("View Flip", context: nil)
         UIView.setAnimationDuration(0.80)
@@ -93,15 +111,13 @@ import UIKit
         }
         
         let query = PFQuery(className: "ToiletThought")
-        query.whereKey("weekNumber", equalTo: self.weekOfYear - 1)
+        query.whereKey("weekNumber", equalTo:(self.weekAndYear - 1))
         query.orderByDescending("score")
         
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)  -> Void in
             
-            if (objects != nil) {
-                
-                self.highestScoreObject = objects![0]
+                self.highestScoreObject = objects?[0]
                 self.highestScoringToiletThought.text = self.highestScoreObject["toiletThought"]as? String
                 self.highestScoringUser.text = self.highestScoreObject["userName"]as? String
                 
@@ -115,7 +131,8 @@ import UIKit
                     
                     // Here we write the animation for the homeScreen Thought
                     let string = "self.highestScoringToiletThought!"
-                    let dict: NSMutableDictionary
+                    let dict: NSMutableDictionary = NSMutableDictionary()
+
                     dict["string"] = string
                     dict["currentCount"] = 0
                     let timer = NSTimer.init(timeInterval: 0.1, target: self, selector: "typingLabel", userInfo: dict, repeats: true)
@@ -127,7 +144,7 @@ import UIKit
                     self.thumbsUp.hidden = true
                     self.highestScoreNumberLabel.text = "\(highestScoreNumber)"
                 }
-            }
+            
         }
     }
 
@@ -152,7 +169,7 @@ import UIKit
         super.viewDidAppear(true)
         
         self.internetReachability = (Reachability .reachabilityForInternetConnection())
-        self.internetReachability .startNotifier()
+        self.internetReachability! .startNotifier()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
     }
@@ -180,34 +197,21 @@ import UIKit
     
     func typingLabel(theTimer:NSTimer) {
         
-        let userInfoDict: NSMutableDictionary = theTimer.userInfo as! NSMutableDictionary
-        var theString: String = (theTimer.userInfo!["string"] as! String)
-        var currentCount: Int = (theTimer.userInfo!["currentCount"]as! Int)
+        let userInfoDict = theTimer.userInfo as! NSMutableDictionary
+        let theString = (theTimer.userInfo!["string"] as! NSString)
+        var currentCount = (theTimer.userInfo!["currentCount"]as! Int)
         currentCount++
         
         userInfoDict ["currentCount"] = currentCount
         
-//        (theString.substringToIndex(currentCount))
-//        
-//        var currentCount: Int32 = theTimer.userInfo["currentCount"].intValue()
-//
-//        
-//        theTimer.userInfo! ["currentCount"] = Int (currentCount)
-//        
-//            if currentCount > (theString.lenght - 1) {
-//            theTimer.invalidate()
+        if currentCount > theString.length {
+            
+            theTimer.invalidate()
+        }
+    
+        self.highestScoringToiletThought.text = "theString.substringToIndex currentCount"
+
         }
     }
     
    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
