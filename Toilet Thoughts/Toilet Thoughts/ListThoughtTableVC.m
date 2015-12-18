@@ -20,6 +20,7 @@
 #import "GTLYouTube.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ToiletThoughts-Swift.h"
+#import <AVFoundation/AVFoundation.h>
 
 
 @interface ListThoughtTableVC ()

@@ -40,7 +40,7 @@
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-    [self.navigationController.view insertSubview:self.balloonView belowSubview:self.navigationController.navigationBar];
+    [self.view addSubview:self.balloonView];
     
     // To set the navigationbar to normal
 //    [self.navigationController.navigationBar setBackgroundImage:nil

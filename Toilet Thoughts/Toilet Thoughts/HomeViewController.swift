@@ -135,7 +135,7 @@ import UIKit
 
                     dict["string"] = string
                     dict["currentCount"] = 0
-                    let timer = NSTimer.init(timeInterval: 0.1, target: self, selector: "typingLabel", userInfo: dict, repeats: true)
+                    let timer = NSTimer.init(timeInterval: 0.1, target: self, selector: "typingLabel:", userInfo: dict, repeats: true)
                     timer.fire()
                     
                 } else if scoreIntValue < 0 {
@@ -200,17 +200,19 @@ import UIKit
         let userInfoDict = theTimer.userInfo as! NSMutableDictionary
         let theString = (theTimer.userInfo!["string"] as! NSString)
         var currentCount = (theTimer.userInfo!["currentCount"]as! Int)
-        currentCount++
+        
+//        var currentCount = (currentCount1)
+        
+        currentCount += 1
         
         userInfoDict ["currentCount"] = currentCount
         
-        if currentCount > theString.length {
+        if currentCount > theString.length - 1 {
             
             theTimer.invalidate()
         }
     
-        self.highestScoringToiletThought.text = "theString.substringToIndex currentCount"
-
+        self.highestScoringToiletThought.text = "test this out"
         }
     }
     

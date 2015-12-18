@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="balloon" destination="rMh-dZ-WU6" id="WaC-0W-20Z"/>
                 <outlet property="balloonView" destination="p9O-B9-j8E" id="OVa-wT-f2n"/>
-                <outlet property="camerText" destination="ms1-ar-dmd" id="uFB-iX-wGx"/>
                 <outlet property="imageView" destination="B2m-eE-HdP" id="hC2-aZ-hcz"/>
                 <outlet property="postButton" destination="P0F-dl-lTd" id="Mf0-PM-E7V"/>
                 <outlet property="record" destination="Tj6-wY-KTE" id="K3y-VJ-R9X"/>
@@ -29,26 +28,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="324" height="524"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-6C-y7i">
-                    <rect key="frame" x="84" y="228" width="153" height="112"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="112" id="6PR-Zl-Hbn"/>
-                    </constraints>
-                    <state key="normal" title="cameraButton" image="camera"/>
-                    <connections>
-                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
-                    </connections>
-                </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9O-B9-j8E" userLabel="balloonView">
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9O-B9-j8E" userLabel="balloonView">
                     <rect key="frame" x="0.0" y="64" width="324" height="176"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" preservesSuperviewLayoutMargins="YES" image="Thought vlak iphone 6" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-dZ-WU6">
                             <rect key="frame" x="0.0" y="0.0" width="324" height="176"/>
                             <animations/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your text go's here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6J-Z4-dJX">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your text go's here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6J-Z4-dJX">
                             <rect key="frame" x="36" y="23" width="251" height="131"/>
                             <animations/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
@@ -69,16 +57,13 @@
                         <constraint firstAttribute="bottom" secondItem="rMh-dZ-WU6" secondAttribute="bottom" id="gOb-3A-TRi"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to take a picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-ar-dmd">
-                    <rect key="frame" x="63" y="273" width="195" height="21"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kEn-H0-dHB">
                     <rect key="frame" x="-19" y="524" width="339" height="44"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="5Yo-gg-i15"/>
+                        <constraint firstAttribute="width" constant="339" id="8el-XW-x2j"/>
+                    </constraints>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="EO6-OO-iVQ"/>
                         <barButtonItem style="plain" id="sjX-7i-Ety">
@@ -114,25 +99,36 @@
                     </items>
                     <color key="barTintColor" red="0.81176470590000005" green="0.0" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
                 </toolbar>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nql-6C-y7i">
+                    <rect key="frame" x="84" y="282" width="153" height="112"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="112" id="Ztg-ja-cT2"/>
+                        <constraint firstAttribute="width" constant="153" id="gwd-IH-KVC"/>
+                    </constraints>
+                    <state key="normal" title="cameraButton" image="camera"/>
+                    <connections>
+                        <action selector="takePicture:" destination="-1" eventType="touchUpInside" id="W0m-gN-TGK"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="63" id="D7F-So-pEx"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="00U-Dc-eoK"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="84" id="AtX-lv-TuQ"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" id="HjY-h8-oRX"/>
                 <constraint firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" constant="-4" id="IKH-GN-yOm"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="84" id="JIl-hB-CSa"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="bottom" constant="33" id="Mdg-Op-aS4"/>
+                <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="IZY-ee-YUY"/>
+                <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="J7n-c8-703"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" id="NMr-B1-XPb"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Opy-ht-tzP"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="bottom" constant="42" id="OkW-84-vZl"/>
                 <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="TjO-a0-OO8"/>
                 <constraint firstItem="p9O-B9-j8E" firstAttribute="leading" secondItem="B2m-eE-HdP" secondAttribute="leading" id="Ybn-sT-P8m"/>
                 <constraint firstItem="p9O-B9-j8E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bgb-vf-5v0"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fFe-We-vmb"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="edq-qB-8Am"/>
                 <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="hwj-FN-onK"/>
                 <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="p22-TZ-lp1"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="ms1-ar-dmd" secondAttribute="centerY" id="p5h-iU-T5W"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="Nql-6C-y7i" secondAttribute="centerX" id="qiD-Pz-QLw"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="t4E-k7-Tek"/>
                 <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x4Z-jm-DyG"/>
             </constraints>
