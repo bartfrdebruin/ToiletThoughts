@@ -14,11 +14,16 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SYWaveformPlayerView.h"
 #import <Social/Social.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UIView+Genie.h"
 
 @interface SelectedThoughtDetailVC ()
 
-@property (nonatomic) AVAudioRecorder *recorder;
-@property (nonatomic) AVAudioPlayer *player;
+@property (nonatomic, strong) AVAudioRecorder *recorder;
+@property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic) NSString *path;
+@property (nonatomic)NSURL *url;
+
 
 
 @end
@@ -93,6 +98,7 @@
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                            target:nil action:NULL];
     
+    self.flushToilet = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Toilet WHITE"] style:UIBarButtonItemStylePlain target:self action:@selector(flush)];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *savedVote = [defaults objectForKey:self.currentThought.objectId];
@@ -116,7 +122,7 @@
         
         self.scoreDownButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumb down WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreDown)];
         
-        self.scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Thumb up WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreUp)];
+        self.scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Thumb up WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(flush)];
     }
       
     
@@ -129,7 +135,7 @@
 //        
 //    UIBarButtonItem *displayScoreButton = [[UIBarButtonItem alloc] initWithCustomView:scoreLabel];
 
-    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.shareButton, space, self.scoreUpButton, nil];
+    self.toolbarItems = [NSArray arrayWithObjects: self.scoreDownButton, space, self.flushToilet, space, self.scoreUpButton, nil];
     
     // If user has posted the thought himself, he cannot upvote the thought
     if ([[self.currentThought objectForKey:@"userName"] isEqualToString:currentUser.username]) {
@@ -216,7 +222,7 @@
         self.playAudioThought.hidden = YES;
         self.progressView.hidden = YES;
         
-    [UIView animateWithDuration:4.0 delay:0.0 options:UIViewAnimationOptionRepeat animations:^{
+    [UIView animateWithDuration:4.0 delay:0.0 options: UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
         self.selectedThoughtDetail.alpha = 0.0;
         self.selectedThoughtScore.alpha = 0;
         self.thoughtBalloon.alpha = 0.0;
@@ -462,5 +468,38 @@
         [self.progressView setProgress:(self.player.currentTime / self.player.duration)];
 }
 
+- (IBAction)flush:(id)sender {
+    
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"urinal_flush_in_public_toilet" ofType:@"mp3"];
+    NSError* error;
+    
+    
+    AVAudioPlayer *flushplayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
+    [flushplayer setVolume:1.0];
+    [flushplayer prepareToPlay];
+    [flushplayer play];
+
+    
+    CGRect endRect = self.flush.frame;
+    [self.view genieInTransitionWithDuration:0.7
+                             destinationRect:endRect
+                             destinationEdge:BCRectEdgeTop
+                                  completion:^{
+                                      NSLog(@"I'm done!");
+                                  }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+   
+    
+    
+    
+    CGRect startRect = CGRectMake(30, 40, 50, 60);
+    [self.view genieOutTransitionWithDuration:0.7
+                               startRect:startRect
+                               startEdge:BCRectEdgeLeft
+                              completion:nil];
+}
 
 @end
