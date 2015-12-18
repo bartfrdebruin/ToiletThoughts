@@ -33,7 +33,7 @@
                     <rect key="frame" x="84" y="228" width="153" height="112"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="112" id="Ljw-rO-dqv"/>
+                        <constraint firstAttribute="height" constant="112" id="6PR-Zl-Hbn"/>
                     </constraints>
                     <state key="normal" title="cameraButton" image="camera"/>
                     <connections>
@@ -59,14 +59,14 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="centerY" secondItem="rMh-dZ-WU6" secondAttribute="centerY" id="99b-Xi-hYV"/>
-                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="p9O-B9-j8E" secondAttribute="leading" constant="36" id="DgH-30-aOO"/>
-                        <constraint firstAttribute="trailing" secondItem="rMh-dZ-WU6" secondAttribute="trailing" id="GeE-Jg-V6K"/>
-                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="leading" secondItem="p9O-B9-j8E" secondAttribute="leading" id="KJJ-6N-eqo"/>
-                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="top" id="Tw9-yE-J4l"/>
-                        <constraint firstAttribute="bottom" secondItem="rMh-dZ-WU6" secondAttribute="bottom" id="gXc-7J-OVF"/>
-                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="top" constant="23" id="pIT-JI-q6T"/>
-                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerX" secondItem="D6J-Z4-dJX" secondAttribute="centerX" id="tor-fd-nJi"/>
+                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="top" constant="23" id="HQG-l2-Gwp"/>
+                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="top" id="Kf5-XC-hpc"/>
+                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="leading" secondItem="p9O-B9-j8E" secondAttribute="leading" constant="36" id="Qkc-HA-okC"/>
+                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="centerY" secondItem="D6J-Z4-dJX" secondAttribute="centerY" id="RIh-xp-DeC"/>
+                        <constraint firstItem="rMh-dZ-WU6" firstAttribute="leading" secondItem="p9O-B9-j8E" secondAttribute="leading" id="beN-jm-hL5"/>
+                        <constraint firstItem="D6J-Z4-dJX" firstAttribute="centerX" secondItem="rMh-dZ-WU6" secondAttribute="centerX" id="dca-3G-r2s"/>
+                        <constraint firstAttribute="trailing" secondItem="rMh-dZ-WU6" secondAttribute="trailing" id="fXD-Dw-aDA"/>
+                        <constraint firstAttribute="bottom" secondItem="rMh-dZ-WU6" secondAttribute="bottom" id="gOb-3A-TRi"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to take a picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ms1-ar-dmd">
@@ -118,23 +118,23 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="251-v7-4xJ"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BFb-hj-W0z"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="ms1-ar-dmd" secondAttribute="centerY" id="DSO-7A-zXi"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E6F-LL-z6b"/>
-                <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="p9O-B9-j8E" secondAttribute="leading" id="Et8-ww-l6E"/>
-                <constraint firstItem="B2m-eE-HdP" firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" id="J3Y-6u-g2G"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="63" id="OEk-Ym-qWa"/>
-                <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TvP-PE-Emd"/>
-                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" id="Ufj-xQ-ZQz"/>
-                <constraint firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" constant="-4" id="WBw-e9-ft4"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="84" id="bmk-LL-QWp"/>
-                <constraint firstItem="ms1-ar-dmd" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="bottom" constant="33" id="gFd-z7-Q6n"/>
-                <constraint firstItem="p9O-B9-j8E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="juh-D4-Jx8"/>
-                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerX" secondItem="ms1-ar-dmd" secondAttribute="centerX" id="vg8-Yd-ZA6"/>
-                <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="wwV-BY-Kr1"/>
-                <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x2E-MG-tlg"/>
-                <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="yqV-MZ-M71"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="63" id="D7F-So-pEx"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="top" secondItem="B2m-eE-HdP" secondAttribute="bottom" id="HjY-h8-oRX"/>
+                <constraint firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" constant="-4" id="IKH-GN-yOm"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="84" id="JIl-hB-CSa"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="top" secondItem="p9O-B9-j8E" secondAttribute="bottom" constant="33" id="Mdg-Op-aS4"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="trailing" secondItem="p9O-B9-j8E" secondAttribute="trailing" id="NMr-B1-XPb"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Opy-ht-tzP"/>
+                <constraint firstItem="kEn-H0-dHB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-19" id="TjO-a0-OO8"/>
+                <constraint firstItem="p9O-B9-j8E" firstAttribute="leading" secondItem="B2m-eE-HdP" secondAttribute="leading" id="Ybn-sT-P8m"/>
+                <constraint firstItem="p9O-B9-j8E" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="bgb-vf-5v0"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fFe-We-vmb"/>
+                <constraint firstAttribute="trailing" secondItem="kEn-H0-dHB" secondAttribute="trailing" id="hwj-FN-onK"/>
+                <constraint firstAttribute="bottom" secondItem="kEn-H0-dHB" secondAttribute="bottom" id="p22-TZ-lp1"/>
+                <constraint firstItem="Nql-6C-y7i" firstAttribute="centerY" secondItem="ms1-ar-dmd" secondAttribute="centerY" id="p5h-iU-T5W"/>
+                <constraint firstItem="ms1-ar-dmd" firstAttribute="centerX" secondItem="Nql-6C-y7i" secondAttribute="centerX" id="qiD-Pz-QLw"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="t4E-k7-Tek"/>
+                <constraint firstItem="B2m-eE-HdP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x4Z-jm-DyG"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>

@@ -41,6 +41,7 @@
 		2B44C7051C21A61900139C41 /* UIView+Genie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B44C7041C21A61800139C41 /* UIView+Genie.m */; };
 		2B44C7071C21A70600139C41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B44C7061C21A70600139C41 /* Foundation.framework */; };
 		2B44C7091C21A71300139C41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B44C7081C21A71300139C41 /* QuartzCore.framework */; };
+		2B44C70B1C23720B00139C41 /* urinal_flush_in_public_toilet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2B44C70A1C23720B00139C41 /* urinal_flush_in_public_toilet.mp3 */; };
 		C1CB636C6A313DF95F0CE4A8 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		2B44C7041C21A61800139C41 /* UIView+Genie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Genie.m"; sourceTree = "<group>"; };
 		2B44C7061C21A70600139C41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2B44C7081C21A71300139C41 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2B44C70A1C23720B00139C41 /* urinal_flush_in_public_toilet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = urinal_flush_in_public_toilet.mp3; path = "Assets.xcassets/Achter info/flush.dataset/urinal_flush_in_public_toilet.mp3"; sourceTree = "<group>"; };
 		3CC9690C4F09531EBF48020E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDC79B212810E9E971CEDA7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6520C71ED4338FC2DEC75F39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				2B3D56861C18FA4C0069261F /* SYWaveformPlayerView.h */,
 				1DB544181C0461FE00383E1C /* Assets.xcassets */,
 				2B3D568A1C1A1B940069261F /* I Need A Dollar.mp3 */,
+				2B44C70A1C23720B00139C41 /* urinal_flush_in_public_toilet.mp3 */,
 				1D07DABD1C159629007DC892 /* TAAYouTubeWrapper.h */,
 				1D07DABE1C159629007DC892 /* TAAYouTubeWrapper.m */,
 				1D9445E31C0D934E0073179B /* ListThoughtTableVC.h */,
@@ -381,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B44C70B1C23720B00139C41 /* urinal_flush_in_public_toilet.mp3 in Resources */,
 				2B3D56711C1644300069261F /* SelectedThoughtDetailVC.xib in Resources */,
 				1DF306201C049E100035BD50 /* ThoughtCustomCell.xib in Resources */,
 				1DC5DDE21C073E8900AD4C3C /* UserViewController.xib in Resources */,

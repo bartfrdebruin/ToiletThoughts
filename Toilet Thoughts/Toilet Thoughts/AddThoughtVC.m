@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     [self.navigationController.view insertSubview:self.balloonView belowSubview:self.navigationController.navigationBar];
     
@@ -281,7 +281,7 @@
     
     [self.toolbarTextfield endEditing:YES];
     [self.toolbarTextfield resignFirstResponder];
-//
+
     return YES;
 }
 

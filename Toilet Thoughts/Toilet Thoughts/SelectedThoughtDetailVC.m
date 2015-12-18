@@ -19,15 +19,18 @@
 
 @interface SelectedThoughtDetailVC ()
 
-@property (nonatomic) AVAudioRecorder *recorder;
-@property (nonatomic) AVAudioPlayer *player;
+@property (nonatomic, strong) AVAudioRecorder *recorder;
+@property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic) NSString *path;
 @property (nonatomic)NSURL *url;
+
 
 
 @end
 
 @implementation SelectedThoughtDetailVC
+
+
 
 - (void)viewDidLoad {
     
@@ -467,6 +470,16 @@
 
 - (IBAction)flush:(id)sender {
     
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"urinal_flush_in_public_toilet" ofType:@"mp3"];
+    NSError* error;
+    
+    
+    AVAudioPlayer *flushplayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
+    [flushplayer setVolume:1.0];
+    [flushplayer prepareToPlay];
+    [flushplayer play];
+
+    
     CGRect endRect = self.flush.frame;
     [self.view genieInTransitionWithDuration:0.7
                              destinationRect:endRect
@@ -480,14 +493,6 @@
     });
    
     
-    NSString* path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"I Need A Dollar.mp3"];
-    NSError* error;
-    
-    
-    AVAudioPlayer *flushplayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&error];
-    [flushplayer setVolume:1.0];
-    [flushplayer prepareToPlay];
-    [flushplayer play];
     
     
     CGRect startRect = CGRectMake(30, 40, 50, 60);
