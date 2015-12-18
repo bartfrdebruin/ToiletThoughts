@@ -124,7 +124,9 @@ import UIKit
                 let newInt = (self.highestScoreObject ["score"]as? Int)
                 let highestScoreNumber = NSNumber.init(integer:newInt!)
                 let scoreIntValue: Int = newInt!
+            
                 if scoreIntValue >= 0 {
+                    
                     self.thumbsDown.hidden = true
                     self.thumbsUp.hidden = false
                     self.highestScoreNumberLabel.text = "\(highestScoreNumber)"
