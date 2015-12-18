@@ -130,12 +130,14 @@ import UIKit
                     self.highestScoreNumberLabel.text = "\(highestScoreNumber)"
                     
                     // Here we write the animation for the homeScreen Thought
-                    let string = "self.highestScoringToiletThought!"
-                    let dict: NSMutableDictionary = NSMutableDictionary()
+                    let string = self.highestScoringToiletThought.text
+                    let dict = NSMutableDictionary()
 
                     dict["string"] = string
                     dict["currentCount"] = 0
-                    let timer = NSTimer.init(timeInterval: 0.1, target: self, selector: "typingLabel:", userInfo: dict, repeats: true)
+                    
+                    let timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "typingLabel:", userInfo: dict, repeats: true)
+                    
                     timer.fire()
                     
                 } else if scoreIntValue < 0 {
@@ -169,9 +171,11 @@ import UIKit
         super.viewDidAppear(true)
         
         self.internetReachability = (Reachability .reachabilityForInternetConnection())
-        self.internetReachability! .startNotifier()
+        self.internetReachability!.startNotifier()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
+        self.updateInterfaceWithReachability(self.internetReachability!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
     }
     
     func reachabilityChanged(note: NSNotification) {
@@ -190,7 +194,7 @@ import UIKit
             let noInternetViewController = NoInternetViewController()
             self.presentViewController(noInternetViewController, animated: true, completion:nil)
         } else {
-            
+
            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -198,21 +202,19 @@ import UIKit
     func typingLabel(theTimer:NSTimer) {
         
         let userInfoDict = theTimer.userInfo as! NSMutableDictionary
+        
         let theString = (theTimer.userInfo!["string"] as! NSString)
         var currentCount = (theTimer.userInfo!["currentCount"]as! Int)
-        
-//        var currentCount = (currentCount1)
-        
         currentCount += 1
         
         userInfoDict ["currentCount"] = currentCount
         
-        if currentCount > theString.length - 1 {
+        if currentCount > (theString.length - 1) {
             
             theTimer.invalidate()
         }
     
-        self.highestScoringToiletThought.text = "test this out"
+        self.highestScoringToiletThought.text = theString.substringToIndex(currentCount)
         }
     }
     

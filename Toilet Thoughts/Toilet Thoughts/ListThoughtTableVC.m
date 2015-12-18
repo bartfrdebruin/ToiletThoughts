@@ -43,7 +43,7 @@
     
     UINib *winningNib = [UINib nibWithNibName:@"WinningThoughtCustomVideoCell" bundle:nil];
     [self.tableView registerNib:winningNib forCellReuseIdentifier:@"WinningThoughtCustomVideoCell"];
-    
+        
     self.chosenList = 1;
 
     [TAAYouTubeWrapper videosForChannel:@"UCW657Mv0k4cDN7vbg2srPNQ" onCompletion:^(BOOL succeeded, NSArray *videos, NSError *error) {
