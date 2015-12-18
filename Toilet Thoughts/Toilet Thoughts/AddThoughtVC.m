@@ -40,11 +40,14 @@
     
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
+    [self.navigationController.view insertSubview:self.balloonView belowSubview:self.navigationController.navigationBar];
+    
     // To set the navigationbar to normal
-    [self.navigationController.navigationBar setBackgroundImage:nil
-                                                  forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:nil
+//                                                  forBarMetrics:UIBarMetricsDefault];
     
     self.title = @"New";
+    
     self.toolbarTextfield.delegate = self;
     self.postButton.enabled = NO;
     
@@ -221,6 +224,8 @@
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     
+//    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
@@ -244,6 +249,8 @@
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     
+//    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
     NSDictionary* userInfo = [notification userInfo];
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
@@ -265,11 +272,17 @@
 
 #pragma mark - textfields
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [self.toolbarTextfield endEditing:YES];
     [self.toolbarTextfield resignFirstResponder];
-//
+
     return YES;
 }
 
@@ -518,7 +531,12 @@
         
         [self presentViewController:logOrSignIn animated:YES completion:nil];
     }
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
     
+    // Send push notification to query
+    [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                   withMessage:@"A new Toilet Thought has been posted!"];
 }
 
 #pragma mark - IBAction recordPressed
