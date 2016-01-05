@@ -33,9 +33,14 @@
     
     [Parse enableLocalDatastore];
     
+    // Creating a dictionary from my PList
+    
+    NSDictionary *LoginDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"]];
+    NSString *applicationId = [LoginDictionary objectForKey:@"parseApplicationId"];
+    NSString *clientKey = [LoginDictionary objectForKey:@"parseClientKey"];
     // Initialize Parse.
-    [Parse setApplicationId:@"5rjtz2tTE20irUv60ZCDwfNFjHko7ifrT0qvWx76"
-                  clientKey:@"mNz0K8ueDslvioTHqGqwXxr7oVXMY31aNTrP0lF5"];
+    [Parse setApplicationId:applicationId
+                  clientKey:clientKey];
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

@@ -143,7 +143,6 @@
         self.scoreDownButton.enabled = NO;
         self.scoreUpButton.enabled = NO;
     }
-    
 }
 
 -(void)share {

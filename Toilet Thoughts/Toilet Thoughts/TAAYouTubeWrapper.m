@@ -64,7 +64,12 @@
     self = [super init];
     if (self) {
         self.youTubeService = [GTLServiceYouTube new];
-        self.youTubeService.APIKey = kYouTubeAPIKey;
+        
+    
+        NSDictionary *LoginDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Keys" ofType:@"plist"]];
+        NSString *YouTubeAPIKey = [LoginDictionary objectForKey:@"YouTubeAPIKey"];
+        
+        self.youTubeService.APIKey = YouTubeAPIKey;
         NSAssert(self.youTubeService.APIKey.length > 0, @"You need to provide a valid API key.");
     }
     return self;

@@ -44,15 +44,12 @@
         self.thumbDown.hidden = YES;
         self.thumbUp.hidden = NO;
         self.winningScore.text = [NSString stringWithFormat:@" %@", score];
-
-
         
     } else if (scoreInIntValue < 0) {
         
         self.thumbUp.hidden = YES;
         self.thumbDown.hidden = NO;
         self.winningScore.text = [NSString stringWithFormat:@" %@", score];
-
     }
 }
 

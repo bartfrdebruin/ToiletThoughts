@@ -12,8 +12,10 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSDictionary *loginDictionary;
+//@property (strong, nonatomic) NSString *YouTubeAPIKey;
 
--(UIColor*)colorWithHexString:(NSString*)hex; 
+-(UIColor*)colorWithHexString:(NSString*)hex;
 
 @end
 

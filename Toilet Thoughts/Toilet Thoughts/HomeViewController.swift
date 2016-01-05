@@ -60,7 +60,6 @@ import UIKit
         listThoughtTableVC.retrieveFromParseScore()
     }
     
-    
     @IBAction func addThoughts(sender: AnyObject) {
         
         let addThoughtVC = AddThoughtVC()
@@ -75,6 +74,7 @@ import UIKit
         self.navigationController!.navigationBarHidden = false
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,6 +109,7 @@ import UIKit
                 }
             }
         }
+        
         
         let query = PFQuery(className: "ToiletThought")
         query.whereKey("weekNumber", equalTo:(self.weekAndYear - 1))
@@ -148,8 +149,7 @@ import UIKit
                     self.thumbsUp.hidden = true
                     self.highestScoreNumberLabel.text = "\(highestScoreNumber)"
                 }
-            
-        }
+            }
     }
 
     override func didReceiveMemoryWarning() {
@@ -174,6 +174,7 @@ import UIKit
         
         self.internetReachability = (Reachability .reachabilityForInternetConnection())
         self.internetReachability!.startNotifier()
+        
         
         self.updateInterfaceWithReachability(self.internetReachability!)
         

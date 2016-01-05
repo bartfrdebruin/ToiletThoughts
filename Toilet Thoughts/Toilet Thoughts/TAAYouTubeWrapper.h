@@ -13,8 +13,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kYouTubeAPIKey @"AIzaSyBy799iVs42ls5Wqgk1f3lR3xaGZaw-hoE"
-
 @interface TAAYouTubeWrapper : NSObject
 
 // gets all the uploaded videos for the given user name as an array of GTLYouTubeVideo objects
