@@ -110,7 +110,6 @@ import UIKit
             }
         }
         
-        
         let query = PFQuery(className: "ToiletThought")
         query.whereKey("weekNumber", equalTo:(self.weekAndYear - 1))
         query.orderByDescending("score")

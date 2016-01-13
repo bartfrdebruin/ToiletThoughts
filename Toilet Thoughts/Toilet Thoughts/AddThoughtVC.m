@@ -102,7 +102,7 @@
     UITapGestureRecognizer *tapOutsiteTextField = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleTap:)];
     
-        [self.view addGestureRecognizer:tapOutsiteTextField];
+    [self.view addGestureRecognizer:tapOutsiteTextField];
     
 }
 
@@ -145,8 +145,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:YES];
-    
-    
 }
 
 

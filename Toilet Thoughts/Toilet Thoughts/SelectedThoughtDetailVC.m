@@ -76,7 +76,6 @@
     // Checking the current user
     PFUser *currentUser = [PFUser currentUser];
     
-    
     // Login button
     if (currentUser) {
         
@@ -122,7 +121,7 @@
         
         self.scoreDownButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"thumb down WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreDown)];
         
-        self.scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Thumb up WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(flush)];
+        self.scoreUpButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Thumb up WHITE PASSIVE"] style:UIBarButtonItemStylePlain target:self action:@selector(scoreUp)];
     }
       
     
@@ -146,6 +145,7 @@
 }
 
 -(void)share {
+    
     UIAlertController * inviteFriendsSelected = [UIAlertController alertControllerWithTitle:@"Invite your friends"
                                                                                     message:nil                                      preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -401,7 +401,6 @@
                 
                 [self.currentThought incrementKey:@"score" byAmount:@1];
                 [self.currentThought saveInBackground];
-                
             }
 
             NSNumber *score = [self.currentThought objectForKey:@"score"];
